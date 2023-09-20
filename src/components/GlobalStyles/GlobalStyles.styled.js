@@ -1,3 +1,7 @@
+import { createGlobalStyle } from 'styled-components';
+// import 'modern-normalize';
+
+export const GlobalStyle = createGlobalStyle`
 @font-face {
   font-family: 'Manrope';
   src: url(/fonts/Manrope-Regular.ttf) format('truetype');
@@ -26,19 +30,19 @@
   font-style: normal;
 }
 
-body {
-  background-color: #0a0a11;
-  background-image: url('./assets/background.png');
-  background-size: auto 100%;
-  background-position: center center;
-  background-repeat: no-repeat;
-  font-family: 'Manrope', sans-serif;
+ body {
+margin: 0;
+  font-family: 'Manrope';
   font-weight: 400;
   font-style: normal;
+font-size:14px;
   color: #111111;
   width: 100%;
   height: 100vh;
-}
+  background-color: #0A0A11	;
+  }
+
+
 h1,
 h2,
 h3,
@@ -62,3 +66,9 @@ img {
 button {
   cursor: pointer;
 }
+
+.error-message {
+  font-size: 14px;
+  color:red;
+}
+`;
