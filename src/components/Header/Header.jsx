@@ -20,7 +20,7 @@ export const Header = () => {
               size={'22px'}
               marginRight={'8px'}
               size768={'28px'}
-              size1280={'28px'}
+              size1440={'28px'}
             >
               <use href={`${sprite}#icon-logo`} />
             </IconWrapper>
