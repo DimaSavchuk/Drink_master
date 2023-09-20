@@ -62,6 +62,8 @@ ul {
 }
 img {
   display: block;
+    max-width: 100%;
+  height: auto;
 }
 button {
   cursor: pointer;

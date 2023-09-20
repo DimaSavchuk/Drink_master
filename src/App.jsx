@@ -3,6 +3,7 @@ import SharedLayout from './components/SharedLayout/SharedLayout';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 import { AppWrapper } from './App.styled';
 import { GlobalStyle } from './components/GlobalStyles/GlobalStyles.styled';
+import { HomePage } from './pages/HomePage/HomePage';
 
 const test = import.meta.env.VITE_API_TEST;
 
@@ -13,6 +14,7 @@ function App() {
       <GlobalStyle />
       <Routes>
         <Route path="/" element={<SharedLayout />}>
+          <Route path="home" element={<HomePage />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
