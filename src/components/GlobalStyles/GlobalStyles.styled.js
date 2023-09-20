@@ -39,7 +39,7 @@ font-size:14px;
   color: #111111;
   width: 100%;
   height: 100vh;
-  background-color: #0A0A11	;
+  background-color: white;
   }
 
 
