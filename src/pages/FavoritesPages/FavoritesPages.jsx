@@ -1,7 +1,7 @@
-import React from 'react';
+import { FavoritesHero } from './FavoritesHero/FavoritesHero';
 
 const FavoritesPages = () => {
-  return <div>FavoritesPages</div>;
+  return <FavoritesHero />;
 };
 
 export default FavoritesPages;
