@@ -3,6 +3,8 @@ export const ROUTES = {
   DRINKS: '/drinks',
   ALLDRINKS: '/alldrinks',
   MYDRINKS: '/mydrinks',
+  ADDDRINK: '/adddrink',
+  ABOUTDRINK: '/aboutdrink',
   FAVORITE: '/favorites',
   START: '/start',
   REGISTRATION: '/registration',

@@ -13,6 +13,8 @@ import ErrorPage from './pages/ErrorPage/ErrorPage';
 import { AppWrapper } from './App.styled';
 import { GlobalStyle } from './components/GlobalStyles/GlobalStyles.styled';
 import { HomePage } from './pages/HomePage/HomePage';
+import AddDrink from './pages/AddDrinkPages/AddDrinkPages';
+import AboutDrinkPages from './pages/AboutDrinkPages/AboutDrinkPages';
 
 const test = import.meta.env.VITE_API_TEST;
 
@@ -30,6 +32,8 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="/drinks" element={<DrinksPages />} />
           <Route path="/alldrinks" element={<AllDrinksPages />} />
+          <Route path="/adddrink" element={<AddDrink />} />
+          <Route path="/aboutdrink" element={<AboutDrinkPages />} />
           <Route path="/mydrinks" element={<MyDrinksPages />} />
           <Route path="/favorites" element={<FavoritesPages />} />
 
