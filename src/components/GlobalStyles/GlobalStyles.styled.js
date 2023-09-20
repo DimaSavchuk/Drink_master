@@ -40,6 +40,7 @@ font-size:14px;
   width: 100%;
   height: 100vh;
   background-color: white;
+
   }
 
 

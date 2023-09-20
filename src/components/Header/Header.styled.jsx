@@ -12,7 +12,7 @@ export const HeaderContainer = styled.div`
     padding: 20px 32px;
   }
 
-  @media (min-width: 1280px) {
+  @media (min-width: 1440px) {
     padding: 20px 100px;
   }
 `;
@@ -59,7 +59,7 @@ export const Button = styled.button`
     color: #00baff; /* Blue text color on hover/focus */
   }
 
-  @media (min-width: 1280px) {
+  @media (min-width: 1440px) {
     display: none;
   }
 `;
@@ -83,8 +83,8 @@ export const IconWrapper = styled.svg`
     height: ${(props) => props.size768 || '20px'};
   }
 
-  @media (min-width: 1280px) {
-    width: ${(props) => props.size1280 || '30px'};
-    height: ${(props) => props.size1280 || '30px'};
+  @media (min-width: 1440px) {
+    width: ${(props) => props.size1440 || '30px'};
+    height: ${(props) => props.size1440 || '30px'};
   }
 `;
