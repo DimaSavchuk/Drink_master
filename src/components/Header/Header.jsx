@@ -8,6 +8,7 @@ import {
 } from './Header.styled';
 import sprite from '../../assets/sprite.svg';
 import { PagesMenu } from './PagesMenu/PagesMenu';
+import { UserLogo } from './UserLogo/UserLogo';
 
 export const Header = () => {
   return (
@@ -15,17 +16,25 @@ export const Header = () => {
       <HeaderContainer>
         <Navigation>
           <StyledLink to="/">
-            <IconWrapper size={'22px'} marginRight={'8px'}>
+            <IconWrapper
+              size={'22px'}
+              marginRight={'8px'}
+              size768={'28px'}
+              size1280={'28px'}
+            >
               <use href={`${sprite}#icon-logo`} />
             </IconWrapper>
             Drink Master
           </StyledLink>
           <PagesMenu />
-          <Button>
-            <IconWrapper size={'32px'}>
-              <use href={`${sprite}#icon-burger-menu`} />
-            </IconWrapper>
-          </Button>
+          <div>
+            <UserLogo />
+            <Button>
+              <IconWrapper size={'32px'} size768={'38px'}>
+                <use href={`${sprite}#icon-burger-menu`} />
+              </IconWrapper>
+            </Button>
+          </div>
         </Navigation>
       </HeaderContainer>
     </HeaderStyled>
