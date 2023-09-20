@@ -51,6 +51,7 @@ h5,
 h6,
 p {
   margin-top: 0;
+  margin-bottom: 0;
 }
 a {
   text-decoration: none;
