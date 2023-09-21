@@ -6,7 +6,6 @@ export const HeroSection = styled.section`
   max-width: 100%;
   padding-top: 80px;
   padding-bottom: 112px;
-  background-color: #0a0a11;
 
   @media (min-width: 768px) {
     padding-top: 120px;
@@ -94,8 +93,8 @@ export const ImgWrapper = styled.div`
 export const Gradient = styled.div`
   position: absolute;
   transform: translate(
-    ${(props) => props.translateX}px,
-    ${(props) => props.translateY}px
+    ${(props) => props.translatex}px,
+    ${(props) => props.translatey}px
   );
 
   /* transform: translate(-399px, -100px); */
@@ -108,8 +107,8 @@ export const Gradient = styled.div`
 
   @media (min-width: 768px) {
     transform: translate(
-      ${(props) => props.translateXtablet}px,
-      ${(props) => props.translateYtablet}px
+      ${(props) => props.translatextablet}px,
+      ${(props) => props.translateytablet}px
     );
     /* transform: translate(-700px, -185px); */
     width: 784px;
@@ -118,8 +117,8 @@ export const Gradient = styled.div`
   }
   @media (min-width: 1440px) {
     transform: translate(
-      ${(props) => props.translateXdesktop}px,
-      ${(props) => props.translateYdesktop}px
+      ${(props) => props.translatexdesktop}px,
+      ${(props) => props.translateydesktop}px
     );
     /* transform: translate(-700px, -200px); */
     width: 784px;
@@ -130,8 +129,8 @@ export const Gradient = styled.div`
 export const GradientRight = styled.div`
   position: absolute;
   transform: translate(
-    ${(props) => props.translateX}px,
-    ${(props) => props.translateY}px
+    ${(props) => props.translatex}px,
+    ${(props) => props.translatey}px
   );
 
   /* transform: translate(200px, 200px); */
@@ -144,15 +143,15 @@ export const GradientRight = styled.div`
 
   @media (min-width: 768px) {
     transform: translate(
-      ${(props) => props.translateXtablet}px,
-      ${(props) => props.translateYtablet}px
+      ${(props) => props.translatextablet}px,
+      ${(props) => props.translateytablet}px
     );
     /* transform: translate(-700px, -185px); */
   }
   @media (min-width: 1440px) {
     transform: translate(
-      ${(props) => props.translateXdesktop}px,
-      ${(props) => props.translateYdesktop}px
+      ${(props) => props.translatexdesktop}px,
+      ${(props) => props.translateydesktop}px
     );
     /* transform: translate(-700px, -200px); */
   }
@@ -170,8 +169,8 @@ export const GradientCenter = styled.div`
   }
   position: absolute;
   transform: translate(
-    ${(props) => props.translateX}px,
-    ${(props) => props.translateY}px
+    ${(props) => props.translatex}px,
+    ${(props) => props.translatey}px
   );
 
   width: 387px;
@@ -184,8 +183,6 @@ export const GradientCenter = styled.div`
 `;
 
 export const ContentWrapper = styled.div`
-  position: relative;
-  z-index: 2;
   @media (min-width: 1440px) {
     max-width: 715px;
     margin-top: 57px;

@@ -15,24 +15,24 @@ import {
 export const Hero = () => {
   return (
     <HeroSection>
-      <Gradient
-        translateX={-399}
-        translateY={-100}
-        translateXtablet={-623}
-        translateYtablet={-185}
-        translateXdesktop={-623}
-        translateYdesktop={-200}
-      />
-      <CommonContainer position={'relative'}>
-        <GradientRight
-          translateX={300}
-          translateY={300}
-          translateXtablet={600}
-          translateYtablet={250}
-          translateXdesktop={1000}
-          translateYdesktop={200}
-        />
-        <GradientCenter translateX={800} translateY={200} />
+      {/* <Gradient
+        translatex={-399}
+        translatey={-100}
+        translatextablet={-623}
+        translateytablet={-185}
+        translatexdesktop={-623}
+        translateydesktop={-200}
+      /> */}
+      <CommonContainer>
+        {/* <GradientRight
+          translatex={300}
+          translatey={300}
+          translatextablet={600}
+          translatextablet={250}
+          translatexdesktop={1000}
+          translateydesktop={200}
+        /> */}
+        {/* <GradientCenter translatex={800} translatey={200} /> */}
         <Wrapper>
           <ContentWrapper>
             <Title>Craft Your Perfect Drink with Drink Master</Title>
@@ -44,7 +44,7 @@ export const Hero = () => {
             <AddDrinkLink>Add drink</AddDrinkLink>
           </ContentWrapper>
           {/* <ImgWrapper> */}
-          <picture style={{ position: 'relative' }}>
+          <picture>
             <source
               media="(min-width: 1280px)"
               srcSet="src/assets/hero/asr_blue_iced_tea_tablet.png 1x, src/assets/hero/asr_blue_iced_tea_tablet@2x.png 2x"
