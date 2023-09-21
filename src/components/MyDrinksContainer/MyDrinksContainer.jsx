@@ -1,25 +1,20 @@
 import { CommonContainer } from '../GlobalStyles/CommonContainer.styled';
 import DrinkCard from '../DrinkCard/DrinkCard';
-import { CardsContainer } from '../DrinkCard/DrinkCard.styled';
-import { Gradient, HeroSection, Title } from '../FavoritesContainer/FavoritesContainer.styled';
+import {
+  Gradient,
+  Section,
+  Title,
+} from '../FavoritesContainer/FavoritesContainer.styled';
 
 export const MyDrinksContainer = () => {
   return (
-    <HeroSection>
+    <Section>
       <Gradient />
       <CommonContainer>
         <div>
           <Title>My drinks</Title>
-          <CardsContainer>
-            <DrinkCard />
-            <DrinkCard />
-            <DrinkCard />
-            <DrinkCard />
-            <DrinkCard />
-            <DrinkCard />
-            <DrinkCard />
-            <DrinkCard />
-          </CardsContainer>
+
+          <DrinkCard />
 
           {/* <ImgWrapper> */}
           {/* <picture>
@@ -37,6 +32,6 @@ export const MyDrinksContainer = () => {
           </Container> */}
         </div>
       </CommonContainer>
-    </HeroSection>
+    </Section>
   );
 };

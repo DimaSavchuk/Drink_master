@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const CardsContainer = styled.div`
@@ -54,6 +54,10 @@ export const DrinkDesc = styled.p`
   font-size: 14px;
   font-weight: 400;
   line-height: 1.18;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
   @media (min-width: 768px) {
     font-size: 16px;
   }
@@ -61,7 +65,7 @@ export const DrinkDesc = styled.p`
   }
 `;
 
-export const SeeMoreLink = styled(Link)`
+export const SeeMoreLink = styled(NavLink)`
   margin-bottom: 40px;
   margin-right: 8px;
 
@@ -80,7 +84,7 @@ export const SeeMoreLink = styled(Link)`
 
 export const DeleteCardBtn = styled.button`
   width: 56px;
-  height: 54px;;
+  height: 54px;
   border-radius: 50%;
   border: none;
   background: #161f37;
