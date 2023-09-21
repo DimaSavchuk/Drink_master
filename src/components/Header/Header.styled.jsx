@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const HeaderStyled = styled.header`
-  background-color: #0a0a11;
   border-bottom: 1px solid rgba(243, 243, 243, 0.2);
 `;
 export const HeaderContainer = styled.div`
@@ -26,6 +25,7 @@ export const Navigation = styled.nav`
 export const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
+  gap: 8px;
 
   color: #f3f3f3;
   font-size: 16px;
@@ -33,6 +33,8 @@ export const StyledLink = styled(Link)`
   line-height: 1.125;
 
   @media (min-width: 768px) {
+    gap: 14px;
+
     font-size: 18px;
     line-height: 1.222;
   }

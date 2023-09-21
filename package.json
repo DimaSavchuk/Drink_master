@@ -17,6 +17,7 @@
     "@vitejs/plugin-react-swc": "^3.3.2",
     "axios": "^1.5.0",
     "formik": "^2.4.5",
+    "modern-normalize": "^2.0.0",
     "notiflix": "^3.2.6",
     "react": "^18.2.0",
     "react-datepicker": "^4.18.0",
