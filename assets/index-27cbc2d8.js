@@ -583,10 +583,10 @@ Error generating stack: `+o.message+`
     0 0 80px #00baff;
 `,hy=()=>y.jsx(dy,{children:y.jsx(py,{children:"404"})}),my=ni.div`
   width: 100%;
-  height: 100vh;
   background-image: url('src/assets/footer/ellipseleft-footer.png');
   background-repeat: no-repeat;
   background-position: 0px 0px;
+
   /* -140vw 145vh,
     5vw 140vh; */
 
