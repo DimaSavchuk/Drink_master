@@ -40,22 +40,6 @@ font-size:14px;
   width: 100%;
   height: 100vh;
   background-color: #0a0a11;
-  background-image: url('src/assets/footer/ellipseleft-footer.png'),url('src/assets/footer/ellipseright-footer.png');
-  background-repeat:no-repeat;
-  background-position: -140vw 145vh,5vw 140vh ;
-
-  @media (min-width: 768px) {
-      background-position: -35vw 162vh,-5vw 172vh ;
-
-  /* background-position: 47% -310%, 20% -265%; */
-  }
-
-  @media (min-width: 1440px) {
-      background-position: 5vw 86vh,15vw 86vh ;
-
-      /* background-position: 47% -310%, 20% -265%; */
-
-  }
 
   }
 
