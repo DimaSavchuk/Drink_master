@@ -3,10 +3,10 @@ import example from './assets/example.png';
 
 export const AppWrapper = styled.div`
   width: 100%;
-  height: 100vh;
   background-image: url('src/assets/footer/ellipseleft-footer.png');
   background-repeat: no-repeat;
   background-position: 0px 0px;
+
   /* -140vw 145vh,
     5vw 140vh; */
 
