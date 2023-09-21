@@ -22,27 +22,25 @@ function App() {
   console.log(test);
   return (
     <AppWrapper>
-      <>
-        <GlobalStyle />
-        <Routes>
-          <Route path="/start" element={<StartPage />} />
-          <Route path="/registration" element={<RegistrationPage />} />
-          <Route path="/login" element={<SignInPage />} />
+      <GlobalStyle />
+      <Routes>
+        <Route path="/start" element={<StartPage />} />
+        <Route path="/registration" element={<RegistrationPage />} />
+        <Route path="/login" element={<SignInPage />} />
 
-          <Route path="/" element={<SharedLayout />}>
-            <Route index element={<HomePage />} />
-            <Route path="/drinks" element={<DrinksPages />} />
-            <Route path="/drink/:drinkId" element={<AboutDrinkPages />} />
-            <Route path="/alldrinks" element={<AllDrinksPages />} />
-            <Route path="/adddrink" element={<AddDrink />} />
-            <Route path="/aboutdrink" element={<AboutDrinkPages />} />
-            <Route path="/mydrinks" element={<MyDrinksPages />} />
-            <Route path="/favorites" element={<FavoritesPages />} />
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="/drinks" element={<DrinksPages />} />
+          <Route path="/drink/:drinkId" element={<AboutDrinkPages />} />
+          <Route path="/alldrinks" element={<AllDrinksPages />} />
+          <Route path="/adddrink" element={<AddDrink />} />
+          <Route path="/aboutdrink" element={<AboutDrinkPages />} />
+          <Route path="/mydrinks" element={<MyDrinksPages />} />
+          <Route path="/favorites" element={<FavoritesPages />} />
 
-            <Route path="*" element={<ErrorPage />} />
-          </Route>
-        </Routes>
-      </>
+          <Route path="*" element={<ErrorPage />} />
+        </Route>
+      </Routes>
     </AppWrapper>
   );
 }

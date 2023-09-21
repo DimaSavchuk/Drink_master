@@ -2,8 +2,6 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const HeroSection = styled.section`
-  overflow: hidden;
-  max-width: 100%;
   padding-top: 80px;
   padding-bottom: 112px;
 
