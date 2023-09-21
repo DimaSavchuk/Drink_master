@@ -7,12 +7,18 @@ export const HeroSection = styled.section`
 `;
 
 export const Title = styled.h1`
-  margin-bottom: 100px;
+  margin-bottom: 40px;
 
   color: #f3f3f3;
   font-size: 32px;
   font-weight: 600;
   line-height: 1.18;
+  @media (min-width: 768px) {
+    margin-bottom: 60px;
+  }
+  @media (min-width: 1280px) {
+    margin-bottom: 62px;
+  }
 `;
 
 export const Container = styled.div`

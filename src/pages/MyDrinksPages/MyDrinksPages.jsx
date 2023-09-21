@@ -1,7 +1,7 @@
-import React from 'react';
+import { MyDrinksContainer } from "../../components/MyDrinksContainer/MyDrinksContainer";
 
 const MyDrinksPages = () => {
-  return <div>MyDrinksPages</div>;
+  return <MyDrinksContainer/>;
 };
 
 export default MyDrinksPages;

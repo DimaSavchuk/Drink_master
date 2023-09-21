@@ -1,7 +1,10 @@
-import { FavoritesHero } from './FavoritesHero/FavoritesHero';
+// import { CommonContainer } from '../../components/GlobalStyles/CommonContainer.styled';
+
+import { FavoritesContainer } from "../../components/FavoritesContainer/FavoritesContainer";
+
 
 const FavoritesPages = () => {
-  return <FavoritesHero />;
+  return <FavoritesContainer />;
 };
 
 export default FavoritesPages;
