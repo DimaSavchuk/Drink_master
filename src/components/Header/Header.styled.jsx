@@ -7,12 +7,15 @@ export const HeaderStyled = styled.header`
 `;
 export const HeaderContainer = styled.div`
   padding: 20px;
+  margin: 0 auto;
 
   @media (min-width: 768px) {
+    max-width: 768px;
     padding: 20px 32px;
   }
 
   @media (min-width: 1440px) {
+    max-width: 1440px;
     padding: 20px 100px;
   }
 `;

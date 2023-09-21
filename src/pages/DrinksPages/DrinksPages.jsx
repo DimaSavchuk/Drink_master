@@ -1,16 +1,34 @@
-import React from 'react';
 import { CocktailCard } from '../../components/CocktailCard/CocktailCard';
+import { DrinksSearch } from '../../components/DrinksSearch/DrinksSearch';
+import { CommonContainer } from '../../components/GlobalStyles/CommonContainer.styled';
+import { PageTitle } from '../../components/PageTitle/PageTitle';
 
-const data = {
-  id: "639b6de9ff77d221f190c50f",
-  drink: "Quentin",
-  drinkThumb: "http://res.cloudinary.com/dec1shvoo/image/upload/v1689167161/cocktails-v1/drinks/Quentin.jpg"
-};
+import { CocktailsList, DrinksSection } from './DrinksPages.styled';
+import receipes from "./recipes.json";
+const categories = ["Ordinary Drink", "Cocktail", "Snake", "Other/Unknow", "Cocoa"];
 
 const DrinksPages = () => {
+  
+
   return (
-    <CocktailCard data={data} />
-  );
+    <DrinksSection>
+      <CommonContainer>
+        <PageTitle>Drinks</PageTitle>
+        <DrinksSearch categories={categories} />
+        <CocktailsList>
+      {receipes.map(cocktail => (
+        <li key={cocktail.id}>
+          <CocktailCard data={cocktail} />
+        </li>
+      ))}
+    </CocktailsList>
+      </CommonContainer>
+    </DrinksSection>
+    
+    
+
+
+  )
 };
 
 export default DrinksPages;
