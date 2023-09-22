@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 // import { selectUserArray } from '../../../redux/store';
 import * as Yup from 'yup';
 import {
@@ -16,6 +16,8 @@ import {
   StyledInputWrap,
   StyledIconChecked,
   StyledIconError,
+  StyledError,
+  StyledMessage,
 } from './UserProfile.styled';
 
 //import { updateUserThunk } from '../../../redux/UserInfo/userOperations';
@@ -57,10 +59,13 @@ const UserProfile = ({ onClose }) => {
 
     if (closeButtonClicked || modalContentClicked === null) {
       // onClose();
-    }
     setIsOpen(false);
+    }
     e.stopPropagation();
   };
+  // const handleSaveName = (e) => {
+  //   user
+  // };
   console.log(user.name);
   console.log(user.avatarURL);
   return isOpen ? (
@@ -82,6 +87,7 @@ const UserProfile = ({ onClose }) => {
             ),
           })}
           onSubmit={async (values) => {
+            console.log("submit");
             const formData = new FormData();
             formData.append('name', values.name);
             formData.append('avatarURL', values.avatarURL);
@@ -124,7 +130,7 @@ const UserProfile = ({ onClose }) => {
                   </div>
                 )}
               </StyledInputWrap>
-              <SaveChangeButton type="submit">Save changes</SaveChangeButton>
+              <SaveChangeButton type="submit" >Save changes</SaveChangeButton>
             </StyledFormInsight>
           )}
         </StyledForm>

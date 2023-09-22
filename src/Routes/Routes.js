@@ -12,5 +12,6 @@ export const ROUTES = {
 
   // Тимчасові роути
 
-  USER_PROFILE: '/profile',
+  // USER_PROFILE: '/profile',
+   DROPDOWN: '/dropdown',
 };
