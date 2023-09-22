@@ -1,7 +1,6 @@
 import { Formik, Form, Field } from 'formik';
 import { DrinkMain } from './AddDrinkForm.styled';
 import * as yup from 'yup';
-import { useState } from 'react';
 import AddDrinkIngridients from '../AddDrinkIngridients';
 
 const validationSchema = yup.object();
