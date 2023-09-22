@@ -30,8 +30,8 @@ const PopularDrinks = () => {
     <div>
       <h3>Popular drinks</h3>
       <div>
-        {initialArray.map(({ title, descr }) => (
-          <div>
+        {initialArray.map(({ title, descr }, index) => (
+          <div key={index}>
             <strong>{title}</strong>
             <p>{descr}</p>
           </div>
