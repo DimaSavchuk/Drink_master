@@ -35,6 +35,7 @@ export const Input = styled.input`
     font-size: 17px;
     line-height: 1.56;
     color: #f3f3f3;
+    outline: none;
     transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
     @media screen and (min-width: 768px) {
