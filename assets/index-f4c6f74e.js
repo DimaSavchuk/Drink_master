@@ -145,7 +145,7 @@ Error generating stack: `+o.message+`
     width: ${e=>e.size1440||"30px"};
     height: ${e=>e.size1440||"30px"};
   }
-`,si="/react_vite/assets/sprite-ca8b0ab0.svg",lS=R.ul`
+`,si="/Drink_master/assets/sprite-ca8b0ab0.svg",lS=R.ul`
   display: flex;
   align-items: center;
   gap: 16px;
