@@ -31,7 +31,7 @@ function App() {
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<HomePage />} />
           <Route path="/drinks" element={<DrinksPages />} />
-          <Route path="/drink/:drinkId" element={<AboutDrinkPages />} />
+          <Route path="/drinks/:drinkId" element={<AboutDrinkPages />} />
           <Route path="/alldrinks" element={<AllDrinksPages />} />
           <Route path="/adddrink" element={<AddDrink />} />
           <Route path="/aboutdrink" element={<AboutDrinkPages />} />
