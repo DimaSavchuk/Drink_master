@@ -3,63 +3,63 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectUserArray } from '../../../redux/store';
 import * as Yup from 'yup';
 import {
-    ModalWrapper,
-    CloseButton,
-    UserAvatarWrapper,
-    ContentWrapper,
-    AvatarFrame,
-    AddAvatarButton,
-    StyledFormInsight,
-    StyledForm,
-    SaveChangeButton,
-    StyledInput,
-    StyledInputWrap,
-    StyledIconChecked,
-    StyledIconError,
+  ModalWrapper,
+  CloseButton,
+  UserAvatarWrapper,
+  ContentWrapper,
+  AvatarFrame,
+  AddAvatarButton,
+  StyledFormInsight,
+  StyledForm,
+  SaveChangeButton,
+  StyledInput,
+  StyledInputWrap,
+  StyledIconChecked,
+  StyledIconError,
+  StyledMessage,
+  StyledError,
 } from './UserProfile.styled';
-import {
-    StyledError,
-    StyledMessage,
-} from 'components/RegisterForm/RegisterForm.styled';
+// import {
+//     StyledError,
+//     StyledMessage,
+// } from 'components/RegisterForm/RegisterForm.styled';
 import { updateUserThunk } from '../../../redux/UserInfo/userOperations';
-import XIcon from 'src/assets/x.png" /';
-import AddIcon from 'src/assets/add_photo.png" /';
-
+import XIcon from 'src/assets/x.png';
+import AddIcon from 'src/assets/add_photo.png';
 
 const UserProfile = ({ onClose }) => {
-    const dispatch = useDispatch();
-    const user = useSelector(selectUserArray);
-    const [isOpen, setIsOpen] = useState(true);
-    const [isUpdateForm, setIsUpdateForm] = useState(null);
+  const dispatch = useDispatch();
+  const user = useSelector(selectUserArray);
+  const [isOpen, setIsOpen] = useState(true);
+  const [isUpdateForm, setIsUpdateForm] = useState(null);
 
-
-    useEffect(() => {
-        if (isUpdateForm) {
-        setIsUpdateForm(null);
+  useEffect(() => {
+    if (isUpdateForm) {
+      setIsUpdateForm(null);
     }
-}, [isUpdateForm]);
+  }, [isUpdateForm]);
 
-useEffect(() => {
-    const handleKeyDown = e => {
-    if (e.key === 'Escape') {
-      // onClose();
-    setIsOpen(false)
-    }
-};
-window.addEventListener('keydown', handleKeyDown);
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        // onClose();
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
     return () => {
-    window.removeEventListener('keydown', handleKeyDown);
-};
-}, [onClose]);
-const handleModalClick = e => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [onClose]);
+  const handleModalClick = (e) => {
     const closeButtonClicked = e.target.closest('.close-button');
     const modalContentClicked = e.target.closest('.modal-content');
 
     if (closeButtonClicked || modalContentClicked === null) {
       // onClose();
-    }  
-    setIsOpen(false)
-      e.stopPropagation();
+    }
+    setIsOpen(false);
+    e.stopPropagation();
   };
   console.log(user.name);
   console.log(user.avatarURL);
@@ -78,20 +78,20 @@ const handleModalClick = e => {
             avatarURL: Yup.string(),
             name: Yup.string().matches(
               /^[a-zA-Zа-яєїієґҐА-ЯЄЇІЄҐҐ'0-9]+$/,
-              'Name can only contain letters or numbers.'
+              'Name can only contain letters or numbers.',
             ),
           })}
-          onSubmit={async values => {
+          onSubmit={async (values) => {
             const formData = new FormData();
             formData.append('name', values.name);
             formData.append('avatarURL', values.avatarURL);
             await dispatch(updateUserThunk(formData));
           }}
-          >
+        >
           {({ errors, touched, handleChange, setFieldTouched }) => (
             <StyledFormInsight>
               <UserAvatarWrapper>
-              <AvatarFrame src={user.avatarURL} alt="avatar" />
+                <AvatarFrame src={user.avatarURL} alt="avatar" />
                 <AddAvatarButton src={AddIcon} alt="plus" width={28} />
               </UserAvatarWrapper>
               <StyledInputWrap>
@@ -99,7 +99,7 @@ const handleModalClick = e => {
                   type="text"
                   name="name"
                   placeholder="Name"
-                  onChange={e => {
+                  onChange={(e) => {
                     setFieldTouched('name');
                     handleChange(e);
                   }}
@@ -130,7 +130,7 @@ const handleModalClick = e => {
         </StyledForm>
       </ContentWrapper>
     </ModalWrapper>
-    ) : null;
+  ) : null;
 };
 
 export default UserProfile;
