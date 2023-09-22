@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { CommonContainer } from '../../../components/GlobalStyles/CommonContainer.styled';
 
 export const StartPageStyled = styled.section`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-content: center;
   max-width: 100%;
-  height: 100%;
+  height: 100vh;
 
   background-image: url('src/assets/start/start_mobile@1x.jpg');
 
@@ -41,28 +44,25 @@ export const StartPageStyled = styled.section`
   }
 `;
 
-export const Container = styled.div`
-  margin: auto;
-  width: 335px;
-  padding: 0 20px;
-
-  @media (max-width: 767.98px) {
-    text-align: center;
+export const Container = styled(CommonContainer)`
+  @media (min-width: 375px) {
+    width: 375px;
+    /* margin: 0 auto; */
   }
 
   @media (min-width: 768px) {
-    width: 704px;
+    width: 768px;
   }
 
   @media (min-width: 1440px) {
-    width: 1240px;
+    width: 1440px;
   }
 `;
 
 export const Title = styled.h1`
   font-size: 28px;
   font-weight: 500;
-  letter-spacing: -0.02;
+  letter-spacing: -0.02px;
   line-height: 1.14;
   color: #fafafa;
   margin-bottom: 14px;
@@ -76,7 +76,7 @@ export const Title = styled.h1`
 export const Text = styled.p`
   font-size: 14px;
   font-weight: 400;
-  letter-spacing: -0.02;
+  letter-spacing: -0.02px;
   line-height: 1.28;
   color: #fafafa;
   margin-bottom: 40px;
@@ -106,7 +106,7 @@ export const Wrapper = styled.div`
 export const StyledLink = styled(Link)`
   padding: 14px 40px;
   border-radius: 42px;
-  min-width: 50px;
+  min-width: 52px;
   border: 1px solid rgba(243, 243, 243, 0.2);
   color: #f3f3f3;
   background-color: transparent;
@@ -117,6 +117,10 @@ export const StyledLink = styled(Link)`
 
   cursor: pointer;
 
+  transition:
+    color 300ms linear,
+    background-color 300ms linear;
+
   &:hover {
     color: #161f37;
     background-color: #f3f3f3;
@@ -124,13 +128,9 @@ export const StyledLink = styled(Link)`
 
   @media (min-width: 768px) {
     padding: 18px 44px;
-    min-width: 56px;
+    min-width: 59px;
     font-size: 16px;
     font-weight: 500;
     line-height: 1.12;
-  }
-
-  @media (min-width: 1440px) {
-    min-width: 47px;
   }
 `;

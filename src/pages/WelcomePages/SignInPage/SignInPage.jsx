@@ -1,5 +1,5 @@
 // import React from 'react';
-
+// import { CommonContainer } from '../../../components/GlobalStyles/CommonContainer.styled';
 import { SignInForm } from './SignInForm/SignInForm';
 import {
   SignInPageStyled,

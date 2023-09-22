@@ -14,7 +14,7 @@
   min-width: 290px;
   max-width: 290px;
 
-  padding: 0 0 0 7px;
+  padding: 0 0 0 10px;
 }
 
 .flatpickr-days {
@@ -58,10 +58,10 @@
   border-color: #f3f3f3;
 }
 .flatpickr-weekdays {
-  width: 280px;
+  width: 288px;
   height: 28px;
   margin-top: 10px;
-  padding: 0 0 0 9px;
+  padding: 0 0 0 13px;
 }
 
 span.flatpickr-weekday {
@@ -75,7 +75,7 @@ span.flatpickr-weekday {
 
 .flatpickr-months::after {
   content: '';
-  width: 262px;
+  width: 272px;
   height: 1px;
   background-color: rgba(243, 243, 243, 0.2);
   display: inline-block;
