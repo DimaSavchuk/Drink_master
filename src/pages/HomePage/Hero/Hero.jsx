@@ -45,14 +45,7 @@ export const Hero = () => {
           </ContentWrapper>
           {/* <ImgWrapper> */}
           <picture>
-            <source
-              media="(min-width: 1280px)"
-              srcSet="src/assets/hero/asr_blue_iced_tea_tablet.png 1x, src/assets/hero/asr_blue_iced_tea_tablet@2x.png 2x"
-            />
-            <source
-              media="(min-width: 768px)"
-              srcSet="src/assets/hero/asr_blue_iced_tea_tablet.png 1x, src/assets/hero/asr_blue_iced_tea_tablet@2x.png 2x"
-            />
+                    
             <img
               style={{ margin: '0 auto' }}
               src="src/assets/hero/asr_blue_iced_tea_mobile 1.png"
