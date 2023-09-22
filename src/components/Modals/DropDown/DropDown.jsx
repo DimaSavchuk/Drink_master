@@ -1,4 +1,5 @@
 // ЦЕ НЕ МОДАЛЬНЕ ВІКНО, А ВИПАДАЮЧИЙ ЕЛЕМЕНТ ЯКИЙ МИ БАЧИМО КОЛИ НАТИСКАЄМО НА ЮЗЕРА
+
 import { useState } from 'react';
 import {
   ChangeProfileButton,
@@ -60,3 +61,4 @@ export const DropDown = () => {
     </ModalWrapper>
   );
 };
+

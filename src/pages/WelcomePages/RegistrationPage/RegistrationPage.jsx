@@ -1,8 +1,27 @@
-import React from 'react';
-import { RegistrationPageStyled } from './RegistrationPage.styled';
+// import React from 'react';
+import {
+  RegistrationPageStyled,
+  Container,
+  Title,
+  Wrapper,
+  StyledLink,
+} from './RegistrationPage.styled';
+import { SignUpForm } from './Form/SignUpForm';
 
 const RegistrationPage = () => {
-  return <RegistrationPageStyled>RegistrationPage</RegistrationPageStyled>;
+  return (
+    <RegistrationPageStyled>
+      <Container>
+        <Wrapper>
+          <Title>Sign Up</Title>
+
+          <SignUpForm />
+
+          <StyledLink to="/login"> Sign In</StyledLink>
+        </Wrapper>
+      </Container>
+    </RegistrationPageStyled>
+  );
 };
 
 export default RegistrationPage;

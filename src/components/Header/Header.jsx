@@ -16,12 +16,7 @@ export const Header = () => {
       <HeaderContainer>
         <Navigation>
           <StyledLink to="/">
-            <IconWrapper
-              size={'22px'}
-              marginRight={'8px'}
-              size768={'28px'}
-              size1440={'28px'}
-            >
+            <IconWrapper size={'22px'} size768={'28px'} size1440={'28px'}>
               <use href={`${sprite}#icon-logo`} />
             </IconWrapper>
             Drink Master

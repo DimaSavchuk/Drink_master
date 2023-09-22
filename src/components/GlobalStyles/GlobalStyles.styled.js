@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-// import 'modern-normalize';
+import 'modern-normalize';
 
 export const GlobalStyle = createGlobalStyle`
 @font-face {
@@ -30,6 +30,12 @@ export const GlobalStyle = createGlobalStyle`
   font-style: normal;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
  body {
 margin: 0;
   font-family: 'Manrope';
@@ -39,7 +45,7 @@ font-size:14px;
   color: #111111;
   width: 100%;
   height: 100vh;
-  background-color: white;
+  background-color: #0a0a11;
 
   }
 
@@ -69,6 +75,7 @@ img {
 }
 button {
   cursor: pointer;
+  color:inherit;
 }
 
 .error-message {

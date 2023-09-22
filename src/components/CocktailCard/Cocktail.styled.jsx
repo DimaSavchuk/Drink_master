@@ -2,27 +2,29 @@ import styled from 'styled-components';
 import { NavLink } from "react-router-dom";
 
 export const CardContainer = styled.div`
-    outline: 1px red solid;
-    background-color: #0A0A11;;
-    width: 335px;
+    width: 100%;
 
-    @media (min-width: 768px) {
+    @media screen and (min-width: 375px) {
+        width:335px;
+    }
+
+    @media screen and (min-width: 768px) {
         width:342px;
     }
-    @media (min-width: 1280px) {
+    @media screen and (min-width: 1440px) {
         width:400px;
     }
 `;
 
 export const Image = styled.img`  
-    width: 335px;
+    width: 100%;
     height: 360px;
     border-radius: 8px;
 
-    @media (min-width: 768px) {
+    @media screen and (min-width: 768px) {
         width: 342px;
     }
-    @media (min-width: 1280px) {
+    @media screen and (min-width: 1440px) {
         width: 400px;
         height: 400px;
     }
@@ -41,7 +43,7 @@ export const CocktailName = styled.p`
     line-height: 1.12;
     color: #f3f3f3;
 
-    @media (min-width: 768px) {
+    @media screen and (min-width: 768px) {
         font-size: 18px;
         line-height: 1.33;
     }
@@ -53,7 +55,7 @@ export const StyledCocktailLink = styled(NavLink)`
     line-height: 1.29; 
     color: rgba(243, 243, 243, 0.50);
 
-    @media (min-width: 768px) {
+    @media screen and (min-width: 768px) {
         font-size: 16px;
         line-height: 1.12;
     }
