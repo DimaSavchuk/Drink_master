@@ -19,7 +19,7 @@ import {
   StyledIconError,
 } from './UserProfile.styled';
 
-import { updateUserThunk } from '../../../redux/UserInfo/userOperations';
+//import { updateUserThunk } from '../../../redux/UserInfo/userOperations';
 import XIcon from 'src/assets/x.png';
 import AddIcon from 'src/assets/add_photo.png';
 
@@ -81,7 +81,7 @@ const UserProfile = ({ onClose }) => {
             const formData = new FormData();
             formData.append('name', values.name);
             formData.append('avatarURL', values.avatarURL);
-            await dispatch(updateUserThunk(formData));
+            //await dispatch(updateUserThunk(formData));
           }}
         >
           {({ errors, touched, handleChange, setFieldTouched }) => (
