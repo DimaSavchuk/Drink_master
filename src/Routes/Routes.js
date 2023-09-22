@@ -9,4 +9,8 @@ export const ROUTES = {
   START: '/start',
   REGISTRATION: '/registration',
   LOGIN: '/login',
+
+  // Тимчасові роути
+
+  USER_PROFILE: '/profile',
 };
