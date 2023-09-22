@@ -4,6 +4,7 @@ import {
   DrinkTitle,
   DrinkStat,
   DrinkDesc,
+  DrinkBtnContainer,
   SeeMoreLink,
   DeleteCardBtn,
 } from '../DrinkCard/DrinkCard.styled';
@@ -24,10 +25,12 @@ const DrinkCard = ({ cardData, onDelete }) => {
       <DrinkTitle>{title}</DrinkTitle>
       <DrinkStat>{type}</DrinkStat>
       <DrinkDesc>{description}</DrinkDesc>
-      <SeeMoreLink to={`/drink/${id}`}>See more</SeeMoreLink>
-      <DeleteCardBtn type="button" id={id} onClick={() => onDelete(id)}>
-        <FiTrash2 />
-      </DeleteCardBtn>
+      <DrinkBtnContainer>
+        <SeeMoreLink to={`/drink/${id}`}>See more</SeeMoreLink>
+        <DeleteCardBtn type="button" id={id} onClick={() => onDelete(id)}>
+          <FiTrash2 size={24} />
+        </DeleteCardBtn>
+      </DrinkBtnContainer>
     </StyledCard>
   );
 };

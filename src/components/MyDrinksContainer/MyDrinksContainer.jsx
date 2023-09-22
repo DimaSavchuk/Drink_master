@@ -10,13 +10,43 @@ import {
 import initcards from '../DrinkCard/cards.json';
 import { useState } from 'react';
 import { CardsContainer } from '../DrinkCard/DrinkCard.styled';
+import Pagination from '../Pagination/Pagination';
+
+const ITEMS_PER_PAGE = 9;
 
 const MyDrinksContainer = () => {
   const [cards, setCards] = useState(initcards);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const handleDelete = (id) => {
-    const displayedCards = cards.filter((card) => card.id !== id);
-    setCards(displayedCards);
+    const updatedCards = cards.filter((card) => card.id !== id);
+    setCards(updatedCards);
+
+    const currentPageBeforeDelete = currentPage;
+
+    if (isCurrentPageEmpty(updatedCards, currentPageBeforeDelete)) {
+      setCurrentPage(currentPageBeforeDelete - 1);
+    }
+  };
+
+  const isCurrentPageEmpty = (updatedCards, currentPage) => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const endIndex = startIndex + ITEMS_PER_PAGE;
+    const displayedCards = updatedCards.slice(startIndex, endIndex);
+    return displayedCards.length === 0;
+  };
+
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+
+  const displayedCards = cards.slice(startIndex, endIndex);
+
+  const totalPages = Math.ceil(cards.length / ITEMS_PER_PAGE);
+
+  const handlePageChange = (newPage) => {
+    if (newPage >= 1 && newPage <= totalPages) {
+      setCurrentPage(newPage);
+    }
   };
 
   return (
@@ -25,16 +55,25 @@ const MyDrinksContainer = () => {
       <CommonContainer>
         <div>
           <Title>My drinks</Title>
-          {cards.length > 0 ? (
-            <CardsContainer>
-              {cards.map((card) => (
-                <DrinkCard
-                  key={card.id}
-                  cardData={card}
-                  onDelete={handleDelete}
+          {displayedCards.length > 0 ? (
+            <>
+              <CardsContainer>
+                {displayedCards.map((card) => (
+                  <DrinkCard
+                    key={card.id}
+                    cardData={card}
+                    onDelete={handleDelete}
+                  />
+                ))}
+              </CardsContainer>
+              {totalPages > 1 && (
+                <Pagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  handlePageChange={handlePageChange}
                 />
-              ))}
-            </CardsContainer>
+              )}
+            </>
           ) : (
             <div>
               <picture>
@@ -56,7 +95,5 @@ const MyDrinksContainer = () => {
     </Section>
   );
 };
-
-
 
 export default MyDrinksContainer;

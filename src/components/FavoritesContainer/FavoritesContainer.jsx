@@ -1,18 +1,14 @@
 import { CommonContainer } from '../GlobalStyles/CommonContainer.styled';
 import { Gradient, Section, Title } from './FavoritesContainer.styled';
 import { useState } from 'react';
-import {
-  CardsContainer,
-  PaginationButton,
-  PaginationContainer,
-  PaginationNumber,
-} from '../DrinkCard/DrinkCard.styled';
+import { CardsContainer } from '../DrinkCard/DrinkCard.styled';
 import {
   Container,
   Text,
 } from '../FavoritesContainer/FavoritesContainer.styled';
 import initcards from '../DrinkCard/cards.json';
 import DrinkCard from '../DrinkCard/DrinkCard';
+import Pagination from '../Pagination/Pagination';
 
 const ITEMS_PER_PAGE = 9;
 
@@ -23,6 +19,19 @@ const FavoritesContainer = () => {
   const handleDelete = (id) => {
     const updatedCards = cards.filter((card) => card.id !== id);
     setCards(updatedCards);
+
+    const currentPageBeforeDelete = currentPage;
+
+    if (isCurrentPageEmpty(updatedCards, currentPageBeforeDelete)) {
+      setCurrentPage(currentPageBeforeDelete - 1);
+    }
+  };
+
+  const isCurrentPageEmpty = (updatedCards, currentPage) => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const endIndex = startIndex + ITEMS_PER_PAGE;
+    const displayedCards = updatedCards.slice(startIndex, endIndex);
+    return displayedCards.length === 0;
   };
 
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -55,32 +64,13 @@ const FavoritesContainer = () => {
                   />
                 ))}
               </CardsContainer>
-              <PaginationContainer>
-                <PaginationButton
-                  onClick={() => handlePageChange(currentPage - 1)}
-                  disabled={currentPage === 1}
-                >
-                  &lt;
-                </PaginationButton>
-
-                {Array.from({ length: totalPages }).map((_, index) => (
-                  <PaginationNumber
-                    active={index + 1 === currentPage}
-                    key={index}
-                    onClick={() => handlePageChange(index + 1)}
-                    disabled={index + 1 === currentPage}
-                  >
-                    {index + 1}
-                  </PaginationNumber>
-                ))}
-
-                <PaginationButton
-                  onClick={() => handlePageChange(currentPage + 1)}
-                  disabled={currentPage === totalPages}
-                >
-                  &gt;
-                </PaginationButton>
-              </PaginationContainer>
+              {totalPages > 1 && (
+                <Pagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  handlePageChange={handlePageChange}
+                />
+              )}
             </>
           ) : (
             <div>

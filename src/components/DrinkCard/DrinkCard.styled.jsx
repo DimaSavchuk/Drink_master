@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const CardsContainer = styled.div`
+margin-bottom: 40px;
   display: grid;
   grid-row-gap: 40px;
   @media (min-width: 768px) {
@@ -65,13 +66,15 @@ export const DrinkDesc = styled.p`
   }
 `;
 
+export const DrinkBtnContainer = styled.div`
+  display: flex;
+`;
+
 export const SeeMoreLink = styled(NavLink)`
-  margin-bottom: 40px;
   margin-right: 8px;
 
-  display: inline-flex;
+  display: block;
   padding: 14px 40px;
-  align-items: flex-start;
   gap: 10px;
   border-radius: 42px;
   background: #161f37;
@@ -83,7 +86,8 @@ export const SeeMoreLink = styled(NavLink)`
 `;
 
 export const DeleteCardBtn = styled.button`
-  width: 56px;
+  display: block;
+  width: 54px;
   height: 54px;
   border-radius: 50%;
   border: none;
@@ -93,35 +97,4 @@ export const DeleteCardBtn = styled.button`
   font-size: 14px;
   font-weight: 600;
   line-height: 1.28;
-`;
-
-export const PaginationContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const PaginationButton = styled.button`
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 30px;
-  margin: 0 5px;
-  color: rgba(243, 243, 243, 0.3);
-`;
-
-export const PaginationNumber = styled.button`
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 12px;
-  font-weight: 500;
-  margin: 0 5px;
-  color: #f3f3f3;
-  ${(props) =>
-    props.active &&
-    `padding: 5px 10px;
-    border-radius: 50%;
-    background-color: rgba(64, 112, 205, 0.5);
-    `}
 `;
