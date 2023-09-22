@@ -1,4 +1,3 @@
-
 // import { ModalOverlay, ModalContent, Title, ButtonContainer, Button } from './LogOut.styled';
 
 // const LogoutModal = ({ isOpen, onClose, onLogout }) => {
@@ -20,8 +19,8 @@
 
 // export default LogoutModal;
 
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+// import { useDispatch } from 'react-redux';
+// import { useNavigate } from 'react-router-dom';
 // import { LogOut } from '../../../../authOperations';
 import {
   ModalWrapper,
@@ -33,9 +32,9 @@ import {
 } from './LogOut.styled';
 import Notiflix from 'notiflix';
 import XIcon from 'src/assets/x.png';
-import { clearState } from '../../../redux/UserInfo/userInfoSlice';
+// import { clearState } from '../../../redux/UserInfo/userInfoSlice';
 
-export const LogOutModel = ({ id, onClose }) => {
+export const LogOutModel = ({ onClose }) => {
   // const dispatch = useDispatch();
   // const navigate = useNavigate();
   const handleDelete = () => {

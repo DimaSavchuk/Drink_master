@@ -1,7 +1,6 @@
-
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectUserArray } from '../../../redux/store';
+import { useSelector } from 'react-redux';
+// import { selectUserArray } from '../../../redux/store';
 import * as Yup from 'yup';
 import {
   ModalWrapper,
@@ -24,8 +23,13 @@ import XIcon from 'src/assets/x.png';
 import AddIcon from 'src/assets/add_photo.png';
 
 const UserProfile = ({ onClose }) => {
-  const dispatch = useDispatch();
-  const user = useSelector(selectUserArray);
+  // const dispatch = useDispatch();
+  // const user = useSelector(selectUserArray);
+  const user = {
+    name: 'Test',
+    avatarURL:
+      'https://res.cloudinary.com/dgooxm96o/image/upload/v1695311635/avatars/woddyy.jpg.jpg',
+  };
   const [isOpen, setIsOpen] = useState(true);
   const [isUpdateForm, setIsUpdateForm] = useState(null);
 
@@ -130,4 +134,3 @@ const UserProfile = ({ onClose }) => {
 };
 
 export default UserProfile;
-

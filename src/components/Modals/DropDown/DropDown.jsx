@@ -33,7 +33,7 @@ export const DropDown = () => {
       setIsConfirmLogoutOpen(false);
       setIsUserInfoOpen(false);
     }
-    e.stopPropagation();
+    // e.stopPropagation();
   };
 
   const handleKeyDown = (e) => {
@@ -61,4 +61,3 @@ export const DropDown = () => {
     </ModalWrapper>
   );
 };
-
