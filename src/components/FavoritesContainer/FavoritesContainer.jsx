@@ -10,6 +10,7 @@ export const FavoritesContainer = () => {
         <div>
           <Title>Favorites</Title>
           <DrinkCard />
+          
         </div>
       </CommonContainer>
     </Section>

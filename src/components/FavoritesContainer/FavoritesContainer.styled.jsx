@@ -16,7 +16,7 @@ export const Title = styled.h1`
   @media (min-width: 768px) {
     margin-bottom: 60px;
   }
-  @media (min-width: 1280px) {
+  @media (min-width: 1440px) {
     margin-bottom: 62px;
   }
 `;
