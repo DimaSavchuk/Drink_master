@@ -1,23 +1,4 @@
-// import { ModalOverlay, ModalContent, Title, ButtonContainer, Button } from './LogOut.styled';
 
-// const LogoutModal = ({ isOpen, onClose, onLogout }) => {
-//     if (!isOpen) return null;
-
-//     return (
-// <ModalOverlay>
-// <ModalContent>
-// <btn><svg><use></use></svg></btn>
-// <Title>Are you sure you want to logout?</Title>
-// <ButtonContainer>
-// <Button onClick={onLogout}>Logout</Button>
-// <Button onClick={onClose}>Cancel</Button>
-// </ButtonContainer>
-// </ModalContent>
-// </ModalOverlay>
-// );
-// };
-
-// export default LogoutModal;
 
 // import { useDispatch } from 'react-redux';
 // import { useNavigate } from 'react-router-dom';
