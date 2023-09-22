@@ -1,6 +1,6 @@
 // import { CommonContainer } from '../../components/GlobalStyles/CommonContainer.styled';
 
-import { FavoritesContainer } from "../../components/FavoritesContainer/FavoritesContainer";
+import FavoritesContainer from "../../components/FavoritesContainer/FavoritesContainer";
 
 
 const FavoritesPages = () => {
