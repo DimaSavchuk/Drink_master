@@ -2,17 +2,19 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const HeaderStyled = styled.header`
-  background-color: #0a0a11;
   border-bottom: 1px solid rgba(243, 243, 243, 0.2);
 `;
 export const HeaderContainer = styled.div`
   padding: 20px;
+  margin: 0 auto;
 
   @media (min-width: 768px) {
+    max-width: 768px;
     padding: 20px 32px;
   }
 
-  @media (min-width: 1280px) {
+  @media (min-width: 1440px) {
+    max-width: 1440px;
     padding: 20px 100px;
   }
 `;
@@ -26,6 +28,7 @@ export const Navigation = styled.nav`
 export const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
+  gap: 8px;
 
   color: #f3f3f3;
   font-size: 16px;
@@ -33,6 +36,8 @@ export const StyledLink = styled(Link)`
   line-height: 1.125;
 
   @media (min-width: 768px) {
+    gap: 14px;
+
     font-size: 18px;
     line-height: 1.222;
   }
@@ -59,7 +64,7 @@ export const Button = styled.button`
     color: #00baff; /* Blue text color on hover/focus */
   }
 
-  @media (min-width: 1280px) {
+  @media (min-width: 1440px) {
     display: none;
   }
 `;
@@ -83,8 +88,8 @@ export const IconWrapper = styled.svg`
     height: ${(props) => props.size768 || '20px'};
   }
 
-  @media (min-width: 1280px) {
-    width: ${(props) => props.size1280 || '30px'};
-    height: ${(props) => props.size1280 || '30px'};
+  @media (min-width: 1440px) {
+    width: ${(props) => props.size1440 || '30px'};
+    height: ${(props) => props.size1440 || '30px'};
   }
 `;

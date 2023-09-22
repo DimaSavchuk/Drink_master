@@ -4,7 +4,16 @@ import styled from 'styled-components';
 export const HeroSection = styled.section`
   padding-top: 80px;
   padding-bottom: 112px;
-  background-color: #0a0a11;
+
+  @media (min-width: 768px) {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+
+  @media (min-width: 1440px) {
+    padding-top: 128px;
+    padding-bottom: 160px;
+  }
 `;
 
 export const Title = styled.h1`
@@ -14,6 +23,18 @@ export const Title = styled.h1`
   font-size: 32px;
   font-weight: 600;
   line-height: 1.18;
+
+  @media (min-width: 768px) {
+    margin-bottom: 28px;
+
+    font-size: 56px;
+    line-height: 1.07;
+  }
+
+  @media (min-width: 1440px) {
+    font-size: 64px;
+    line-height: 1.06;
+  }
 `;
 
 export const Text = styled.p`
@@ -23,10 +44,21 @@ export const Text = styled.p`
   font-size: 14px;
   font-weight: 400;
   line-height: 1.42;
+
+  @media (min-width: 768px) {
+    margin-bottom: 48px;
+
+    font-size: 18px;
+    line-height: 1.33;
+  }
+
+  @media (min-width: 1440px) {
+    margin-bottom: 40px;
+  }
 `;
 
 export const AddDrinkLink = styled(Link)`
-  margin-bottom: 61px;
+  margin-bottom: 47px;
 
   display: inline-flex;
   padding: 14px 40px;
@@ -39,6 +71,17 @@ export const AddDrinkLink = styled(Link)`
   font-size: 14px;
   font-weight: 600;
   line-height: 1.28;
+
+  @media (min-width: 768px) {
+    margin-bottom: 54px;
+
+    font-size: 16px;
+    line-height: 1.12;
+  }
+
+  @media (min-width: 1440px) {
+    /* margin-bottom: 40px; */
+  }
 `;
 
 export const ImgWrapper = styled.div`
@@ -47,15 +90,99 @@ export const ImgWrapper = styled.div`
 
 export const Gradient = styled.div`
   position: absolute;
-  /* z-index: 0;
-  top: 0;
-  left: -120%;  */
-  transform: translate(-80%, -60%);
+  transform: translate(
+    ${(props) => props.translatex}px,
+    ${(props) => props.translatey}px
+  );
+
+  /* transform: translate(-399px, -100px); */
   width: 520px;
   height: 550px;
-  flex-shrink: 0;
 
   border-radius: 550px;
   background: rgba(64, 112, 205, 0.5);
   filter: blur(104.8543701171875px);
+
+  @media (min-width: 768px) {
+    transform: translate(
+      ${(props) => props.translatextablet}px,
+      ${(props) => props.translateytablet}px
+    );
+    /* transform: translate(-700px, -185px); */
+    width: 784px;
+    height: 829.931px;
+    border-radius: 829.931px;
+  }
+  @media (min-width: 1440px) {
+    transform: translate(
+      ${(props) => props.translatexdesktop}px,
+      ${(props) => props.translateydesktop}px
+    );
+    /* transform: translate(-700px, -200px); */
+    width: 784px;
+    height: 849px;
+    border-radius: 849px;
+  }
+`;
+export const GradientRight = styled.div`
+  position: absolute;
+  transform: translate(
+    ${(props) => props.translatex}px,
+    ${(props) => props.translatey}px
+  );
+
+  /* transform: translate(200px, 200px); */
+  width: 549px;
+  height: 543px;
+
+  border-radius: 549px;
+  background: rgba(64, 112, 205, 0.5);
+  filter: blur(104.8543701171875px);
+
+  @media (min-width: 768px) {
+    transform: translate(
+      ${(props) => props.translatextablet}px,
+      ${(props) => props.translateytablet}px
+    );
+    /* transform: translate(-700px, -185px); */
+  }
+  @media (min-width: 1440px) {
+    transform: translate(
+      ${(props) => props.translatexdesktop}px,
+      ${(props) => props.translateydesktop}px
+    );
+    /* transform: translate(-700px, -200px); */
+  }
+`;
+export const Wrapper = styled.div`
+  @media (min-width: 1440px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+`;
+export const GradientCenter = styled.div`
+  @media (max-width: 1439px) {
+    display: none;
+  }
+  position: absolute;
+  transform: translate(
+    ${(props) => props.translatex}px,
+    ${(props) => props.translatey}px
+  );
+
+  width: 387px;
+  height: 381px;
+  flex-shrink: 0;
+
+  border-radius: 387px;
+  background: rgba(188, 230, 210, 0.3);
+  filter: blur(104.8543701171875px);
+`;
+
+export const ContentWrapper = styled.div`
+  @media (min-width: 1440px) {
+    max-width: 715px;
+    margin-top: 57px;
+  }
 `;
