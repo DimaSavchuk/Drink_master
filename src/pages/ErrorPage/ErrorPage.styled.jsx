@@ -1,18 +1,20 @@
 import styled from '@emotion/styled';
+ 
 
-export const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 500px;
+export const Container = styled.section`
+  padding-top: 200px;
+  padding-bottom: 112px;
+  background-color: #0a0a11;
 `;
 
-export const Title = styled.h1`
-  color: #ffffff;
-  text-shadow:
-    0 0 5px #00baff,
-    0 0 10px #00baff,
-    0 0 20px #00baff,
-    0 0 40px #00baff,
-    0 0 80px #00baff;
+export const Gradient = styled.div`
+  position: absolute;
+  transform: translate(-80%, -60%);
+  width: 520px;
+  height: 550px;
+  flex-shrink: 0;
+
+  border-radius: 550px;
+  background: rgba(64, 112, 205, 0.5);
+  filter: blur(104.8543701171875px);
 `;

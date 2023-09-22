@@ -2,11 +2,8 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const HeroSection = styled.section`
-  overflow: hidden;
-  max-width: 100%;
   padding-top: 80px;
   padding-bottom: 112px;
-  background-color: #0a0a11;
 
   @media (min-width: 768px) {
     padding-top: 120px;
@@ -74,7 +71,15 @@ export const AddDrinkLink = styled(Link)`
   font-size: 14px;
   font-weight: 600;
   line-height: 1.28;
+  transition:
+    color 300ms linear,
+    background-color 300ms linear;
 
+  &:hover,
+  &:focus {
+    color: #f3f3f3;
+    background-color: #161f37;
+  }
   @media (min-width: 768px) {
     margin-bottom: 54px;
 
@@ -91,72 +96,6 @@ export const ImgWrapper = styled.div`
   margin: 0 auto;
 `;
 
-export const Gradient = styled.div`
-  position: absolute;
-  transform: translate(
-    ${(props) => props.translateX}px,
-    ${(props) => props.translateY}px
-  );
-
-  /* transform: translate(-399px, -100px); */
-  width: 520px;
-  height: 550px;
-
-  border-radius: 550px;
-  background: rgba(64, 112, 205, 0.5);
-  filter: blur(104.8543701171875px);
-
-  @media (min-width: 768px) {
-    transform: translate(
-      ${(props) => props.translateXtablet}px,
-      ${(props) => props.translateYtablet}px
-    );
-    /* transform: translate(-700px, -185px); */
-    width: 784px;
-    height: 829.931px;
-    border-radius: 829.931px;
-  }
-  @media (min-width: 1440px) {
-    transform: translate(
-      ${(props) => props.translateXdesktop}px,
-      ${(props) => props.translateYdesktop}px
-    );
-    /* transform: translate(-700px, -200px); */
-    width: 784px;
-    height: 849px;
-    border-radius: 849px;
-  }
-`;
-export const GradientRight = styled.div`
-  position: absolute;
-  transform: translate(
-    ${(props) => props.translateX}px,
-    ${(props) => props.translateY}px
-  );
-
-  /* transform: translate(200px, 200px); */
-  width: 549px;
-  height: 543px;
-
-  border-radius: 549px;
-  background: rgba(64, 112, 205, 0.5);
-  filter: blur(104.8543701171875px);
-
-  @media (min-width: 768px) {
-    transform: translate(
-      ${(props) => props.translateXtablet}px,
-      ${(props) => props.translateYtablet}px
-    );
-    /* transform: translate(-700px, -185px); */
-  }
-  @media (min-width: 1440px) {
-    transform: translate(
-      ${(props) => props.translateXdesktop}px,
-      ${(props) => props.translateYdesktop}px
-    );
-    /* transform: translate(-700px, -200px); */
-  }
-`;
 export const Wrapper = styled.div`
   @media (min-width: 1440px) {
     display: flex;
@@ -164,28 +103,8 @@ export const Wrapper = styled.div`
     align-items: center;
   }
 `;
-export const GradientCenter = styled.div`
-  @media (max-width: 1439px) {
-    display: none;
-  }
-  position: absolute;
-  transform: translate(
-    ${(props) => props.translateX}px,
-    ${(props) => props.translateY}px
-  );
-
-  width: 387px;
-  height: 381px;
-  flex-shrink: 0;
-
-  border-radius: 387px;
-  background: rgba(188, 230, 210, 0.3);
-  filter: blur(104.8543701171875px);
-`;
 
 export const ContentWrapper = styled.div`
-  position: relative;
-  z-index: 2;
   @media (min-width: 1440px) {
     max-width: 715px;
     margin-top: 57px;
