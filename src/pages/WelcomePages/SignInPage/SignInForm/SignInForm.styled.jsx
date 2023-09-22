@@ -40,7 +40,8 @@ export const FormField = styled(FormikField)`
   font-size: 14px;
   line-height: 1.28;
   border: none;
-  transition: 200ms cubic-bezier(0.65, 0.05, 0.36, 1);
+  transition:
+    color 300ms linear;
 
   &:focus-visible {
     outline: 1px solid rgba(243, 243, 243, 0.5);
@@ -56,7 +57,7 @@ export const FormField = styled(FormikField)`
   }
 
   @media (min-width: 1440px) {
-    width: 352px;
+    width: 400px;
   }
 `;
 
@@ -73,23 +74,27 @@ export const ErrorMessage = styled(FormikError)`
 export const SubmitBtn = styled.button`
   width: 100%;
   padding: 18px;
-  background-color: #f3f3f3;
-  color: #161f37;
+  background-color: transparent;
+  color: #f3f3f3;
+  border: 1px solid rgba(243, 243, 243, 0.2);
   font-size: 16px;
   font-weight: 500;
   line-height: 1.12;
   border-radius: 42px;
-  border: none;
 
   cursor: pointer;
 
+  transition:
+    color 300ms linear,
+    background-color 300ms linear;
+
   &:hover {
-    font-weight: bold;
+    background-color: #f3f3f3;
+    color: #161f37;
   }
 
   @media (min-width: 768px) {
     font-size: 16px;
     line-height: 1.12;
   }
-
 `;

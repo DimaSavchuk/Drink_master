@@ -45,7 +45,8 @@ export const FormField = styled(FormikField)`
   line-height: 1.28;
   border: none;
 
-  transition: 200ms cubic-bezier(0.65, 0.05, 0.36, 1);
+  transition:
+    color 300ms linear;
 
   &::placeholder {
     color: rgba(243, 243, 243, 0.5);
@@ -68,12 +69,12 @@ export const FormField = styled(FormikField)`
   }
 
   @media (min-width: 1440px) {
-    width: 352px;
+    width: 400px;
   }
 `;
 
 export const FormFieldDate = styled(Flatpickr)`
-  width: 287px;
+  width: 335px;
   padding: 14px 24px;
   outline: 1px solid rgba(243, 243, 243, 0.2);
   border-radius: 200px;
@@ -82,10 +83,13 @@ export const FormFieldDate = styled(Flatpickr)`
   font-size: 17px;
   line-height: 1.56;
   border: none;
-  transition: 200ms cubic-bezier(0.65, 0.05, 0.36, 1);
 
+  &::placeholder {
+    color: rgba(243, 243, 243, 0.5);
+  }
+  
   @media (min-width: 768px) {
-    width: 352px;
+    width: 400px;
   }
 `;
 
@@ -115,24 +119,27 @@ export const ErrorMessage = styled(FormikError)`
 export const SubmitBtn = styled.button`
   width: 100%;
   padding: 18px;
-  background-color: #f3f3f3;
-  color: #161f37;
-  font-size: 14px;
+  background-color: transparent;
+  color: #f3f3f3;
+  border: 1px solid rgba(243, 243, 243, 0.2);
+  font-size: 16px;
   font-weight: 500;
-  line-height: 1.28;
+  line-height: 1.12;
   border-radius: 42px;
-  border: none;
+
+  transition:
+    color 300ms linear,
+    background-color 300ms linear;
 
   cursor: pointer;
 
   &:hover {
-    font-weight: bold;
+    background-color: #f3f3f3;
+    color: #161f37;
   }
 
   @media (min-width: 768px) {
     font-size: 16px;
     line-height: 1.12;
   }
-
-  
 `;

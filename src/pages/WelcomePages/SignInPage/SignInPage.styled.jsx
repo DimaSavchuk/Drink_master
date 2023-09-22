@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { CommonContainer } from '../../../components/GlobalStyles/CommonContainer.styled';
 
 export const SignInPageStyled = styled.section`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-content: center;
   max-width: 100%;
-  height: 100%;
+  height: 100vh;
 
   background-image: url('src/assets/start/start_mobile@1x.jpg');
 
@@ -41,19 +44,18 @@ export const SignInPageStyled = styled.section`
   }
 `;
 
-export const Container = styled.div`
-  margin: auto;
-  width: 335px;
-  padding: 0 20px;
+export const Container = styled(CommonContainer)`
+  @media (min-width: 375px) {
+    width: 375px;
+    /* margin: 0 auto; */
+  }
 
-   @media (min-width: 768px) {
-    width: 640px;
-    padding: 0 64px;
+  @media (min-width: 768px) {
+    width: 768px;
   }
 
   @media (min-width: 1440px) {
-    width: 1240px;
-    padding: 0 100px;
+    width: 1440px;
   }
 `;
 export const Wrapper = styled.div`
@@ -99,5 +101,3 @@ export const StyledLink = styled(Link)`
     line-height: 1.28;
   }
 `;
-
-

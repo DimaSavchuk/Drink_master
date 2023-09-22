@@ -1,4 +1,5 @@
 // import React from 'react';
+// import { CommonContainer } from '../../../components/GlobalStyles/CommonContainer.styled';
 import {
   RegistrationPageStyled,
   Container,
@@ -12,13 +13,13 @@ const RegistrationPage = () => {
   return (
     <RegistrationPageStyled>
       <Container>
-        <Wrapper>
-          <Title>Sign Up</Title>
+      <Wrapper>
+        <Title>Sign Up</Title>
 
-          <SignUpForm />
+        <SignUpForm />
 
-          <StyledLink to="/login"> Sign In</StyledLink>
-        </Wrapper>
+        <StyledLink to="/login"> Sign In</StyledLink>
+      </Wrapper>
       </Container>
     </RegistrationPageStyled>
   );
