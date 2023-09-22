@@ -9,7 +9,7 @@ export const CardsContainer = styled.div`
     grid-gap: 20px;
     grid-row-gap: 80px;
   }
-  @media (min-width: 1280px) {
+  @media (min-width: 1440px) {
     grid-template-columns: repeat(3, minmax(335px, 1fr));
   }
 `;
@@ -93,4 +93,35 @@ export const DeleteCardBtn = styled.button`
   font-size: 14px;
   font-weight: 600;
   line-height: 1.28;
+`;
+
+export const PaginationContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const PaginationButton = styled.button`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 30px;
+  margin: 0 5px;
+  color: rgba(243, 243, 243, 0.3);
+`;
+
+export const PaginationNumber = styled.button`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0 5px;
+  color: #f3f3f3;
+  ${(props) =>
+    props.active &&
+    `padding: 5px 10px;
+    border-radius: 50%;
+    background-color: rgba(64, 112, 205, 0.5);
+    `}
 `;
