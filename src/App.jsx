@@ -15,10 +15,9 @@ import { GlobalStyle } from './components/GlobalStyles/GlobalStyles.styled';
 import { HomePage } from './pages/HomePage/HomePage';
 import AddDrink from './pages/AddDrinkPages/AddDrinkPages';
 import AboutDrinkPages from './pages/AboutDrinkPages/AboutDrinkPages';
-import UserProfile from './components/Modals/UserProfile/UserProfile';
-import DropDown from './components/Modals/DropDown/DropDown';
+import { DropDown } from './components/Modals/DropDown/DropDown';
+// import UserProfile from './components/Modals/UserProfile/UserProfile';
 // import LogOut from './components/Modals/LogOut/LogOut';
-
 
 const test = import.meta.env.VITE_API_TEST;
 
@@ -48,7 +47,7 @@ function App() {
             <Route path="profile" element={<UserProfile />} />
             <Route path="logout" element={<LogOut />} />
           </Route> */}
-          
+
           <Route path="/dropdown" element={<DropDown />} />
           {/* Тимчасові роути */}
           <Route path="*" element={<ErrorPage />} />
