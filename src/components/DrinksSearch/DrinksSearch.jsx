@@ -6,8 +6,6 @@ export const DrinksSearch = ({ categories }) => {
   
     const [searchValue, setSearchValue] = useState('');
 
-
-    console.log(categories)
     return (
         <Form>
             <label>
