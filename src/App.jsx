@@ -15,6 +15,7 @@ import { GlobalStyle } from './components/GlobalStyles/GlobalStyles.styled';
 import { HomePage } from './pages/HomePage/HomePage';
 import AddDrink from './pages/AddDrinkPages/AddDrinkPages';
 import AboutDrinkPages from './pages/AboutDrinkPages/AboutDrinkPages';
+import UserProfile from './components/Modals/UserProfile/UserProfile';
 
 const test = import.meta.env.VITE_API_TEST;
 
@@ -38,6 +39,10 @@ function App() {
           <Route path="/mydrinks" element={<MyDrinksPages />} />
           <Route path="/favorites" element={<FavoritesPages />} />
 
+          {/* Тимчасові роути */}
+
+          <Route path="/profile" element={<UserProfile />} />
+          {/* Тимчасові роути */}
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
