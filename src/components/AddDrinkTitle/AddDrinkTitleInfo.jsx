@@ -1,4 +1,10 @@
-import { TitleInfo } from './AddDrinkTitleInfo.styled';
+import {
+  FieldSelectStyled,
+  FieldStyled,
+  FieldWrapper,
+  LabelStyled,
+  TitleInfo,
+} from './AddDrinkTitleInfo.styled';
 import { Field } from 'formik';
 
 const AddDrinkTitleInfo = () => {
@@ -54,39 +60,47 @@ const AddDrinkTitleInfo = () => {
 
   return (
     <TitleInfo>
-      <label htmlFor="title">Enter item title</label>
-      <Field name={'title'} placeholder="Enter item title" />
+      <FieldWrapper>
+        <LabelStyled htmlFor="title">Enter item title</LabelStyled>
+        <FieldStyled name={'title'} placeholder="Enter item title" />
+      </FieldWrapper>
 
-      <label htmlFor="recipe">Enter about recipe</label>
-      <Field name={'recipe'} placeholder="Enter about recipe" />
+      <FieldWrapper>
+        <LabelStyled htmlFor="recipe">Enter about recipe</LabelStyled>
+        <FieldStyled name={'recipe'} placeholder="Enter about recipe" />
+      </FieldWrapper>
 
-      <label htmlFor="category">Category</label>
-      <Field as="select" name="category" placeholder="Category">
-        {initialList.category.map((name, index) => (
-          <option key={index} value={name}>
-            {name}
-          </option>
-        ))}
-      </Field>
+      <FieldWrapper>
+        <LabelStyled htmlFor="category">Category</LabelStyled>
+        <FieldSelectStyled as="select" name="category" placeholder="Category">
+          {initialList.category.map((name, index) => (
+            <option key={index} value={name}>
+              {name}
+            </option>
+          ))}
+        </FieldSelectStyled>
+      </FieldWrapper>
 
-      <label htmlFor="glass">Glass</label>
-      <Field as="select" name="glass" placeholder="Glass">
-        {initialList.glass.map((name, index) => (
-          <option key={index} value={name}>
-            {name}
-          </option>
-        ))}
-      </Field>
+      <FieldWrapper>
+        <LabelStyled htmlFor="glass">Glass</LabelStyled>
+        <FieldSelectStyled as="select" name="glass" placeholder="Glass">
+          {initialList.glass.map((name, index) => (
+            <option key={index} value={name}>
+              {name}
+            </option>
+          ))}
+        </FieldSelectStyled>
+      </FieldWrapper>
 
       <div role="cocktailTypeSelect" aria-labelledby="cocktailTypeSelect-group">
-        <label>
+        <LabelStyled>
           <Field type="radio" name="alcoholicType" value={true} />
           Alcoholic
-        </label>
-        <label>
+        </LabelStyled>
+        <LabelStyled>
           <Field type="radio" name="alcoholicType" value={false} />
           Non-alcoholic
-        </label>
+        </LabelStyled>
       </div>
     </TitleInfo>
   );

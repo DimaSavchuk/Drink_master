@@ -1,6 +1,12 @@
 import { Formik, Form, FieldArray, Field } from 'formik';
 import { useState } from 'react';
-import { TitleWrapper } from './AddDrinkIngridients.styled';
+import {
+  FieldCounter,
+  FieldStyled,
+  FieldsWrapper,
+  TitleWrapper,
+} from './AddDrinkIngridients.styled';
+import { TfiClose, TfiPlus, TfiMinus } from 'react-icons/tfi';
 
 const AddDrinkIngridients = () => {
   const ingridientsList = [
@@ -25,36 +31,38 @@ const AddDrinkIngridients = () => {
           <div>
             <TitleWrapper>
               <h3>Ingredients</h3>
-              <div>
+              <FieldCounter>
                 <button type="button" onClick={() => remove()}>
-                  -
+                  <TfiMinus size={16} />
                 </button>
                 <span>{ingridients.length}</span>
                 <button type="button" onClick={() => push(initialValue)}>
-                  +
+                  <TfiPlus size={16} />
                 </button>
-              </div>
+              </FieldCounter>
             </TitleWrapper>
             <div>
               {ingridients.length > 0 &&
                 ingridients.map((ingridient, index) => (
-                  <div
+                  <FieldsWrapper
                     key={index}
                     role="ingridientsSelect"
                     aria-labelledby="ingridientsSelect-group"
                   >
-                    <Field name={`ingridients.${index}.name`} as="select">
+                    <FieldStyled name={`ingridients.${index}.name`} as="select">
                       {ingridientsList.map(({ name }, index) => (
                         <option key={index} value={name}>
                           {name}
                         </option>
                       ))}
-                    </Field>
-                    <Field name={`ingridients.${index}.volume`}>{}</Field>
+                    </FieldStyled>
+                    <FieldStyled name={`ingridients.${index}.volume`}>
+                      {}
+                    </FieldStyled>
                     <button type="button" onClick={() => remove(index)}>
-                      X
+                      <TfiClose size={18} />
                     </button>
-                  </div>
+                  </FieldsWrapper>
                 ))}
             </div>
           </div>
