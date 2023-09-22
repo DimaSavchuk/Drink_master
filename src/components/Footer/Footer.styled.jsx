@@ -112,6 +112,7 @@ export const Input = styled.input`
   width: 100%;
   height: 54px;
   padding: 18px 24px;
+  padding-right: 48px;
 
   max-width: 350px;
   align-self: center;
@@ -121,8 +122,8 @@ export const Input = styled.input`
   line-height: 1.28;
 
   border-radius: 200px;
-  border: 1px solid rgba(243, 243, 243, 0.2);
-  opacity: 0.8;
+  border: 1px solid;
+  border-color: rgba(243, 243, 243, 0.2);
   background-color: transparent;
 
   &::placeholder {
@@ -142,8 +143,7 @@ export const Input = styled.input`
 
 export const Button = styled.button`
   border-radius: 200px;
-  border: 1px solid #f3f3f3;
-  opacity: 0.2;
+  border: 1px solid rgba(243, 243, 243, 0.2);
   width: 100%;
   max-width: 350px;
 
@@ -157,6 +157,12 @@ export const Button = styled.button`
   line-height: 1.125;
 
   background-color: transparent;
+
+  &:disabled {
+    color: gray;
+    cursor: not-allowed;
+  }
+
   @media (min-width: 768px) {
   }
 
@@ -173,11 +179,12 @@ export const RightsContainer = styled.div`
 
   @media (min-width: 768px) {
     flex-direction: row;
-    gap: 0px;
-    justify-content: space-between;
+    gap: 153px;
   }
 
   @media (min-width: 1440px) {
+    gap: 0px;
+    justify-content: space-between;
   }
 `;
 
@@ -208,4 +215,10 @@ export const PolicyContainer = styled.div`
 
   @media (min-width: 1440px) {
   }
+`;
+
+export const ErrorMessage = styled.span`
+  font-size: 12;
+  line-height: 1.16;
+  margin-left: 25px;
 `;

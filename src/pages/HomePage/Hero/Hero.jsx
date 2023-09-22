@@ -1,38 +1,17 @@
 import { CommonContainer } from '../../../components/GlobalStyles/CommonContainer.styled';
 import {
   AddDrinkLink,
-  Gradient,
   HeroSection,
-  ImgWrapper,
   Text,
   Title,
   Wrapper,
   ContentWrapper,
-  GradientRight,
-  GradientCenter,
 } from './Hero.styled';
 
 export const Hero = () => {
   return (
     <HeroSection>
-      {/* <Gradient
-        translatex={-399}
-        translatey={-100}
-        translatextablet={-623}
-        translateytablet={-185}
-        translatexdesktop={-623}
-        translateydesktop={-200}
-      /> */}
       <CommonContainer>
-        {/* <GradientRight
-          translatex={300}
-          translatey={300}
-          translatextablet={600}
-          translatextablet={250}
-          translatexdesktop={1000}
-          translateydesktop={200}
-        /> */}
-        {/* <GradientCenter translatex={800} translatey={200} /> */}
         <Wrapper>
           <ContentWrapper>
             <Title>Craft Your Perfect Drink with Drink Master</Title>
@@ -41,7 +20,7 @@ export const Hero = () => {
               destination for exploring, crafting, and mastering the world's
               finest beverages.
             </Text>
-            <AddDrinkLink>Add drink</AddDrinkLink>
+            <AddDrinkLink to="/adddrink">Add drink</AddDrinkLink>
           </ContentWrapper>
           {/* <ImgWrapper> */}
           <picture>
