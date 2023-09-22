@@ -1,4 +1,9 @@
-import { Link } from 'react-router-dom';
+import axios from 'axios';
+import * as Yup from 'yup';
+// import { Notify } from 'notiflix';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { CommonContainer } from '../GlobalStyles/CommonContainer.styled';
 import {
   FooterStyled,
@@ -16,13 +21,46 @@ import {
   RightsContainer,
   CommonWrapper,
   FormContainer,
+  ErrorMessage,
 } from './Footer.styled';
 import sprite from '../../assets/sprite.svg';
 import { IconWrapper, StyledLink } from '../Header/Header.styled';
+import { useState } from 'react';
+import { useFormik } from 'formik';
+
+const validationSchema = Yup.object({
+  email: Yup.string().email('Invalid email').required(),
+});
 
 export const Footer = () => {
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+    },
+    validationSchema,
+    onSubmit: async (values, { resetForm }) => {
+      const { email } = values;
+      try {
+        await axios.post('/users/subscribe', { email });
+        toast.success('Email was successfully send.');
+      } catch (error) {
+        console.log(error);
+        toast.error('Something went wrong. Try again later.', {
+          theme: 'dark',
+        });
+      }
+      resetForm();
+    },
+  });
+  const isDisable = formik.values.email === '';
+
+  const isInvalid =
+    formik.touched.email && formik.values.email && formik.errors.email;
+  const isValid = formik.touched.email && !formik.errors.email;
+
   return (
     <FooterStyled>
+      <ToastContainer theme="dark" />
       <CommonContainer>
         <div>
           <CommonWrapper>
@@ -38,7 +76,7 @@ export const Footer = () => {
                   <li>
                     <SocialLink
                       target="_blank"
-                      href="https://www.youtube.com/c/GoIT"
+                      href="https://www.facebook.com/goITclub/"
                     >
                       <IconWrapper size={'22px'} size768={'28px'}>
                         <use href={`${sprite}#icon-facebook`} />
@@ -48,7 +86,7 @@ export const Footer = () => {
                   <li>
                     <SocialLink
                       target="_blank"
-                      href="https://www.youtube.com/c/GoIT"
+                      href="https://www.instagram.com/goitclub/"
                     >
                       <IconWrapper size={'22px'} size768={'28px'}>
                         <use href={`${sprite}#icon-instagram`} />
@@ -69,16 +107,16 @@ export const Footer = () => {
               </div>
               <NavList>
                 <li>
-                  <NavLink>Drinks</NavLink>
+                  <NavLink to="/drinks">Drinks</NavLink>
                 </li>
                 <li>
-                  <NavLink>Add drink</NavLink>
+                  <NavLink to="/adddrink">Add drink</NavLink>
                 </li>
                 <li>
-                  <NavLink>My drinks</NavLink>
+                  <NavLink to="/mydrinks">My drinks</NavLink>
                 </li>
                 <li>
-                  <NavLink>Favorites drinks</NavLink>
+                  <NavLink to="/favorites">Favorites drinks</NavLink>
                 </li>
               </NavList>
             </ContentWrapper>
@@ -88,13 +126,61 @@ export const Footer = () => {
                 Subscribe up to our newsletter. Be in touch with latest news and
                 special offers, etc.
               </Text>
-              <Form>
-                <Input
-                  type="email"
-                  name="email"
-                  placeholder="Enter the email"
-                ></Input>
-                <Button type="submit">Subscribe</Button>
+              <Form onSubmit={formik.handleSubmit}>
+                <div style={{ position: 'relative' }}>
+                  <Input
+                    type="text"
+                    name="email"
+                    value={formik.values.email}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    placeholder="Enter the email"
+                    style={{
+                      borderColor: isInvalid
+                        ? '#DA1414'
+                        : isValid
+                        ? '#3CBC81'
+                        : 'rgba(243, 243, 243, 0.2)',
+                    }}
+                  ></Input>
+                  {isInvalid ? (
+                    <IconWrapper
+                      size={'20px'}
+                      size1440={'20px'}
+                      style={{ position: 'absolute', top: 16, right: 24 }}
+                    >
+                      <use href={`${sprite}#icon-error-sign`}></use>
+                    </IconWrapper>
+                  ) : isValid ? (
+                    <IconWrapper
+                      size={'20px'}
+                      size1440={'20px'}
+                      style={{ position: 'absolute', top: 16, right: 24 }}
+                    >
+                      <use href={`${sprite}#icon-sucess-sign`}></use>
+                    </IconWrapper>
+                  ) : null}
+                </div>
+                {isInvalid ? (
+                  <ErrorMessage
+                    style={{
+                      color: '#DA1414',
+                    }}
+                  >
+                    This is an ERROR email
+                  </ErrorMessage>
+                ) : isValid ? (
+                  <ErrorMessage
+                    style={{
+                      color: '#3CBC81',
+                    }}
+                  >
+                    This is an CORRECT email
+                  </ErrorMessage>
+                ) : null}
+                <Button type="submit" disabled={isDisable}>
+                  Subscribe
+                </Button>
               </Form>
             </FormContainer>
           </CommonWrapper>
