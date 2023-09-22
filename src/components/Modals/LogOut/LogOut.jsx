@@ -1,3 +1,4 @@
+
 // import { ModalOverlay, ModalContent, Title, ButtonContainer, Button } from './LogOut.styled';
 
 // const LogoutModal = ({ isOpen, onClose, onLogout }) => {
