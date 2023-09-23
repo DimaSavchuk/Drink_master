@@ -12,7 +12,6 @@ export const HeaderContainer = styled.div`
     max-width: 768px;
     padding: 20px 32px;
   }
-  
 
   @media (min-width: 1440px) {
     max-width: 1440px;
