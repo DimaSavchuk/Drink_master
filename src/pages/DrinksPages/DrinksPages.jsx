@@ -83,7 +83,6 @@ const DrinksPages = () => {
           handlePageChange={handlePageChange}
           pageRangeDisplayed={pageRangeDisplayed}
         />
-        
       </CommonContainer>
     </DrinksSection>
     
