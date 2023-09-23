@@ -26,8 +26,11 @@ const DrinkCard = ({ cardData, onDelete }) => {
       <DrinkStat>{alcoholic}</DrinkStat>
       <DrinkDesc>{description}</DrinkDesc>
       <DrinkBtnContainer>
+ favorite_drinks4
         <SeeMoreLink to={`/aboutdrink`}>See more</SeeMoreLink>
         <DeleteCardBtn type="button" id={_id} onClick={() => onDelete(_id)}>
+
+
           <FiTrash2 size={24} />
         </DeleteCardBtn>
       </DrinkBtnContainer>
