@@ -9,12 +9,11 @@ import {
 
 const IngredientsCards = ({ data }) => {
 
-    data.map(({ measure }) => { console.log(measure) })
 
     return (
         <IngredientsDiv>
-            {data.map(({ title, measure, src }) => {
-                <li>
+            {data.map(({ title, measure, src }) => (
+                <li key={title}>
                     <IngredientFoto>
                         <img
                             src={src ? src : 'http://res.cloudinary.com/dec1shvoo/image/upload/v1689169611/cocktails-v1/ingredient/Strawberries-Small.png'}
@@ -26,7 +25,7 @@ const IngredientsCards = ({ data }) => {
                         <Measure>{measure ? measure : " "}</Measure>
                     </InfoDiv>
                 </li>
-            })}
+            ))}
         </IngredientsDiv>
     )
 }

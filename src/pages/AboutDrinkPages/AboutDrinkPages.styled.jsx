@@ -104,3 +104,63 @@ margin-top: 20px;
     margin-top: 100px;
   }
 `;
+export const RecipeTitle = styled.h2`
+font-size: 28px;
+font-style: normal;
+font-weight: 600;
+line-height: 1.14;
+margin-top: 80px;
+@media (min-width: 768px) {
+    font-size: 40px;
+    line-height: 1.1;
+
+  }
+  @media (min-width: 1440px) {
+    margin-top: 100px;
+  }
+
+`;
+export const RecipeDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 40px;    
+    margin-top: 40px; 
+  
+  @media (min-width: 1440px) {
+    flex-direction: row-reverse;
+    gap: 60px;
+    justify-content: space-between;
+    margin-top: 60px;  
+  }
+`;
+export const RecipeInfo = styled.p`
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.28;
+@media (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.37;
+  }
+  @media (min-width: 1440px) {
+  width: 549px;   
+  }
+`;
+export const ImageDiv = styled.div`    
+  /* width: 100%;  */
+  height: 430px;
+  max-width: 704px;
+  object-fit: cover;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: grey;
+  border-radius: 8px;
+@media (min-width: 768px) {
+    width: 704px;
+  };
+  @media (min-width: 1440px) {
+  width: 631px; 
+  height: 480px;
+  }
+`;

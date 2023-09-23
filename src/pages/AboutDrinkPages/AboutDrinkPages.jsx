@@ -8,8 +8,13 @@ import {
   TitleDescription,
   ButtonAddFavorite,
   IngredientsTitle,
+  RecipeTitle,
+  RecipeInfo,
+  RecipeDiv,
+  ImageDiv,
 } from './AboutDrinkPages.styled';
 import IngredientsCards from '../../components/AboutDrinkPages/IngridientsCards';
+import Image from '../../components/AboutDrinkPages/Image';
 
 const response = {
   drink: 'Queen Charlotte',
@@ -93,6 +98,14 @@ const AboutDrinkPages = () => {
       </DivTitle>
       <IngredientsTitle>Ingredients</IngredientsTitle>
       <IngredientsCards data={response.ingredients} />
+      <RecipeTitle>Recipe Preparation</RecipeTitle>
+      <RecipeDiv>
+        <RecipeInfo>{response.instructionsUK}</RecipeInfo>
+        <ImageDiv>
+          <Image></Image>
+        </ImageDiv>
+      </RecipeDiv>
+
     </Box>
   );
 };
