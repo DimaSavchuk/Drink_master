@@ -15,6 +15,7 @@ import {
 } from './AboutDrinkPages.styled';
 import IngredientsCards from '../../components/AboutDrinkPages/IngridientsCards';
 import Image from '../../components/AboutDrinkPages/Image';
+import { useFetchDrinkId } from '../../Hooks/useFetchDrinkId';
 
 const response = {
   drink: 'Queen Charlotte',
@@ -77,35 +78,43 @@ const ingridient = {
 };
 
 const AboutDrinkPages = () => {
+  const { drinkInfo, isLoading, error } = useFetchDrinkId();
+  console.log(drinkInfo);
   return (
     <Box>
-      <DivTitle>
-        <div>
-          <Title>{response.drink}</Title>
-          <TitleAlcohol>
-            {response.glass} / {response.alcoholic}
-          </TitleAlcohol>
-          <TitleDescription>{response.description}</TitleDescription>
-          <ButtonAddFavorite type='button'>Add to favorite drinks</ButtonAddFavorite>
-        </div>
-        <TitleImage>
-          <img
-            src={response.drinkThumb}
-            alt={response.drink}
-            style={{ display: 'block', width: '100%', height: 'auto' }}
-          />
-        </TitleImage>
-      </DivTitle>
-      <IngredientsTitle>Ingredients</IngredientsTitle>
-      <IngredientsCards data={response.ingredients} />
-      <RecipeTitle>Recipe Preparation</RecipeTitle>
-      <RecipeDiv>
-        <RecipeInfo>{response.instructionsUK}</RecipeInfo>
-        <ImageDiv>
-          <Image></Image>
-        </ImageDiv>
-      </RecipeDiv>
-
+      {error && <div>Error!!!</div>}
+      {drinkInfo && (
+        <>
+          <DivTitle>
+            <div>
+              <Title>{response.drink}</Title>
+              <TitleAlcohol>
+                {response.glass} / {response.alcoholic}
+              </TitleAlcohol>
+              <TitleDescription>{response.description}</TitleDescription>
+              <ButtonAddFavorite type="button">
+                Add to favorite drinks
+              </ButtonAddFavorite>
+            </div>
+            <TitleImage>
+              <img
+                src={response.drinkThumb}
+                alt={response.drink}
+                style={{ display: 'block', width: '100%', height: 'auto' }}
+              />
+            </TitleImage>
+          </DivTitle>
+          <IngredientsTitle>Ingredients</IngredientsTitle>
+          <IngredientsCards data={response.ingredients} />
+          <RecipeTitle>Recipe Preparation</RecipeTitle>
+          <RecipeDiv>
+            <RecipeInfo>{response.instructionsUK}</RecipeInfo>
+            <ImageDiv>
+              <Image></Image>
+            </ImageDiv>
+          </RecipeDiv>
+        </>
+      )}
     </Box>
   );
 };
