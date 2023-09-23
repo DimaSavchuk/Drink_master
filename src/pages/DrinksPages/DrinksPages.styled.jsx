@@ -5,8 +5,6 @@ export const DrinksSection = styled.section`
     max-width: 100%;
     padding-top: 80px;
     padding-bottom: 80px;
-    background-color: #0a0a11;
-
 
     @media screen and (min-width: 768px) {
         padding-top: 140px;

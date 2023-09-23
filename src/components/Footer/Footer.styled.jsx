@@ -38,6 +38,17 @@ export const SocialLink = styled.a`
   padding: 8px;
   border-radius: 10px;
   border: 1px solid rgba(243, 243, 243, 0.2);
+  transition: 500ms linear;
+  &:hover,
+  &:focus {
+    border: 1px solid rgba(64, 112, 205, 0.5);
+    /* border: 1px solid rgba(221, 255, 0, 0.2); */
+    background-color: #f3f3f3;
+  }
+  &:hover svg,
+  &:focus svg {
+    fill: #161f37;
+  }
 `;
 
 export const ContentWrapper = styled.div`
@@ -75,6 +86,11 @@ export const NavLink = styled(Link)`
   color: #f3f3f3;
   font-weight: 400;
   line-height: 1.6;
+  transition: 400ms linear;
+
+  &:hover {
+    color: #939fc0;
+  }
 `;
 
 export const FormContainer = styled.div`
@@ -120,11 +136,25 @@ export const Input = styled.input`
   color: #f3f3f3;
   font-weight: 400;
   line-height: 1.28;
-
+  outline: none;
   border-radius: 200px;
   border: 1px solid;
-  border-color: rgba(243, 243, 243, 0.2);
-  background-color: transparent;
+  border-color: ${(props) =>
+    props.isInvalid
+      ? 'rgba(218, 20, 20, 0.50)'
+      : props.isValid
+      ? 'rgba(60, 188, 129, 0.50)'
+      : 'rgba(243, 243, 243, 0.2)'};
+  background-color: #0a0a11;
+
+  &:focus {
+    border-color: ${(props) =>
+      props.isInvalid
+        ? 'rgba(218, 20, 20, 0.50)'
+        : props.isValid
+        ? 'rgba(60, 188, 129, 0.50)'
+        : 'rgba(243, 243, 243, 0.5)'};
+  }
 
   &::placeholder {
     color: #f3f3f3;

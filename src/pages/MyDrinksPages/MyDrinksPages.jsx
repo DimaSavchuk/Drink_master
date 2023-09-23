@@ -1,7 +1,7 @@
-import { MyDrinksContainer } from "../../components/MyDrinksContainer/MyDrinksContainer";
+import MyDrinksContainer from '../../components/MyDrinksContainer/MyDrinksContainer';
 
 const MyDrinksPages = () => {
-  return <MyDrinksContainer/>;
+  return <MyDrinksContainer />;
 };
 
 export default MyDrinksPages;

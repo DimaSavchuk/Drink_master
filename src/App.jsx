@@ -15,7 +15,9 @@ import { GlobalStyle } from './components/GlobalStyles/GlobalStyles.styled';
 import { HomePage } from './pages/HomePage/HomePage';
 import AddDrink from './pages/AddDrinkPages/AddDrinkPages';
 import AboutDrinkPages from './pages/AboutDrinkPages/AboutDrinkPages';
-import UserProfile from './components/Modals/UserProfile/UserProfile';
+import { DropDown } from './components/Modals/DropDown/DropDown';
+// import UserProfile from './components/Modals/UserProfile/UserProfile';
+// import LogOut from './components/Modals/LogOut/LogOut';
 
 const test = import.meta.env.VITE_API_TEST;
 
@@ -32,7 +34,7 @@ function App() {
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<HomePage />} />
           <Route path="/drinks" element={<DrinksPages />} />
-          <Route path="/drink/:drinkId" element={<AboutDrinkPages />} />
+          <Route path="/drinks/:drinkId" element={<AboutDrinkPages />} />
           <Route path="/alldrinks" element={<AllDrinksPages />} />
           <Route path="/adddrink" element={<AddDrink />} />
           <Route path="/aboutdrink" element={<AboutDrinkPages />} />
@@ -41,7 +43,12 @@ function App() {
 
           {/* Тимчасові роути */}
 
-          <Route path="/profile" element={<UserProfile />} />
+          {/* <Route path="/dropdown" element={<DropDown />}>
+            <Route path="profile" element={<UserProfile />} />
+            <Route path="logout" element={<LogOut />} />
+          </Route> */}
+
+          <Route path="/dropdown" element={<DropDown />} />
           {/* Тимчасові роути */}
           <Route path="*" element={<ErrorPage />} />
         </Route>
