@@ -25,7 +25,7 @@ const Image = () => {
                 srcset={fotoX}
                 src={foto}
                 alt="picture"
-
+                loading="lazy"
             />
         </picture>
 
