@@ -6,7 +6,10 @@ import {
   TitleImage,
   TitleAlcohol,
   TitleDescription,
+  ButtonAddFavorite,
+  IngredientsTitle,
 } from './AboutDrinkPages.styled';
+import IngredientsCards from '../../components/AboutDrinkPages/IngridientsCards';
 
 const response = {
   drink: 'Queen Charlotte',
@@ -78,15 +81,18 @@ const AboutDrinkPages = () => {
             {response.glass} / {response.alcoholic}
           </TitleAlcohol>
           <TitleDescription>{response.description}</TitleDescription>
+          <ButtonAddFavorite type='button'>Add to favorite drinks</ButtonAddFavorite>
         </div>
         <TitleImage>
-          <image
+          <img
             src={response.drinkThumb}
             alt={response.drink}
             style={{ display: 'block', width: '100%', height: 'auto' }}
           />
         </TitleImage>
       </DivTitle>
+      <IngredientsTitle>Ingredients</IngredientsTitle>
+      <IngredientsCards data={response.ingredients} />
     </Box>
   );
 };
