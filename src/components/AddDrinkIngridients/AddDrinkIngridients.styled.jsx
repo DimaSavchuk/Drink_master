@@ -58,6 +58,12 @@ export const FieldsWrapper = styled.div`
 
   select {
     width: 200px;
+    appearance: none;
+    cursor: pointer;
+  }
+
+  select:after {
+    color: red;
   }
 
   input {

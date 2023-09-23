@@ -11,7 +11,7 @@ const initialValues = {
   recipe: '',
   category: '',
   glass: '',
-  alcoholicType: false,
+  alcoholicType: 'Non-alcoholic',
   ingridients: [],
 };
 

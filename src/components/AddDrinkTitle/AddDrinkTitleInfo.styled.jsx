@@ -4,20 +4,8 @@ import { Field } from 'formik';
 export const TitleInfo = styled.div`
   display: flex;
   flex-direction: column;
-`;
 
-export const FieldWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: relative;
-
-  &:not(:last-child) {
-    margin-bottom: 31px;
-  }
-
-  input:focus + label {
-    color: transparent;
-  }
+  margin-bottom: 80px;
 `;
 
 export const FieldStyled = styled(Field)`
@@ -62,14 +50,80 @@ export const FieldSelectStyled = styled(Field)`
 `;
 
 export const LabelStyled = styled.label`
-  color: #f3f3f3;
-  opacity: 50%;
+  color: #f3f3f380;
 
   position: absolute;
   top: 0;
   left: 0;
+`;
 
-  & + input:focus {
-    position: static;
+export const FieldWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &:not(:last-of-type) {
+    margin-bottom: 31px;
+  }
+`;
+
+export const FieldRadioLabel = styled.label`
+  margin-left: 4px;
+  color: #f3f3f380;
+
+  &:first-of-type {
+    margin-right: 14px;
+  }
+`;
+
+export const FieldRadio = styled(Field)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  appearance: none;
+  margin: 0;
+
+  font: inherit;
+  color: currentColor;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid #f3f3f380;
+  border-radius: 50%;
+  cursor: pointer;
+
+  &:checked {
+    border: 1.5px solid #fff;
+  }
+
+  label {
+    color: #fff;
+  }
+
+  &::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    background-color: #fff;
+  }
+
+  &:checked::before {
+    transform: scale(1);
+  }
+`;
+
+export const RadioButtonsWrapper = styled.div`
+  display: flex;
+
+  div {
+    display: flex;
+    align-items: center;
+  }
+
+  input:checked ~ label {
+    color: #fff;
   }
 `;

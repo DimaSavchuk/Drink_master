@@ -3,6 +3,9 @@ import {
   FieldStyled,
   FieldWrapper,
   LabelStyled,
+  FieldRadio,
+  FieldRadioLabel,
+  RadioButtonsWrapper,
   TitleInfo,
 } from './AddDrinkTitleInfo.styled';
 import { Field } from 'formik';
@@ -92,16 +95,30 @@ const AddDrinkTitleInfo = () => {
         </FieldSelectStyled>
       </FieldWrapper>
 
-      <div role="cocktailTypeSelect" aria-labelledby="cocktailTypeSelect-group">
-        <LabelStyled>
-          <Field type="radio" name="alcoholicType" value={true} />
-          Alcoholic
-        </LabelStyled>
-        <LabelStyled>
-          <Field type="radio" name="alcoholicType" value={false} />
-          Non-alcoholic
-        </LabelStyled>
-      </div>
+      <RadioButtonsWrapper
+        role="cocktailTypeSelect"
+        aria-labelledby="cocktailTypeSelect-group"
+      >
+        <div>
+          <FieldRadio
+            type="radio"
+            name="alcoholicType"
+            id="radioAlco"
+            value={'Alcoholic'}
+          />
+          <FieldRadioLabel for="radioAlco">Alcoholic</FieldRadioLabel>
+        </div>
+
+        <div>
+          <FieldRadio
+            type="radio"
+            name="alcoholicType"
+            id="radioNonAlco"
+            value={'Non-alcoholic'}
+          />
+          <FieldRadioLabel for="radioNonAlco">Non-alcoholic</FieldRadioLabel>
+        </div>
+      </RadioButtonsWrapper>
     </TitleInfo>
   );
 };
