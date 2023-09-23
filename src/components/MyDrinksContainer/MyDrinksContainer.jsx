@@ -7,7 +7,6 @@ import {
   Text,
   Title,
 } from '../FavoritesContainer/FavoritesContainer.styled';
-import initcards from '../DrinkCard/cards.json';
 import { useState } from 'react';
 import { CardsContainer } from '../DrinkCard/DrinkCard.styled';
 import Pagination from '../Pagination/Pagination';
@@ -15,7 +14,7 @@ import Pagination from '../Pagination/Pagination';
 const ITEMS_PER_PAGE = 9;
 
 const MyDrinksContainer = () => {
-  const [cards, setCards] = useState(initcards);
+  const [cards, setCards] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
 
   const handleDelete = (id) => {
@@ -46,6 +45,9 @@ const MyDrinksContainer = () => {
   const handlePageChange = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {
       setCurrentPage(newPage);
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 100);
     }
   };
 
