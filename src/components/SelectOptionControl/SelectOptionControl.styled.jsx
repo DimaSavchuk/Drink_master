@@ -9,7 +9,13 @@ export const OptionControl = styled.div`
     height:54px;
     background-color: #161F37;
     border-radius: 200px;
+    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
+
+    &:hover,
+    &:focus{
+        border: 1px solid rgba(243, 243, 243);
+    }
 
     @media screen and (max-width: 375px){
         width:100%;
