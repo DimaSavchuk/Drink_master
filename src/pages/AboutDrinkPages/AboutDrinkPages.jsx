@@ -80,6 +80,7 @@ const ingridient = {
 const AboutDrinkPages = () => {
   const { drinkInfo, isLoading, error } = useFetchDrinkId();
   console.log(drinkInfo);
+
   return (
     <Box>
       {error && <div>Error!!!</div>}

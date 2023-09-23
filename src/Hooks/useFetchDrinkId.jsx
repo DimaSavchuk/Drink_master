@@ -7,7 +7,7 @@ export const useFetchDrinkId = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const { id } = useParams();
+  const { drinkId } = useParams();
   // console.log(id);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export const useFetchDrinkId = () => {
       try {
         setIsLoading(true);
 
-        const fetchedDrink = await getDrinkId(id, controller);
+        const fetchedDrink = await getDrinkId(drinkId, controller);
         setDrinkInfo(fetchedDrink);
       } catch (error) {
         setError(error.message);
@@ -26,7 +26,7 @@ export const useFetchDrinkId = () => {
       }
     };
     fetchDataDrink();
-  }, [id]);
+  }, [drinkId]);
 
   return { drinkInfo, isLoading, error };
 };
