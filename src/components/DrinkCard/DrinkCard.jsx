@@ -10,29 +10,29 @@ import {
 } from '../DrinkCard/DrinkCard.styled';
 
 const DrinkCard = ({ cardData, onDelete }) => {
-  const { title, description, type, id, img } = cardData;
+  const { drink, description, alcoholic, _id, drinkThumb } = cardData;
 
   return (
     <StyledCard>
       <picture>
         <img
           style={{ marginBottom: '24px', borderRadius: '8px' }}
-          src={img}
+          src={drinkThumb}
           alt="coctail"
           loading="lazy"
         />
       </picture>
-      <DrinkTitle>{title}</DrinkTitle>
-      <DrinkStat>{type}</DrinkStat>
+      <DrinkTitle>{drink}</DrinkTitle>
+      <DrinkStat>{alcoholic}</DrinkStat>
       <DrinkDesc>{description}</DrinkDesc>
       <DrinkBtnContainer>
-        <SeeMoreLink to={`/drink/${id}`}>See more</SeeMoreLink>
-        <DeleteCardBtn type="button" id={id} onClick={() => onDelete(id)}>
+        <SeeMoreLink to={`/aboutdrink`}>See more</SeeMoreLink>
+        <DeleteCardBtn type="button" id={_id} onClick={() => onDelete(_id)}>
           <FiTrash2 size={24} />
         </DeleteCardBtn>
       </DrinkBtnContainer>
     </StyledCard>
   );
 };
-
+ 
 export default DrinkCard;

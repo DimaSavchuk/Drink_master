@@ -1,24 +1,38 @@
 import { CommonContainer } from '../GlobalStyles/CommonContainer.styled';
 import { Gradient, Section, Title } from './FavoritesContainer.styled';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CardsContainer } from '../DrinkCard/DrinkCard.styled';
 import {
   Container,
   Text,
 } from '../FavoritesContainer/FavoritesContainer.styled';
-import initcards from '../DrinkCard/cards.json';
 import DrinkCard from '../DrinkCard/DrinkCard';
 import Pagination from '../Pagination/Pagination';
+import { deleteDrinkFromFavorite, fetchFavoriteDrinks } from '../../services/axiosConfig';
 
 const ITEMS_PER_PAGE = 9;
 
 const FavoritesContainer = () => {
-  const [cards, setCards] = useState(initcards);
+  const [cards, setCards] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const handleDelete = (id) => {
-    const updatedCards = cards.filter((card) => card.id !== id);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const favoriteDrinks = await fetchFavoriteDrinks();
+       setCards(favoriteDrinks);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+    fetchData();
+  }, []);
+
+  const handleDelete = (_id) => {
+    const updatedCards = cards.filter((card) => card._id !== _id);
     setCards(updatedCards);
+
+    deleteDrinkFromFavorite(_id);
 
     const currentPageBeforeDelete = currentPage;
 
@@ -44,6 +58,9 @@ const FavoritesContainer = () => {
   const handlePageChange = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {
       setCurrentPage(newPage);
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 100);
     }
   };
 
@@ -58,7 +75,7 @@ const FavoritesContainer = () => {
               <CardsContainer>
                 {displayedCards.map((card) => (
                   <DrinkCard
-                    key={card.id}
+                    key={card._id}
                     cardData={card}
                     onDelete={handleDelete}
                   />
