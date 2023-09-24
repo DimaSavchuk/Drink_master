@@ -79,7 +79,7 @@ const ingridient = {
 
 const AboutDrinkPages = () => {
   const { drinkInfo, isLoading, error } = useFetchDrinkId();
-  console.log(drinkInfo);
+  console.log(drinkInfo)
 
   return (
     <Box>
@@ -88,28 +88,28 @@ const AboutDrinkPages = () => {
         <>
           <DivTitle>
             <div>
-              <Title>{response.drink}</Title>
+              <Title>{drinkInfo.drink}</Title>
               <TitleAlcohol>
-                {response.glass} / {response.alcoholic}
+                {drinkInfo.glass} / {drinkInfo.alcoholic}
               </TitleAlcohol>
-              <TitleDescription>{response.description}</TitleDescription>
+              <TitleDescription>{drinkInfo.description}</TitleDescription>
               <ButtonAddFavorite type="button">
                 Add to favorite drinks
               </ButtonAddFavorite>
             </div>
             <TitleImage>
               <img
-                src={response.drinkThumb}
-                alt={response.drink}
+                src={drinkInfo.drinkThumb}
+                alt={drinkInfo.drink}
                 style={{ display: 'block', width: '100%', height: 'auto' }}
               />
             </TitleImage>
           </DivTitle>
           <IngredientsTitle>Ingredients</IngredientsTitle>
-          <IngredientsCards data={response.ingredients} />
+          <IngredientsCards data={drinkInfo.ingredients} />
           <RecipeTitle>Recipe Preparation</RecipeTitle>
           <RecipeDiv>
-            <RecipeInfo>{response.instructionsUK}</RecipeInfo>
+            <RecipeInfo>{drinkInfo.instructionsUK}</RecipeInfo>
             <ImageDiv>
               <Image></Image>
             </ImageDiv>

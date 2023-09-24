@@ -8,7 +8,6 @@ export const useFetchDrinkId = () => {
   const [error, setError] = useState(null);
 
   const { drinkId } = useParams();
-  // console.log(id);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -17,7 +16,8 @@ export const useFetchDrinkId = () => {
         setIsLoading(true);
 
         const fetchedDrink = await getDrinkId(drinkId, controller);
-        setDrinkInfo(fetchedDrink);
+        const { data } = fetchedDrink;
+        setDrinkInfo(data);
       } catch (error) {
         setError(error.message);
       } finally {
