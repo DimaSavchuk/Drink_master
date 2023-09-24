@@ -48,9 +48,9 @@ font-size:14px;
   background-color: #0a0a11;
    scroll-behavior: smooth;
 
-  }
+ }
 
-
+ 
 h1,
 h2,
 h3,
