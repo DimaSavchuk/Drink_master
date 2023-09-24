@@ -28,7 +28,9 @@ overflow: hidden;
 export const InfoDiv = styled.div`
 margin-top: 8px;
 display: flex;
+flex-wrap: wrap;
 justify-content: space-between;
+align-items: center;
 @media (min-width: 768px) {
     margin-top: 14px;   
   }
