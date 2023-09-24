@@ -24,7 +24,6 @@ export const Hero = () => {
           </ContentWrapper>
           {/* <ImgWrapper> */}
           <picture>
-                    
             <img
               style={{ margin: '0 auto' }}
               src="src/assets/hero/asr_blue_iced_tea_mobile 1.png"

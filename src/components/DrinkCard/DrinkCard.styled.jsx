@@ -26,6 +26,10 @@ export const DrinkTitle = styled.h2`
   font-size: 18px;
   font-weight: 500;
   line-height: 1.18;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
   @media (min-width: 768px) {
     font-size: 24px;
   }

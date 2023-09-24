@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
 import {
   Form as FormikForm,
@@ -45,8 +45,7 @@ export const FormField = styled(FormikField)`
   line-height: 1.28;
   border: none;
 
-  transition:
-    color 300ms linear;
+  transition: color 300ms linear;
 
   &::placeholder {
     color: rgba(243, 243, 243, 0.5);
@@ -87,7 +86,7 @@ export const FormFieldDate = styled(Flatpickr)`
   &::placeholder {
     color: rgba(243, 243, 243, 0.5);
   }
-  
+
   @media (min-width: 768px) {
     width: 400px;
   }

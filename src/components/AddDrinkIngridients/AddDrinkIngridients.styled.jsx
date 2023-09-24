@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { Field } from 'formik';
 
 export const TitleWrapper = styled.div`

@@ -14,17 +14,16 @@ const Pagination = ({ currentPage, totalPages, handlePageChange }) => {
       >
         <BsChevronLeft />
       </PaginationButton>
-
-      {Array.from({ length: totalPages }).map((_, index) => (
-        <PaginationNumber
-          active={index + 1 === currentPage}
-          key={index}
-          onClick={() => handlePageChange(index + 1)}
-          disabled={index + 1 === currentPage}
-        >
-          {index + 1}
-        </PaginationNumber>
-      ))}
+        {Array.from({ length: totalPages }).map((_, index) => (
+          <PaginationNumber
+            className={index + 1 === currentPage ? 'active' : ''}
+            key={index}
+            onClick={() => handlePageChange(index + 1)}
+            disabled={index + 1 === currentPage}
+          >
+            {index + 1}
+          </PaginationNumber>
+        ))}
 
       <PaginationButton
         onClick={() => handlePageChange(currentPage + 1)}
