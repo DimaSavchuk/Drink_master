@@ -36,6 +36,23 @@ export const deleteDrinkFromFavorite = async (_id) => {
   }
 };
 
+export const addDrinkToFavorite = async (_id) => {
+  // console.log(_id);
+  try {
+    const response = await axios.post('/drinks/favorite/add', {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+      data: {
+        recipeId: _id,
+      },
+    });
+    return response.data.data;
+  } catch (error) {
+    console.error('Помилка при отриманні даних:', error);
+  }
+};
+
 export const getDrinkId = async (movieId, controller) => {
   const { data } = await axios.get(`/drinks/byid/${movieId}`, {
     signal: controller.signal,
