@@ -1,3 +1,4 @@
+import AddDrinkDropdownMenu from '../AddDrinkSelectMenu/AddDrinkSelectMenu';
 import {
   FieldSelectStyled,
   FieldStyled,
@@ -8,7 +9,6 @@ import {
   RadioButtonsWrapper,
   TitleInfo,
 } from './AddDrinkTitleInfo.styled';
-import { Field } from 'formik';
 
 const AddDrinkTitleInfo = () => {
   const initialList = {
@@ -73,7 +73,11 @@ const AddDrinkTitleInfo = () => {
         <FieldStyled name={'recipe'} placeholder="Enter about recipe" />
       </FieldWrapper>
 
-      <FieldWrapper>
+      <AddDrinkDropdownMenu items={initialList.category} title={'Category'} />
+
+      <AddDrinkDropdownMenu items={initialList.glass} title={'Glass'} />
+
+      {/* <FieldWrapper>
         <LabelStyled htmlFor="category">Category</LabelStyled>
         <FieldSelectStyled as="select" name="category" placeholder="Category">
           {initialList.category.map((name, index) => (
@@ -93,7 +97,7 @@ const AddDrinkTitleInfo = () => {
             </option>
           ))}
         </FieldSelectStyled>
-      </FieldWrapper>
+      </FieldWrapper> */}
 
       <RadioButtonsWrapper
         role="cocktailTypeSelect"
@@ -106,7 +110,7 @@ const AddDrinkTitleInfo = () => {
             id="radioAlco"
             value={'Alcoholic'}
           />
-          <FieldRadioLabel for="radioAlco">Alcoholic</FieldRadioLabel>
+          <FieldRadioLabel htmlFor="radioAlco">Alcoholic</FieldRadioLabel>
         </div>
 
         <div>
@@ -116,7 +120,9 @@ const AddDrinkTitleInfo = () => {
             id="radioNonAlco"
             value={'Non-alcoholic'}
           />
-          <FieldRadioLabel for="radioNonAlco">Non-alcoholic</FieldRadioLabel>
+          <FieldRadioLabel htmlFor="radioNonAlco">
+            Non-alcoholic
+          </FieldRadioLabel>
         </div>
       </RadioButtonsWrapper>
     </TitleInfo>

@@ -56,14 +56,33 @@ export const FieldsWrapper = styled.div`
 
   margin-bottom: 18px;
 
+  select,
+  input {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 18px;
+    padding-right: 36px;
+    margin-right: 8px;
+
+    background: transparent;
+    border: 1px solid #f3f3f380;
+    border-radius: 200px;
+
+    font-size: 14px;
+    line-height: calc(18 / 14);
+    font-weight: 400;
+    color: #f3f3f3;
+
+    &:focus {
+      border: 1px solid #f3f3f3;
+      outline: none;
+    }
+  }
+
   select {
     width: 200px;
     appearance: none;
     cursor: pointer;
-  }
-
-  select:after {
-    color: red;
   }
 
   input {
@@ -84,24 +103,22 @@ export const FieldsWrapper = styled.div`
   }
 `;
 
-export const FieldStyled = styled(Field)`
-  padding-top: 16px;
-  padding-bottom: 16px;
-  padding-left: 18px;
-  padding-right: 18px;
-  margin-right: 8px;
+export const FieldSelect = styled.div`
+  position: relative;
 
-  background: transparent;
-  border: 1px solid #f3f3f380;
-  border-radius: 200px;
+  span {
+    /* content: ''; */
+    display: block;
+    position: absolute;
+    pointer-events: none;
+    top: 16px;
+    right: 24px;
+    color: #fff;
+    /* clip-path: polygon(100% 0%, 0 0%, 50% 100%); */
+  }
 
-  font-size: 14px;
-  line-height: calc(18 / 14);
-  font-weight: 400;
-  color: #f3f3f3;
-
-  &:focus {
-    border: 1px solid #f3f3f3;
-    outline: none;
+  option {
+    background-color: #161f37;
+    color: #f3f3f366;
   }
 `;

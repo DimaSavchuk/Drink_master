@@ -2,11 +2,13 @@ import { Formik, Form, FieldArray, Field } from 'formik';
 import { useState } from 'react';
 import {
   FieldCounter,
-  FieldStyled,
+  FieldSelect,
   FieldsWrapper,
   TitleWrapper,
 } from './AddDrinkIngridients.styled';
 import { TfiClose, TfiPlus, TfiMinus } from 'react-icons/tfi';
+import { FiChevronDown } from 'react-icons/fi';
+import { SelectList } from '../SelectList/SelectList';
 
 const AddDrinkIngridients = () => {
   const ingridientsList = [
@@ -49,16 +51,19 @@ const AddDrinkIngridients = () => {
                     role="ingridientsSelect"
                     aria-labelledby="ingridientsSelect-group"
                   >
-                    <FieldStyled name={`ingridients.${index}.name`} as="select">
-                      {ingridientsList.map(({ name }, index) => (
-                        <option key={index} value={name}>
-                          {name}
-                        </option>
-                      ))}
-                    </FieldStyled>
-                    <FieldStyled name={`ingridients.${index}.volume`}>
-                      {}
-                    </FieldStyled>
+                    <FieldSelect>
+                      <Field name={`ingridients.${index}.name`} as="select">
+                        {ingridientsList.map(({ name }, index) => (
+                          <option key={index} value={name}>
+                            {name}
+                          </option>
+                        ))}
+                      </Field>
+                      <span style={{ color: '#fff' }}>
+                        {<FiChevronDown size={18} />}
+                      </span>
+                    </FieldSelect>
+                    <Field name={`ingridients.${index}.volume`}>{}</Field>
                     <button type="button" onClick={() => remove(index)}>
                       <TfiClose size={18} />
                     </button>

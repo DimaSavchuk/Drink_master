@@ -6,6 +6,11 @@ export const TitleInfo = styled.div`
   flex-direction: column;
 
   margin-bottom: 80px;
+
+  &:focus + label,
+  &:not(:placeholder-shown) + label {
+    transform: translateY(-18px);
+  }
 `;
 
 export const FieldStyled = styled(Field)`
