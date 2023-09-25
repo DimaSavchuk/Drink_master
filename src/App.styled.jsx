@@ -28,6 +28,6 @@ export const AppWrapper = styled.div`
   background-image: url(${bgEllipseLeft}), url(${bgEllipseRight});
   background-repeat: no-repeat;
   background-position:
-    -45vw 10px,
+    -45vw -10px,
     70vw 260px;
 `;

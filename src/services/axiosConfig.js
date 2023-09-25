@@ -4,7 +4,7 @@ import axios from 'axios';
 axios.defaults.baseURL = 'http://localhost:3000/api';
 
 const accessToken =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTA0NWMwNzIzNzU3NTE5NjgxYjYzZSIsImlhdCI6MTY5NTU2NTI1NywiZXhwIjoxNjk1NjM3MjU3fQ.8k9mgYxc-d4q4b5RdWVQyI-GaxBP8cyzlw6nZ97IYDE';
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MGZmYzVhZjhhMWE4NjA3OTNmNjk4ZCIsImlhdCI6MTY5NTU0NjQ5MiwiZXhwIjoxNjk1NjE4NDkyfQ.OgISC0-7XR70ndKat_FS4nPjHabm9DTL12Gwb4wTWek';
 axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
 
 export const fetchFavoriteDrinks = async () => {
@@ -91,4 +91,33 @@ export const ownDrink = async (data) => {
 
   console.log(formData);
   return response.formData;
+};
+
+export const fetchOwnDrinks = async () => {
+  try {
+    const response = await axios.get('/drinks/own', {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    return response.data.data;
+  } catch (error) {
+    console.error('Помилка при отриманні даних:', error);
+  }
+};
+
+export const deleteDrinkFromOwn = async (_id) => {
+  try {
+    const response = await axios.delete('/drinks/own/remove', {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+      data: {
+        recipeId: _id,
+      },
+    });
+    return response.data.data;
+  } catch (error) {
+    console.error('Помилка при отриманні даних:', error);
+  }
 };
