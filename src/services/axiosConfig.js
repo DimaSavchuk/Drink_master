@@ -1,9 +1,10 @@
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://rest-api-drink-master.onrender.com/api';
+axios.defaults.baseURL = 'http://localhost:3000/api';
 
 const accessToken =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MGVkODdkOTk5ZWNkYzg3MjZiNTg2MCIsImlhdCI6MTY5NTQ3MjI0MywiZXhwIjoxNjk1NTQ0MjQzfQ.3sjWchvTwKJ_Ap1k-qZhjZu6oqtqZE2VyI_MNcBNWlk';
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTA0NWMwNzIzNzU3NTE5NjgxYjYzZSIsImlhdCI6MTY5NTU2NTI1NywiZXhwIjoxNjk1NjM3MjU3fQ.8k9mgYxc-d4q4b5RdWVQyI-GaxBP8cyzlw6nZ97IYDE';
 axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
 
 export const fetchFavoriteDrinks = async () => {
@@ -58,4 +59,36 @@ export const getDrinkId = async (movieId, controller) => {
     signal: controller.signal,
   });
   return data;
+};
+
+// export const ownDrink = createAsyncThunk(`/drinks/own/add`, async (data) => {
+//   console.log('ВИКЛИК МЕТОДУ');
+//   try {
+//     const response = await axios.post('/drinks/own/add', {
+//       headers: {
+//         Authorization: `Bearer ${accessToken}`,
+//       },
+//       data: {
+//         data,
+//       },
+//     });
+//     return response.data;
+//   } catch (error) {
+//     console.error('Помилка при відправленні даних:', error);
+//   }
+// });
+
+export const ownDrink = async (data) => {
+  const formData = new FormData();
+  formData.append('file', data.file);
+
+  const response = await axios.post('/drinks/own/add', formData, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+
+  console.log(formData);
+  return response.formData;
 };
