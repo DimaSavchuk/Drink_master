@@ -121,7 +121,7 @@ export const Text = styled.p`
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 10px;
 `;
 
 export const Input = styled.input`
@@ -145,7 +145,7 @@ export const Input = styled.input`
       : props.isValid
       ? 'rgba(60, 188, 129, 0.50)'
       : 'rgba(243, 243, 243, 0.2)'};
-  background-color: #0a0a11;
+  background-color: transparent;
 
   &:focus {
     border-color: ${(props) =>
@@ -154,6 +154,16 @@ export const Input = styled.input`
         : props.isValid
         ? 'rgba(60, 188, 129, 0.50)'
         : 'rgba(243, 243, 243, 0.5)'};
+  }
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #0a0a11 inset;
+    -webkit-text-fill-color: #f3f3f3 !important;
+  }
+
+  &:-moz-autofill {
+    -moz-box-shadow: 0 0 0 30px transparent inset;
+    -moz-text-fill-color: #f3f3f3 !important;
+    outline: none !important;
   }
 
   &::placeholder {
