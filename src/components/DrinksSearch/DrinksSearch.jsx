@@ -12,8 +12,6 @@ export const DrinksSearch = ({ categories, shouldRenderBtn, ingredients }) => {
     const [selectedIngredient, setSelectedIngredient] = useState('');
     const [searchValue, setSearchValue] = useState('');
 
-    useEffect(()=>{console.log(selectedCategory, " ", selectedIngredient)}, [selectedCategory,selectedIngredient])
-
     return (
         <SearchWrapper>
             <Form>

@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 
 export const CardContainer = styled.div`
     width: 100%;
+    max-height: 392px;
 
     @media screen and (min-width: 375px) {
         width:335px;
@@ -10,9 +11,11 @@ export const CardContainer = styled.div`
 
     @media screen and (min-width: 768px) {
         width:342px;
+        max-height: 398px;
     }
     @media screen and (min-width: 1440px) {
         width:400px;
+        max-height: 438px;
     }
 `;
 
@@ -38,13 +41,13 @@ export const CocktailInfo = styled.div`
 `;
 
 export const CocktailName = styled.p`
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     line-height: 1.12;
     color: #f3f3f3;
 
     @media screen and (min-width: 768px) {
-        font-size: 18px;
+        font-size: 17px;
         line-height: 1.33;
     }
 `;
