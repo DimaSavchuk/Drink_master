@@ -10,7 +10,7 @@ export const PagesMenu = () => {
         <StyledNavLink to="/drinks">Drinks</StyledNavLink>
       </li>
       <li>
-        <StyledNavLink to="/alldrinks">All drinks</StyledNavLink>
+        <StyledNavLink to="/alldrinks">Add drinks</StyledNavLink>
       </li>
       <li>
         <StyledNavLink to="/mydrinks">My drinks</StyledNavLink>
@@ -20,6 +20,4 @@ export const PagesMenu = () => {
       </li>
     </List>
   );
-  
 };
-

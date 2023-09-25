@@ -147,8 +147,8 @@ export const Footer = () => {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     placeholder="Enter the email"
-                    isInvalid={isInvalid}
-                    isValid={isValid}
+                    invalid={isInvalid}
+                    valid={isValid}
                   ></Input>
                   {isInvalid ? (
                     <IconWrapper

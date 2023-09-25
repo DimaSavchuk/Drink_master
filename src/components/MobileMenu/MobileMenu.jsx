@@ -7,8 +7,8 @@ import {
   StyledNavLink,
 } from './MobileMenu.styled';
 
-import './TransitionStyles.css';
 import { CSSTransition } from 'react-transition-group';
+import './TransitionStyles.css';
 import { useEffect, useRef } from 'react';
 
 export const MobileMenu = ({ isOpen }) => {
@@ -22,8 +22,8 @@ export const MobileMenu = ({ isOpen }) => {
       timeout={500}
       classNames="menu"
       //   nodeRef={nodeRef}
-      //   unmountOnExit
-      //   mountOnEnter
+      unmountOnExit
+      mountOnEnter
     >
       <div className="wrapper">
         <MobileContainer>

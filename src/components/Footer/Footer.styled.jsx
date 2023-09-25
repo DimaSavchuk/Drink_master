@@ -140,18 +140,18 @@ export const Input = styled.input`
   border-radius: 200px;
   border: 1px solid;
   border-color: ${(props) =>
-    props.isInvalid
+    props.invalid
       ? 'rgba(218, 20, 20, 0.50)'
-      : props.isValid
+      : props.valid
       ? 'rgba(60, 188, 129, 0.50)'
       : 'rgba(243, 243, 243, 0.2)'};
   background-color: transparent;
 
   &:focus {
     border-color: ${(props) =>
-      props.isInvalid
+      props.invalid
         ? 'rgba(218, 20, 20, 0.50)'
-        : props.isValid
+        : props.valid
         ? 'rgba(60, 188, 129, 0.50)'
         : 'rgba(243, 243, 243, 0.5)'};
   }
