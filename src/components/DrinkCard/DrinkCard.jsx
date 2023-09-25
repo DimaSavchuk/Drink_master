@@ -7,6 +7,7 @@ import {
   DrinkBtnContainer,
   SeeMoreLink,
   DeleteCardBtn,
+  DrinkImage,
 } from '../DrinkCard/DrinkCard.styled';
 
 const DrinkCard = ({ cardData, onDelete }) => {
@@ -15,8 +16,7 @@ const DrinkCard = ({ cardData, onDelete }) => {
   return (
     <StyledCard>
       <picture>
-        <img
-          style={{ marginBottom: '24px', borderRadius: '8px' }}
+        <DrinkImage
           src={drinkThumb}
           alt="coctail"
           loading="lazy"
@@ -26,16 +26,13 @@ const DrinkCard = ({ cardData, onDelete }) => {
       <DrinkStat>{alcoholic}</DrinkStat>
       <DrinkDesc>{description}</DrinkDesc>
       <DrinkBtnContainer>
- favorite_drinks4
         <SeeMoreLink to={`/aboutdrink`}>See more</SeeMoreLink>
         <DeleteCardBtn type="button" id={_id} onClick={() => onDelete(_id)}>
-
-
           <FiTrash2 size={24} />
         </DeleteCardBtn>
       </DrinkBtnContainer>
     </StyledCard>
   );
 };
- 
+
 export default DrinkCard;

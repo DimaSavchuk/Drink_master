@@ -1,9 +1,14 @@
 import styled from 'styled-components';
 
 export const Section = styled.section`
-  padding-top: 80px;
-  padding-bottom: 112px;
+  padding: 80px 0;
   background-color: #0a0a11;
+  @media (min-width: 768px) {
+    padding: 140px 0;
+  }
+  @media (min-width: 1440px) {
+    padding-top: 158px;
+  }
 `;
 
 export const Title = styled.h1`
@@ -15,9 +20,11 @@ export const Title = styled.h1`
   line-height: 1.18;
   @media (min-width: 768px) {
     margin-bottom: 60px;
+    font-size: 60px;
   }
   @media (min-width: 1440px) {
     margin-bottom: 62px;
+    font-size: 64px;
   }
 `;
 
