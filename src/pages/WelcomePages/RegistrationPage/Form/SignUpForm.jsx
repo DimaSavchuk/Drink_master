@@ -103,10 +103,11 @@ export const SignUpForm = () => {
       <Formik
         initialValues={{ date: '', name: '', email: '', password: '' }}
         validationSchema={validationSchema}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={(values, {resetForm, setSubmitting }) => {
           setSubmitting(true);
           console.log(values);
           setSubmitting(false);
+          resetForm();
         }}
       >
         {({ isSubmitting, errors, touched }) => (

@@ -23,7 +23,7 @@ export const DatePickerInput = ({ errors, touched, placeholderText }) => {
 
   useEffect(() => {
     flatpickr('#date', {
-      altInput: true,
+      // altInput: true,
       altFormat: 'd/m/Y',
       dateFormat: 'd/m/Y',
       minDate: '01-01-1930',
