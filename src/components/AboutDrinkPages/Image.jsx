@@ -11,21 +11,21 @@ const Image = () => {
         <picture>
             <source
                 media="(min-width: 1440px)"
-                srcset={`${fotoPc} 1x, ${fotoPcX}`}
+                srcSet={`${fotoPc} 1x, ${fotoPcX}`}
                 type="image/jpeg"
             />
 
             <source
                 media="(min-width: 768px)"
-                srcset={`${fotoTablet} 1x, ${fotoTabletX} 2x`}
+                srcSet={`${fotoTablet} 1x, ${fotoTabletX} 2x`}
                 type="image/jpeg"
             />
 
             <img
-                srcset={fotoX}
+                srcSet={fotoX}
                 src={foto}
                 alt="picture"
-
+                loading="lazy"
             />
         </picture>
 

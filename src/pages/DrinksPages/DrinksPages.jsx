@@ -18,6 +18,7 @@ const DrinksPages = () => {
   const [cocktails, setCocktails] = useState(receipes);
   const [currentPage, setCurrentPage] = useState(page);
   const [limit, setLimit] = useState(10);
+  const [shouldRenderButtonSearch, setShouldRenderButtonSearch] = useState(false);
   const [pageRangeDisplayed, setPageRangeDisplayed] = useState(3);
 
   const pagesVisited = currentPage * limit;
@@ -25,21 +26,30 @@ const DrinksPages = () => {
   const updLimit = () => {
       if (window.innerWidth >= 1440) {
         setLimit(9);
+        setShouldRenderButtonSearch(true)
         setPageRangeDisplayed(6);
-      } else {
+      } else if (window.innerWidth >= 768) {
+        setShouldRenderButtonSearch(true)
+      }else {
         setLimit(10);
         setPageRangeDisplayed(3);
+        setShouldRenderButtonSearch(false)
       }
   };
 
   useEffect(() => {
       updLimit();
-      window.addEventListener('resize', updLimit);
+    window.addEventListener('resize', updLimit);
+    
+    window.scrollTo({
+      top: 0, 
+      behavior: 'smooth', 
+    });
 
       return () => {
           window.removeEventListener('resize', updLimit);
       };
-  }, []);
+  }, [])
 
   if(page>cocktails.length/limit) return <p>Error</p>
 
@@ -62,7 +72,7 @@ const DrinksPages = () => {
     <DrinksSection>
       <CommonContainer>
         <PageTitle>Drinks</PageTitle>
-        <DrinksSearch categories={categories} />
+        <DrinksSearch categories={categories} shouldRenderBtn={ shouldRenderButtonSearch} />
         <CocktailsList>
         {displayCocktails}
     </CocktailsList>
@@ -73,7 +83,6 @@ const DrinksPages = () => {
           handlePageChange={handlePageChange}
           pageRangeDisplayed={pageRangeDisplayed}
         />
-        
       </CommonContainer>
     </DrinksSection>
     

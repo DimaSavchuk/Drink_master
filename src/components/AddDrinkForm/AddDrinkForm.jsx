@@ -11,7 +11,7 @@ const initialValues = {
   recipe: '',
   category: '',
   glass: '',
-  alcoholicType: false,
+  alcoholicType: 'Non-alcoholic',
   ingridients: [],
 };
 
@@ -29,21 +29,26 @@ const AddDrinkForm = () => {
       validationSchema={validationSchema}
       onSubmit={onSubmitForm}
     >
-      <Form>
-        <AddDrinkTitleInfo />
-        <AddDrinkIngridients />
+      {(formikProps) => {
+        console.log(formikProps);
+        return (
+          <Form>
+            <AddDrinkTitleInfo />
+            <AddDrinkIngridients />
 
-        <div>
-          <h3>Recipe Preparation</h3>
-          <Field
-            name="drinkRecipePreparation"
-            placeholder="Enter the recipe"
-            as="textarea"
-          />
-        </div>
+            <div>
+              <h3>Recipe Preparation</h3>
+              <Field
+                name="drinkRecipePreparation"
+                placeholder="Enter the recipe"
+                as="textarea"
+              />
+            </div>
 
-        <button type="submit">Add</button>
-      </Form>
+            <button type="submit">Add</button>
+          </Form>
+        );
+      }}
     </Formik>
   );
 };

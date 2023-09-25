@@ -18,6 +18,7 @@ const IngredientsCards = ({ data }) => {
                         <img
                             src={src ? src : 'http://res.cloudinary.com/dec1shvoo/image/upload/v1689169611/cocktails-v1/ingredient/Strawberries-Small.png'}
                             alt={title}
+                            loading="lazy"
                             style={{ display: 'block', width: '100%', height: 'auto' }} />
                     </IngredientFoto>
                     <InfoDiv>

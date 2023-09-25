@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-// import 'modern-normalize';
+import 'modern-normalize';
 
 export const GlobalStyle = createGlobalStyle`
 @font-face {
@@ -46,10 +46,11 @@ font-size:14px;
   width: 100%;
   height: 100vh;
   background-color: #0a0a11;
+   scroll-behavior: smooth;
 
-  }
+ }
 
-
+ 
 h1,
 h2,
 h3,

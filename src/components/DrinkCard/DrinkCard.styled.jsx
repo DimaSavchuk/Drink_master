@@ -1,8 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const CardsContainer = styled.div`
-margin-bottom: 40px;
+export const CardsContainer = styled.ul`
+  margin-bottom: 40px;
   display: grid;
   grid-row-gap: 40px;
   @media (min-width: 768px) {
@@ -19,6 +19,14 @@ export const Card = styled.div`
   /* flex: 1; */
 `;
 
+export const DrinkImage = styled.img`
+  margin-bottom: 18px;
+  border-radius: 8px;
+  @media (min-width: 768px) {
+    margin-bottom: 24px;
+  }
+ `;
+
 export const DrinkTitle = styled.h2`
   margin-bottom: 4px;
 
@@ -26,6 +34,10 @@ export const DrinkTitle = styled.h2`
   font-size: 18px;
   font-weight: 500;
   line-height: 1.18;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
   @media (min-width: 768px) {
     font-size: 24px;
   }
@@ -68,6 +80,7 @@ export const DrinkDesc = styled.p`
 
 export const DrinkBtnContainer = styled.div`
   display: flex;
+  justify-content:;
 `;
 
 export const SeeMoreLink = styled(NavLink)`

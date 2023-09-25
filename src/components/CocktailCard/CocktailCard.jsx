@@ -7,7 +7,7 @@ export const CocktailCard = ({ data }) => {
             <Image src={imgLink} alt={`${cocktailName} photo`} />
             <CocktailInfo>
                 <CocktailName>{cocktailName}</CocktailName>
-                <StyledCocktailLink to={`/drink/${id}`}>See more</StyledCocktailLink>
+                <StyledCocktailLink to={`/drinks/${id}`}>See more</StyledCocktailLink>
             </CocktailInfo>
         </CardContainer>
     );
