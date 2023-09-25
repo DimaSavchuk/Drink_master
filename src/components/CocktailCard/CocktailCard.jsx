@@ -1,7 +1,7 @@
 import { CardContainer, CocktailInfo, CocktailName, Image, StyledCocktailLink } from "./Cocktail.styled";
 
 export const CocktailCard = ({ data }) => {
-    const { id, drink: cocktailName, drinkThumb: imgLink } = data;
+    const { _id:id, drink: cocktailName, drinkThumb: imgLink } = data;
     return (
         <CardContainer>
             <Image src={imgLink} alt={`${cocktailName} photo`} />
