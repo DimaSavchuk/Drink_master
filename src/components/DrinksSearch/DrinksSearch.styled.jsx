@@ -1,27 +1,38 @@
 import styled from 'styled-components';
 
-export const Select = styled.select`
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
+export const SearchWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 40px;
 
-    padding: 18px 24px;
 
-    font-family: inherit;
-    font-size: 17px;
-    line-height: 1.56; 
-    color: #F3F3F3;
+    @media screen and (min-width: 768px) {
+        margin-top: 46px;
+        flex-direction: row;
+        gap: 8px;
+    }
 
-    background-color: #161F37;
-    border-radius: 200px;
-    border: none;
-
-    cursor: pointer;
+    @media screen and (min-width: 1440px) {
+       margin-top: 80px;
+    }
 `;
 
 export const Form = styled.form`
-    margin-top: 80px;
+    position: relative;
+    display: inline-block
 `; 
+
+export const Button = styled.button`
+    position: absolute;
+    background-color: transparent;
+    border:none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom:18px;
+    right:24px;
+`;
 
 export const Input = styled.input`
     padding:0 24px;
@@ -35,7 +46,12 @@ export const Input = styled.input`
     font-size: 17px;
     line-height: 1.56;
     color: #f3f3f3;
+    outline: none;
     transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    @media screen and (max-width: 375px){
+        width:100%;
+    }
 
     @media screen and (min-width: 768px) {
         width: 264px;
@@ -51,4 +67,9 @@ export const Input = styled.input`
     &:active{
         border: 1px solid rgba(243, 243, 243);
     }
+`;
+
+export const SearchIconWrap = styled.svg`
+    width: 20px;
+    height: 20px;
 `;

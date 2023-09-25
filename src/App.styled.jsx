@@ -1,10 +1,14 @@
-import styled from '@emotion/styled';
-import example from './assets/example.png';
+import styled from 'styled-components';
+
+import ellipseLeftFooter from './assets/footer/ellipseleft-footer.png';
+import ellipseRightFooter from './assets/footer/ellipseright-footer.png';
+
+import bgEllipseLeft from './assets/bg/bg-ellipse-left.png';
+import bgEllipseRight from './assets/bg/br-ellipse-right.png';
 
 export const AppWrapper = styled.div`
   width: 100%;
-  background-image: url('src/assets/footer/ellipseleft-footer.png'),
-    url('src/assets/footer/ellipseright-footer.png');
+  /* background-image: url(${ellipseLeftFooter}), url(${ellipseRightFooter});
   background-repeat: no-repeat;
   background-position:
     80% 420%,
@@ -19,5 +23,11 @@ export const AppWrapper = styled.div`
     background-position:
       25% 4000%,
       100% -1350%;
-  }
+  } */
+
+  background-image: url(${bgEllipseLeft}), url(${bgEllipseRight});
+  background-repeat: no-repeat;
+  background-position:
+    -45vw -10px,
+    70vw 260px;
 `;

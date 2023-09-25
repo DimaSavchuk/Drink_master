@@ -78,7 +78,11 @@ export const Footer = () => {
                       target="_blank"
                       href="https://www.facebook.com/goITclub/"
                     >
-                      <IconWrapper size={'22px'} size768={'28px'}>
+                      <IconWrapper
+                        size={'22px'}
+                        size768={'28px'}
+                        fill={'#f3f3f3'}
+                      >
                         <use href={`${sprite}#icon-facebook`} />
                       </IconWrapper>
                     </SocialLink>
@@ -88,7 +92,11 @@ export const Footer = () => {
                       target="_blank"
                       href="https://www.instagram.com/goitclub/"
                     >
-                      <IconWrapper size={'22px'} size768={'28px'}>
+                      <IconWrapper
+                        size={'22px'}
+                        size768={'28px'}
+                        fill={'#f3f3f3'}
+                      >
                         <use href={`${sprite}#icon-instagram`} />
                       </IconWrapper>
                     </SocialLink>
@@ -98,7 +106,11 @@ export const Footer = () => {
                       target="_blank"
                       href="https://www.youtube.com/c/GoIT"
                     >
-                      <IconWrapper size={'22px'} size768={'28px'}>
+                      <IconWrapper
+                        size={'22px'}
+                        size768={'28px'}
+                        fill={'#f3f3f3'}
+                      >
                         <use href={`${sprite}#icon-youtube`} />
                       </IconWrapper>
                     </SocialLink>
@@ -135,13 +147,8 @@ export const Footer = () => {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     placeholder="Enter the email"
-                    style={{
-                      borderColor: isInvalid
-                        ? '#DA1414'
-                        : isValid
-                        ? '#3CBC81'
-                        : 'rgba(243, 243, 243, 0.2)',
-                    }}
+                    isInvalid={isInvalid}
+                    isValid={isValid}
                   ></Input>
                   {isInvalid ? (
                     <IconWrapper
