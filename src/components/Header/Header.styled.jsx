@@ -3,6 +3,9 @@ import styled from 'styled-components';
 
 export const HeaderStyled = styled.header`
   border-bottom: 1px solid rgba(243, 243, 243, 0.2);
+  position: absolute;
+  z-index: 100;
+  width: 100%;
 `;
 export const HeaderContainer = styled.div`
   padding: 20px;
@@ -12,7 +15,6 @@ export const HeaderContainer = styled.div`
     max-width: 768px;
     padding: 20px 32px;
   }
-  
 
   @media (min-width: 1440px) {
     max-width: 1440px;
@@ -81,8 +83,10 @@ export const IconWrapper = styled.svg`
   fill: ${(props) => props.color || '#ffffff'};
   margin-right: ${(props) => props.marginRight || '0'};
   margin-left: ${(props) => props.marginLeft || '0'};
+  /* opacity: ${({ visible }) => (visible ? '1' : '0')}; */
 
   display: inline-block;
+  transition: opacity 500 linear;
 
   @media (min-width: 768px) {
     width: ${(props) => props.size768 || '20px'};
