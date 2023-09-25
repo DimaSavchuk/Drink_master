@@ -31,10 +31,10 @@ const AddDrinkDropdownMenu = ({ items, title }) => {
     <SelectWrapper>
       <CustomSelect type="button" onClick={toggleMenu}>
         <Label>{title}</Label>
-        <span>
-          {selectedValue ? selectedValue : items[0]}
+        <div style={{ display: 'flex' }}>
+          <span>{selectedValue ? selectedValue : items[0]}</span>
           <SelectOpenArrow isOpen={isOpen} />
-        </span>
+        </div>
       </CustomSelect>
       {isOpen && (
         <DropMenu>
