@@ -147,8 +147,8 @@ export const Footer = () => {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     placeholder="Enter the email"
-                    isInvalid={isInvalid}
-                    isValid={isValid}
+                    invalid={isInvalid}
+                    valid={isValid}
                   ></Input>
                   {isInvalid ? (
                     <IconWrapper
@@ -184,7 +184,11 @@ export const Footer = () => {
                   >
                     This is an CORRECT email
                   </ErrorMessage>
-                ) : null}
+                ) : (
+                  <ErrorMessage style={{ opacity: 0 }}>
+                    This is an CORRECT email
+                  </ErrorMessage>
+                )}
                 <Button type="submit" disabled={isDisable}>
                   Subscribe
                 </Button>

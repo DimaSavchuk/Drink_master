@@ -27,6 +27,13 @@
   z-index: 2;
   background-color: #0a0a11;
   overflow: hidden;
+
+  background-image: url('../../assets/mobile-menu/ellipse-mobile-blue.png'),
+    url('../../assets/mobile-menu/ellipse-mobile-yellow.png');
+  background-position:
+    100% 60%,
+    60% -84px;
+  background-repeat: no-repeat;
 }
 
 .menu-enter {
