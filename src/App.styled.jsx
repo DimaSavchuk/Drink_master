@@ -51,4 +51,5 @@ export const AppWrapper = styled.div`
     -45vw -10px,
     70vw 260px; 
 
-`; */
+; */
+`
