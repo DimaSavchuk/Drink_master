@@ -26,8 +26,8 @@ export const Hero = () => {
           <picture>
             <img
               style={({ margin: '0 auto' }, { width: 360 })}
-              src=".src/assets/hero/asr_blue_iced_tea_mobile 1.png"
-              srcSet=".src/assets/hero/asr_blue_iced_tea_mobile 1.png 1x,src/assets/hero/asr_blue_iced_tea_mobile@2x.png 2x"
+              src="./src/assets/hero/asr_blue_iced_tea_mobile 1.png"
+              srcSet="./src/assets/hero/asr_blue_iced_tea_mobile 1.png 1x, ./src/assets/hero/asr_blue_iced_tea_mobile@2x.png 2x"
               alt="coctail"
               loading="lazy"
             />

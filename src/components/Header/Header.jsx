@@ -11,11 +11,9 @@ import sprite from '../../assets/sprite.svg';
 import { PagesMenu } from './PagesMenu/PagesMenu';
 import { UserLogo } from './UserLogo/UserLogo';
 import { MobileMenu } from '../MobileMenu/MobileMenu';
-import { useState } from 'react';
 import { useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import '../MobileMenu/TransitionStyles.css';
-
 
 //drop down
 import { DropDown } from '../Modals/DropDown/DropDown';
@@ -47,8 +45,7 @@ export const Header = () => {
       document.body.style.overflow = 'auto';
     }
   }, [isOpen]);
-  
-  
+
   //drop down
   const [isEditProfileDropDownOpen, setIsEditProfileDropDownOpen] =
     useState(false);
@@ -120,14 +117,13 @@ export const Header = () => {
           <Navigation>
             <StyledLink to="/">
               <IconWrapper size={'22px'} size768={'28px'} size1440={'28px'}>
-                <use href={`${sprite}#icon-logo`} />                
+                <use href={`${sprite}#icon-logo`} />
               </IconWrapper>
               Drink Master
             </StyledLink>
             <PagesMenu />
             <div>
-            
-            <UserLogo onClick={openDropDown} />
+              <UserLogo onClick={openDropDown} />
               {isEditProfileDropDownOpen && (
                 <DropDown
                   handleOpenUserInfoModal={openUserInfoModal}
@@ -150,8 +146,8 @@ export const Header = () => {
                   handleKeyDown={handleKeyDown}
                 />
               )}
-            
-              {isAuthVisible ? <UserLogo /> : null}
+
+              {/* {isAuthVisible ? <UserLogo /> : null} */}
               <Button onClick={handleToggleMenu}>
                 {/* {isOpen ? (
                   <IconWrapper
