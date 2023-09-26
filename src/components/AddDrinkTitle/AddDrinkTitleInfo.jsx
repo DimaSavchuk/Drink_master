@@ -1,5 +1,14 @@
-import { TitleInfo } from './AddDrinkTitleInfo.styled';
-import { Field } from 'formik';
+import AddDrinkDropdownMenu from '../AddDrinkSelectMenu';
+import {
+  // FieldSelectStyled,
+  FieldStyled,
+  FieldWrapper,
+  LabelStyled,
+  FieldRadio,
+  FieldRadioLabel,
+  RadioButtonsWrapper,
+  TitleInfo,
+} from './AddDrinkTitleInfo.styled';
 
 const AddDrinkTitleInfo = () => {
   const initialList = {
@@ -54,40 +63,68 @@ const AddDrinkTitleInfo = () => {
 
   return (
     <TitleInfo>
-      <label htmlFor="title">Enter item title</label>
-      <Field name={'title'} placeholder="Enter item title" />
+      <FieldWrapper>
+        <LabelStyled htmlFor="title">Enter item title</LabelStyled>
+        <FieldStyled name={'title'} placeholder="Enter item title" />
+      </FieldWrapper>
 
-      <label htmlFor="recipe">Enter about recipe</label>
-      <Field name={'recipe'} placeholder="Enter about recipe" />
+      <FieldWrapper>
+        <LabelStyled htmlFor="recipe">Enter about recipe</LabelStyled>
+        <FieldStyled name={'recipe'} placeholder="Enter about recipe" />
+      </FieldWrapper>
 
-      <label htmlFor="category">Category</label>
-      <Field as="select" name="category" placeholder="Category">
-        {initialList.category.map((name, index) => (
-          <option key={index} value={name}>
-            {name}
-          </option>
-        ))}
-      </Field>
+      <AddDrinkDropdownMenu items={initialList.category} title={'Category'} />
 
-      <label htmlFor="glass">Glass</label>
-      <Field as="select" name="glass" placeholder="Glass">
-        {initialList.glass.map((name, index) => (
-          <option key={index} value={name}>
-            {name}
-          </option>
-        ))}
-      </Field>
+      <AddDrinkDropdownMenu items={initialList.glass} title={'Glass'} />
 
-      <div role="cocktailTypeSelect" aria-labelledby="cocktailTypeSelect-group">
-        <label>
-          <Field type="radio" name="alcoholicType" value={true} />
-          Alcoholic
-        </label>
-        <label>
-          <Field type="radio" name="alcoholicType" value={false} />
-          Non-alcoholic
-        </label>
-      </div>
+      {/* <FieldWrapper>
+        <LabelStyled htmlFor="category">Category</LabelStyled>
+        <FieldSelectStyled as="select" name="category" placeholder="Category">
+          {initialList.category.map((name, index) => (
+            <option key={index} value={name}>
+              {name}
+            </option>
+          ))}
+        </FieldSelectStyled>
+      </FieldWrapper>
+
+      <FieldWrapper>
+        <LabelStyled htmlFor="glass">Glass</LabelStyled>
+        <FieldSelectStyled as="select" name="glass" placeholder="Glass">
+          {initialList.glass.map((name, index) => (
+            <option key={index} value={name}>
+              {name}
+            </option>
+          ))}
+        </FieldSelectStyled>
+      </FieldWrapper> */}
+
+      <RadioButtonsWrapper
+        role="cocktailTypeSelect"
+        aria-labelledby="cocktailTypeSelect-group"
+      >
+        <div>
+          <FieldRadio
+            type="radio"
+            name="alcoholicType"
+            id="radioAlco"
+            value={'Alcoholic'}
+          />
+          <FieldRadioLabel htmlFor="radioAlco">Alcoholic</FieldRadioLabel>
+        </div>
+
+        <div>
+          <FieldRadio
+            type="radio"
+            name="alcoholicType"
+            id="radioNonAlco"
+            value={'Non-alcoholic'}
+          />
+          <FieldRadioLabel htmlFor="radioNonAlco">
+            Non-alcoholic
+          </FieldRadioLabel>
+        </div>
+      </RadioButtonsWrapper>
     </TitleInfo>
   );
 };

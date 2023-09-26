@@ -2,16 +2,16 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const HeroSection = styled.section`
-  padding-top: 80px;
+  padding-top: 152px;
   padding-bottom: 112px;
 
   @media (min-width: 768px) {
-    padding-top: 120px;
+    padding-top: 204px;
     padding-bottom: 120px;
   }
 
   @media (min-width: 1440px) {
-    padding-top: 128px;
+    padding-top: 269px;
     padding-bottom: 160px;
   }
 `;
@@ -92,9 +92,9 @@ export const AddDrinkLink = styled(Link)`
   }
 `;
 
-export const ImgWrapper = styled.div`
-  margin: 0 auto;
-`;
+// export const ImgWrapper = styled.div`
+//   margin: 0 auto;
+// `;
 
 export const Wrapper = styled.div`
   @media (min-width: 1440px) {

@@ -1,25 +1,24 @@
+import { ROUTES } from '../../../Routes/Routes';
 import { List, StyledNavLink } from './PagesMenu.styled';
 
 export const PagesMenu = () => {
   return (
     <List>
       <li>
-        <StyledNavLink to="/">Home</StyledNavLink>
+        <StyledNavLink to={ROUTES.HOME}>Home</StyledNavLink>
       </li>
       <li>
-        <StyledNavLink to="/drinks">Drinks</StyledNavLink>
+        <StyledNavLink to={ROUTES.DRINKS}>Drinks</StyledNavLink>
       </li>
       <li>
-        <StyledNavLink to="/alldrinks">All drinks</StyledNavLink>
+        <StyledNavLink to={ROUTES.ADDDRINK}>Add drinks</StyledNavLink>
       </li>
       <li>
-        <StyledNavLink to="/mydrinks">My drinks</StyledNavLink>
+        <StyledNavLink to={ROUTES.MYDRINKS}>My drinks</StyledNavLink>
       </li>
       <li>
-        <StyledNavLink to="/favorites">Favorites </StyledNavLink>
+        <StyledNavLink to={ROUTES.FAVORITE}>Favorites </StyledNavLink>
       </li>
     </List>
   );
-  
 };
-

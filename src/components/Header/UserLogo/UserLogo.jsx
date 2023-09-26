@@ -5,7 +5,7 @@ export const UserLogo = ({ onClick }) => {
   return (
     <Button onClick={onClick}>
       <UserLogoWrapper>
-        <UserLogoImg src="src/assets/userlogo@2x.png" />
+        <UserLogoImg src="./src/assets/userlogo@2x.png" />
       </UserLogoWrapper>
       Victoria
     </Button>

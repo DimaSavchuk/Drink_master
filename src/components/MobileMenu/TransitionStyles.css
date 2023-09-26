@@ -1,0 +1,71 @@
+/* .menu-enter {
+  opacity: 0;
+}
+
+.menu-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.menu-exit {
+  opacity: 1;
+}
+
+.menu-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
+} */
+
+/* .wrapper {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  background-color: #0a0a11;
+  overflow: hidden;
+
+  background-image: url('../../assets/mobile-menu/ellipse-mobile-blue.png'),
+    url('../../assets/mobile-menu/ellipse-mobile-yellow.png');
+  background-position:
+    100% 60%,
+    60% -84px;
+  background-repeat: no-repeat;
+} */
+
+.menu-enter {
+  opacity: 0;
+  transform: translateY(-91%);
+  /* transform: scale(0.9); */
+}
+.menu-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 400ms,
+    transform 600ms;
+}
+.menu-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+.menu-exit-active {
+  opacity: 0;
+  transform: translateY(-91%);
+
+  /* transform: scale(0.9); */
+  transition:
+    opacity 400ms,
+    transform 600ms;
+}
+
+.icon-wrapper {
+  transition: transform 0.5s ease;
+}
+
+.icon-wrapper.active {
+  transform: scale(1.2);
+}

@@ -2,87 +2,116 @@ import { CommonContainer } from '../GlobalStyles/CommonContainer.styled';
 import DrinkCard from '../DrinkCard/DrinkCard';
 import {
   Container,
-  Gradient,
   Section,
   Text,
   Title,
 } from '../FavoritesContainer/FavoritesContainer.styled';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CardsContainer } from '../DrinkCard/DrinkCard.styled';
-import Pagination from '../Pagination/Pagination';
-
-const ITEMS_PER_PAGE = 9;
+import { deleteDrinkFromOwn, fetchOwnDrinks } from '../../services/axiosConfig';
+import { useSearchParams } from 'react-router-dom';
+import { Loader } from '../Loader/Loader';
+import { Paginator } from '../Paginator/Paginator';
 
 const MyDrinksContainer = () => {
   const [cards, setCards] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [isloading, setIsloading] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const page = searchParams.get('page')
+    ? Number(searchParams.get('page')) - 1
+    : 0;
+  const [currentPage, setCurrentPage] = useState(page);
+  const [limit, setLimit] = useState(null);
+  useState(false);
+  const [pageRangeDisplayed, setPageRangeDisplayed] = useState(3);
 
-  const handleDelete = (id) => {
-    const updatedCards = cards.filter((card) => card.id !== id);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsloading(true);
+        const ownDrinks = await fetchOwnDrinks();
+        setCards(ownDrinks);
+        setIsloading(false);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+    fetchData();
+  }, []);
+
+  const pagesVisited = currentPage * limit;
+
+  const updLimit = () => {
+    if (window.innerWidth >= 1440) {
+      setLimit(9);
+      setPageRangeDisplayed(6);
+    } else if (window.innerWidth >= 768) {
+      setLimit(8);
+    } else {
+      setLimit(8);
+      setPageRangeDisplayed(3);
+    }
+  };
+
+  useEffect(() => {
+    updLimit();
+    window.addEventListener('resize', updLimit);
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+
+    return () => {
+      window.removeEventListener('resize', updLimit);
+    };
+  }, []);
+
+  const handlePageChange = (page) => {
+    setSearchParams({ page: page + 1 });
+    setCurrentPage(page);
+  };
+
+  const handleDelete = (_id) => {
+    const updatedCards = cards.filter((card) => card._id !== _id);
     setCards(updatedCards);
 
-    const currentPageBeforeDelete = currentPage;
-
-    if (isCurrentPageEmpty(updatedCards, currentPageBeforeDelete)) {
-      setCurrentPage(currentPageBeforeDelete - 1);
-    }
+    deleteDrinkFromOwn(_id);
   };
 
-  const isCurrentPageEmpty = (updatedCards, currentPage) => {
-    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-    const endIndex = startIndex + ITEMS_PER_PAGE;
-    const displayedCards = updatedCards.slice(startIndex, endIndex);
-    return displayedCards.length === 0;
-  };
-
-  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const endIndex = startIndex + ITEMS_PER_PAGE;
-
-  const displayedCards = cards.slice(startIndex, endIndex);
-
-  const totalPages = Math.ceil(cards.length / ITEMS_PER_PAGE);
-
-  const handlePageChange = (newPage) => {
-    if (newPage >= 1 && newPage <= totalPages) {
-      setCurrentPage(newPage);
-      setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }, 100);
-    }
-  };
+  const displayedCards = cards
+    .slice(pagesVisited, pagesVisited + limit)
+    .map((card) => (
+      <li key={card._id}>
+        <DrinkCard cardData={card} onDelete={handleDelete} />
+      </li>
+    ));
 
   return (
     <Section>
-      <Gradient />
       <CommonContainer>
         <div>
           <Title>My drinks</Title>
-          {displayedCards.length > 0 ? (
+          {isloading ? (
+            <Loader />
+          ) : cards.length > 0 ? (
             <>
-              <CardsContainer>
-                {displayedCards.map((card) => (
-                  <DrinkCard
-                    key={card.id}
-                    cardData={card}
-                    onDelete={handleDelete}
-                  />
-                ))}
-              </CardsContainer>
-              {totalPages > 1 && (
-                <Pagination
-                  currentPage={currentPage}
-                  totalPages={totalPages}
-                  handlePageChange={handlePageChange}
-                />
-              )}
+              <CardsContainer>{displayedCards}</CardsContainer>
+              <Paginator
+                limit={limit}
+                currentPage={currentPage}
+                itemsLength={cards.length}
+                handlePageChange={handlePageChange}
+                pageRangeDisplayed={pageRangeDisplayed}
+              />
             </>
           ) : (
             <div>
               <picture>
                 <img
                   style={{ margin: '0 auto' }}
-                  src="src/assets/hero/asr_blue_iced_tea_mobile 1.png"
-                  srcSet="src/assets/hero/asr_blue_iced_tea_mobile 1.png 1x,src/assets/hero/asr_blue_iced_tea_mobile@2x.png 2x"
+                  src="./src/assets/hero/asr_blue_iced_tea_mobile 1.png"
+                  srcSet="./src/assets/hero/asr_blue_iced_tea_mobile 1.png 1x, ./src/assets/hero/asr_blue_iced_tea_mobile@2x.png 2x"
                   alt="coctail"
                   loading="lazy"
                 />

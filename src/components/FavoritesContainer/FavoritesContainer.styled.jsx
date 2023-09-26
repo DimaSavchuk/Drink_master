@@ -1,9 +1,13 @@
 import styled from 'styled-components';
 
 export const Section = styled.section`
-  padding-top: 80px;
-  padding-bottom: 112px;
-  background-color: #0a0a11;
+  padding: 150px 0;
+  @media (min-width: 768px) {
+    padding: 140px 0;
+  }
+  @media (min-width: 1440px) {
+    padding-top: 158px;
+  }
 `;
 
 export const Title = styled.h1`
@@ -15,9 +19,11 @@ export const Title = styled.h1`
   line-height: 1.18;
   @media (min-width: 768px) {
     margin-bottom: 60px;
+    font-size: 60px;
   }
   @media (min-width: 1440px) {
     margin-bottom: 62px;
+    font-size: 64px;
   }
 `;
 
@@ -42,14 +48,14 @@ export const ImgWrapper = styled.div`
   margin: 0 auto;
 `;
 
-export const Gradient = styled.div`
-  position: absolute;
-  transform: translate(-80%, -60%);
-  width: 520px;
-  height: 550px;
-  flex-shrink: 0;
+// export const Gradient = styled.div`
+//   position: absolute;
+//   transform: translate(-80%, -60%);
+//   width: 520px;
+//   height: 550px;
+//   flex-shrink: 0;
 
-  border-radius: 550px;
-  background: rgba(64, 112, 205, 0.5);
-  filter: blur(104.8543701171875px);
-`;
+//   border-radius: 550px;
+//   background: rgba(64, 112, 205, 0.5);
+//   filter: blur(104.8543701171875px);
+// `;

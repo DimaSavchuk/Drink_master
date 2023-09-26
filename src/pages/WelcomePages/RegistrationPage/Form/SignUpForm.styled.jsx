@@ -1,21 +1,75 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
 import {
   Form as FormikForm,
   Field as FormikField,
   ErrorMessage as FormikError,
 } from 'formik';
-import Flatpickr from 'react-flatpickr';
-import 'flatpickr/dist/themes/dark.css';
-import './flatpikr.css';
+
 import { CiCalendar } from 'react-icons/ci';
 
+import {
+  AiOutlineExclamationCircle,
+  AiOutlineCheckCircle,
+} from 'react-icons/ai';
+import { FiEye, FiEyeOff } from 'react-icons/fi';
+
+export const Eye = styled(FiEye)`
+  stroke: white;
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+`;
+export const EyeOff = styled(FiEyeOff)`
+  stroke: white;
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+`;
+
+export const DatePickerContainer = styled.div`
+  input {
+    display: block;
+    
+  }
+
+  .success {
+    outline: 1px solid green;
+  }
+
+  .fail {
+    outline: 1px solid red;
+  }
+
+  .unfilled {
+    outline: 1px solid gray;
+  }
+`;
+
+export const Checked = styled(AiOutlineCheckCircle)`
+  fill: #3cbc81;
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+`;
+export const Exclamation = styled(AiOutlineExclamationCircle)`
+  fill: #da1414;
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+`;
 export const Form = styled(FormikForm)`
   display: flex;
   flex-direction: column;
   gap: 14px;
-  margin-bottom: 14px;
   width: 335px;
+  margin-bottom: 14px;
 
   @media (min-width: 768px) {
     width: 400px;
@@ -34,32 +88,24 @@ export const LastLabel = styled(Label)`
     margin-bottom: 40px;
   }
 `;
-
+export const FieldWrapper = styled.div`
+  position: relative;
+`;
 export const FormField = styled(FormikField)`
+border: none;
+  width: 100%;
   padding: 18px 24px;
-  outline: 1px solid rgba(243, 243, 243, 0.2);
+
   border-radius: 200px;
   color: #f3f3f3;
   background-color: transparent;
   font-size: 14px;
   line-height: 1.28;
-  border: none;
 
-  transition:
-    color 300ms linear;
+  transition: color 300ms linear;
 
   &::placeholder {
     color: rgba(243, 243, 243, 0.5);
-  }
-  &:focus-visible {
-    outline: 1px solid rgba(243, 243, 243, 0.5);
-    color: #f3f3f3;
-  }
-  &:active {
-    color: #f3f3f3;
-  }
-  &:hover {
-    color: #f3f3f3;
   }
 
   @media (min-width: 768px) {
@@ -69,26 +115,6 @@ export const FormField = styled(FormikField)`
   }
 
   @media (min-width: 1440px) {
-    width: 400px;
-  }
-`;
-
-export const FormFieldDate = styled(Flatpickr)`
-  width: 335px;
-  padding: 14px 24px;
-  outline: 1px solid rgba(243, 243, 243, 0.2);
-  border-radius: 200px;
-  color: #f3f3f3;
-  background-color: transparent;
-  font-size: 17px;
-  line-height: 1.56;
-  border: none;
-
-  &::placeholder {
-    color: rgba(243, 243, 243, 0.5);
-  }
-  
-  @media (min-width: 768px) {
     width: 400px;
   }
 `;
@@ -106,8 +132,16 @@ export const DateFieldWrapper = styled.div`
   position: relative;
 `;
 
+export const CorrectText = styled.span`
+  color: #3cbc81;
+  padding-top: 8px;
+  padding-left: 25px;
+  font-size: 12px;
+`;
+
 export const ErrorMessage = styled(FormikError)`
-  color: #f3f3f3;
+  padding-top: 8px;
+  color: #da1414;
   padding-left: 25px;
   font-size: 12px;
 

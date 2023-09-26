@@ -71,6 +71,7 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
     formData.append('name', values.name);
     if (selectedAvatar) {
       formData.append('avatarURL', selectedAvatar);
+
     }
     //TODO: Update User onServer
     // const res = await dispatch(updateUserThunk(formData));
@@ -111,7 +112,15 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
               'Name can only contain letters or numbers.',
             ),
           })}
-          onSubmit={handleOnSubmit}
+
+          onSubmit={async (values) => {
+            console.log('submit');
+            const formData = new FormData();
+            formData.append('name', values.name);
+            formData.append('avatarURL', values.avatarURL);
+            //await dispatch(updateUserThunk(formData));
+          }}
+
         >
           {({ errors, touched, handleChange, setFieldTouched }) => (
             <StyledFormInsight>
@@ -157,7 +166,7 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
                   </div>
                 )}
               </StyledInputWrap>
-              <SaveChangeButton type="submit" >Save changes</SaveChangeButton>
+              <SaveChangeButton type="submit">Save changes</SaveChangeButton>
             </StyledFormInsight>
           )}
         </StyledForm>

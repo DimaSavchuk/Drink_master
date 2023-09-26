@@ -1,9 +1,11 @@
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 axios.defaults.baseURL = 'https://rest-api-drink-master.onrender.com/api';
 
 const accessToken =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MGVkODdkOTk5ZWNkYzg3MjZiNTg2MCIsImlhdCI6MTY5NTQ3MjI0MywiZXhwIjoxNjk1NTQ0MjQzfQ.3sjWchvTwKJ_Ap1k-qZhjZu6oqtqZE2VyI_MNcBNWlk';
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTFiMTQ2OGEwMzA3MzgyNjgxNzY5OSIsImlhdCI6MTY5NTcxOTcxMiwiZXhwIjoxNjk1NzkxNzEyfQ.PItbRSr3g0SSyvvPfJl5IWxf5mdBmYXMyNKFCdEfmAg';
+
 axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
 
 export const fetchFavoriteDrinks = async () => {
@@ -60,6 +62,81 @@ export const getDrinkId = async (movieId, controller) => {
   return data;
 };
 
+// export const ownDrink = createAsyncThunk(`/drinks/own/add`, async (data) => {
+//   console.log('ВИКЛИК МЕТОДУ');
+//   try {
+//     const response = await axios.post('/drinks/own/add', {
+//       headers: {
+//         Authorization: `Bearer ${accessToken}`,
+//       },
+//       data: {
+//         data,
+//       },
+//     });
+//     return response.data;
+//   } catch (error) {
+//     console.error('Помилка при відправленні даних:', error);
+//   }
+// });
+
+export const ownDrink = async (data) => {
+  const formData = new FormData();
+  formData.append('file', data.file);
+
+  const response = await axios.post('/drinks/own/add', formData, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+
+  console.log(formData);
+  return response.formData;
+};
+
+export const fetchOwnDrinks = async () => {
+  try {
+    const response = await axios.get('/drinks/own', {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    return response.data.data;
+  } catch (error) {
+    console.error('Помилка при отриманні даних:', error);
+  }
+};
+
+export const deleteDrinkFromOwn = async (_id) => {
+  try {
+    const response = await axios.delete('/drinks/own/remove', {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+      data: {
+        recipeId: _id,
+      },
+    });
+    return response.data.data;
+  } catch (error) {
+    console.error('Помилка при отриманні даних:', error);
+  }
+};
+
+export const fetchAllDrinks = async ({ page, limit }) => {
+  try {
+    const response = await axios.get('/drinks/mainpage', {
+      params: {
+        page,
+        limit,
+      },
+    });
+    return response.data.data;
+  } catch (error) {
+    console.error('Помилка при отриманні даних про всі коктейлі: ', error);
+  }
+};
+
 export const updateUser = async (_id, name, file) => {
   // console.log(_id);
   try {
@@ -71,8 +148,8 @@ export const updateUser = async (_id, name, file) => {
         name: name,
         file: file,
         user: {
-          _id: _id
-        }
+          _id: _id,
+        },
       },
     });
     return response.data.data;
@@ -81,7 +158,7 @@ export const updateUser = async (_id, name, file) => {
   }
 };
 
-export const getCurrentUser = async (user) => {
+export const getCurrentUser = async (user, file, _id) => {
   // console.log(_id);
   try {
     const response = await axios.post('/users/updateUser', {
@@ -92,8 +169,8 @@ export const getCurrentUser = async (user) => {
         name: name,
         file: file,
         user: {
-          _id: _id
-        }
+          _id: _id,
+        },
       },
     });
     return response.data.data;
@@ -101,5 +178,3 @@ export const getCurrentUser = async (user) => {
     console.error('Помилка при отриманні даних:', error);
   }
 };
-
-
