@@ -5,8 +5,8 @@ import {
   IconWrapper,
   Button,
   HeaderStyled,
-  // StyledDesktopThemeSwitcher,
-  // StyledFlexDiv,
+  StyledDesktopThemeSwitcher,
+  StyledFlexDiv,
 } from './Header.styled';
 import { useState } from 'react';
 import sprite from '../../assets/sprite.svg';
@@ -16,13 +16,12 @@ import { MobileMenu } from '../MobileMenu/MobileMenu';
 import { useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import '../MobileMenu/TransitionStyles.css';
-// import { ThemeSwitcher } from '../ThemeSwitcher/ThemeSwitcher';
+import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
 
 //drop down
 import { DropDown } from '../Modals/DropDown/DropDown';
 import { LogOutModel } from '../Modals/LogOut/LogOut';
 import { UserInfoModal } from '../Modals/UserProfile/UserProfile';
-import Switcher from '../ThemeSwitcher/ThemeSwitcher';
 //drop dowm
 
 export const Header = () => {
@@ -126,14 +125,10 @@ export const Header = () => {
               Drink Master
             </StyledLink>
             <PagesMenu />
-            <div>
-              {/* <StyledFlexDiv>
+            <StyledFlexDiv>
               <StyledDesktopThemeSwitcher>
                 <ThemeSwitcher />
-              </StyledDesktopThemeSwitcher> */}
-
-              <Switcher />
-
+              </StyledDesktopThemeSwitcher>
               <UserLogo onClick={openDropDown} />
               {isEditProfileDropDownOpen && (
                 <DropDown
@@ -194,8 +189,7 @@ export const Header = () => {
                   />
                 </IconWrapper>
               </Button>
-              {/* </StyledFlexDiv> */}
-            </div>
+            </StyledFlexDiv>
           </Navigation>
         </HeaderContainer>
       </HeaderStyled>
