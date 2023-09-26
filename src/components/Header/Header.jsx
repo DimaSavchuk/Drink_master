@@ -22,12 +22,14 @@ import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
 import { DropDown } from '../Modals/DropDown/DropDown';
 import { LogOutModel } from '../Modals/LogOut/LogOut';
 import { UserInfoModal } from '../Modals/UserProfile/UserProfile';
+import { useSelector } from 'react-redux';
+import { selectUserName } from '../../redux/auth/authSelectors';
 //drop dowm
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isAuthVisible, setIsAuthVisible] = useState(true);
-
+  const name = useSelector(selectUserName);
   const handleMenuClose = () => {
     setIsOpen(false);
   };
@@ -125,7 +127,6 @@ export const Header = () => {
               Drink Master
             </StyledLink>
             <PagesMenu />
-//               {isAuthVisible ? <UserLogo /> : null}
 
             <StyledFlexDiv>
               <StyledDesktopThemeSwitcher>
@@ -157,7 +158,6 @@ export const Header = () => {
               )}
 
               {/* {isAuthVisible ? <UserLogo /> : null} */}
-
 
               <Button onClick={handleToggleMenu}>
                 {/* {isOpen ? (
