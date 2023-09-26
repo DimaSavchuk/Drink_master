@@ -18,6 +18,10 @@ import '../MobileMenu/TransitionStyles.css';
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleMenuClose = () => {
+    setIsOpen(false);
+  };
+
   const handleToggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -45,29 +49,52 @@ export const Header = () => {
             <div>
               <UserLogo />
               <Button onClick={handleToggleMenu}>
-                {!isOpen ? (
+                {/* {isOpen ? (
                   <IconWrapper
-                    size={'32px'}
-                    size768={'38px'}
-                    // visible={isOpen.toString()}
-                  >
-                    <use href={`${sprite}#icon-burger-menu`} />
-                  </IconWrapper>
-                ) : (
-                  <IconWrapper
+                    className={isOpen ? 'icon-wrapper active' : 'icon-wrapper'}
                     size={'32px'}
                     size768={'38px'}
                     // visible={isOpen.toString()}
                   >
                     <use href={`${sprite}#icon-x`} />
                   </IconWrapper>
-                )}
+                ) : (
+                  <IconWrapper
+                    className={isOpen ? 'icon-wrapper' : 'icon-wrapper active'}
+                    size={'32px'}
+                    size768={'38px'}
+                    // visible={true}
+                  >
+                    <use
+                      href={`${sprite}#icon-burger-menu
+                      `}
+                    />
+                  </IconWrapper>
+                )} */}
+
+                <IconWrapper
+                  className={isOpen ? 'icon-wrapper active' : 'icon-wrapper'}
+                  size={'32px'}
+                  size768={'38px'}
+                >
+                  <use
+                    href={`${sprite}#${isOpen ? 'icon-x' : 'icon-burger-menu'}`}
+                  />
+                </IconWrapper>
               </Button>
             </div>
           </Navigation>
         </HeaderContainer>
       </HeaderStyled>
-      {isOpen && <MobileMenu isOpen={isOpen} />}
+      <CSSTransition
+        in={isOpen}
+        timeout={500}
+        classNames="menu"
+        unmountOnExit
+        mountOnEnter
+      >
+        <MobileMenu isOpen={isOpen} onClose={handleMenuClose} />
+      </CSSTransition>
     </>
   );
 };

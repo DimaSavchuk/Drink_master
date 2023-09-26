@@ -9,9 +9,19 @@ import {
   DeleteCardBtn,
   DrinkImage,
 } from '../DrinkCard/DrinkCard.styled';
+import placeholder from '../../assets/block.jpg';
+import plaseholder2x from '../../assets/block@2x.jpg';
 
 const DrinkCard = ({ cardData, onDelete }) => {
   const { drink, description, alcoholic, _id, drinkThumb } = cardData;
+
+  const isRetina = () => {
+    if (window.matchMedia) {
+      const mq = window.matchMedia('only screen and (min-resolution: 192dpi)');
+      return mq.matches;
+    }
+    return false;
+  };
 
   return (
     <StyledCard>
@@ -20,6 +30,9 @@ const DrinkCard = ({ cardData, onDelete }) => {
           src={drinkThumb}
           alt="coctail"
           loading="lazy"
+          onError={(e) => {
+            e.target.src = isRetina() ? plaseholder2x : placeholder;
+          }}
         />
       </picture>
       <DrinkTitle>{drink}</DrinkTitle>

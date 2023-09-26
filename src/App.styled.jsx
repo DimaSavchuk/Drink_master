@@ -7,10 +7,6 @@ import background380 from './assets/bg/background380.png';
 import background550 from './assets/bg/background550.png';
 import background850 from './assets/bg/background850.png';
 
-// background-image: url(${background380});
-// background-repeat: no-repeat;
-// background-position: 100% 100px;
-
 export const AppWrapper = styled.div`
   width: 100%;
   background-image: url(${ellipseLeftFooter}), url(${ellipseRightFooter}),

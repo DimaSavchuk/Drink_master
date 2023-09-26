@@ -1,51 +1,48 @@
-import { NavLink } from 'react-router-dom';
 import {
   Item,
   List,
-  //   MenuWrapper,
+  MenuWrapper,
   MobileContainer,
   StyledNavLink,
 } from './MobileMenu.styled';
 
-import { CSSTransition } from 'react-transition-group';
 import './TransitionStyles.css';
-import { useEffect, useRef } from 'react';
-
-export const MobileMenu = ({ isOpen }) => {
+import { ROUTES } from '../../Routes/Routes';
+export const MobileMenu = ({ isOpen, onClose }) => {
   console.log(isOpen);
   //   const nodeRef = useRef(null);
   return (
-    <CSSTransition
-      onEnter={() => console.log('Enter')}
-      onExit={() => console.log('Exit')}
-      in={isOpen}
-      timeout={500}
-      classNames="menu"
-      //   nodeRef={nodeRef}
-      unmountOnExit
-      mountOnEnter
-    >
-      <div className="wrapper">
-        <MobileContainer>
-          <List>
-            <Item>
-              <StyledNavLink>Home</StyledNavLink>
-            </Item>
-            <Item>
-              <StyledNavLink>Drinks</StyledNavLink>
-            </Item>
-            <Item>
-              <StyledNavLink>Add drink</StyledNavLink>
-            </Item>
-            <Item>
-              <StyledNavLink>My drinks</StyledNavLink>
-            </Item>
-            <Item>
-              <StyledNavLink>Favorites</StyledNavLink>
-            </Item>
-          </List>
-        </MobileContainer>
-      </div>
-    </CSSTransition>
+    <MenuWrapper>
+      <MobileContainer>
+        <List>
+          <Item>
+            <StyledNavLink to={ROUTES.HOME} onClick={onClose}>
+              Home
+            </StyledNavLink>
+          </Item>
+          <Item>
+            <StyledNavLink to={ROUTES.DRINKS} onClick={onClose}>
+              Drinks
+            </StyledNavLink>
+          </Item>
+          <Item>
+            <StyledNavLink to={ROUTES.ADDDRINK} onClick={onClose}>
+              Add drink
+            </StyledNavLink>
+          </Item>
+          <Item>
+            <StyledNavLink to={ROUTES.MYDRINKS} onClick={onClose}>
+              My drinks
+            </StyledNavLink>
+          </Item>
+          <Item>
+            <StyledNavLink to={ROUTES.FAVORITE} onClick={onClose}>
+              Favorites
+            </StyledNavLink>
+          </Item>
+        </List>
+      </MobileContainer>
+    </MenuWrapper>
+    // </CSSTransition>
   );
 };
