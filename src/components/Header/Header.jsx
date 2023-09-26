@@ -17,6 +17,7 @@ import '../MobileMenu/TransitionStyles.css';
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isAuthVisible, setIsAuthVisible] = useState(true);
 
   const handleMenuClose = () => {
     setIsOpen(false);
@@ -24,6 +25,11 @@ export const Header = () => {
 
   const handleToggleMenu = () => {
     setIsOpen(!isOpen);
+    if (isOpen === true) {
+      setIsAuthVisible(true);
+    } else {
+      setIsAuthVisible(false);
+    }
   };
 
   useEffect(() => {
@@ -47,7 +53,7 @@ export const Header = () => {
             </StyledLink>
             <PagesMenu />
             <div>
-              <UserLogo />
+              {isAuthVisible ? <UserLogo /> : null}
               <Button onClick={handleToggleMenu}>
                 {/* {isOpen ? (
                   <IconWrapper
