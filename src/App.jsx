@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-
+import { useTheme } from './Hooks/useTheme';
 import SharedLayout from './components/SharedLayout/SharedLayout';
 import StartPage from './pages/WelcomePages/StartPage/StartPage';
 import RegistrationPage from './pages/WelcomePages/RegistrationPage/RegistrationPage';
@@ -27,6 +27,7 @@ import { RestrictedRoute } from './Routes/RestrictedRouts';
 const test = import.meta.env.VITE_API_TEST;
 
 function App() {
+  useTheme();
   console.log(test);
   return (
     <AppWrapper>

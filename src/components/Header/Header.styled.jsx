@@ -53,6 +53,22 @@ export const StyledLink = styled(Link)`
   &:focus {
   }
 `;
+
+export const StyledFlexDiv = styled.div`
+  @media (min-width: 1440px) {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+  }
+`;
+
+export const StyledDesktopThemeSwitcher = styled.div`
+  display: none;
+  @media (min-width: 1440px) {
+    display: block;
+  }
+`;
+
 export const Button = styled.button`
   background-color: transparent;
   border: none;

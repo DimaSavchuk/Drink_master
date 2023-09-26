@@ -5,6 +5,8 @@ import {
   IconWrapper,
   Button,
   HeaderStyled,
+  // StyledDesktopThemeSwitcher,
+  // StyledFlexDiv,
 } from './Header.styled';
 import { useState } from 'react';
 import sprite from '../../assets/sprite.svg';
@@ -14,6 +16,7 @@ import { MobileMenu } from '../MobileMenu/MobileMenu';
 import { useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import '../MobileMenu/TransitionStyles.css';
+// import { ThemeSwitcher } from '../ThemeSwitcher/ThemeSwitcher';
 
 //drop down
 import { DropDown } from '../Modals/DropDown/DropDown';
@@ -123,6 +126,12 @@ export const Header = () => {
             </StyledLink>
             <PagesMenu />
             <div>
+
+              {/* <StyledFlexDiv>
+              <StyledDesktopThemeSwitcher>
+                <ThemeSwitcher />
+              </StyledDesktopThemeSwitcher> */}
+
               <UserLogo onClick={openDropDown} />
               {isEditProfileDropDownOpen && (
                 <DropDown
@@ -148,6 +157,7 @@ export const Header = () => {
               )}
 
               {/* {isAuthVisible ? <UserLogo /> : null} */}
+
               <Button onClick={handleToggleMenu}>
                 {/* {isOpen ? (
                   <IconWrapper
@@ -182,6 +192,7 @@ export const Header = () => {
                   />
                 </IconWrapper>
               </Button>
+              {/* </StyledFlexDiv> */}
             </div>
           </Navigation>
         </HeaderContainer>
