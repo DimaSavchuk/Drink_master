@@ -2,6 +2,22 @@ import { createGlobalStyle } from 'styled-components';
 import 'modern-normalize';
 
 export const GlobalStyle = createGlobalStyle`
+html {
+  /* dark theme */
+  &[data-theme='dark'] {
+    --background-color: #0A0A11;
+    --button-color: #F3F3F3;
+    --button-hover-color: #161F37;
+  }
+
+  /* light theme */
+  &[data-theme='light'] {
+    --background-color: #F3F3F3;
+    --button-color: #161F37;
+    --button-hover-color: #F3F3F3;
+  }
+}
+
 @font-face {
   font-family: 'Manrope';
     src: url('/public/fonts/Manrope-Bold/Manrope-Bold.eot');
@@ -50,6 +66,7 @@ export const GlobalStyle = createGlobalStyle`
     font-style: normal;
 }
 
+
 *,
 *::before,
 *::after {
@@ -65,7 +82,7 @@ font-size:14px;
   color: #111111;
   width: 100%;
   height: 100vh;
-  background-color: #0a0a11;
+  background-color: var(--background-color);
    scroll-behavior: smooth;
 
  }

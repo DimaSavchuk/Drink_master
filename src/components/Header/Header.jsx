@@ -5,6 +5,8 @@ import {
   IconWrapper,
   Button,
   HeaderStyled,
+  StyledDesktopThemeSwitcher,
+  StyledFlexDiv,
 } from './Header.styled';
 import sprite from '../../assets/sprite.svg';
 import { PagesMenu } from './PagesMenu/PagesMenu';
@@ -14,6 +16,7 @@ import { useState } from 'react';
 import { useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import '../MobileMenu/TransitionStyles.css';
+import { ThemeSwitcher } from '../ThemeSwitcher/ThemeSwitcher';
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,7 +45,10 @@ export const Header = () => {
               Drink Master
             </StyledLink>
             <PagesMenu />
-            <div>
+            <StyledFlexDiv>
+              <StyledDesktopThemeSwitcher>
+                <ThemeSwitcher />
+              </StyledDesktopThemeSwitcher>
               <UserLogo />
               <Button onClick={handleToggleMenu}>
                 {!isOpen ? (
@@ -63,7 +69,7 @@ export const Header = () => {
                   </IconWrapper>
                 )}
               </Button>
-            </div>
+            </StyledFlexDiv>
           </Navigation>
         </HeaderContainer>
       </HeaderStyled>
