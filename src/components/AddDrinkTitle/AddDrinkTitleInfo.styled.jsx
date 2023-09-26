@@ -6,11 +6,15 @@ export const TitleInfo = styled.div`
   flex-direction: column;
 
   margin-bottom: 80px;
-
-  &:focus + label,
-  &:not(:placeholder-shown) + label {
+  /* 
+  input:focus + label,
+  input:focus:not(:placeholder-shown) + label {
     transform: translateY(-18px);
   }
+
+  input:focus + label {
+    color: yellow;
+  } */
 `;
 
 export const FieldStyled = styled(Field)`
@@ -28,38 +32,39 @@ export const FieldStyled = styled(Field)`
     outline: transparent;
   }
 
-  /* &:focus ~ label {
-    color: red;
-  } */
+  &:focus ~ label {
+    color: #f3f3f3;
+  }
 
   &::placeholder {
     opacity: 0;
   }
 `;
 
-export const FieldSelectStyled = styled(Field)`
-  height: 34px;
-  padding-bottom: 14px;
+// export const FieldSelectStyled = styled(Field)`
+//   height: 34px;
+//   padding-bottom: 14px;
 
-  text-align: right;
-  color: #f3f3f3;
+//   text-align: right;
+//   color: #f3f3f3;
 
-  border-style: none;
-  border-bottom: 1px solid #f3f3f380;
-  background: transparent;
+//   border-style: none;
+//   border-bottom: 1px solid #f3f3f380;
+//   background: transparent;
 
-  &:focus {
-    border-bottom: 1px solid #f3f3f3;
-    outline: transparent;
-  }
+//   &:focus {
+//     border-bottom: 1px solid #f3f3f3;
+//     outline: transparent;
+//   }
 
-  &::after {
-    padding-bottom: 14px;
-  }
-`;
+//   &::after {
+//     padding-bottom: 14px;
+//   }
+// `;
 
 export const LabelStyled = styled.label`
   color: #f3f3f380;
+  /* color: red; */
 
   position: absolute;
   top: 0;
@@ -75,8 +80,14 @@ export const FieldWrapper = styled.div`
     margin-bottom: 31px;
   }
 
-  &:focus > label {
-    color: red;
+  &:focus {
+    outline: 1px solid red;
+  }
+
+  &:hover label,
+  &:focus label {
+    color: #f3f3f3;
+    transition: 200ms ease transform;
   }
 `;
 
@@ -105,12 +116,16 @@ export const FieldRadio = styled(Field)`
   border-radius: 50%;
   cursor: pointer;
 
-  &:checked {
-    border: 1.5px solid #fff;
+  & + label {
+    cursor: pointer;
   }
 
-  label {
-    color: #fff;
+  &:hover + label {
+    color: #f3f3f3;
+  }
+
+  &:checked {
+    border: 1.5px solid #fff;
   }
 
   &::before {

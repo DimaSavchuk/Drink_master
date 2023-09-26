@@ -17,6 +17,7 @@ const initialValues = {
   alcoholicType: 'Non-alcoholic',
   ingridients: [],
   file: '',
+  recipePreparation: '',
 };
 
 const AddDrinkForm = () => {
