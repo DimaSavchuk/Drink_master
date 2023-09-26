@@ -1,7 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const UserLogoWrapper = styled.div`
+export const UserLogoWrapper = styled.span`
+  display: block;
   width: 32px;
   height: 32px;
 

@@ -125,11 +125,14 @@ export const Header = () => {
               Drink Master
             </StyledLink>
             <PagesMenu />
+//               {isAuthVisible ? <UserLogo /> : null}
+
             <StyledFlexDiv>
               <StyledDesktopThemeSwitcher>
                 <ThemeSwitcher />
               </StyledDesktopThemeSwitcher>
-              <UserLogo onClick={openDropDown} />
+              {!isOpen ? <UserLogo onClick={openDropDown} /> : null}
+
               {isEditProfileDropDownOpen && (
                 <DropDown
                   handleOpenUserInfoModal={openUserInfoModal}
@@ -154,6 +157,7 @@ export const Header = () => {
               )}
 
               {/* {isAuthVisible ? <UserLogo /> : null} */}
+
 
               <Button onClick={handleToggleMenu}>
                 {/* {isOpen ? (
