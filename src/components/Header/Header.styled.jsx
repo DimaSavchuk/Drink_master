@@ -83,10 +83,9 @@ export const IconWrapper = styled.svg`
   fill: ${(props) => props.color || '#ffffff'};
   margin-right: ${(props) => props.marginRight || '0'};
   margin-left: ${(props) => props.marginLeft || '0'};
-  /* opacity: ${({ visible }) => (visible ? '1' : '0')}; */
+  /* opacity: ${({ visible }) => (visible ? '1' : '0' || '1')}; */
 
   display: inline-block;
-  transition: opacity 500 linear;
 
   @media (min-width: 768px) {
     width: ${(props) => props.size768 || '20px'};

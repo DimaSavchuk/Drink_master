@@ -4,7 +4,7 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://rest-api-drink-master.onrender.com/api';
 
 const accessToken =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTFiMWM3OGEwMzA3MzgyNjgxNzY5ZSIsImlhdCI6MTY5NTY1ODQ1MywiZXhwIjoxNjk1NzMwNDUzfQ.NgXYK9jwBhYePrdtaF-8xUgjcde0I_Qk-wEVmBSOWnM';
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MGZmYzVhZjhhMWE4NjA3OTNmNjk4ZCIsImlhdCI6MTY5NTcxMTI2MiwiZXhwIjoxNjk1NzgzMjYyfQ.m9hWihFtZvpIEwTtwSIoDDgKjz8OCuQ7E9dxG0_w6ro';
 
 axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
 

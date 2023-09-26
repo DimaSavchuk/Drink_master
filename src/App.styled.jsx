@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 import ellipseLeftFooter from './assets/footer/ellipseleft-footer.png';
 import ellipseRightFooter from './assets/footer/ellipseright-footer.png';
-
 import bgEllipseLeft from './assets/bg/bg-ellipse-left.png';
 import bgEllipseRight from './assets/bg/br-ellipse-right.png';
 
@@ -52,4 +51,4 @@ export const AppWrapper = styled.div`
     70vw 260px; 
 
 ; */
-`
+`;

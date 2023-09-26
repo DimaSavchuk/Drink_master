@@ -25,7 +25,7 @@ export const DrinkImage = styled.img`
   @media (min-width: 768px) {
     margin-bottom: 24px;
   }
- `;
+`;
 
 export const DrinkTitle = styled.h2`
   margin-bottom: 4px;
@@ -46,7 +46,7 @@ export const DrinkTitle = styled.h2`
 `;
 
 export const DrinkStat = styled.p`
-  margin-bottom: 24px;
+  margin-bottom: 18px;
 
   color: #f3f3f3;
   opacity: 0.5;
@@ -55,13 +55,14 @@ export const DrinkStat = styled.p`
   line-height: 1.18;
   @media (min-width: 768px) {
     font-size: 16px;
+    margin-bottom: 24px;
   }
   @media (min-width: 1280px) {
   }
 `;
 
 export const DrinkDesc = styled.p`
-  margin-bottom: 24px;
+  margin-bottom: 18px;
 
   color: #f3f3f3;
   font-size: 14px;
@@ -73,6 +74,7 @@ export const DrinkDesc = styled.p`
   -webkit-box-orient: vertical;
   @media (min-width: 768px) {
     font-size: 16px;
+    margin-bottom: 24px;
   }
   @media (min-width: 1280px) {
   }
@@ -80,7 +82,6 @@ export const DrinkDesc = styled.p`
 
 export const DrinkBtnContainer = styled.div`
   display: flex;
-  justify-content:;
 `;
 
 export const SeeMoreLink = styled(NavLink)`
@@ -96,6 +97,14 @@ export const SeeMoreLink = styled(NavLink)`
   font-size: 14px;
   font-weight: 600;
   line-height: 1.28;
+  &:hover {
+    background: #f3f3f3;
+    color: #161F37;
+  }
+  @media (min-width: 768px) {
+    font-size: 16px;
+    padding: 18px 44px;
+  }
 `;
 
 export const DeleteCardBtn = styled.button`
@@ -110,4 +119,8 @@ export const DeleteCardBtn = styled.button`
   font-size: 14px;
   font-weight: 600;
   line-height: 1.28;
+  &:hover {
+    background: #f3f3f3;
+    color: #161f37;
+  }
 `;
