@@ -8,6 +8,9 @@ html {
   /* dark theme */
   &[data-theme='dark'] {
     --background-color: #0A0A11;
+    --text-color: #F3F3F3;
+    --border-link-color: rgba(243, 243, 243, 0.2);
+    --link-color: #F3F3F3;
     --button-color: #F3F3F3;
     --button-hover-color: #161F37;
   }
@@ -15,6 +18,9 @@ html {
   /* light theme */
   &[data-theme='light'] {
     --background-color: #F3F3F3;
+    --text-color: #0A0A11;
+    --border-link-color: rgba(22, 31, 55, 0.20);
+    --link-color: #161F37;
     --button-color: #161F37;
     --button-hover-color: #F3F3F3;
   }

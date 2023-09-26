@@ -120,13 +120,12 @@ export const Header = () => {
           <Navigation>
             <StyledLink to="/">
               <IconWrapper size={'22px'} size768={'28px'} size1440={'28px'}>
-                <use href={`${sprite}#icon-logo`} />
+                <use href={`${sprite}#icon-logo-light`} />
               </IconWrapper>
               Drink Master
             </StyledLink>
             <PagesMenu />
-//               {isAuthVisible ? <UserLogo /> : null}
-
+            // {isAuthVisible ? <UserLogo /> : null}
             <StyledFlexDiv>
               <StyledDesktopThemeSwitcher>
                 <ThemeSwitcher />
@@ -158,7 +157,7 @@ export const Header = () => {
 
               {/* {isAuthVisible ? <UserLogo /> : null} */}
 
-
+              {isOpen && <ThemeSwitcher />}
               <Button onClick={handleToggleMenu}>
                 {/* {isOpen ? (
                   <IconWrapper
@@ -182,7 +181,7 @@ export const Header = () => {
                     />
                   </IconWrapper>
                 )} */}
-
+                {/* 
                 <IconWrapper
                   className={isOpen ? 'icon-wrapper active' : 'icon-wrapper'}
                   size={'32px'}
@@ -190,6 +189,15 @@ export const Header = () => {
                 >
                   <use
                     href={`${sprite}#${isOpen ? 'icon-x' : 'icon-burger-menu'}`}
+                  />
+                </IconWrapper> */}
+                <IconWrapper
+                  className={isOpen ? 'icon-wrapper active' : 'icon-wrapper'}
+                  size={'32px'}
+                  size768={'38px'}
+                >
+                  <use
+                    href={`${sprite}#${isOpen ? 'icon-cross' : 'icon-menu'}`}
                   />
                 </IconWrapper>
               </Button>
