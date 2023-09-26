@@ -4,10 +4,8 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://rest-api-drink-master.onrender.com/api';
 
 const accessToken =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MGM4MDQyNmMzYzA5YWJkODQ4ZTU5MCIsImlhdCI6MTY5NTYyNjMyMiwiZXhwIjoxNjk1Njk4MzIyfQ.0CCMOx2xtWBndwMkR84AN7WGmeSdeOORsNaXlHtxens';
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTFiMWM3OGEwMzA3MzgyNjgxNzY5ZSIsImlhdCI6MTY5NTY1ODQ1MywiZXhwIjoxNjk1NzMwNDUzfQ.NgXYK9jwBhYePrdtaF-8xUgjcde0I_Qk-wEVmBSOWnM';
 
-// const accessToken =
-//   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MGZmYzVhZjhhMWE4NjA3OTNmNjk4ZCIsImlhdCI6MTY5NTU0NjQ5MiwiZXhwIjoxNjk1NjE4NDkyfQ.OgISC0-7XR70ndKat_FS4nPjHabm9DTL12Gwb4wTWek';
 axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
 
 export const fetchFavoriteDrinks = async () => {
@@ -57,8 +55,8 @@ export const addDrinkToFavorite = async (_id) => {
   }
 };
 
-export const getDrinkId = async (movieId, controller) => {
-  const { data } = await axios.get(`/drinks/byid/${movieId}`, {
+export const getDrinkId = async (drinkId, controller) => {
+  const { data } = await axios.get(`/drinks/byid/${drinkId}`, {
     signal: controller.signal,
   });
   return data;
