@@ -40,24 +40,25 @@ export const deleteDrinkFromFavorite = async (_id) => {
 };
 
 export const addDrinkToFavorite = async (_id) => {
-  // console.log(_id);
+  console.log(_id);
   try {
-    const response = await axios.post('/drinks/favorite/add', {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-      data: {
+    const response = await axios.post(
+      '/drinks/favorite/add',
+      {
         recipeId: _id,
       },
-    });
+      {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      },
+    );
     return response.data.data;
   } catch (error) {
     console.error('Помилка при отриманні даних:', error);
   }
 };
 
-export const getDrinkId = async (movieId, controller) => {
-  const { data } = await axios.get(`/drinks/byid/${movieId}`, {
+export const getDrinkId = async (drinkId, controller) => {
+  const { data } = await axios.get(`/drinks/byid/${drinkId}`, {
     signal: controller.signal,
   });
   return data;
