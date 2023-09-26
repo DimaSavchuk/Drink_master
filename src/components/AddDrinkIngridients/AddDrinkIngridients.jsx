@@ -4,6 +4,7 @@ import {
   FieldCounter,
   FieldSelect,
   FieldsWrapper,
+  IngridientsWrapper,
   TitleWrapper,
 } from './AddDrinkIngridients.styled';
 import { TfiClose, TfiPlus, TfiMinus } from 'react-icons/tfi';
@@ -16,7 +17,7 @@ const AddDrinkIngridients = () => {
     { name: 'Passoa' },
     { name: 'Prosecco' },
   ];
-  const initialValue = { name: ingridientsList[0].name, volume: '1cl' };
+  const initialValue = { name: ingridientsList[0].name, volume: '' };
 
   return (
     <FieldArray
@@ -30,7 +31,7 @@ const AddDrinkIngridients = () => {
         remove,
       }) => {
         return (
-          <div>
+          <IngridientsWrapper>
             <TitleWrapper>
               <h3>Ingredients</h3>
               <FieldCounter>
@@ -70,7 +71,7 @@ const AddDrinkIngridients = () => {
                   </FieldsWrapper>
                 ))}
             </div>
-          </div>
+          </IngridientsWrapper>
         );
       }}
     ></FieldArray>
