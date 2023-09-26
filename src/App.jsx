@@ -4,7 +4,6 @@ import SharedLayout from './components/SharedLayout/SharedLayout';
 import StartPage from './pages/WelcomePages/StartPage/StartPage';
 import RegistrationPage from './pages/WelcomePages/RegistrationPage/RegistrationPage';
 import SignInPage from './pages/WelcomePages/SignInPage/SignInPage';
-import AllDrinksPages from './pages/AllDrinks/AllDrinksPages';
 import DrinksPages from './pages/DrinksPages/DrinksPages';
 import FavoritesPages from './pages/FavoritesPages/FavoritesPages';
 import MyDrinksPages from './pages/MyDrinksPages/MyDrinksPages';
@@ -16,6 +15,7 @@ import { HomePage } from './pages/HomePage/HomePage';
 import AddDrink from './pages/AddDrinkPages/AddDrinkPages';
 import AboutDrinkPages from './pages/AboutDrinkPages/AboutDrinkPages';
 import { DropDown } from './components/Modals/DropDown/DropDown';
+import { ROUTES } from './Routes/Routes';
 // import UserProfile from './components/Modals/UserProfile/UserProfile';
 // import LogOut from './components/Modals/LogOut/LogOut';
 
@@ -28,18 +28,15 @@ function App() {
       <GlobalStyle />
       <Routes>
         <Route path="/start" element={<StartPage />} />
-        <Route path="/registration" element={<RegistrationPage />} />
-        <Route path="/login" element={<SignInPage />} />
-
-        <Route path="/" element={<SharedLayout />}>
+        <Route path={ROUTES.REGISTRATION} element={<RegistrationPage />} />
+        <Route path={ROUTES.LOGIN} element={<SignInPage />} />
+        <Route path={ROUTES.HOME} element={<SharedLayout />}>
           <Route index element={<HomePage />} />
-          <Route path="/drinks" element={<DrinksPages />} />
-          <Route path="/drinks/:drinkId" element={<AboutDrinkPages />} />
-          <Route path="/alldrinks" element={<AllDrinksPages />} />
-          <Route path="/adddrink" element={<AddDrink />} />
-          <Route path="/aboutdrink" element={<AboutDrinkPages />} />
-          <Route path="/mydrinks" element={<MyDrinksPages />} />
-          <Route path="/favorites" element={<FavoritesPages />} />
+          <Route path={ROUTES.DRINKS} element={<DrinksPages />} />
+          <Route path={ROUTES.ABOUTDRINK} element={<AboutDrinkPages />} />
+          <Route path={ROUTES.ADDDRINK} element={<AddDrink />} />
+          <Route path={ROUTES.MYDRINKS} element={<MyDrinksPages />} />
+          <Route path={ROUTES.FAVORITE} element={<FavoritesPages />} />
 
           {/* Тимчасові роути */}
 
@@ -50,7 +47,7 @@ function App() {
 
           <Route path="/dropdown" element={<DropDown />} />
           {/* Тимчасові роути */}
-          <Route path="*" element={<ErrorPage />} />
+          <Route path={ROUTES.ERROR} element={<ErrorPage />} />
         </Route>
       </Routes>
     </AppWrapper>
