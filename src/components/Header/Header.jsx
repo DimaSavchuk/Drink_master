@@ -52,8 +52,41 @@ export const Header = () => {
               Drink Master
             </StyledLink>
             <PagesMenu />
+<<<<<<< Updated upstream
             <div>
               {isAuthVisible ? <UserLogo /> : null}
+=======
+            <StyledFlexDiv>
+              <StyledDesktopThemeSwitcher>
+                <ThemeSwitcher />
+              </StyledDesktopThemeSwitcher>
+              {!isOpen ? <UserLogo onClick={openDropDown} /> : null}
+              {isEditProfileDropDownOpen && (
+                <DropDown
+                  handleOpenUserInfoModal={openUserInfoModal}
+                  handleLogOutModelOpen={openLogOutModal}
+                  handleModalClick={handleModalClick}
+                  handleKeyDown={handleKeyDown}
+                />
+              )}
+              {isLogOutModelOpen && (
+                <LogOutModel
+                  onClose={handleCloseLogOutModal}
+                  handleModalClick={handleModalClick}
+                  handleKeyDown={handleKeyDown}
+                />
+              )}
+              {isUserInfoOpen && (
+                <UserInfoModal
+                  onClose={handleCloseUserInfo}
+                  handleModalClick={handleModalClick}
+                  handleKeyDown={handleKeyDown}
+                />
+              )}
+
+              {/* {isAuthVisible ? <UserLogo /> : null} */}
+
+>>>>>>> Stashed changes
               <Button onClick={handleToggleMenu}>
                 {/* {isOpen ? (
                   <IconWrapper
