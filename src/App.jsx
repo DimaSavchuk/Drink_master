@@ -14,6 +14,7 @@ import { GlobalStyle } from './components/GlobalStyles/GlobalStyles.styled';
 import { HomePage } from './pages/HomePage/HomePage';
 import AddDrink from './pages/AddDrinkPages/AddDrinkPages';
 import AboutDrinkPages from './pages/AboutDrinkPages/AboutDrinkPages';
+
 import { DropDown } from './components/Modals/DropDown/DropDown';
 import { ROUTES } from './Routes/Routes';
 import { RestrictedRoute } from './Routes/RestrictedRouts';
@@ -21,6 +22,7 @@ import { RestrictedRoute } from './Routes/RestrictedRouts';
 
 // import UserProfile from './components/Modals/UserProfile/UserProfile';
 // import LogOut from './components/Modals/LogOut/LogOut';
+
 
 const test = import.meta.env.VITE_API_TEST;
 

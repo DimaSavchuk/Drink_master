@@ -6,6 +6,7 @@ axios.defaults.baseURL = 'https://rest-api-drink-master.onrender.com/api';
 const accessToken =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTFiMTQ2OGEwMzA3MzgyNjgxNzY5OSIsImlhdCI6MTY5NTcxOTcxMiwiZXhwIjoxNjk1NzkxNzEyfQ.PItbRSr3g0SSyvvPfJl5IWxf5mdBmYXMyNKFCdEfmAg';
 
+
 axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
 
 export const fetchFavoriteDrinks = async () => {
@@ -131,8 +132,78 @@ export const fetchAllDrinks = async ({ page, limit }) => {
         limit,
       },
     });
-    return response.data.data;
+    return response.data;
   } catch (error) {
     console.error('Помилка при отриманні даних про всі коктейлі: ', error);
+  }
+};
+
+export const fetchCategories=async () => {
+  try {
+    const response = await axios.get('/filters/categories');
+    return response.data.categories;
+  } catch (error) {
+    console.error('Помилка при отриманні даних про категорії: ', error);
+  }
+};
+
+export const fetchIngredients=async () => {
+  try {
+    const response = await axios.get('/filters/ingredients');
+    return response.data;
+  } catch (error) {
+    console.error('Помилка при отриманні даних про категорії: ', error);
+  }
+};
+
+export const fetchHomePageCocktails=async () => {
+  try {
+    const response = await axios.get('/drinks/homepage');
+    return response.data.data;
+  } catch (error) {
+    console.error('Помилка при отриманні даних на головну сторінку: ', error);
+  }
+};
+    
+    
+    export const updateUser = async (_id, name, file) => {
+  // console.log(_id);
+  try {
+    const response = await axios.post('/users/updateUser', {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+      data: {
+        name: name,
+        file: file,
+        user: {
+          _id: _id,
+        },
+      },
+    });
+    return response.data.data;
+  } catch (error) {
+    console.error('Помилка при отриманні даних:', error);
+  }
+};
+
+export const getCurrentUser = async (user, file, _id) => {
+  // console.log(_id);
+  try {
+    const response = await axios.post('/users/updateUser', {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+      data: {
+        name: name,
+        file: file,
+        user: {
+          _id: _id,
+        },
+      },
+    });
+    return response.data.data;
+  } catch (error) {
+    console.error('Помилка при отриманні даних:', error);
   }
 };
