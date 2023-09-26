@@ -4,6 +4,7 @@ import AddDrinkTitleInfo from '../AddDrinkTitle/AddDrinkTitleInfo';
 import { nanoid } from '@reduxjs/toolkit';
 import * as yup from 'yup';
 import { ownDrink } from '../../services/axiosConfig';
+import AddDrinkRecipePrep from '../AddDrinkResipePrep/AddDrinkRecipePrep';
 
 const validationSchema = yup.object();
 
@@ -45,22 +46,14 @@ const AddDrinkForm = () => {
               height={200}
               type="file"
               name="file"
-              onChange={(event) => {
-                setFieldValue('file', event.currentTarget.files[0]);
+              onChange={(e) => {
+                setFieldValue('file', e.currentTarget.files[0]);
               }}
             />
 
             <AddDrinkTitleInfo />
             <AddDrinkIngridients />
-
-            <div>
-              <h3>Recipe Preparation</h3>
-              <Field
-                name="drinkRecipePreparation"
-                placeholder="Enter the recipe"
-                as="textarea"
-              />
-            </div>
+            <AddDrinkRecipePrep />
 
             <button type="submit">Add</button>
           </Form>
