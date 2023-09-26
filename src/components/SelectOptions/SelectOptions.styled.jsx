@@ -42,6 +42,7 @@ export const OptionsContainer = styled.ul`
     }
 `;
 
+
 export const Option = styled.button`
     padding: 0;
     width: 100%;
@@ -52,6 +53,13 @@ export const Option = styled.button`
     font-family: 'Manrope';
     font-size: 14px;
     line-height: 1.29;
+    text-align: start;
+
+    &:hover,
+    &:focus,
+    &:active{
+        border-bottom: 1px solid rgba(243, 243, 243, 0.50);
+    }  
 
     @media screen and (min-width: 768px) {
         font-size: 16px;
