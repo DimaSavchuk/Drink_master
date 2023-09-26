@@ -10,7 +10,7 @@ export const SignInPageStyled = styled.section`
   max-width: 100%;
   height: 100vh;
 
-  background-image: url('src/assets/start/start_mobile@1x.jpg');
+  background-image: url('./src/assets/start/start_mobile@1x.jpg');
 
   background-size: cover;
   background-repeat: no-repeat;
@@ -20,27 +20,27 @@ export const SignInPageStyled = styled.section`
     (max-width: 767.98px) and (-webkit-min-device-pixel-ratio: 2),
     (max-width: 767.98px) and (min-resolution: 192dpi),
     (max-width: 767.98px) and (min-resolution: 2dppx) {
-    background-image: url('src/assets/start/start_mobile@2x.jpg');
+    background-image: url('./src/assets/start/start_mobile@2x.jpg');
   }
 
   @media (min-width: 768px) {
-    background-image: url('src/assets/start/start_tablet@1x.jpg');
+    background-image: url('./src/assets/start/start_tablet@1x.jpg');
   }
   @media (min-width: 768px) and (min-device-pixel-ratio: 2),
     (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
     (min-width: 768px) and (min-resolution: 192dpi),
     (min-width: 768px) and (min-resolution: 2dppx) {
-    background-image: url('src/assets/start/start_tablet@2x.jpg');
+    background-image: url('./src/assets/start/start_tablet@2x.jpg');
   }
   @media (min-width: 1440px) {
     align-content: center;
-    background-image: url('src/assets/start/start@1x.jpg');
+    background-image: url('./src/assets/start/start@1x.jpg');
   }
   @media (min-width: 1440px) and (min-device-pixel-ratio: 2),
     (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2),
     (min-width: 1440px) and (min-resolution: 192dpi),
     (min-width: 1440px) and (min-resolution: 2dppx) {
-    background-image: url('src/assets/start/start@2x.jpg');
+    background-image: url('./src/assets/start/start@2x.jpg');
   }
 `;
 

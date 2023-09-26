@@ -11,7 +11,7 @@ import {
   LastLabel
 } from '../SignUpForm.styled';
 
-export const PasswordField = ({ fieldName, fieldType, touched, errors, placeholderText }) => {
+export const PasswordField = ({ fieldName, touched, errors, placeholderText }) => {
   const [showHidePassword, setShowHidePassword] = useState(false);
 
   const { values } = useFormikContext();
@@ -29,7 +29,7 @@ export const PasswordField = ({ fieldName, fieldType, touched, errors, placehold
           <FormField
             className={fieldInputClass}
             name={fieldName}
-            type={fieldType}
+            type={showHidePassword ? 'text' : 'password'}
             placeholder={placeholderText}
           />
           {!showHidePassword ? (

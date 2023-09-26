@@ -15,7 +15,7 @@ export const Paginator = ({limit, currentPage, itemsLength, handlePageChange, pa
   };
 
   return (
-    <div className="App">
+    <div>
         <Paginate
           previousLabel={<svg style={{width:'8px', height:'15px'}}><use href={`${sprite}#icon-paginateLeft`} /></svg>}
           nextLabel={<svg style={{width:'8px', height:'15px'}}><use href={`${sprite}#icon-paginateRight`} /></svg>}

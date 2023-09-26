@@ -1,8 +1,6 @@
-
-
-// import { useDispatch } from 'react-redux';
-// import { useNavigate } from 'react-router-dom';
-// import { LogOut } from '../../../../authOperations';
+// import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+// import { logoutThunk } from '../../../../authOperation';
 import {
   ModalWrapper,
   ModalContent,
@@ -15,14 +13,15 @@ import Notiflix from 'notiflix';
 import XIcon from 'src/assets/x.png';
 // import { clearState } from '../../../redux/UserInfo/userInfoSlice';
 
-export const LogOutModel = ({ onClose }) => {
+export const LogOutModel = ({ onClose, handleModalClick, handleKeyDown }) => {
   // const dispatch = useDispatch();
-  // const navigate = useNavigate();
-  const handleDelete = () => {
-    // dispatch(LogOut())
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    // TODO: Hanlde LogOut Call to server
+    // dispatch(logoutThunk())
     //     .unwrap()
     //     .then(res => {
-    //     // console.log('Response:', res);
+    //      console.log('Response:', res);
     //     if (res && res.status === 200) {
     //     navigate('/');
     //     dispatch(clearState());
@@ -31,17 +30,20 @@ export const LogOutModel = ({ onClose }) => {
     // .then(Notiflix.Notify.success('The user log out successfully!'));
     Notiflix.Notify.success('The user log out successfully!');
     console.log('The user log out successfully!');
+    navigate('/login');
+    onClose();
+    // TODO: Redirect to welcome page. 
   };
 
   return (
-    <ModalWrapper>
+    <ModalWrapper onClick={handleModalClick} onKeyDown={handleKeyDown}>
       <ModalContent>
         <CloseButton onClick={onClose}>
           <img src={XIcon} alt="Close" width={24} />
         </CloseButton>
         <ModalText>Are you sure you want to log out?</ModalText>
         <ButtonWrapper>
-          <LogOutButton onClick={handleDelete}>Log out</LogOutButton>
+          <LogOutButton onClick={handleLogout}>Log out</LogOutButton>
           <LogOutButton onClick={onClose}>Cancel</LogOutButton>
         </ButtonWrapper>
       </ModalContent>
