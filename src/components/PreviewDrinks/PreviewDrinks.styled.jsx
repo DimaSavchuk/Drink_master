@@ -19,7 +19,6 @@ export const CategoriesList = styled.ul`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     row-gap: 40px;
     margin-bottom: 60px;
 
@@ -46,7 +45,6 @@ export const CocktailsWrap = styled.ul`
 
     @media screen and (min-width: 768px) {
         display: flex;
-        justify-content: center;
         align-items: center;
         column-gap: 20px;
         margin-top: 40px;
