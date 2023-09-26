@@ -45,31 +45,33 @@ export const Header = () => {
               Drink Master
             </StyledLink>
             <PagesMenu />
-            {/* <StyledFlexDiv>
+            <div>
+              {/* <StyledFlexDiv>
               <StyledDesktopThemeSwitcher>
                 <ThemeSwitcher />
               </StyledDesktopThemeSwitcher> */}
-            <UserLogo />
-            <Button onClick={handleToggleMenu}>
-              {!isOpen ? (
-                <IconWrapper
-                  size={'32px'}
-                  size768={'38px'}
-                  // visible={isOpen.toString()}
-                >
-                  <use href={`${sprite}#icon-burger-menu`} />
-                </IconWrapper>
-              ) : (
-                <IconWrapper
-                  size={'32px'}
-                  size768={'38px'}
-                  // visible={isOpen.toString()}
-                >
-                  <use href={`${sprite}#icon-x`} />
-                </IconWrapper>
-              )}
-            </Button>
-            {/* </StyledFlexDiv> */}
+              <UserLogo />
+              <Button onClick={handleToggleMenu}>
+                {!isOpen ? (
+                  <IconWrapper
+                    size={'32px'}
+                    size768={'38px'}
+                    // visible={isOpen.toString()}
+                  >
+                    <use href={`${sprite}#icon-burger-menu`} />
+                  </IconWrapper>
+                ) : (
+                  <IconWrapper
+                    size={'32px'}
+                    size768={'38px'}
+                    // visible={isOpen.toString()}
+                  >
+                    <use href={`${sprite}#icon-x`} />
+                  </IconWrapper>
+                )}
+              </Button>
+              {/* </StyledFlexDiv> */}
+            </div>
           </Navigation>
         </HeaderContainer>
       </HeaderStyled>
