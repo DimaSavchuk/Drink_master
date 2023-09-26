@@ -43,12 +43,15 @@ export const DivTitle = styled.div`
 `;
 export const TitleImage = styled.div`
   width: 100%;
-  height: 400px;
+  height: 330px;
   max-width: 704px;
   object-fit: cover;
   overflow: hidden;
   background-color: grey;
   border-radius: 8px;
+  @media (min-width: 440px) {
+    height: 400px;
+  }
   @media (min-width: 1440px) {
     width: 400px;
   }

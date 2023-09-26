@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+
 import {
   Box,
   Title,
@@ -17,17 +18,29 @@ import {
 import IngredientsCards from '../../components/AboutDrinkPages/IngridientsCards';
 import Image from '../../components/AboutDrinkPages/Image';
 import { useFetchDrinkId } from '../../Hooks/useFetchDrinkId';
-import { addDrinkToFavorite } from '../../services/axiosConfig';
+import {
+  addDrinkToFavorite,
+  deleteDrinkFromFavorite,
+} from '../../services/axiosConfig';
 import { Loader } from '../../components/Loader/Loader';
 
-
 const AboutDrinkPages = () => {
-  const { drinkInfo, isLoading, error } = useFetchDrinkId();
-
+  const { drinkInfo, userId, isLoading, error, isfavorite, setIsFavorite } =
+    useFetchDrinkId();
+  // const [isfavorite, setIsFavorite] = useState(favorite);
   const { drinkId } = useParams();
 
-  function handleClick() {
-    addDrinkToFavorite(drinkId);
+  function isFavoriteTrue(data) {
+    setIsFavorite(data?.favorites?.includes(userId));
+  }
+
+  async function addFavorite() {
+    const res = await addDrinkToFavorite(drinkId);
+    isFavoriteTrue(res);
+  }
+  async function deleteFavorite() {
+    const res = await deleteDrinkFromFavorite(drinkId);
+    isFavoriteTrue(res);
   }
   return (
     <Box>
@@ -42,15 +55,25 @@ const AboutDrinkPages = () => {
                 {drinkInfo.glass} / {drinkInfo.alcoholic}
               </TitleAlcohol>
               <TitleDescription>{drinkInfo.description}</TitleDescription>
-              <ButtonAddFavorite type="button" onClick={handleClick}>
-                Add to favorite drinks
-              </ButtonAddFavorite>
+              {isfavorite ? (
+                <ButtonAddFavorite type="button" onClick={deleteFavorite}>
+                  Remove from favorites
+                </ButtonAddFavorite>
+              ) : (
+                <ButtonAddFavorite type="button" onClick={addFavorite}>
+                  Add to favorite drinks
+                </ButtonAddFavorite>
+              )}
             </div>
             <TitleImage>
               <img
                 src={drinkInfo.drinkThumb}
                 alt={drinkInfo.drink}
-                style={{ display: 'block', width: '100%', height: 'auto' }}
+                style={{
+                  display: 'block',
+                  width: '100%',
+                  height: 'auto',
+                }}
               />
             </TitleImage>
           </DivTitle>
