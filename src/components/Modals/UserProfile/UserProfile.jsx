@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-// import { useSelector } from 'react-redux';
-// import { selectUserArray } from '../../../redux/store';
+import Notiflix from 'notiflix';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { selectUserArray } from '../../../redux/selectors';
 import * as Yup from 'yup';
 import {
   ModalWrapper,
@@ -8,7 +9,6 @@ import {
   UserAvatarWrapper,
   ContentWrapper,
   AvatarFrame,
-  AddAvatarButton,
   StyledFormInsight,
   StyledForm,
   SaveChangeButton,
@@ -16,63 +16,87 @@ import {
   StyledInputWrap,
   StyledIconChecked,
   StyledIconError,
+  AddIconImg,
+  StyledInputFile,
+  StyledUpdatedCloseButton,
   StyledError,
   StyledMessage,
 } from './UserProfile.styled';
 
-//import { updateUserThunk } from '../../../redux/UserInfo/userOperations';
-import XIcon from 'src/assets/x.png';
+// import { updateUserThunk } from '../../../redux/UserInfo/userOperations';
 import AddIcon from 'src/assets/add_photo.png';
+import defaultAvatarURL from '../../../assets/user.png';
 
-const UserProfile = ({ onClose }) => {
+// const defaultAvatarURL = require('../../../assets/user.png');
+
+export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
   // const dispatch = useDispatch();
   // const user = useSelector(selectUserArray);
+  
   const user = {
-    name: 'Test',
+    name: 'Victoria',
     avatarURL:
       'https://res.cloudinary.com/dgooxm96o/image/upload/v1695311635/avatars/woddyy.jpg.jpg',
   };
-  const [isOpen, setIsOpen] = useState(true);
-  const [isUpdateForm, setIsUpdateForm] = useState(null);
+  const [isOpen, setIsOpen] = useState(true); //eslint-disable-line
+  const [selectedAvatar, setSelectedAvatar] = useState(null);
+  const [imgURL, setImageURL] = useState('');
 
-  useEffect(() => {
-    if (isUpdateForm) {
-      setIsUpdateForm(null);
-    }
-  }, [isUpdateForm]);
 
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape') {
-        // onClose();
-        setIsOpen(false);
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [onClose]);
-  const handleModalClick = (e) => {
-    const closeButtonClicked = e.target.closest('.close-button');
-    const modalContentClicked = e.target.closest('.modal-content');
-
-    if (closeButtonClicked || modalContentClicked === null) {
-      // onClose();
-    setIsOpen(false);
-    }
-    e.stopPropagation();
-  };
-  // const handleSaveName = (e) => {
-  //   user
+  // useEffect(() => {
+  //   const handleOutsideClick = event => {
+  //   if (!event.target.closest('.modal-content')) {
+  //       onClose(); // first time close (if modal in update user form)
+  //       onClose(); // second time close if user is on logout + edit selection
+  //   }
   // };
-  console.log(user.name);
-  console.log(user.avatarURL);
+  //   window.addEventListener('mousedown', handleOutsideClick);
+  //   return () => {
+  //     window.removeEventListener('mousedown', handleOutsideClick);
+  //   };
+  // }, [onClose]);
+
+  const handleAvatarChange = async e => {
+    const file = e.target.files[0];
+    setSelectedAvatar(file);
+    const reader = new FileReader();
+    reader.addEventListener('load', () => {
+      setImageURL(reader.result);
+    });
+    reader.readAsDataURL(file);
+  };
+
+  const handleOnSubmit = async values => {
+    const formData = new FormData();
+    formData.append('name', values.name);
+    if (selectedAvatar) {
+      formData.append('avatarURL', selectedAvatar);
+
+    }
+    //TODO: Update User onServer
+    // const res = await dispatch(updateUserThunk(formData));
+    // if (res.meta.requestStatus === 'fulfilled') {
+    //   onClose();
+    // }
+    user.name = values.name;
+    Notiflix.Notify.success('The user saved successfuly!');
+    onClose();
+  };
+
+  let avatar;
+  if (imgURL) {
+    avatar = imgURL;
+  } else if (user.avatarURL) {
+    avatar = user.avatarURL;
+  } else {
+    avatar = defaultAvatarURL;
+  }
+
   return isOpen ? (
-    <ModalWrapper onClick={handleModalClick}>
+    <ModalWrapper onClick={handleModalClick} onKeyDown={handleKeyDown}>
       <ContentWrapper className="modal-content">
         <CloseButton onClick={onClose} tabIndex={1} className="close-button">
-          <img src={XIcon} alt="Close" width={24} />
+        <StyledUpdatedCloseButton width={24} height={24} />
         </CloseButton>
         <StyledForm
           initialValues={{
@@ -81,24 +105,36 @@ const UserProfile = ({ onClose }) => {
           }}
           validationSchema={Yup.object({
             avatarURL: Yup.string(),
-            name: Yup.string().matches(
+            name: Yup.string()
+            .min(2)
+            .matches(
               /^[a-zA-Zа-яєїієґҐА-ЯЄЇІЄҐҐ'0-9]+$/,
               'Name can only contain letters or numbers.',
             ),
           })}
+
           onSubmit={async (values) => {
-            console.log("submit");
+            console.log('submit');
             const formData = new FormData();
             formData.append('name', values.name);
             formData.append('avatarURL', values.avatarURL);
             //await dispatch(updateUserThunk(formData));
           }}
+
         >
           {({ errors, touched, handleChange, setFieldTouched }) => (
             <StyledFormInsight>
               <UserAvatarWrapper>
-                <AvatarFrame src={user.avatarURL} alt="avatar" />
-                <AddAvatarButton src={AddIcon} alt="plus" width={28} />
+                <AvatarFrame src={avatar} alt="avatar" width={100} />
+                <label htmlFor="avatarInput">
+                  <AddIconImg src={AddIcon} alt="plus" width={28} />
+                  <StyledInputFile
+                    type="file"
+                    id="avatarInput"
+                    accept="image/*"
+                    onChange={handleAvatarChange}
+                  />
+                </label>
               </UserAvatarWrapper>
               <StyledInputWrap>
                 <StyledInput
@@ -130,7 +166,7 @@ const UserProfile = ({ onClose }) => {
                   </div>
                 )}
               </StyledInputWrap>
-              <SaveChangeButton type="submit" >Save changes</SaveChangeButton>
+              <SaveChangeButton type="submit">Save changes</SaveChangeButton>
             </StyledFormInsight>
           )}
         </StyledForm>
@@ -139,4 +175,4 @@ const UserProfile = ({ onClose }) => {
   ) : null;
 };
 
-export default UserProfile;
+

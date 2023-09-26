@@ -36,7 +36,8 @@ export const Button = styled.button`
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-right: 14px;
+  margin-right: 2px;
+
   background-color: transparent;
   border: none;
 
@@ -44,6 +45,10 @@ export const Button = styled.button`
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
+
+  @media (min-width: 375px) {
+    margin-right: 14px;
+  }
 
   @media (min-width: 768px) {
     gap: 14px;

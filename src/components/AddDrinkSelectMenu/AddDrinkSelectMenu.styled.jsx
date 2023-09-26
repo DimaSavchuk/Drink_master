@@ -39,6 +39,20 @@ export const DropMenu = styled.div`
   max-height: 300px;
   overflow-y: scroll;
 
+  &::-webkit-scrollbar {
+    margin-top: 4px;
+    width: 4px;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #f3f3f380;
+    border-radius: 4px;
+  }
+  /* &::-webkit-scrollbar-track {
+    background-color: yellow;
+  } */
+
   position: absolute;
   top: 24px;
   right: 0;

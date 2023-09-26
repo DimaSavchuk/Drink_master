@@ -1,6 +1,10 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { logInUser } from '../../../../redux/auth/authOperations';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import {
   Label,
@@ -13,9 +17,9 @@ import {
   Checked,
   Exclamation,
   FieldWrapper,
-  Eye, EyeOff
+  Eye,
+  EyeOff,
 } from './SignInForm.styled';
-
 
 const SignInSchema = Yup.object().shape({
   email: Yup.string()
@@ -29,15 +33,22 @@ const SignInSchema = Yup.object().shape({
 
 export const SignInForm = () => {
   const [showHidePassword, setShowHidePassword] = useState(false);
+  const dispatch = useDispatch();
 
-
-  const handleSubmit = (values, action) => {
+  const handleSubmit = (values, { resetForm }) => {
     console.log(values);
-    // dispatch(signInUser(values))
-    //   .unwrap()
-    //   .then(() => toast.success('Registratio successful'))
-    //   .catch(() => toast.error('User already exist...'));
-    action.resetForm();
+    dispatch(logInUser(values))
+      .unwrap()
+      .then(() => {
+        toast.success('You are logged in');
+      })
+      .catch((errorStatus) => {
+        if (errorStatus === 400) toast.error('Bed request... Try again');
+        else if (errorStatus === 401)
+          toast.error('E-mai or password is incorect...Try again.');
+        else toast.error('User is not registered :(');
+      });
+    resetForm();
   };
   return (
     <Formik

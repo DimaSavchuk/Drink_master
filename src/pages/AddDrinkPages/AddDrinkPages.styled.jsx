@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   max-width: 375px;
-  padding-top: 80px;
+  padding-top: 152px;
   padding-left: 20px;
   padding-right: 20px;
   margin-left: auto;
@@ -25,5 +25,9 @@ export const Container = styled.div`
   h2,
   h3 {
     color: #f3f3f3;
+  }
+
+  & > div {
+    margin-bottom: 80px;
   }
 `;

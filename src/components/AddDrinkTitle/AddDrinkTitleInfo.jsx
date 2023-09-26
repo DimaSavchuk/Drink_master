@@ -1,6 +1,6 @@
-import AddDrinkDropdownMenu from '../AddDrinkSelectMenu/AddDrinkSelectMenu';
+import AddDrinkDropdownMenu from '../AddDrinkSelectMenu';
 import {
-  FieldSelectStyled,
+  // FieldSelectStyled,
   FieldStyled,
   FieldWrapper,
   LabelStyled,

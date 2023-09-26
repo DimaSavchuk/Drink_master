@@ -14,10 +14,15 @@ import { GlobalStyle } from './components/GlobalStyles/GlobalStyles.styled';
 import { HomePage } from './pages/HomePage/HomePage';
 import AddDrink from './pages/AddDrinkPages/AddDrinkPages';
 import AboutDrinkPages from './pages/AboutDrinkPages/AboutDrinkPages';
+
 import { DropDown } from './components/Modals/DropDown/DropDown';
 import { ROUTES } from './Routes/Routes';
+import { RestrictedRoute } from './Routes/RestrictedRouts';
+      import { ToastContainer } from 'react-toastify';
+
 // import UserProfile from './components/Modals/UserProfile/UserProfile';
 // import LogOut from './components/Modals/LogOut/LogOut';
+
 
 const test = import.meta.env.VITE_API_TEST;
 
@@ -27,10 +32,28 @@ function App() {
   return (
     <AppWrapper>
       <GlobalStyle />
+      <ToastContainer theme="dark" />
+
       <Routes>
         <Route path="/start" element={<StartPage />} />
-        <Route path={ROUTES.REGISTRATION} element={<RegistrationPage />} />
-        <Route path={ROUTES.LOGIN} element={<SignInPage />} />
+        <Route
+          path={ROUTES.REGISTRATION}
+          element={
+            <RestrictedRoute
+              redirectTo={ROUTES.HOME}
+              component={<RegistrationPage />}
+            />
+          }
+        />
+        <Route
+          path={ROUTES.LOGIN}
+          element={
+            <RestrictedRoute
+              redirectTo={ROUTES.HOME}
+              component={<SignInPage />}
+            />
+          }
+        />
         <Route path={ROUTES.HOME} element={<SharedLayout />}>
           <Route index element={<HomePage />} />
           <Route path={ROUTES.DRINKS} element={<DrinksPages />} />

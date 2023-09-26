@@ -21,17 +21,31 @@ export const DatePickerInput = ({ errors, touched, placeholderText }) => {
     ? 'fail'
     : 'unfilled';
 
+
   useEffect(() => {
-    flatpickr('#date', {
-      // altInput: true,
+    const flatpickrInstance = flatpickr('#date', {
+      altInput: true,
       altFormat: 'd/m/Y',
-      dateFormat: 'd/m/Y',
+      dateFormat: 'U',
       minDate: '01-01-1930',
-      maxDate: ' today',
+      maxDate: 'today',
       onChange: function (selectedDates, dateStr) {
-        setFieldValue('date', dateStr);
+        setFieldValue('birthDate', dateStr);
+        this._input.classList.remove('invalid', 'success', 'unfilled');
+        this._input.classList.add(dateStr ? 'success' : 'unfilled');
+      },
+      onClose: function () {
+        const altInput = this._input;
+        if (altInput.value === '') {
+          altInput.classList.remove('unfilled', 'success');
+          altInput.classList.add('invalid');
+        }
       },
     });
+
+    return () => {
+      flatpickrInstance.destroy();
+    };
   }, [setFieldValue]);
 
   return (
@@ -39,7 +53,7 @@ export const DatePickerInput = ({ errors, touched, placeholderText }) => {
       <FieldWrapper>
         <FormField
           id="date"
-          name="date"
+          name="birthDate"
           type="text"
           placeholder={placeholderText}
           aria-label={placeholderText}
@@ -47,10 +61,10 @@ export const DatePickerInput = ({ errors, touched, placeholderText }) => {
         />
         <Calendar size="20" />
       </FieldWrapper>
-      {values.date && touched.date && !errors.date && (
+      {values.birthDate && touched.birthDate && !errors.birthDate && (
         <CorrectText>This is CORRECT date</CorrectText>
       )}
-      <ErrorMessage name="date" component="span" />
+      <ErrorMessage name="birthDate" component="span" />
     </Label>
   );
 };

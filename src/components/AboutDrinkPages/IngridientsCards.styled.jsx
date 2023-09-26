@@ -8,6 +8,9 @@ export const IngredientsDiv = styled.ul`
   list-style: none;
   @media (min-width: 768px) {
     margin-top: 24px;
+    gap: 22px;
+  }
+  @media (min-width: 1440px) {
     gap: 35px;
   }
 `;

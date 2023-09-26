@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { CommonContainer } from '../GlobalStyles/CommonContainer.styled';
-import { Gradient, Section, Title } from './FavoritesContainer.styled';
+import { Section, Title } from './FavoritesContainer.styled';
 import { CardsContainer } from '../DrinkCard/DrinkCard.styled';
 import {
   Container,
@@ -15,7 +15,6 @@ import {
 import { Paginator } from '../Paginator/Paginator';
 import { Loader } from '../Loader/Loader';
 
-
 const FavoritesContainer = () => {
   const [cards, setCards] = useState([]);
   const [isloading, setIsloading] = useState(false);
@@ -25,7 +24,7 @@ const FavoritesContainer = () => {
     : 0;
   const [currentPage, setCurrentPage] = useState(page);
   const [limit, setLimit] = useState(null);
-    useState(false);
+  useState(false);
   const [pageRangeDisplayed, setPageRangeDisplayed] = useState(3);
 
   useEffect(() => {
@@ -92,7 +91,6 @@ const FavoritesContainer = () => {
 
   return (
     <Section>
-      <Gradient />
       <CommonContainer>
         <div>
           <Title>Favorites</Title>
@@ -114,9 +112,9 @@ const FavoritesContainer = () => {
               <picture>
                 <img
                   style={{ margin: '0 auto' }}
-                  src="src/assets/hero/asr_blue_iced_tea_mobile 1.png"
-                  srcSet="src/assets/hero/asr_blue_iced_tea_mobile 1.png 1x,
-                  src/assets/hero/asr_blue_iced_tea_mobile@2x.png 2x"
+                  src="./src/assets/hero/asr_blue_iced_tea_mobile 1.png"
+                  srcSet="./src/assets/hero/asr_blue_iced_tea_mobile 1.png 1x,
+                  ./src/assets/hero/asr_blue_iced_tea_mobile@2x.png 2x"
                   alt="coctail"
                   loading="lazy"
                 />
