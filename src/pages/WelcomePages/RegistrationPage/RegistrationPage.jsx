@@ -1,5 +1,4 @@
 // import React from 'react';
-// import { CommonContainer } from '../../../components/GlobalStyles/CommonContainer.styled';
 import {
   RegistrationPageStyled,
   Container,
@@ -8,18 +7,21 @@ import {
   StyledLink,
 } from './RegistrationPage.styled';
 import { SignUpForm } from './Form/SignUpForm';
+import { ToastContainer } from 'react-toastify';
 
 const RegistrationPage = () => {
   return (
     <RegistrationPageStyled>
+      <ToastContainer theme="dark" />
+
       <Container>
-      <Wrapper>
-        <Title>Sign Up</Title>
+        <Wrapper>
+          <Title>Sign Up</Title>
 
-        <SignUpForm />
+          <SignUpForm />
 
-        <StyledLink to="/login"> Sign In</StyledLink>
-      </Wrapper>
+          <StyledLink to="/login"> Sign In</StyledLink>
+        </Wrapper>
       </Container>
     </RegistrationPageStyled>
   );

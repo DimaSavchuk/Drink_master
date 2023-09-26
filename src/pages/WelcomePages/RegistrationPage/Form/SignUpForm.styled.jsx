@@ -34,19 +34,32 @@ export const EyeOff = styled(FiEyeOff)`
 export const DatePickerContainer = styled.div`
   input {
     display: block;
-    
   }
 
   .success {
-    outline: 1px solid green;
+    outline: 1px solid #3cbc81;
   }
 
+  /* .unfilled.active ~ .success {
+    outline: 1px solid green;
+  } */
+
   .fail {
-    outline: 1px solid red;
+    outline: 1px solid #da1414;
   }
 
   .unfilled {
-    outline: 1px solid gray;
+    outline: 1px solid rgba(243, 243, 243, 0.2);
+  }
+
+  input.success,
+  input[type='text'].success {
+    outline-color: #3cbc81;
+  }
+
+  input.invalid,
+  input[type='text'].invalid {
+    outline-color: #da1414;
   }
 `;
 
@@ -92,17 +105,23 @@ export const FieldWrapper = styled.div`
   position: relative;
 `;
 export const FormField = styled(FormikField)`
-border: none;
+  border: none;
   width: 100%;
   padding: 18px 24px;
-
   border-radius: 200px;
   color: #f3f3f3;
   background-color: transparent;
   font-size: 14px;
   line-height: 1.28;
-
   transition: color 300ms linear;
+
+  outline: 1px solid
+    ${({ className }) =>
+      className === 'fail'
+        ? '#DA1414'
+        : className === 'success'
+        ? '#3CBC81'
+        : ' rgba(243, 243, 243, 0.2)'};
 
   &::placeholder {
     color: rgba(243, 243, 243, 0.5);

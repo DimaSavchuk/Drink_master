@@ -12,6 +12,7 @@ import {
 const SignInPage = () => {
   return (
     <SignInPageStyled>
+
       <Container>
         <Wrapper>
           <Title>Sign In</Title>
