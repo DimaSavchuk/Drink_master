@@ -27,7 +27,7 @@ function App() {
     <AppWrapper>
       <GlobalStyle />
       <Routes>
-        <Route path={ROUTES.HOME} element={<StartPage />} />
+        <Route path="/start" element={<StartPage />} />
         <Route path={ROUTES.REGISTRATION} element={<RegistrationPage />} />
         <Route path={ROUTES.LOGIN} element={<SignInPage />} />
         <Route path={ROUTES.HOME} element={<SharedLayout />}>
