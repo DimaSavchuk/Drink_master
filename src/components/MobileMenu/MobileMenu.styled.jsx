@@ -1,32 +1,39 @@
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-// export const MenuWrapper = styled.div`
-//   position: fixed;
-//   width: 100vw;
-//   /* height: ${({ visible }) => (visible ? '100vh' : '0')}; */
-//   height: 100vh;
-//   top: 0;
-//   bottom: 0;
-//   right: 0;
-//   left: 0;
-//   z-index: 2;
-//   background-color: #0a0a11;
-//   /* visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')}; */
-//   /* transform: ${({ visible }) => (visible ? 'scale(1)' : 'scale(0.5)')}; */
-//   /* opacity: ${({ visible }) => (visible ? 1 : 0)}; */
+import ellipseMobileBlue from '../../assets/mobile-menu/ellipse-mobile-blue.png';
+import ellipseMobileYellow from '../../assets/mobile-menu/ellipse-mobile-yellow.png';
+import ellipseMobileRightBottom from '../../assets/mobile-menu/ellipseright-bottom-mobile.png';
+export const MenuWrapper = styled.div`
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  background-color: #0a0a11;
+  overflow: hidden;
+  /* pointer-events: none; */
 
-//   /* transition: all 1000ms linear; */
-//   overflow: hidden;
-//   /* pointer-events: none; */
-//   @media (min-width: 768px) {
-//     display: none;
-//   }
-// `;
+  background-image: url(${ellipseMobileBlue}), url(${ellipseMobileYellow}),
+    url(${ellipseMobileRightBottom});
+  background-position:
+    110% 90%,
+    60% -130px,
+    -15% -100%;
+  background-size: auto;
+  background-repeat: no-repeat;
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
 
 export const MobileContainer = styled.div`
   padding: 232px 20px 200px;
   height: 100%;
+  overflow: auto;
 `;
 
 export const List = styled.ul`
