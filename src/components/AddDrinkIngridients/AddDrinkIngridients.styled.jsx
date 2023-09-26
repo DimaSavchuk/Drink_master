@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import { Field } from 'formik';
 
+export const IngridientsWrapper = styled.div`
+  margin-bottom: 80px;
+`;
+
 export const TitleWrapper = styled.div`
   display: flex;
   justify-content: space-between;

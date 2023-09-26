@@ -1,10 +1,11 @@
 import { Button, UserLogoImg, UserLogoWrapper } from './UserLogo.styled';
 
-export const UserLogo = () => {
+export const UserLogo = ({ onClick }) => {
+
   return (
-    <Button>
+    <Button onClick={onClick}>
       <UserLogoWrapper>
-        <UserLogoImg src="src/assets/userlogo@2x.png" />
+        <UserLogoImg src="./src/assets/userlogo@2x.png" />
       </UserLogoWrapper>
       Victoria
     </Button>

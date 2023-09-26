@@ -3,12 +3,10 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://rest-api-drink-master.onrender.com/api';
 
+const accessToken =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTFiMTQ2OGEwMzA3MzgyNjgxNzY5OSIsImlhdCI6MTY5NTcxOTcxMiwiZXhwIjoxNjk1NzkxNzEyfQ.PItbRSr3g0SSyvvPfJl5IWxf5mdBmYXMyNKFCdEfmAg';
 
 
-const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MGZmYzVhZjhhMWE4NjA3OTNmNjk4ZCIsImlhdCI6MTY5NTcxMTI2MiwiZXhwIjoxNjk1NzgzMjYyfQ.m9hWihFtZvpIEwTtwSIoDDgKjz8OCuQ7E9dxG0_w6ro';
-
-// const accessToken =
-//   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MGZmYzVhZjhhMWE4NjA3OTNmNjk4ZCIsImlhdCI6MTY5NTU0NjQ5MiwiZXhwIjoxNjk1NjE4NDkyfQ.OgISC0-7XR70ndKat_FS4nPjHabm9DTL12Gwb4wTWek';
 axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
 
 export const fetchFavoriteDrinks = async () => {
@@ -164,5 +162,48 @@ export const fetchHomePageCocktails=async () => {
     return response.data.data;
   } catch (error) {
     console.error('Помилка при отриманні даних на головну сторінку: ', error);
+  }
+};
+    
+    
+    export const updateUser = async (_id, name, file) => {
+  // console.log(_id);
+  try {
+    const response = await axios.post('/users/updateUser', {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+      data: {
+        name: name,
+        file: file,
+        user: {
+          _id: _id,
+        },
+      },
+    });
+    return response.data.data;
+  } catch (error) {
+    console.error('Помилка при отриманні даних:', error);
+  }
+};
+
+export const getCurrentUser = async (user, file, _id) => {
+  // console.log(_id);
+  try {
+    const response = await axios.post('/users/updateUser', {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+      data: {
+        name: name,
+        file: file,
+        user: {
+          _id: _id,
+        },
+      },
+    });
+    return response.data.data;
+  } catch (error) {
+    console.error('Помилка при отриманні даних:', error);
   }
 };

@@ -1,1 +1,1 @@
-export { default } from './AddDrinkDropdownMenu';
+export { default } from './AddDrinkSelectMenu';

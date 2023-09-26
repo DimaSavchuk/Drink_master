@@ -16,7 +16,7 @@ export const TitleInfo = styled.div`
 export const FieldStyled = styled(Field)`
   height: 34px;
 
-  text-align: center;
+  text-align: right;
   color: #f3f3f3;
 
   border-style: none;
@@ -27,6 +27,10 @@ export const FieldStyled = styled(Field)`
     border-bottom: 1px solid #f3f3f3;
     outline: transparent;
   }
+
+  /* &:focus ~ label {
+    color: red;
+  } */
 
   &::placeholder {
     opacity: 0;
@@ -69,6 +73,10 @@ export const FieldWrapper = styled.div`
 
   &:not(:last-of-type) {
     margin-bottom: 31px;
+  }
+
+  &:focus > label {
+    color: red;
   }
 `;
 

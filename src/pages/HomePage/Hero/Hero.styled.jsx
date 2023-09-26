@@ -92,9 +92,9 @@ export const AddDrinkLink = styled(Link)`
   }
 `;
 
-export const ImgWrapper = styled.div`
-  margin: 0 auto;
-`;
+// export const ImgWrapper = styled.div`
+//   margin: 0 auto;
+// `;
 
 export const Wrapper = styled.div`
   @media (min-width: 1440px) {
