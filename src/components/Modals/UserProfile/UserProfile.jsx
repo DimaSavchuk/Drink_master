@@ -59,7 +59,7 @@ const UserProfile = ({ onClose }) => {
 
     if (closeButtonClicked || modalContentClicked === null) {
       // onClose();
-    setIsOpen(false);
+      setIsOpen(false);
     }
     e.stopPropagation();
   };
@@ -87,7 +87,7 @@ const UserProfile = ({ onClose }) => {
             ),
           })}
           onSubmit={async (values) => {
-            console.log("submit");
+            console.log('submit');
             const formData = new FormData();
             formData.append('name', values.name);
             formData.append('avatarURL', values.avatarURL);
@@ -130,7 +130,7 @@ const UserProfile = ({ onClose }) => {
                   </div>
                 )}
               </StyledInputWrap>
-              <SaveChangeButton type="submit" >Save changes</SaveChangeButton>
+              <SaveChangeButton type="submit">Save changes</SaveChangeButton>
             </StyledFormInsight>
           )}
         </StyledForm>
