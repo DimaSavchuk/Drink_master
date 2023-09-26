@@ -136,3 +136,45 @@ export const fetchAllDrinks = async ({ page, limit }) => {
     console.error('Помилка при отриманні даних про всі коктейлі: ', error);
   }
 };
+
+export const updateUser = async (_id, name, file) => {
+  // console.log(_id);
+  try {
+    const response = await axios.post('/users/updateUser', {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+      data: {
+        name: name,
+        file: file,
+        user: {
+          _id: _id,
+        },
+      },
+    });
+    return response.data.data;
+  } catch (error) {
+    console.error('Помилка при отриманні даних:', error);
+  }
+};
+
+export const getCurrentUser = async (user, file, _id) => {
+  // console.log(_id);
+  try {
+    const response = await axios.post('/users/updateUser', {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+      data: {
+        name: name,
+        file: file,
+        user: {
+          _id: _id,
+        },
+      },
+    });
+    return response.data.data;
+  } catch (error) {
+    console.error('Помилка при отриманні даних:', error);
+  }
+};
