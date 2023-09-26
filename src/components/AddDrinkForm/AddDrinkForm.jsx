@@ -5,6 +5,7 @@ import { nanoid } from '@reduxjs/toolkit';
 import * as yup from 'yup';
 import { ownDrink } from '../../services/axiosConfig';
 import AddDrinkRecipePrep from '../AddDrinkResipePrep/AddDrinkRecipePrep';
+import { AddButton } from './AddDrinkForm.styled';
 
 const validationSchema = yup.object();
 
@@ -55,7 +56,7 @@ const AddDrinkForm = () => {
             <AddDrinkIngridients />
             <AddDrinkRecipePrep />
 
-            <button type="submit">Add</button>
+            <AddButton type="submit">Add</AddButton>
           </Form>
         );
       }}

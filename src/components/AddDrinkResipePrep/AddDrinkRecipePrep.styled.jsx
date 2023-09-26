@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 
 export const FieldTextArea = styled(Field)`
   display: block;
-  width: 335px;
+  width: 100%;
   height: 184px;
   padding: 16px 18px;
 
@@ -12,6 +12,7 @@ export const FieldTextArea = styled(Field)`
   background-color: transparent;
   border: 1px solid #f3f3f380;
   border-radius: 14px;
+  outline: transparent;
   overflow: visible;
 
   &:focus {
@@ -29,11 +30,17 @@ export const FieldTextArea = styled(Field)`
 
     z-index: 999;
   }
+
+  &::-webkit-resizer {
+    display: none;
+  }
 `;
 
 export const FieldWrapper = styled.div`
   position: relative;
   overflow: visible;
+
+  margin-bottom: 20px;
 
   h3 {
     margin-bottom: 40px;

@@ -6,7 +6,7 @@ import {
   SelectWrapper,
 } from './AddDrinkSelectMenu.styled';
 import { SelectOpenArrow } from '../SelectOpenArrow/SelectOpenArrow';
-import { Field, useField, useFormik } from 'formik';
+import { useField } from 'formik';
 
 const AddDrinkDropdownMenu = ({ items, title }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +18,6 @@ const AddDrinkDropdownMenu = ({ items, title }) => {
 
   const toggleMenu = () => {
     setIsOpen((prevState) => !prevState);
-    console.log('isOpen:', isOpen);
   };
 
   const handleClickItem = (item) => {
