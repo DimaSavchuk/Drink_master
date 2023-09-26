@@ -22,6 +22,7 @@ import '../MobileMenu/TransitionStyles.css';
 import { DropDown } from '../Modals/DropDown/DropDown';
 import { LogOutModel } from '../Modals/LogOut/LogOut';
 import { UserInfoModal } from '../Modals/UserProfile/UserProfile';
+import Switcher from '../ThemeSwitcher/ThemeSwitcher';
 //drop dowm
 
 export const Header = () => {
@@ -126,11 +127,12 @@ export const Header = () => {
             </StyledLink>
             <PagesMenu />
             <div>
-
               {/* <StyledFlexDiv>
               <StyledDesktopThemeSwitcher>
                 <ThemeSwitcher />
               </StyledDesktopThemeSwitcher> */}
+
+              <Switcher />
 
               <UserLogo onClick={openDropDown} />
               {isEditProfileDropDownOpen && (
