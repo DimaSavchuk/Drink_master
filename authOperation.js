@@ -54,3 +54,83 @@ export const logoutThunk = createAsyncThunk('@@auth/logout', async () => {
 // );
 
 
+
+
+
+
+
+<Route
+          path={ROUTES.HOME}
+          element={
+            <PrivateRoute
+              component={<SharedLayout />}
+              redirectTo={ROUTES.LOGIN}
+            />
+          }
+        >
+          <Route
+            index
+            element={
+              <PrivateRoute
+                component={<HomePage />}
+                redirectTo={ROUTES.LOGIN}
+              />
+            }
+          />
+          <Route
+            path={ROUTES.DRINKS}
+            element={
+              <PrivateRoute
+                component={<DrinksPages />}
+                redirectTo={ROUTES.LOGIN}
+              />
+            }
+          />
+          <Route
+            path={ROUTES.ABOUTDRINK}
+            element={
+              <PrivateRoute
+                component={<AboutDrinkPages />}
+                redirectTo={ROUTES.LOGIN}
+              />
+            }
+          />
+          <Route
+            path={ROUTES.ADDDRINK}
+            element={
+              <PrivateRoute
+                component={<AddDrink />}
+                redirectTo={ROUTES.LOGIN}
+              />
+            }
+          />
+          <Route
+            path={ROUTES.MYDRINKS}
+            element={
+              <PrivateRoute
+                component={<MyDrinksPages />}
+                redirectTo={ROUTES.LOGIN}
+              />
+            }
+          />
+          <Route
+            path={ROUTES.FAVORITE}
+            element={
+              <PrivateRoute
+                component={<FavoritesPages />}
+                redirectTo={ROUTES.LOGIN}
+              />
+            }
+          />
+
+  <Route
+            path="/dropdown"
+            element={
+              <PrivateRoute
+                component={<DropDown />}
+                redirectTo={ROUTES.LOGIN}
+              />
+            }
+          />
+
+
