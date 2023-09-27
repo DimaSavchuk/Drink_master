@@ -15,6 +15,7 @@ export const ModalWrapper = styled.div`
   padding-top: 60px;
   padding-right: 20px;
   z-index: 2;
+  backdrop-filter: blur(4px);
   @media screen and (min-width: 768px) {
     padding-top: 80px;
     padding-right: 32px;
@@ -22,7 +23,7 @@ export const ModalWrapper = styled.div`
 
   @media screen and (min-width: 1440px) {
     padding-top: 80px;
-    padding-right: 90px;
+    padding-right: 150px;
   }
 `;
 export const ModalContent = styled.div`

@@ -22,12 +22,14 @@ import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
 import { DropDown } from '../Modals/DropDown/DropDown';
 import { LogOutModel } from '../Modals/LogOut/LogOut';
 import { UserInfoModal } from '../Modals/UserProfile/UserProfile';
+import { useSelector } from 'react-redux';
+import { selectUserName } from '../../redux/auth/authSelectors';
 //drop dowm
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isAuthVisible, setIsAuthVisible] = useState(true);
-
+  const name = useSelector(selectUserName);
   const handleMenuClose = () => {
     setIsOpen(false);
   };
@@ -120,12 +122,12 @@ export const Header = () => {
           <Navigation>
             <StyledLink to="/">
               <IconWrapper size={'22px'} size768={'28px'} size1440={'28px'}>
-                <use href={`${sprite}#icon-logo`} />
+                <use href={`${sprite}#icon-logo-light`} />
               </IconWrapper>
               Drink Master
             </StyledLink>
             <PagesMenu />
-//               {isAuthVisible ? <UserLogo /> : null}
+            {/* {isAuthVisible ? <UserLogo /> : null} */}
 
             <StyledFlexDiv>
               <StyledDesktopThemeSwitcher>
@@ -158,6 +160,7 @@ export const Header = () => {
 
               {/* {isAuthVisible ? <UserLogo /> : null} */}
 
+              {isOpen && <ThemeSwitcher />}
 
               <Button onClick={handleToggleMenu}>
                 {/* {isOpen ? (
@@ -182,7 +185,7 @@ export const Header = () => {
                     />
                   </IconWrapper>
                 )} */}
-
+                {/* 
                 <IconWrapper
                   className={isOpen ? 'icon-wrapper active' : 'icon-wrapper'}
                   size={'32px'}
@@ -190,6 +193,15 @@ export const Header = () => {
                 >
                   <use
                     href={`${sprite}#${isOpen ? 'icon-x' : 'icon-burger-menu'}`}
+                  />
+                </IconWrapper> */}
+                <IconWrapper
+                  className={isOpen ? 'icon-wrapper active' : 'icon-wrapper'}
+                  size={'32px'}
+                  size768={'38px'}
+                >
+                  <use
+                    href={`${sprite}#${isOpen ? 'icon-cross' : 'icon-menu'}`}
                   />
                 </IconWrapper>
               </Button>

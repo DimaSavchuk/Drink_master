@@ -4,7 +4,12 @@ import pencilIcon from 'src/assets/pencilIcon.png';
 import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
 import { RiErrorWarningLine } from 'react-icons/ri';
 import { ReactComponent as CloseButtonIcon } from '../../../assets/forIco.svg';
+import ellipseMobileBlue from '../../../assets/mobile-menu/ellipse-mobile-blue.png';
+import ellipseMobileYellow from '../../../assets/mobile-menu/ellipse-mobile-yellow.png';
+import ellipseMobileRightBottom from '../../../assets/mobile-menu/ellipseright-bottom-mobile.png';
 
+import ellipseTabletBlue from '../../../assets/mobile-menu/ellipse-blue-tablet.png';
+import ellipseTabletYellow from '../../../assets/mobile-menu/ellipse-yellow-tablet.png';
 
 export const ModalWrapper = styled.div`
   background-color: rgba(0, 0, 0, 0.8);
@@ -18,6 +23,7 @@ export const ModalWrapper = styled.div`
   align-items: start;
   padding-top: 150px;
   z-index: 2;
+  backdrop-filter: blur(4px);
 `;
 export const ContentWrapper = styled.div`
   background-color: #161F37;
@@ -26,9 +32,22 @@ export const ContentWrapper = styled.div`
   height: 345px;
   margin: 0;
   padding: 0;
+  background-image: url(${ellipseMobileBlue}), url(${ellipseMobileYellow}),
+    url(${ellipseMobileRightBottom});
+  background-position:
+    110% 90%,
+    60% -130px,
+    -15% -170%;
+  background-size: auto;
+  background-repeat: no-repeat;
+
 @media screen and (min-width: 768px) {
     width: 500px;
     height: 426px;
+    background-image: url(${ellipseTabletYellow}), url(${ellipseTabletBlue});
+    background-position:
+      -307px -284px,
+      450px 300px;
   }
 `;
 export const CloseButton = styled.button`
@@ -122,6 +141,8 @@ export const StyledInputWrap = styled.div`
 `;
 export const StyledIconError = styled(RiErrorWarningLine)`
   position: absolute;
+  width: 24px;
+  height: 24px;
   right: 24px;
   top: 70%;
   transform: translateY(-50%);
@@ -131,6 +152,8 @@ export const StyledIconError = styled(RiErrorWarningLine)`
 `;
 export const StyledIconChecked = styled(IoIosCheckmarkCircleOutline)`
   position: absolute;
+  width: 24px;
+  height: 24px;
   right: 24px;
   top: 70%;
   transform: translateY(-50%);
@@ -241,8 +264,7 @@ export const StyledMessage = styled.p`
 export const StyledUpdatedCloseButton = styled(CloseButtonIcon)`
   width: 24px;
   height: 24px;
-  fill: ${props =>
-    props.theme === 'dark' ? props.theme.bgrColor : props.theme.textColor};
+  fill: #F3F3F3;
 
   @media screen and (min-width: 768px) {
     width: 32px;
@@ -250,7 +272,7 @@ export const StyledUpdatedCloseButton = styled(CloseButtonIcon)`
   }
 
   &:hover {
-    fill: red;
+    fill: #434d43;
   }
 `;
 

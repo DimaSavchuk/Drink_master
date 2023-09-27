@@ -32,7 +32,7 @@ export const Paginate = styled(ReactPaginate).attrs({activeClassName: 'active', 
         font-size: 12px;
         font-weight: 500;
         line-height: 1.33;
-        color:#f3f3f3;
+        color:var(--link-color);
         cursor: pointer;
     }
 

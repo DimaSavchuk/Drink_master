@@ -4,7 +4,8 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://rest-api-drink-master.onrender.com/api';
 
 const accessToken =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTFiMTQ2OGEwMzA3MzgyNjgxNzY5OSIsImlhdCI6MTY5NTcxOTcxMiwiZXhwIjoxNjk1NzkxNzEyfQ.PItbRSr3g0SSyvvPfJl5IWxf5mdBmYXMyNKFCdEfmAg';
+
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MGZmYzVhZjhhMWE4NjA3OTNmNjk4ZCIsImlhdCI6MTY5NTgxNjUwOCwiZXhwIjoxNjk2NTM2NTA4fQ.Iycb3FmyQyJfWInubcCv-3V2csCPWwhTK6QDzVaxhNA';
 
 
 axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
@@ -139,7 +140,7 @@ export const fetchAllDrinks = async ({ page, limit }) => {
   }
 };
 
-export const fetchCategories=async () => {
+export const fetchCategories = async () => {
   try {
     const response = await axios.get('/filters/categories');
     return response.data.categories;
@@ -148,7 +149,7 @@ export const fetchCategories=async () => {
   }
 };
 
-export const fetchIngredients=async () => {
+export const fetchIngredients = async () => {
   try {
     const response = await axios.get('/filters/ingredients');
     return response.data;
@@ -157,7 +158,7 @@ export const fetchIngredients=async () => {
   }
 };
 
-export const fetchHomePageCocktails=async () => {
+export const fetchHomePageCocktails = async () => {
   try {
     const response = await axios.get('/drinks/homepage');
     return response.data.data;
@@ -165,9 +166,8 @@ export const fetchHomePageCocktails=async () => {
     console.error('Помилка при отриманні даних на головну сторінку: ', error);
   }
 };
-    
-    
-    export const updateUser = async (_id, name, file) => {
+
+export const updateUser = async (_id, name, file) => {
   // console.log(_id);
   try {
     const response = await axios.post('/users/updateUser', {
