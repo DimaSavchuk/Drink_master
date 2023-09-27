@@ -1,7 +1,12 @@
 import { DatePickerInput } from './components/DatePickerInput';
 import { FormFieldInput } from './components/FormField';
 
-import { DatePickerContainer, Form, SubmitBtn } from './SignUpForm.styled';
+import {
+  DatePickerContainer,
+  Form,
+  SubmitBtn,
+  StyledLink,
+} from './SignUpForm.styled';
 import { Formik } from 'formik';
 
 import * as Yup from 'yup';
@@ -12,7 +17,7 @@ import { useDispatch } from 'react-redux';
 import { signUpUser } from '../../../../redux/auth/authOperations';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 // const emailRegex = /^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$/;
 
@@ -26,18 +31,15 @@ const validationSchema = Yup.object().shape({
     .required('* E-mail is required'),
   // .matches(emailRegex),
   password: Yup.string()
-    .min(7, 'This is an ERROR password, too short! Minimum 7 symbols.')
+    .min(7, 'This is an ERROR password, too short! Minimum 8 symbols.')
     .max(20, 'This is an ERROR password, too Long!')
     .required('Password is required'),
 });
 
 export const SignUpForm = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  //  useEffect(() => {
-  //
-  //  }, []);
+  const [isDate, setIsDate] = useState(false); // <-- Create a state to store datepicker instance
+  const [datepickerInstance, setDatepickerInstance] = useState(null);
 
   return (
     <DatePickerContainer>
@@ -49,15 +51,13 @@ export const SignUpForm = () => {
           password: '',
         }}
         validationSchema={validationSchema}
-        onSubmit={(values, { resetForm, setSubmitting }) => {
+        onSubmit={(values, { resetForm, setSubmitting, setFieldValue }) => {
           setSubmitting(true);
-          console.log(values);
           dispatch(signUpUser(values))
             .unwrap()
             .then((res) => {
               console.log(res);
               if (res && res.status === 201) {
-                navigate('/');
                 toast.success('Registration successful');
               }
             })
@@ -65,8 +65,11 @@ export const SignUpForm = () => {
               if (errorStatus === 409) toast.error('User already exists...');
               else toast.error('Something went wrong... Try again...');
             });
-          setSubmitting(false);
+          setIsDate(false);
           resetForm();
+          datepickerInstance.destroy();
+          setFieldValue('birthDate', '');
+          setSubmitting(false);
         }}
       >
         {({ isSubmitting, errors, touched }) => (
@@ -82,6 +85,9 @@ export const SignUpForm = () => {
               errors={errors}
               touched={touched}
               placeholderText={'dd/mm/yyyy'}
+              isDate={isDate}
+              setIsDate={setIsDate}
+              setDatepickerInstance={setDatepickerInstance}
             />
             <FormFieldInput
               fieldName="email"
@@ -96,10 +102,10 @@ export const SignUpForm = () => {
               touched={touched}
               errors={errors}
             />
-
             <SubmitBtn type="submit" disabled={isSubmitting}>
               Submit
             </SubmitBtn>
+            <StyledLink to="/login"> Sign In</StyledLink>
           </Form>
         )}
       </Formik>

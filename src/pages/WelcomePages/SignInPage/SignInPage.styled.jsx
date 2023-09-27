@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { CommonContainer } from '../../../components/GlobalStyles/CommonContainer.styled';
+import { Link } from 'react-router-dom';
 
 export const SignInPageStyled = styled.section`
   display: flex;
@@ -101,3 +101,4 @@ export const StyledLink = styled(Link)`
     line-height: 1.28;
   }
 `;
+

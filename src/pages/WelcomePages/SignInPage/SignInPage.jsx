@@ -6,7 +6,6 @@ import {
   Container,
   Title,
   Wrapper,
-  StyledLink,
 } from './SignInPage.styled';
 
 const SignInPage = () => {
@@ -19,7 +18,6 @@ const SignInPage = () => {
 
           <SignInForm />
 
-          <StyledLink to="/registration"> Sign Up</StyledLink>
         </Wrapper>
       </Container>
     </SignInPageStyled>

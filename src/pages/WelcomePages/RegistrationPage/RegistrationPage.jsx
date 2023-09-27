@@ -4,7 +4,6 @@ import {
   Container,
   Title,
   Wrapper,
-  StyledLink,
 } from './RegistrationPage.styled';
 import { SignUpForm } from './Form/SignUpForm';
 import { ToastContainer } from 'react-toastify';
@@ -20,7 +19,6 @@ const RegistrationPage = () => {
 
           <SignUpForm />
 
-          <StyledLink to="/login"> Sign In</StyledLink>
         </Wrapper>
       </Container>
     </RegistrationPageStyled>

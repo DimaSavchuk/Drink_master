@@ -17,6 +17,7 @@ import {
   Checked,
   Exclamation,
   FieldWrapper,
+  StyledLink,
   Eye,
   EyeOff,
 } from './SignInForm.styled';
@@ -124,6 +125,8 @@ export const SignInForm = () => {
           </LastLabel>
 
           <SubmitBtn type="submit">Sign In</SubmitBtn>
+
+          <StyledLink to="/registration"> Sign Up</StyledLink>
         </Form>
       )}
     </Formik>

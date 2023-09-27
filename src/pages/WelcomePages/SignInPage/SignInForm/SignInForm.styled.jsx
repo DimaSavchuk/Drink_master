@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
 
 import {
@@ -142,5 +143,26 @@ export const SubmitBtn = styled.button`
   @media (min-width: 768px) {
     font-size: 16px;
     line-height: 1.12;
+  }
+`;
+
+export const StyledLink = styled(Link)`
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: underline;
+  color: #f3f3f3;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.33;
+
+  cursor: pointer;
+
+  &:hover {
+    /* color: #161f37; */
+  }
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+    line-height: 1.28;
   }
 `;

@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { CommonContainer } from '../../../components/GlobalStyles/CommonContainer.styled';
 
@@ -81,23 +80,3 @@ export const Title = styled.h1`
   }
 `;
 
-export const StyledLink = styled(Link)`
-  margin-left: auto;
-  margin-right: auto;
-  text-decoration: underline;
-  color: #f3f3f3;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 1.33;
-
-  cursor: pointer;
-
-  &:hover {
-    /* color: #161f37; */
-  }
-
-  @media (min-width: 768px) {
-    font-size: 14px;
-    line-height: 1.28;
-  }
-`;

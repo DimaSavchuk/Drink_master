@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect,  useRef } from 'react';
 import { useFormikContext } from 'formik';
 import {
   Label,
@@ -13,41 +13,64 @@ import flatpickr from 'flatpickr';
 import 'flatpickr/dist/themes/dark.css';
 import './flatpikr_calender.css';
 
-export const DatePickerInput = ({ errors, touched, placeholderText }) => {
-  const { setFieldValue, values } = useFormikContext();
-  const dateInputClass = values.date
-    ? 'success'
-    : touched.date && errors.date
-    ? 'fail'
-    : 'unfilled';
+export const DatePickerInput = ({
+  errors,
+  touched,
+  placeholderText,
+  isDate,
+  setIsDate,
+  setDatepickerInstance,
+  }) => {
+  const { setFieldValue} = useFormikContext();
+  const datepickerRef = useRef();
 
-
+ 
   useEffect(() => {
-    const flatpickrInstance = flatpickr('#date', {
-      altInput: true,
-      altFormat: 'd/m/Y',
-      dateFormat: 'U',
-      minDate: '01-01-1930',
-      maxDate: 'today',
-      onChange: function (selectedDates, dateStr) {
-        setFieldValue('birthDate', dateStr);
-        this._input.classList.remove('invalid', 'success', 'unfilled');
-        this._input.classList.add(dateStr ? 'success' : 'unfilled');
-      },
-      onClose: function () {
-        const altInput = this._input;
-        if (altInput.value === '') {
-          altInput.classList.remove('unfilled', 'success');
-          altInput.classList.add('invalid');
-        }
-      },
-    });
+     datepickerRef.current = flatpickr('#date', {
+       altInput: true,
+       altFormat: 'd/m/Y',
+       dateFormat: 'U',
+       minDate: '01-01-1930',
+       maxDate: 'today',
+       onReady: function (_, dateStr) {
+         const altInput = this._input;
+         altInput.classList.remove('invalid', 'success', 'unfilled');
+         altInput.classList.add(dateStr ? 'success' : 'unfilled');
+
+         if (touched.birthDate && errors.birthDate) {
+           console.log(touched.birthDate && errors.birthDate);
+           altInput.classList.remove('unfilled', 'success');
+           altInput.classList.add('invalid');
+         }
+       },
+       onChange: function (_, dateStr) {
+         setFieldValue('birthDate', dateStr);
+         console.log(dateStr);
+         const altInput = this._input;
+         altInput.classList.remove('invalid', 'success', 'unfilled');
+         altInput.classList.add(dateStr ? 'success' : 'unfilled');
+         dateStr ? setIsDate(true) : setIsDate(false);
+       },
+       onClose: function (_, dateStr) {
+         const altInput = this._input;
+         altInput.classList.remove('invalid', 'success', 'unfilled');
+         altInput.classList.add(dateStr ? 'success' : 'unfilled');
+         if (altInput.value === '') {
+           altInput.classList.remove('unfilled', 'success');
+           altInput.classList.add('invalid');
+         } else if (touched.birthDate && errors.birthDate) {
+           altInput.classList.remove('unfilled', 'success');
+           altInput.classList.add('invalid');
+         }
+       },
+     });
+setDatepickerInstance(datepickerRef.current);
 
     return () => {
-      flatpickrInstance.destroy();
+      datepickerRef.current.destroy();
     };
-  }, [setFieldValue]);
-
+  }, [errors.birthDate, setDatepickerInstance, setFieldValue, setIsDate, touched.birthDate]);
+ 
   return (
     <Label>
       <FieldWrapper>
@@ -57,13 +80,10 @@ export const DatePickerInput = ({ errors, touched, placeholderText }) => {
           type="text"
           placeholder={placeholderText}
           aria-label={placeholderText}
-          className={dateInputClass}
         />
         <Calendar size="20" />
       </FieldWrapper>
-      {values.birthDate && touched.birthDate && !errors.birthDate && (
-        <CorrectText>This is CORRECT date</CorrectText>
-      )}
+      {isDate && <CorrectText>This is CORRECT date</CorrectText>}
       <ErrorMessage name="birthDate" component="span" />
     </Label>
   );
