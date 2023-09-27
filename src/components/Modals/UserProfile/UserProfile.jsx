@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Notiflix from 'notiflix';
+import { useLockBodyScroll } from "@uidotdev/usehooks";
 // import { useDispatch, useSelector } from 'react-redux';
 // import { selectUserArray } from '../../../redux/selectors';
 import * as Yup from 'yup';
@@ -30,6 +31,7 @@ import defaultAvatarURL from '../../../assets/user.png';
 // const defaultAvatarURL = require('../../../assets/user.png');
 
 export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
+  useLockBodyScroll();
   // const dispatch = useDispatch();
   // const user = useSelector(selectUserArray);
   
