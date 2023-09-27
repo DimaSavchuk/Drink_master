@@ -1,5 +1,6 @@
 // import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useLockBodyScroll } from "@uidotdev/usehooks";
 // import { logoutThunk } from '../../../../authOperation';
 import {
   ModalWrapper,
@@ -15,6 +16,7 @@ import Notiflix from 'notiflix';
 // import { clearState } from '../../../redux/UserInfo/userInfoSlice';
 
 export const LogOutModel = ({ onClose, handleModalClick, handleKeyDown }) => {
+  useLockBodyScroll();
   // const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleLogout = () => {

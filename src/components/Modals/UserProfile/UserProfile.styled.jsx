@@ -23,6 +23,7 @@ export const ModalWrapper = styled.div`
   align-items: start;
   padding-top: 150px;
   z-index: 2;
+  backdrop-filter: blur(4px);
 `;
 export const ContentWrapper = styled.div`
   background-color: #161F37;
@@ -140,6 +141,8 @@ export const StyledInputWrap = styled.div`
 `;
 export const StyledIconError = styled(RiErrorWarningLine)`
   position: absolute;
+  width: 24px;
+  height: 24px;
   right: 24px;
   top: 70%;
   transform: translateY(-50%);
@@ -149,6 +152,8 @@ export const StyledIconError = styled(RiErrorWarningLine)`
 `;
 export const StyledIconChecked = styled(IoIosCheckmarkCircleOutline)`
   position: absolute;
+  width: 24px;
+  height: 24px;
   right: 24px;
   top: 70%;
   transform: translateY(-50%);
@@ -259,8 +264,7 @@ export const StyledMessage = styled.p`
 export const StyledUpdatedCloseButton = styled(CloseButtonIcon)`
   width: 24px;
   height: 24px;
-  fill: ${props =>
-    props.theme === 'dark' ? props.theme.bgrColor : props.theme.textColor};
+  fill: #F3F3F3;
 
   @media screen and (min-width: 768px) {
     width: 32px;
@@ -268,7 +272,7 @@ export const StyledUpdatedCloseButton = styled(CloseButtonIcon)`
   }
 
   &:hover {
-    fill: #F3F3F3;
+    fill: #434d43;
   }
 `;
 
