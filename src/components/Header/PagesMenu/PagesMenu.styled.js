@@ -13,22 +13,23 @@ export const List = styled.ul`
 export const StyledNavLink = styled(NavLink)`
   padding: 8px 16px;
 
-  color: #f3f3f3;
+  color: var(--link-color);
   font-weight: 500;
   line-height: 1.6;
 
   background-color: transparent;
-  border: 1px solid grey;
 
   border-radius: 40px;
-  border: 1px solid rgba(243, 243, 243, 0.2);
+  border: 1px solid var(--border-link-color);
   transition: background-color 300ms linear;
   &:hover,
   &:focus {
     background-color: #161f37;
+    color: #f3f3f3;
   }
 
   &.active {
     background-color: #161f37;
+    color: #f3f3f3;
   }
 `;

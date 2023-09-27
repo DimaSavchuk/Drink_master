@@ -17,7 +17,7 @@ export const MenuWrapper = styled.div`
   right: 0;
   left: 0;
   z-index: 2;
-  background-color: #0a0a11;
+  background-color: var(--background-color);
   overflow: hidden;
   /* pointer-events: none; */
 
@@ -129,12 +129,12 @@ export const List = styled.ul`
 
 export const Item = styled.li`
   border-radius: 40px;
-  border: 1px solid rgba(243, 243, 243, 0.2);
+  border: 1px solid var(--border-link-color);
 `;
 export const StyledNavLink = styled(NavLink)`
   display: inline-block;
   padding: 8px 16px;
-  color: #f3f3f3;
+  color: var(--link-color);
   font-weight: 500;
   line-height: 1.6;
 
@@ -146,9 +146,11 @@ export const StyledNavLink = styled(NavLink)`
   &:hover,
   &:focus {
     background-color: #161f37;
+    color: #f3f3f3;
   }
 
   /* &.active {
     background-color: #161f37;
+    color: #f3f3f3;
   } */
 `;
