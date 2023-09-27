@@ -6,6 +6,9 @@ import {
   ErrorImg,
 } from './ErrorPage.styled';
 
+import asrBlueIced from '../../assets/hero/asr_blue_iced_tea_mobile 1.png';
+import asrBlueIced2x from '../../assets/hero/asr_blue_iced_tea_mobile@2x.png';
+
 const ErrorPage = () => {
   return (
     <Container>
@@ -22,9 +25,11 @@ const ErrorPage = () => {
             4
           </ErrorLetterL>
           <picture>
+
             <ErrorImg
               src="./src/assets/hero/asr_blue_iced_tea_mobile 1.png"
               srcSet="./src/assets/hero/asr_blue_iced_tea_mobile 1.png 1x, ./src/assets/hero/asr_blue_iced_tea_mobile@2x.png 2x"
+
               alt="coctail"
               loading="lazy"
             />

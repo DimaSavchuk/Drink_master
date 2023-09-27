@@ -12,6 +12,7 @@ export const ModalWrapper = styled.div`
   justify-content: center;
   align-items: start;
   padding-top: 150px;
+  backdrop-filter: blur(4px);
 `;
 export const ModalContent = styled.div`
   background-color: #161F37;
