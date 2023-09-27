@@ -3,6 +3,30 @@ import 'modern-normalize';
 
 // Manrope - Bold / Manrope - Bold.eot;
 
+import ManropeBoldEot from '../../assets/fonts/Manrope-Bold/Manrope-Bold.eot';
+import ManropeBoldEotIndex from '../../assets/fonts/Manrope-Bold/Manrope-Bold.eot?#iefix';
+import ManropeBoldWoff2 from '../../assets/fonts/Manrope-Bold/Manrope-Bold.woff2';
+import ManropeBoldWoff from '../../assets/fonts/Manrope-Bold/Manrope-Bold.woff';
+import ManropeBoldTtf from '../../assets/fonts/Manrope-Bold/Manrope-Bold.ttf';
+
+import ManropeSemiBoldEot from '../../assets/fonts/Manrope-SemiBold/Manrope-Semibold.eot';
+import ManropeSemiBoldEotIndex from '../../assets/fonts/Manrope-SemiBold/Manrope-Semibold.eot?#iefix';
+import ManropeSemiBoldWoff2 from '../../assets/fonts/Manrope-SemiBold/Manrope-Semibold.woff2';
+import ManropeSemiBoldWoff from '../../assets/fonts/Manrope-SemiBold/Manrope-Semibold.woff';
+import ManropeSemiBoldTtf from '../../assets/fonts/Manrope-SemiBold/Manrope-Semibold.ttf';
+
+import ManropeRegularEot from '../../assets/fonts/Manrope-Regular/Manrope-Regular.eot';
+import ManropeRegularEotIndex from '../../assets/fonts/Manrope-Regular/Manrope-Regular.eot?#iefix';
+import ManropeRegularWoff2 from '../../assets/fonts/Manrope-Regular/Manrope-Regular.woff2';
+import ManropeRegularWoff from '../../assets/fonts/Manrope-Regular/Manrope-Regular.woff';
+import ManropeRegularTtf from '../../assets/fonts/Manrope-Regular/Manrope-Regular.ttf';
+
+import ManropeMediumEot from '../../assets/fonts/Manrope-Medium/Manrope-Medium.eot';
+import ManropeMediumEotIndex from '../../assets/fonts/Manrope-Medium/Manrope-Medium.eot?#iefix';
+import ManropeMediumWoff2 from '../../assets/fonts/Manrope-Medium/Manrope-Medium.woff2';
+import ManropeMediumWoff from '../../assets/fonts/Manrope-Medium/Manrope-Medium.woff';
+import ManropeMediumTtf from '../../assets/fonts/Manrope-Medium/Manrope-Medium.ttf';
+
 export const GlobalStyle = createGlobalStyle`
 html {
   /* dark theme */
@@ -28,48 +52,48 @@ html {
 
 @font-face {
   font-family: 'Manrope';
-src: url('./src/assets/fonts/Manrope-Bold/Manrope-Bold.eot');
+src: url(${ManropeBoldEot});
     src: local('Manrope Bold'), local('Manrope-Bold'),
-        url('./src/assets/fonts/Manrope-Bold/Manrope-Bold.eot?#iefix') format('embedded-opentype'),
-        url('./src/assets/fonts/Manrope-Bold/Manrope-Bold.woff2') format('woff2'),
-        url('./src/assets/fonts/Manrope-Bold/Manrope-Bold.woff') format('woff'),
-        url('./src/assets/fonts/Manrope-Bold/Manrope-Bold.ttf') format('truetype');
+        url(${ManropeBoldEotIndex}) format('embedded-opentype'),
+        url(${ManropeBoldWoff2}) format('woff2'),
+        url(${ManropeBoldWoff}) format('woff'),
+        url(${ManropeBoldTtf}) format('truetype');
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
   font-family: 'Manrope';
-    src: url('./src/assets/fonts/Manrope-SemiBold/Manrope-Semibold.eot');
+    src: url(${ManropeSemiBoldEot});
     src: local('Manrope Semibold'), local('Manrope-Semibold'),
-        url('./src/assets/fonts/Manrope-SemiBold/Manrope-Semibold.eot?#iefix') format('embedded-opentype'),
-        url('./src/assets/fonts/Manrope-SemiBold/Manrope-Semibold.woff2') format('woff2'),
-        url('./src/assets/fonts/Manrope-SemiBold/Manrope-Semibold.woff') format('woff'),
-        url('./src/assets/fonts/Manrope-SemiBold/Manrope-Semibold.ttf') format('truetype');
+        url(${ManropeSemiBoldEotIndex}) format('embedded-opentype'),
+        url(${ManropeSemiBoldWoff2}) format('woff2'),
+        url(${ManropeSemiBoldWoff}) format('woff'),
+        url(${ManropeSemiBoldTtf}) format('truetype');
     font-weight: 600;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Manrope';
-    src: url('./src/assets/fonts/Manrope-Regular/Manrope-Regular.eot');
+    src: url(${ManropeRegularEot});
     src: local('Manrope Regular'), local('Manrope-Regular'),
-        url('./src/assets/fonts/Manrope-Regular/Manrope-Regular.eot?#iefix') format('embedded-opentype'),
-        url('./src/assets/fonts/Manrope-Regular/Manrope-Regular.woff2') format('woff2'),
-        url('./src/assets/fonts/Manrope-Regular/Manrope-Regular.woff') format('woff'),
-        url('./src/assets/fonts/Manrope-Regular/Manrope-Regular.ttf') format('truetype');
+        url(${ManropeRegularEotIndex}) format('embedded-opentype'),
+        url(${ManropeRegularWoff2}) format('woff2'),
+        url(${ManropeRegularWoff}) format('woff'),
+        url(${ManropeRegularTtf}) format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Manrope';
-    src: url('./src/assets/fonts/Manrope-Medium/Manrope-Medium.eot');
+    src: url(${ManropeMediumEot});
     src: local('Manrope Medium'), local('Manrope-Medium'),
-        url('./src/assets/fonts/Manrope-Medium/Manrope-Medium.eot?#iefix') format('embedded-opentype'),
-        url('./src/assets/fonts/Manrope-Medium/Manrope-Medium.woff2') format('woff2'),
-        url('./src/assets/fonts/Manrope-Medium/Manrope-Medium.woff') format('woff'),
-        url('./src/assets/fonts/Manrope-Medium/Manrope-Medium.ttf') format('truetype');
+        url(${ManropeMediumEotIndex}) format('embedded-opentype'),
+        url(${ManropeMediumWoff2}) format('woff2'),
+        url(${ManropeMediumWoff}) format('woff'),
+        url(${ManropeMediumTtf}) format('truetype');
     font-weight: 500;
     font-style: normal;
 }
