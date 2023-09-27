@@ -96,7 +96,7 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
     <ModalWrapper onClick={handleModalClick} onKeyDown={handleKeyDown}>
       <ContentWrapper className="modal-content">
         <CloseButton onClick={onClose} tabIndex={1} className="close-button">
-        <StyledUpdatedCloseButton width={24} height={24} />
+        <StyledUpdatedCloseButton width={16} height={16} />
         </CloseButton>
         <StyledForm
           initialValues={{
@@ -113,14 +113,14 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
             ),
           })}
 
-          onSubmit={async (values) => {
-            console.log('submit');
-            const formData = new FormData();
-            formData.append('name', values.name);
-            formData.append('avatarURL', values.avatarURL);
-            //await dispatch(updateUserThunk(formData));
-          }}
-
+          // onSubmit={async (values) => {
+          //   console.log('submit');
+          //   const formData = new FormData();
+          //   formData.append('name', values.name);
+          //   formData.append('avatarURL', values.avatarURL);
+          //   //await dispatch(updateUserThunk(formData));
+          // }}
+          onSubmit={handleOnSubmit}
         >
           {({ errors, touched, handleChange, setFieldTouched }) => (
             <StyledFormInsight>
