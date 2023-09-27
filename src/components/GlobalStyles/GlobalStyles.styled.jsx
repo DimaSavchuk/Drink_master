@@ -13,6 +13,7 @@ html {
     --link-color: #F3F3F3;
     --button-color: #F3F3F3;
     --button-hover-color: #161F37;
+    --error-color: rgba(243, 243, 243, 0.1 );
   }
 
   /* light theme */
@@ -23,6 +24,7 @@ html {
     --link-color: #161F37;
     --button-color: #161F37;
     --button-hover-color: #F3F3F3;
+    --error-color: rgba(64, 112, 205, 0.1);
   }
 }
 

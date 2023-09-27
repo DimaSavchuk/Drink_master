@@ -13,7 +13,7 @@ export const Section = styled.section`
 export const Title = styled.h1`
   margin-bottom: 40px;
 
-  color: #f3f3f3;
+  color: var(--link-color);
   font-size: 32px;
   font-weight: 600;
   line-height: 1.18;
@@ -38,7 +38,7 @@ export const Text = styled.p`
   margin-top: 32px;
   margin-bottom: 0;
   text-align: center;
-  color: #f3f3f3;
+  color: var(--link-color);
   font-size: 16px;
   font-weight: 400;
   line-height: 1.42;
