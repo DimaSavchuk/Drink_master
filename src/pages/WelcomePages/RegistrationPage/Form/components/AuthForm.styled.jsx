@@ -2,15 +2,24 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { CommonContainer } from '../../../../../components/GlobalStyles/CommonContainer.styled'
 
+import startMobile1x from '../../../../../assets/start/start_mobile@1x.jpg';
+import startMobile2x from '../../../../../assets/start/start_mobile@2x.jpg';
+
+import startTublet1x from '../../../../../assets/start/start_tablet@1x.jpg';
+import startTublet2x from '../../../../../assets/start/start_tablet@2x.jpg';
+
+import startPC1x from '../../../../../assets/start/start@1x.jpg';
+import startPC2x from '../../../../../assets/start/start@2x.jpg';
+
 export const Section = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
+
   max-width: 100%;
   height: 100vh;
 
-  background-image: url('./src/assets/start/start_mobile@1x.jpg');
+  background-image: url(${startMobile1x});
 
   background-size: cover;
   background-repeat: no-repeat;
@@ -20,29 +29,30 @@ export const Section = styled.section`
     (max-width: 767.98px) and (-webkit-min-device-pixel-ratio: 2),
     (max-width: 767.98px) and (min-resolution: 192dpi),
     (max-width: 767.98px) and (min-resolution: 2dppx) {
-    background-image: url('./src/assets/start/start_mobile@2x.jpg');
+    background-image: url(${startMobile2x});
   }
 
   @media (min-width: 768px) {
-    background-image: url('./src/assets/start/start_tablet@1x.jpg');
+    background-image: url(${startTublet1x});
   }
   @media (min-width: 768px) and (min-device-pixel-ratio: 2),
     (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
     (min-width: 768px) and (min-resolution: 192dpi),
     (min-width: 768px) and (min-resolution: 2dppx) {
-    background-image: url('./src/assets/start/start_tablet@2x.jpg');
+    background-image: url(${startTublet2x});
   }
   @media (min-width: 1440px) {
     align-content: center;
-    background-image: url('./src/assets/start/start@1x.jpg');
+    background-image: url(${startPC1x});
   }
   @media (min-width: 1440px) and (min-device-pixel-ratio: 2),
     (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2),
     (min-width: 1440px) and (min-resolution: 192dpi),
     (min-width: 1440px) and (min-resolution: 2dppx) {
-    background-image: url('./src/assets/start/start@2x.jpg');
+    background-image: url(${startPC2x});
   }
 `;
+
 
 export const Container = styled(CommonContainer)`
   @media (min-width: 375px) {
