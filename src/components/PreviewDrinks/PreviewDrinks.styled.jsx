@@ -8,12 +8,6 @@ export const PreviewSection = styled.section`
     }
 `;
 
-export const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-`;
 
 export const CategoriesList = styled.ul`
     display: flex;
@@ -49,4 +43,19 @@ export const CocktailsWrap = styled.ul`
         column-gap: 20px;
         margin-top: 40px;
     }
+`;
+
+export const BtnsWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+        gap:20px;
+    }
+    
 `;

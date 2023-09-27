@@ -2,50 +2,63 @@ import { useState } from "react";
 import { CocktailCard } from "../CocktailCard/CocktailCard"
 import { CommonLink } from "../CommonLink/CommonLink";
 import { CommonContainer } from "../GlobalStyles/CommonContainer.styled";
-import { CategoriesList, CategoryName, CocktailsWrap, PreviewSection, Wrapper } from "./PreviewDrinks.styled";
+import { BtnsWrapper, CategoriesList, CategoryName, CocktailsWrap, PreviewSection} from "./PreviewDrinks.styled";
 import { useEffect } from "react";
 import { fetchHomePageCocktails } from "../../services/axiosConfig";
 import { Loader } from "../Loader/Loader";
+import { SeeMoreBtn } from "../SeeMoreBtn/SeeMoreBtn";
 
 export const PreviewDrinks = ({ numbCocktailsToShow }) => {
     const [isLoading, setIsLoading] = useState(false);
-    const [cocktails, setCocktails] = useState([]);
+    const [categories, setCategories] = useState([]);
+    const [limit, setLimit] = useState(4);
+    const [isShowSeeMoreBtn, setIsShowSeeMoreBtn] = useState(true);
 
     useEffect(() => {
         const getCocktails = async () => {
             setIsLoading(true);
             const resp = await fetchHomePageCocktails();
-            setCocktails(resp);
+            setCategories(resp);
             setIsLoading(false);
         }
         getCocktails()
     }, []);
 
+    const handleSeeMoreBtnClick = () => {
+        setLimit(categories.length);
+        setIsShowSeeMoreBtn(false);
+    }
+
     return (
         <PreviewSection>
             <CommonContainer>
                 {isLoading ? <Loader /> :
-                    <Wrapper>
+                    <div>
                         <CategoriesList>
-                            {cocktails.map(item => {
-                                return (
-                                    <li key={item.categoryName}>
-                                        <CategoryName>{item.category}</CategoryName>
-                                        <CocktailsWrap>
-                                            {item.drinks
-                                                .slice(0, numbCocktailsToShow)
-                                                .map(cocktail => (
-                                                    <li key={cocktail.id}>
-                                                        <CocktailCard data={cocktail} />
-                                                    </li>
-                                                ))}
-                                        </CocktailsWrap>
-                                    </li>
-                                )
-                            })}
+                            {categories
+                                .slice(0, limit)
+                                .map(item => {
+                                    return (
+                                        <li key={item.categoryName}>
+                                            <CategoryName>{item.category}</CategoryName>
+                                            <CocktailsWrap>
+                                                {item.drinks
+                                                    .slice(0, numbCocktailsToShow)
+                                                    .map(cocktail => (
+                                                        <li key={cocktail.id}>
+                                                            <CocktailCard data={cocktail} />
+                                                        </li>
+                                                    ))}
+                                            </CocktailsWrap>
+                                        </li>
+                                    )
+                                })}
                         </CategoriesList>
-                        <CommonLink navigateTo="/drinks">Other drinks</CommonLink>
-                    </Wrapper>}
+                        <BtnsWrapper>
+                            {isShowSeeMoreBtn && <SeeMoreBtn handleClick={handleSeeMoreBtnClick}>More categories</SeeMoreBtn>}
+                            <CommonLink navigateTo="/drinks">Other drinks</CommonLink>
+                        </BtnsWrapper>
+                    </div>}
             </CommonContainer>
         </PreviewSection>
     );

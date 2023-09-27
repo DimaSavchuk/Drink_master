@@ -75,7 +75,7 @@ const DrinksPages = () => {
   }, [currentPage, limit, isLimitUpdated])
 
   // if(page>cocktails.length/limit) return <p>Error</p>
-  if (currentPage+1 > Math.ceil(451 / limit)) return <ErrorPage />
+  if (currentPage+1 > Math.ceil(totalCocktails / limit) && !isLoading) return <ErrorPage />
 
   const displayCocktails = cocktails
     .map((cocktail) => (

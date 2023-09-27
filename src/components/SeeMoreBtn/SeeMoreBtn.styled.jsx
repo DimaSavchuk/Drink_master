@@ -1,12 +1,8 @@
-import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-export const StyledNavLink = styled(NavLink)`
-    @media screen and (max-width: 767px) {
-        width: 100%;
-    }
-    display: inline-block;
+export const Button = styled.button`
     padding: 14px 40px;
+    border: none;
     border-radius: 42px;
     background-color: #f3f3f3;
 
@@ -23,6 +19,10 @@ export const StyledNavLink = styled(NavLink)`
     &:focus {
         color: #f3f3f3;
         background-color: #161f37;
+    }
+
+    @media screen and (max-width: 767px) {
+        width: 100%;
     }
 
     @media (min-width: 768px) {

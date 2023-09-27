@@ -4,7 +4,7 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://rest-api-drink-master.onrender.com/api';
 
 const accessToken =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTFiMTQ2OGEwMzA3MzgyNjgxNzY5OSIsImlhdCI6MTY5NTcxOTcxMiwiZXhwIjoxNjk1NzkxNzEyfQ.PItbRSr3g0SSyvvPfJl5IWxf5mdBmYXMyNKFCdEfmAg';
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTNkZjk2YzYzNmU4NTA0NWIwZWRiYyIsImlhdCI6MTY5NTgwMTI1NywiZXhwIjoxNjk1ODczMjU3fQ.7-qW6POYWG4y-N0mSvpbOQwdd1oRhwZylvXk1KtVusU';
 
 
 axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
@@ -205,5 +205,17 @@ export const getCurrentUser = async (user, file, _id) => {
     return response.data.data;
   } catch (error) {
     console.error('Помилка при отриманні даних:', error);
+  }
+};
+
+export const fetchCocktailsByParams = async (credentials) => {
+  console.log(credentials)
+  try {
+    const response = await axios.get('/drinks/search', {
+      params: credentials 
+    });
+    return response;
+  } catch (error) {
+    console.error('Помилка при отриманні даних при фільтрації:', error);
   }
 };
