@@ -33,7 +33,11 @@ html {
   &[data-theme='dark'] {
     --background-color: #0A0A11;
     --text-color: #F3F3F3;
+    --see-more-link-color: rgba(243, 243, 243, 0.50);
     --border-link-color: rgba(243, 243, 243, 0.2);
+    --border-input-color: rgba(243, 243, 243, 0.2);
+    --pagination-background-color: rgba(64, 112, 205, 0.5);
+    --about-drink-title-color: rgba(243, 243, 243, 0.50);;
     --link-color: #F3F3F3;
     --button-color: #F3F3F3;
     --button-hover-color: #161F37;
@@ -44,7 +48,11 @@ html {
   &[data-theme='light'] {
     --background-color: #F3F3F3;
     --text-color: #0A0A11;
+    --see-more-link-color: rgba(10, 10, 17, 0.50);
     --border-link-color: rgba(22, 31, 55, 0.20);
+    --border-input-color: rgba(10, 10, 17, 0.20);
+    --pagination-background-color: #4070CD;
+    --about-drink-title-color: rgba(22, 31, 55, 0.50);
     --link-color: #161F37;
     --button-color: #161F37;
     --button-hover-color: #F3F3F3;

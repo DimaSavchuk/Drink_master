@@ -38,6 +38,7 @@ export const InfoDiv = styled.div`
   }
 `;
 export const TitleIngridient = styled.p`
+  color: var(--text-color);
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -47,7 +48,7 @@ export const TitleIngridient = styled.p`
   }
 `;
 export const Measure = styled.p`
-  color: rgba(243, 243, 243, 0.5);
+  color: var(--see-more-link-color);
   font-size: 14px;
   font-style: normal;
   font-weight: 500;

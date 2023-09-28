@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Title = styled.h1`
+  color: var(--text-color);
   font-size: 32px;
   font-style: normal;
   font-weight: 600;
@@ -61,7 +62,7 @@ export const TitleAlcohol = styled.p`
   font-size: 12px;
   font-style: normal;
   line-height: 1.16;
-  color: rgba(243, 243, 243, 0.5);
+  color: var(--about-drink-title-color);
   /* color: rgba(22, 31, 55, 0.5); */
   margin-top: 8px;
   @media (min-width: 768px) {
@@ -70,6 +71,7 @@ export const TitleAlcohol = styled.p`
   }
 `;
 export const TitleDescription = styled.p`
+  color: var(--text-color);
   font-size: 14px;
   font-style: normal;
   line-height: 1.25;
@@ -82,13 +84,13 @@ export const TitleDescription = styled.p`
 `;
 
 export const ButtonAddFavorite = styled.button`
-  color: #161f37;
+  color: var(--button-hover-color);
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 1.28;
   border-radius: 42px;
-  background: #f3f3f3;
+  background: var(--button-color);
   padding: 14px 40px;
   margin-top: 40px;
   @media (min-width: 768px) {
@@ -98,7 +100,7 @@ export const ButtonAddFavorite = styled.button`
   }
 `;
 export const IngredientsTitle = styled.h2`
-  color: rgba(243, 243, 243, 0.5);
+  color: var(--see-more-link-color);
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -112,6 +114,7 @@ export const IngredientsTitle = styled.h2`
   }
 `;
 export const RecipeTitle = styled.h2`
+  color: var(--text-color);
   font-size: 28px;
   font-style: normal;
   font-weight: 600;
@@ -139,6 +142,7 @@ export const RecipeDiv = styled.div`
   }
 `;
 export const RecipeInfo = styled.p`
+  color: var(--text-color);
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
