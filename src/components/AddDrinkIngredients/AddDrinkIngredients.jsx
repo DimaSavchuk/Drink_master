@@ -10,18 +10,15 @@ import {
 import { TfiClose, TfiPlus, TfiMinus } from 'react-icons/tfi';
 import { FiChevronDown } from 'react-icons/fi';
 import { SelectList } from '../SelectList/SelectList';
-import { useFetchIngredients } from '../../Hooks/useFetchIngredients';
 
-const AddDrinkIngredients = () => {
-  const ingridientsList = [
-    { name: 'Lem' },
-    { name: 'Passoa' },
-    { name: 'Prosecco' },
-  ];
+const AddDrinkIngredients = ({ ingredientsList }) => {
+  // const ingridientsList = [
+  //   { name: 'Lem' },
+  //   { name: 'Passoa' },
+  //   { name: 'Prosecco' },
+  // ];
 
-  const { drinkIngredients, error, loading } = useFetchIngredients();
-  console.log(drinkIngredients);
-  const initialValue = { name: ingridientsList[0].name, volume: '' };
+  const initialValue = { name: '', volume: '' };
   return (
     <FieldArray
       name="ingredients"
@@ -57,8 +54,8 @@ const AddDrinkIngredients = () => {
                   >
                     <FieldSelect>
                       <Field name={`ingridients.${index}.name`} as="select">
-                        {drinkIngredients &&
-                          drinkIngredients.map(({ title }, index) => (
+                        {ingredientsList &&
+                          ingredientsList.map(({ title }, index) => (
                             <option key={index} value={title}>
                               {title}
                             </option>

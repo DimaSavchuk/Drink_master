@@ -16,6 +16,10 @@ export const FieldTextArea = styled(Field)`
 
   overflow: auto;
 
+  transition:
+    100ms ease transform,
+    250ms ease opacity;
+
   &:focus {
     border: 1px solid #fff;
   }
@@ -23,7 +27,6 @@ export const FieldTextArea = styled(Field)`
   &::placeholder {
     color: #f3f3f380;
     opacity: 1;
-    transition: 100ms ease transform;
   }
 
   &:focus::placeholder {

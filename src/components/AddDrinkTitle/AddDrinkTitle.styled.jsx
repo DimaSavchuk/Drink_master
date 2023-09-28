@@ -32,6 +32,31 @@ export const ContentWrapper = styled.div`
   }
 `;
 
+export const LabelStyled = styled.label`
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  color: #f3f3f380;
+`;
+
+export const FieldWrapper = styled.div`
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  &:not(:last-of-type) {
+    margin-bottom: 31px;
+  }
+
+  &:hover label,
+  &:focus-within label {
+    color: #f3f3f3;
+    transition: 200ms ease transform;
+  }
+`;
+
 export const FieldStyled = styled(Field)`
   display: block;
   height: 34px;
@@ -51,41 +76,12 @@ export const FieldStyled = styled(Field)`
     outline: transparent;
   }
 
-  &:focus + label {
-    color: #f3f3f3;
-  }
-
   &::placeholder {
     opacity: 0;
   }
 
   @media (min-width: 768px) {
     height: 41px;
-  }
-`;
-
-export const LabelStyled = styled.label`
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  color: #f3f3f380;
-`;
-
-export const FieldWrapper = styled.div`
-  position: relative;
-
-  display: flex;
-  flex-direction: column;
-
-  &:not(:last-of-type) {
-    margin-bottom: 31px;
-  }
-
-  input:hover label,
-  input:focus label {
-    color: #f3f3f3;
-    transition: 200ms ease transform;
   }
 `;
 
@@ -155,4 +151,16 @@ export const RadioButtonsWrapper = styled.div`
   input:checked ~ label {
     color: #fff;
   }
+`;
+
+export const ErrorText = styled.div`
+  margin-top: 4px;
+
+  display: block;
+
+  font-size: 12px;
+  font-weight: 400;
+  line-height: calc(14 / 12);
+  color: #da1414;
+  text-align: right;
 `;

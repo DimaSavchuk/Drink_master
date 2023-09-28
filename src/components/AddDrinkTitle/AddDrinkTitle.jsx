@@ -1,5 +1,3 @@
-import { useFetchCategories } from '../../Hooks/useFetchCategories';
-import { useFetchGlasses } from '../../Hooks/useFetchGlasses';
 import AddDrinkAddImage from '../AddDrinkAddImage';
 import AddDrinkDropdownMenu from '../AddDrinkSelectMenu';
 import {
@@ -12,9 +10,10 @@ import {
   RadioButtonsWrapper,
   Wrapper,
   ContentWrapper,
+  ErrorText,
 } from './AddDrinkTitle.styled';
 
-const AddDrinkTitle = ({ setValue }) => {
+const AddDrinkTitle = ({ categoriesList, glassesList, setValue, errors }) => {
   // const initialList = {
   //   category: [
   //     'Ordinary Drink',
@@ -64,10 +63,7 @@ const AddDrinkTitle = ({ setValue }) => {
   //     'Coupe Glass',
   //   ],
   // };
-
-  const categories = useFetchCategories();
-  const glasses = useFetchGlasses();
-
+  const {} = errors;
   return (
     <Wrapper>
       <AddDrinkAddImage setValue={setValue} />
@@ -76,19 +72,26 @@ const AddDrinkTitle = ({ setValue }) => {
         <FieldWrapper>
           <LabelStyled htmlFor="title">Enter item title</LabelStyled>
           <FieldStyled name={'title'} placeholder="Enter item title" />
+          {errors.title ? <ErrorText>{errors.title}</ErrorText> : null}
         </FieldWrapper>
 
         <FieldWrapper>
           <LabelStyled htmlFor="recipe">Enter about recipe</LabelStyled>
           <FieldStyled name={'recipe'} placeholder="Enter about recipe" />
+          {errors.recipe ? <ErrorText>{errors.recipe}</ErrorText> : null}
         </FieldWrapper>
 
         <AddDrinkDropdownMenu
-          items={categories.drinkCategories}
+          items={categoriesList}
           title={'Category'}
+          error={errors.category}
         />
 
-        <AddDrinkDropdownMenu items={glasses.drinkGlasses} title={'Glass'} />
+        <AddDrinkDropdownMenu
+          items={glassesList}
+          title={'Glass'}
+          error={errors.glass}
+        />
 
         <RadioButtonsWrapper
           role="cocktailTypeSelect"
