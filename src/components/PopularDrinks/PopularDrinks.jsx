@@ -39,10 +39,11 @@ const PopularDrinks = () => {
   return (
     <PopDrinksWrapper>
       <h4>Popular drinks</h4>
-      <ul>
-        {isLoading && <div>Loading...</div>}
-        {drinksPopular &&
-          drinksPopular.map(({ drinkThumb, drink, description }, index) => {
+      {isLoading && <div>Loading...</div>}
+      {error && <div>error</div>}
+      {drinksPopular && (
+        <ul>
+          {drinksPopular.map(({ drinkThumb, drink, description }, index) => {
             if (index <= 3)
               return (
                 <li key={index}>
@@ -54,7 +55,8 @@ const PopularDrinks = () => {
                 </li>
               );
           })}
-      </ul>
+        </ul>
+      )}
     </PopDrinksWrapper>
   );
 };
