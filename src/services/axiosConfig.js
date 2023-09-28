@@ -22,7 +22,7 @@ export const fetchFavoriteDrinks = async () => {
 };
 
 export const deleteDrinkFromFavorite = async (_id) => {
-  console.log(_id);
+  // console.log(_id);
   try {
     const response = await axios.delete('/drinks/favorite/remove', {
       headers: {
@@ -39,7 +39,7 @@ export const deleteDrinkFromFavorite = async (_id) => {
 };
 
 export const addDrinkToFavorite = async (_id) => {
-  console.log(_id);
+  // console.log(_id);
   try {
     const response = await axios.post(
       '/drinks/favorite/add',
