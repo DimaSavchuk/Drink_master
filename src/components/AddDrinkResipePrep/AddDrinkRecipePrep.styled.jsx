@@ -7,7 +7,7 @@ export const FieldTextArea = styled(Field)`
   height: 184px;
   padding: 16px 18px;
 
-  color: #f3f3f380;
+  color: #f3f3f3;
 
   background-color: transparent;
   border: 1px solid #f3f3f380;

@@ -25,7 +25,7 @@ export const Container = styled.div`
   h4 {
     font-size: 18px;
     font-weight: 500;
-    line-height: calc (24/18);
+    line-height: calc(24 / 18);
   }
 
   h2,
@@ -64,7 +64,7 @@ export const Container = styled.div`
     h4 {
       font-size: 24px;
       font-weight: 500;
-      line-height: calc (32/24);
+      line-height: calc(32 / 24);
     }
   }
 
@@ -77,6 +77,28 @@ export const Container = styled.div`
 
     display: flex;
     flex-direction: row;
+  }
+
+  @media (min-width: 1440px) {
+    h2 {
+      margin-bottom: 40px;
+
+      font-size: 64px;
+      font-weight: 600;
+      line-height: calc(68 / 64);
+    }
+
+    h3 {
+      font-size: 40px;
+      font-weight: 600;
+      line-height: calc(44 / 40);
+    }
+
+    h4 {
+      font-size: 32px;
+      font-weight: 500;
+      line-height: calc(32 / 24);
+    }
   }
 `;
 

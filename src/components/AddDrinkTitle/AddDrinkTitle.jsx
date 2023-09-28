@@ -70,9 +70,8 @@ const AddDrinkTitle = ({ setValue }) => {
 
   return (
     <Wrapper>
-      <div>
-        <AddDrinkAddImage setValue={setValue} />
-      </div>
+      <AddDrinkAddImage setValue={setValue} />
+
       <ContentWrapper>
         <FieldWrapper>
           <LabelStyled htmlFor="title">Enter item title</LabelStyled>

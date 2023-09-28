@@ -63,6 +63,13 @@ export const AddFileButton = styled.div`
     }
   }
 
+  @media (min-width: 1440px) {
+    label {
+      width: 400px;
+      height: 400px;
+    }
+  }
+
   label:hover,
   label:focus,
   label:active {

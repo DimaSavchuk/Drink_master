@@ -36,6 +36,9 @@ export const FieldStyled = styled(Field)`
   display: block;
   height: 34px;
 
+  font-size: 16px;
+  font-weight: 400;
+  line-height: calc(22 / 16);
   text-align: right;
   color: #f3f3f3;
 
@@ -48,7 +51,7 @@ export const FieldStyled = styled(Field)`
     outline: transparent;
   }
 
-  &:focus ~ label {
+  &:focus + label {
     color: #f3f3f3;
   }
 
