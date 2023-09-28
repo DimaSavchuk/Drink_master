@@ -1,21 +1,21 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { CommonContainer } from '../../../components/GlobalStyles/CommonContainer.styled';
+import { Link } from 'react-router-dom';
+import { CommonContainer } from '../GlobalStyles/CommonContainer.styled';
 
-import startMobile1x from '../../../assets/start/start_mobile@1x.jpg';
-import startMobile2x from '../../../assets/start/start_mobile@2x.jpg';
+import startMobile1x from '../../assets/start/start_mobile@1x.jpg';
+import startMobile2x from '../../assets/start/start_mobile@2x.jpg';
 
-import startTublet1x from '../../../assets/start/start_tablet@1x.jpg';
-import startTublet2x from '../../../assets/start/start_tablet@2x.jpg';
+import startTublet1x from '../../assets/start/start_tablet@1x.jpg';
+import startTublet2x from '../../assets/start/start_tablet@2x.jpg';
 
-import startPC1x from '../../../assets/start/start@1x.jpg';
-import startPC2x from '../../../assets/start/start@2x.jpg';
+import startPC1x from '../../assets/start/start@1x.jpg';
+import startPC2x from '../../assets/start/start@2x.jpg';
 
-export const SignInPageStyled = styled.section`
+export const Section = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
+
   max-width: 100%;
   height: 100vh;
 
@@ -52,6 +52,7 @@ export const SignInPageStyled = styled.section`
     background-image: url(${startPC2x});
   }
 `;
+
 
 export const Container = styled(CommonContainer)`
   @media (min-width: 375px) {

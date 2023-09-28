@@ -19,9 +19,12 @@ export const IngredientFoto = styled.div`
   width: 157px;
   height: 157px;
   border-radius: 8px;
-  background: rgba(22, 31, 55, 0.5);
+  background: #161f37;
   object-fit: cover;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   @media (min-width: 768px) {
     width: 220px;
     height: 220px;

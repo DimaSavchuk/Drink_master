@@ -1,15 +1,14 @@
 import { useState } from 'react';
 import { useFormikContext } from 'formik';
 import {
-    
-    FormField,
+  FormField,
   ErrorMessage,
   FieldWrapper,
   CorrectText,
-    Eye,
+  Eye,
   EyeOff,
-  LastLabel
-} from '../SignUpForm.styled';
+  LastLabel,
+} from './Fields.styled';
 
 export const PasswordField = ({ fieldName, touched, errors, placeholderText }) => {
   const [showHidePassword, setShowHidePassword] = useState(false);
@@ -23,7 +22,6 @@ export const PasswordField = ({ fieldName, touched, errors, placeholderText }) =
         : 'unfilled';
 
   return (
-    <div>
       <LastLabel>
         <FieldWrapper>
           <FormField
@@ -49,10 +47,5 @@ export const PasswordField = ({ fieldName, touched, errors, placeholderText }) =
         )}
         <ErrorMessage name={fieldName} component="span" />
       </LastLabel>
-
-      {/* {errors[fieldName] && touched[fieldName] && (
-        <div>{errors[fieldName]}</div>
-      )} */}
-    </div>
   );
 };

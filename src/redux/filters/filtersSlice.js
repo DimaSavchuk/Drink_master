@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchCategories, fetchIngredients } from "./filtersOperations";
+import { fetchCategories, fetchIngredients } from "../filters/filtersOperations";
+
 
 const filtersSlice = createSlice({
-    name: 'auth',
+    name: 'filters',
     initialState: {
         categories: [],
         ingredients: [],

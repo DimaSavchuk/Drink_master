@@ -22,7 +22,7 @@ export const fetchFavoriteDrinks = async () => {
 };
 
 export const deleteDrinkFromFavorite = async (_id) => {
-  console.log(_id);
+  // console.log(_id);
   try {
     const response = await axios.delete('/drinks/favorite/remove', {
       headers: {
@@ -39,7 +39,7 @@ export const deleteDrinkFromFavorite = async (_id) => {
 };
 
 export const addDrinkToFavorite = async (_id) => {
-  console.log(_id);
+  // console.log(_id);
   try {
     const response = await axios.post(
       '/drinks/favorite/add',
@@ -174,56 +174,26 @@ export const fetchHomePageCocktails = async () => {
   }
 };
 
-export const updateUser = async (_id, name, file) => {
+export const updateUser = async ( name) => {
   // console.log(_id);
   try {
-    const response = await axios.post('/users/updateUser', {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-      data: {
-        name: name,
-        file: file,
-        user: {
-          _id: _id,
-        },
-      },
-    });
+    const response = await axios.patch('/users/update', {
+        name: name, 
+      file: 'Bla'   });
     return response.data.data;
   } catch (error) {
     console.error('Помилка при отриманні даних:', error);
   }
 };
 
-export const getCurrentUser = async (user, file, _id) => {
+export const getCurrentUser = async () => {
   // console.log(_id);
   try {
-    const response = await axios.post('/users/updateUser', {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-      data: {
-        name: name,
-        file: file,
-        user: {
-          _id: _id,
-        },
-      },
+    const response = await axios.get('/users/current', {
+      
     });
     return response.data.data;
   } catch (error) {
     console.error('Помилка при отриманні даних:', error);
-  }
-};
-
-export const fetchCocktailsByParams = async (credentials) => {
-  console.log(credentials);
-  try {
-    const response = await axios.get('/drinks/search', {
-      params: credentials,
-    });
-    return response;
-  } catch (error) {
-    console.error('Помилка при отриманні даних при фільтрації:', error);
   }
 };

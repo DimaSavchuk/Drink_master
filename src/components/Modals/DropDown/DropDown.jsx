@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useLockBodyScroll } from "@uidotdev/usehooks";
-// import { useSelector } from 'react-redux';
 import {
   ChangeProfileButton,
   LogOutButton,
@@ -17,8 +16,7 @@ export const DropDown = ( {
   handleLogOutModelOpen,
   // handleCloseLogOutModal, 
   // handleCloseUserInfo,
-  handleModalClick,
-  handleKeyDown
+  handleModalClick
  }
 //   {
 //   setEditProfileShow,
@@ -26,11 +24,6 @@ export const DropDown = ( {
 // }
 ) => {
   useLockBodyScroll();
-  const [isChangeProfileOpen, setIsChangeProfileOpen] = useState(false);//eslint-disable-line
-
-
-
-
   
   // const handleCloseLogOutModal = () => {
   //   console.log("handleCloseLogOutModal");
@@ -58,8 +51,8 @@ export const DropDown = ( {
   // };
 
   return (
-    <ModalWrapper>
-      <ModalContent onClick={handleModalClick} onKeyDown={handleKeyDown}>
+    <ModalWrapper onClick={handleModalClick}>
+      <ModalContent  className="modal-content">
         <ChangeProfileButton
           onClick={() => {
             handleOpenUserInfoModal();
