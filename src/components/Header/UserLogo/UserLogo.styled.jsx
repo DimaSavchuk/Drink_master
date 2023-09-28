@@ -38,6 +38,8 @@ export const Button = styled.button`
   align-items: center;
   gap: 8px;
   margin-right: 2px;
+  padding-top: 0;
+  padding-bottom: 0;
 
   background-color: transparent;
   border: none;

@@ -1,10 +1,17 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-
+import ellipseLeftFooter from '../../assets/footer/ellipseleft-footer.png';
+import ellipseRightFooter from '../../assets/footer/ellipseright-footer.png';
 export const FooterStyled = styled.footer`
   padding-top: 40px;
   padding-bottom: 18px;
   border-top: 1px solid rgba(243, 243, 243, 0.2);
+
+  background-image: url(${ellipseLeftFooter}), url(${ellipseRightFooter});
+  background-repeat: no-repeat;
+  background-position:
+    60% 137%,
+    20% 145%;
 `;
 
 export const CommonWrapper = styled.div`
