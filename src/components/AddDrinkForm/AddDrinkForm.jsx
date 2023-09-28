@@ -14,23 +14,19 @@ import { useFetchIngredients } from '../../Hooks/useFetchIngredients';
 const validationSchema = yup.object({
   title: yup.string().trim().required('enter drink title'),
   recipe: yup.string().trim().required('enter about recipe'),
-  category: yup.array().required(),
-  glass: yup.array().required(),
+  category: yup.string().required('must have more than 1 item'),
+  glass: yup.string().required('must have more than 1 item'),
   alcoholicType: yup.string().required('choose alcoholic type drink'),
-  ingredients: yup.array().required(),
+  ingredients: yup.array().length(1, 'must have more than 1 item').required(),
   // file: '',
-  recipePreparation: yup
-    .string()
-    .trim()
-    .min(40, 'minimum 40 characters')
-    .required('enter about a recipe'),
+  // recipePreparation: yup.string().trim().required('enter about a recipe'),
 });
 
 const initialValues = {
   title: '',
   recipe: '',
-  category: [],
-  glass: [],
+  category: '',
+  glass: '',
   alcoholicType: 'Non-alcoholic',
   ingredients: [],
   file: '',
@@ -44,11 +40,12 @@ const AddDrinkForm = () => {
   //   action.resetForm();
   // };
 
-  const onSubmitForm = (data) => {
+  const onSubmitForm = (data, action) => {
     data.id = nanoid();
     // console.log(ownDrink);
     // ownDrink(data);
     console.log(data);
+    action.resetForm();
   };
 
   // useEffect = () => {}, [];
@@ -65,24 +62,24 @@ const AddDrinkForm = () => {
         validationSchema={validationSchema}
         onSubmit={onSubmitForm}
       >
-        {({ setFieldValue, errors }) => {
-          return (
-            <Form>
-              <AddDrinkTitle
-                categoriesList={categories.drinkCategories}
-                glassesList={glasses.drinkGlasses}
-                setValue={setFieldValue}
-                errors={errors}
-              />
-              <AddDrinkIngredients
-                ingredientsList={ingredients.drinkIngredients}
-              />
-              <AddDrinkRecipePrep error={errors.recipePreparation} />
-
-              <AddButton type="submit">Add</AddButton>
-            </Form>
-          );
-        }}
+        {({ setFieldValue, errors }) => (
+          <Form>
+            <AddDrinkTitle
+              categoriesList={categories.drinkCategories}
+              glassesList={glasses.drinkGlasses}
+              setValue={setFieldValue}
+              errors={errors}
+            />
+            <AddDrinkIngredients
+              ingredientsList={ingredients.drinkIngredients}
+            />
+            <AddDrinkRecipePrep
+              setValue={setFieldValue}
+              error={errors.recipePreparation}
+            />
+            <AddButton type="submit">Add</AddButton>
+          </Form>
+        )}
       </Formik>
     </DrinkFormWrapper>
   );

@@ -13,15 +13,6 @@ export const Wrapper = styled.div`
       margin-right: 32px;
     }
   }
-  /* 
-  input:focus + label,
-  input:focus:not(:placeholder-shown) + label {
-    transform: translateY(-18px);
-  }
-
-  input:focus + label {
-    color: yellow;
-  } */
 `;
 
 export const ContentWrapper = styled.div`

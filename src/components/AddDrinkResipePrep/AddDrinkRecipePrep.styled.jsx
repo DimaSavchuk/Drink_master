@@ -68,3 +68,16 @@ export const FieldWrapper = styled.div`
     margin-bottom: 40px;
   }
 `;
+
+export const ErrorText = styled.div`
+  margin-top: 4px;
+  padding-left: 8px;
+
+  display: block;
+
+  font-size: 12px;
+  font-weight: 400;
+  line-height: calc(14 / 12);
+  color: #da1414;
+  text-align: left;
+`;

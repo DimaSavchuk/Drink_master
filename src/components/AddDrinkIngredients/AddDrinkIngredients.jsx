@@ -49,11 +49,11 @@ const AddDrinkIngredients = ({ ingredientsList }) => {
                 ingredients.map((ingredient, index) => (
                   <FieldsWrapper
                     key={index}
-                    role="ingridientsSelect"
+                    role="ingredientsSelect"
                     aria-labelledby="ingridientsSelect-group"
                   >
                     <FieldSelect>
-                      <Field name={`ingridients.${index}.name`} as="select">
+                      <Field name={`ingredients.${index}.name`} as="select">
                         {ingredientsList &&
                           ingredientsList.map(({ title }, index) => (
                             <option key={index} value={title}>
@@ -66,7 +66,7 @@ const AddDrinkIngredients = ({ ingredientsList }) => {
                       </span>
                     </FieldSelect>
                     <Field
-                      name={`ingridients.${index}.volume`}
+                      name={`ingredients.${index}.volume`}
                       placeholder={'1 cl'}
                     ></Field>
                     <button type="button" onClick={() => remove(index)}>

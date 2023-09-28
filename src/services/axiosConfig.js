@@ -165,6 +165,16 @@ export const fetchIngredients = async () => {
   }
 };
 
+export const fetchPopularDrinks = async () => {
+  try {
+    const response = await axios.get('/drinks/popular');
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Помилка при отриманні даних: ', error);
+  }
+};
+
 export const fetchHomePageCocktails = async () => {
   try {
     const response = await axios.get('/drinks/homepage');
@@ -174,12 +184,13 @@ export const fetchHomePageCocktails = async () => {
   }
 };
 
-export const updateUser = async ( name) => {
+export const updateUser = async (name) => {
   // console.log(_id);
   try {
     const response = await axios.patch('/users/update', {
-        name: name, 
-      file: 'Bla'   });
+      name: name,
+      file: 'Bla',
+    });
     return response.data.data;
   } catch (error) {
     console.error('Помилка при отриманні даних:', error);
@@ -189,9 +200,7 @@ export const updateUser = async ( name) => {
 export const getCurrentUser = async () => {
   // console.log(_id);
   try {
-    const response = await axios.get('/users/current', {
-      
-    });
+    const response = await axios.get('/users/current', {});
     return response.data.data;
   } catch (error) {
     console.error('Помилка при отриманні даних:', error);

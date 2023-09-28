@@ -9,7 +9,7 @@ export const useFetchCategories = () => {
 
   useEffect(() => {
     const controller = new AbortController();
-    const fetchDataCategories = async () => {
+    const fetchData = async () => {
       try {
         setIsLoading(true);
         const response = await fetchCategories('', controller);
@@ -21,7 +21,7 @@ export const useFetchCategories = () => {
         controller.abort();
       }
     };
-    fetchDataCategories();
+    fetchData();
   }, []);
 
   return { drinkCategories, isLoading, error };
