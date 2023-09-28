@@ -12,18 +12,17 @@ export const OptionsContainer = styled.ul`
   width: 335px;
   max-height: ${({ height }) => (height ? height : '')};
   overflow-y: ${({ height }) => (height ? 'scroll' : 'visible')};
+  overflow-x: hidden;
   padding: 18px 24px;
   background-color: var(--button-hover-color);
   border-radius: 20px;
 
   &::-webkit-scrollbar {
-    width: 24px;
+    width: 8px;
     height: 110px;
   }
 
   &::-webkit-scrollbar-thumb {
-    border: 8px solid transparent;
-    background-clip: padding-box;
     border-radius: 20px;
     background-color: #434d67;
   }
@@ -65,3 +64,42 @@ export const Option = styled.button`
     line-height: 1.56;
   }
 `;
+
+export const Text = styled.p`
+  color: var(--text-color);
+`;
+
+export const Item = styled.li`
+  width: 100%;
+  margin-bottom: 10px;
+`;
+
+export const Input = styled.input`
+  width: 100%;
+  height: 35px;
+  border-radius: 15px;
+  background-color: transparent;
+  border: 1px solid var(--border-input-color);
+  opacity: 0.8;
+  padding: 0 12px;
+
+  font-size:14px;
+  line-height: 1.29;
+  color: var(--text-color);
+  outline: none;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &::placeholder {
+    color: var(--text-color);
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    opacity: 1;
+  }
+`;
+
+  
+
+  
