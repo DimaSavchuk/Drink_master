@@ -13,6 +13,9 @@ import { useSearchParams } from 'react-router-dom';
 import { Loader } from '../Loader/Loader';
 import { Paginator } from '../Paginator/Paginator';
 
+import asrBlueIced from '../../assets/hero/asr_blue_iced_tea_mobile 1.png';
+import asrBlueIced2x from '../../assets/hero/asr_blue_iced_tea_mobile@2x.png';
+
 const MyDrinksContainer = () => {
   const [cards, setCards] = useState([]);
   const [isloading, setIsloading] = useState(false);
@@ -110,8 +113,8 @@ const MyDrinksContainer = () => {
               <picture>
                 <img
                   style={{ margin: '0 auto' }}
-                  src="./src/assets/hero/asr_blue_iced_tea_mobile 1.png"
-                  srcSet="./src/assets/hero/asr_blue_iced_tea_mobile 1.png 1x, ./src/assets/hero/asr_blue_iced_tea_mobile@2x.png 2x"
+                  src={asrBlueIced}
+                  srcSet={`${asrBlueIced2x} 2x`}
                   alt="coctail"
                   loading="lazy"
                 />

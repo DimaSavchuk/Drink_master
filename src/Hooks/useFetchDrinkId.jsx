@@ -4,8 +4,10 @@ import { getDrinkId } from '../services/axiosConfig';
 
 export const useFetchDrinkId = () => {
   const [drinkInfo, setDrinkInfo] = useState(null);
+  const [userId, setUserId] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [isfavorite, setIsFavorite] = useState(null);
 
   const { drinkId } = useParams();
 
@@ -15,9 +17,12 @@ export const useFetchDrinkId = () => {
       try {
         setIsLoading(true);
 
-        const fetchedDrink = await getDrinkId(drinkId, controller);
-        const { data } = fetchedDrink;
-        setDrinkInfo(data);
+        const { data, idCurrentUser } = await getDrinkId(drinkId, controller);
+
+        setUserId(idCurrentUser);
+        setIsFavorite(data[0].favorites.includes(userId));
+
+        setDrinkInfo(...data);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -28,5 +33,5 @@ export const useFetchDrinkId = () => {
     fetchDataDrink();
   }, [drinkId]);
 
-  return { drinkInfo, isLoading, error };
+  return { drinkInfo, userId, isLoading, error, isfavorite, setIsFavorite };
 };

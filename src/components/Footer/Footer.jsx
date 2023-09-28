@@ -24,7 +24,11 @@ import {
   ErrorMessage,
 } from './Footer.styled';
 import sprite from '../../assets/sprite.svg';
-import { IconWrapper, StyledLink } from '../Header/Header.styled';
+import {
+  IconLightWrapper,
+  IconWrapper,
+  StyledLink,
+} from '../Header/Header.styled';
 import { useState } from 'react';
 import { useFormik } from 'formik';
 
@@ -66,9 +70,14 @@ export const Footer = () => {
           <CommonWrapper>
             <ContentWrapper>
               <div>
-                <StyledLink to="/">
-                  <IconWrapper size={'22px'} size768={'28px'} size1440={'28px'}>
-                    <use href={`${sprite}#icon-logo`} />
+                <StyledLink to="/" style={{ color: '#f3f3f3' }}>
+                  <IconWrapper
+                    size={'22px'}
+                    size768={'28px'}
+                    size1440={'28px'}
+                    style={{ fill: '#f3f3f3' }}
+                  >
+                    <use href={`${sprite}#icon-logo-light`} />
                   </IconWrapper>
                   Drink Master
                 </StyledLink>
@@ -78,13 +87,13 @@ export const Footer = () => {
                       target="_blank"
                       href="https://www.facebook.com/goITclub/"
                     >
-                      <IconWrapper
+                      <IconLightWrapper
                         size={'22px'}
                         size768={'28px'}
                         fill={'#f3f3f3'}
                       >
                         <use href={`${sprite}#icon-facebook`} />
-                      </IconWrapper>
+                      </IconLightWrapper>
                     </SocialLink>
                   </li>
                   <li>
@@ -92,13 +101,13 @@ export const Footer = () => {
                       target="_blank"
                       href="https://www.instagram.com/goitclub/"
                     >
-                      <IconWrapper
+                      <IconLightWrapper
                         size={'22px'}
                         size768={'28px'}
                         fill={'#f3f3f3'}
                       >
                         <use href={`${sprite}#icon-instagram`} />
-                      </IconWrapper>
+                      </IconLightWrapper>
                     </SocialLink>
                   </li>
                   <li>
@@ -106,13 +115,13 @@ export const Footer = () => {
                       target="_blank"
                       href="https://www.youtube.com/c/GoIT"
                     >
-                      <IconWrapper
+                      <IconLightWrapper
                         size={'22px'}
                         size768={'28px'}
                         fill={'#f3f3f3'}
                       >
                         <use href={`${sprite}#icon-youtube`} />
-                      </IconWrapper>
+                      </IconLightWrapper>
                     </SocialLink>
                   </li>
                 </SocialList>

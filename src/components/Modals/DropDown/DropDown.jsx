@@ -1,6 +1,5 @@
-// ЦЕ НЕ МОДАЛЬНЕ ВІКНО, А ВИПАДАЮЧИЙ ЕЛЕМЕНТ ЯКИЙ МИ БАЧИМО КОЛИ НАТИСКАЄМО НА ЮЗЕРА
-
 import { useState } from 'react';
+import { useLockBodyScroll } from "@uidotdev/usehooks";
 // import { useSelector } from 'react-redux';
 import {
   ChangeProfileButton,
@@ -9,10 +8,11 @@ import {
   ModalWrapper,
 } from './DropDown.styled';
 
-import pencilIcon from 'src/assets/pencilIcon.png';
+import pencilIcon from '../../../assets/pencil.svg';
 
 
 export const DropDown = ( { 
+  
   handleOpenUserInfoModal,
   handleLogOutModelOpen,
   // handleCloseLogOutModal, 
@@ -25,7 +25,7 @@ export const DropDown = ( {
 //   setShowDropDown,
 // }
 ) => {
-  
+  useLockBodyScroll();
   const [isChangeProfileOpen, setIsChangeProfileOpen] = useState(false);//eslint-disable-line
 
 

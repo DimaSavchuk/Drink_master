@@ -19,7 +19,7 @@ export const HeroSection = styled.section`
 export const Title = styled.h1`
   margin-bottom: 16px;
 
-  color: #f3f3f3;
+  color: var(--text-color);
   font-size: 32px;
   font-weight: 600;
   line-height: 1.18;
@@ -40,7 +40,7 @@ export const Title = styled.h1`
 export const Text = styled.p`
   margin-bottom: 32px;
 
-  color: #f3f3f3;
+  color: var(--text-color);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.42;
@@ -65,9 +65,10 @@ export const AddDrinkLink = styled(Link)`
   align-items: flex-start;
   gap: 10px;
   border-radius: 42px;
-  background: #f3f3f3;
+  background: var(--link-color);
 
-  color: #161f37;
+  color: var(--button-hover-color);
+  border: 1px solid var(--border-link-color);
   font-size: 14px;
   font-weight: 600;
   line-height: 1.28;
@@ -77,8 +78,8 @@ export const AddDrinkLink = styled(Link)`
 
   &:hover,
   &:focus {
-    color: #f3f3f3;
-    background-color: #161f37;
+    color: var(--link-color);
+    background-color: var(--button-hover-color);
   }
   @media (min-width: 768px) {
     margin-bottom: 54px;

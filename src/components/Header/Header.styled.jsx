@@ -33,7 +33,7 @@ export const StyledLink = styled(Link)`
   align-items: center;
   gap: 8px;
 
-  color: #f3f3f3;
+  color: var(--link-color);
   font-size: 16px;
   font-weight: 600;
   line-height: 1.125;
@@ -53,6 +53,26 @@ export const StyledLink = styled(Link)`
   &:focus {
   }
 `;
+
+export const StyledFlexDiv = styled.div`
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  @media (min-width: 768px) {
+    gap: 24px;
+  }
+  @media (min-width: 1440px) {
+    gap: 28px;
+  }
+`;
+
+export const StyledDesktopThemeSwitcher = styled.div`
+  display: none;
+  @media (min-width: 1440px) {
+    display: block;
+  }
+`;
+
 export const Button = styled.button`
   background-color: transparent;
   border: none;
@@ -80,7 +100,28 @@ export const Button = styled.button`
 export const IconWrapper = styled.svg`
   width: ${(props) => props.size || '12px'};
   height: ${(props) => props.size || '12px'};
-  fill: ${(props) => props.color || '#ffffff'};
+  fill: var(--link-color);
+  stroke: var(--link-color);
+  margin-right: ${(props) => props.marginRight || '0'};
+  margin-left: ${(props) => props.marginLeft || '0'};
+  /* opacity: ${({ visible }) => (visible ? '1' : '0' || '1')}; */
+
+  display: inline-block;
+
+  @media (min-width: 768px) {
+    width: ${(props) => props.size768 || '20px'};
+    height: ${(props) => props.size768 || '20px'};
+  }
+
+  @media (min-width: 1440px) {
+    width: ${(props) => props.size1440 || '30px'};
+    height: ${(props) => props.size1440 || '30px'};
+  }
+`;
+
+export const IconLightWrapper = styled.svg`
+  width: ${(props) => props.size || '12px'};
+  height: ${(props) => props.size || '12px'};
   margin-right: ${(props) => props.marginRight || '0'};
   margin-left: ${(props) => props.marginLeft || '0'};
   /* opacity: ${({ visible }) => (visible ? '1' : '0' || '1')}; */

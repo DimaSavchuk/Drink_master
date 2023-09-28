@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Notiflix from 'notiflix';
+import { useLockBodyScroll } from "@uidotdev/usehooks";
 // import { useDispatch, useSelector } from 'react-redux';
 // import { selectUserArray } from '../../../redux/selectors';
 import * as Yup from 'yup';
@@ -24,15 +25,16 @@ import {
 } from './UserProfile.styled';
 
 // import { updateUserThunk } from '../../../redux/UserInfo/userOperations';
-import AddIcon from 'src/assets/add_photo.png';
+import AddIcon from '../../../assets/add_photo.png';
 import defaultAvatarURL from '../../../assets/user.png';
 
 // const defaultAvatarURL = require('../../../assets/user.png');
 
 export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
+  useLockBodyScroll();
   // const dispatch = useDispatch();
   // const user = useSelector(selectUserArray);
-  
+
   const user = {
     name: 'Victoria',
     avatarURL:
@@ -41,7 +43,6 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
   const [isOpen, setIsOpen] = useState(true); //eslint-disable-line
   const [selectedAvatar, setSelectedAvatar] = useState(null);
   const [imgURL, setImageURL] = useState('');
-
 
   // useEffect(() => {
   //   const handleOutsideClick = event => {
@@ -56,7 +57,7 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
   //   };
   // }, [onClose]);
 
-  const handleAvatarChange = async e => {
+  const handleAvatarChange = async (e) => {
     const file = e.target.files[0];
     setSelectedAvatar(file);
     const reader = new FileReader();
@@ -66,12 +67,11 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
     reader.readAsDataURL(file);
   };
 
-  const handleOnSubmit = async values => {
+  const handleOnSubmit = async (values) => {
     const formData = new FormData();
     formData.append('name', values.name);
     if (selectedAvatar) {
       formData.append('avatarURL', selectedAvatar);
-
     }
     //TODO: Update User onServer
     // const res = await dispatch(updateUserThunk(formData));
@@ -96,7 +96,7 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
     <ModalWrapper onClick={handleModalClick} onKeyDown={handleKeyDown}>
       <ContentWrapper className="modal-content">
         <CloseButton onClick={onClose} tabIndex={1} className="close-button">
-        <StyledUpdatedCloseButton width={24} height={24} />
+          <StyledUpdatedCloseButton width={16} height={16} />
         </CloseButton>
         <StyledForm
           initialValues={{
@@ -106,21 +106,20 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
           validationSchema={Yup.object({
             avatarURL: Yup.string(),
             name: Yup.string()
-            .min(2)
-            .matches(
-              /^[a-zA-Zа-яєїієґҐА-ЯЄЇІЄҐҐ'0-9]+$/,
-              'Name can only contain letters or numbers.',
-            ),
+              .min(2)
+              .matches(
+                /^[a-zA-Zа-яєїієґҐА-ЯЄЇІЄҐҐ'0-9]+$/,
+                'Name can only contain letters or numbers.',
+              ),
           })}
-
-          onSubmit={async (values) => {
-            console.log('submit');
-            const formData = new FormData();
-            formData.append('name', values.name);
-            formData.append('avatarURL', values.avatarURL);
-            //await dispatch(updateUserThunk(formData));
-          }}
-
+          // onSubmit={async (values) => {
+          //   console.log('submit');
+          //   const formData = new FormData();
+          //   formData.append('name', values.name);
+          //   formData.append('avatarURL', values.avatarURL);
+          //   //await dispatch(updateUserThunk(formData));
+          // }}
+          onSubmit={handleOnSubmit}
         >
           {({ errors, touched, handleChange, setFieldTouched }) => (
             <StyledFormInsight>
@@ -174,5 +173,3 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
     </ModalWrapper>
   ) : null;
 };
-
-
