@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
+// import { updateUser } from '../../../services/axiosConfig';
 import Notiflix from 'notiflix';
 import { useLockBodyScroll } from "@uidotdev/usehooks";
-// import { useDispatch, useSelector } from 'react-redux';
-// import { selectUserArray } from '../../../redux/selectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectUserArray } from '../../../redux/UserInfo/userSelectors';
 import * as Yup from 'yup';
 import {
   ModalWrapper,
@@ -24,38 +25,39 @@ import {
   StyledMessage,
 } from './UserProfile.styled';
 
-// import { updateUserThunk } from '../../../redux/UserInfo/userOperations';
-import AddIcon from '../../../assets/add_photo.png';
-import defaultAvatarURL from '../../../assets/user.png';
+import { updateUserThunk } from '../../../redux/UserInfo/userOperations';
+import AddIcon from '../../../assets/add_photo.svg';
+import defaultAvatarURL from '../../../assets/user.svg';
 
-// const defaultAvatarURL = require('../../../assets/user.png');
+// const defaultAvatarURL = require('../../../assets/user.svg');
 
 export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
   useLockBodyScroll();
-  // const dispatch = useDispatch();
-  // const user = useSelector(selectUserArray);
 
-  const user = {
-    name: 'Victoria',
-    avatarURL:
-      'https://res.cloudinary.com/dgooxm96o/image/upload/v1695311635/avatars/woddyy.jpg.jpg',
-  };
+    const dispatch = useDispatch();
+    const user = useSelector(selectUserArray);
+
+  // const user = {
+  //   name: 'Victoria',
+  //   avatarURL:
+  //     'https://res.cloudinary.com/dgooxm96o/image/upload/v1695311635/avatars/woddyy.jpg.jpg',
+  // };
   const [isOpen, setIsOpen] = useState(true); //eslint-disable-line
   const [selectedAvatar, setSelectedAvatar] = useState(null);
   const [imgURL, setImageURL] = useState('');
 
-  // useEffect(() => {
-  //   const handleOutsideClick = event => {
-  //   if (!event.target.closest('.modal-content')) {
-  //       onClose(); // first time close (if modal in update user form)
-  //       onClose(); // second time close if user is on logout + edit selection
-  //   }
-  // };
-  //   window.addEventListener('mousedown', handleOutsideClick);
-  //   return () => {
-  //     window.removeEventListener('mousedown', handleOutsideClick);
-  //   };
-  // }, [onClose]);
+  useEffect(() => {
+    const handleOutsideClick = event => {
+    if (!event.target.closest('.modal-content')) {
+        onClose(); // first time close (if modal in update user form)
+        onClose(); // second time close if user is on logout + edit selection
+    }
+  };
+    window.addEventListener('mousedown', handleOutsideClick);
+    return () => {
+      window.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, [onClose]);
 
   const handleAvatarChange = async (e) => {
     const file = e.target.files[0];
@@ -74,13 +76,15 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
       formData.append('avatarURL', selectedAvatar);
     }
     //TODO: Update User onServer
-    // const res = await dispatch(updateUserThunk(formData));
-    // if (res.meta.requestStatus === 'fulfilled') {
-    //   onClose();
-    // }
-    user.name = values.name;
-    Notiflix.Notify.success('The user saved successfuly!');
-    onClose();
+    const res = await dispatch(updateUserThunk(values.name, selectedAvatar));
+    if (res.meta.requestStatus === 'fulfilled') {
+      Notiflix.Notify.success('The user saved successfuly!');
+      onClose();
+    }
+    else{
+      Notiflix.Notify.failure('The user not saved!');
+      onClose();
+    }
   };
 
   let avatar;

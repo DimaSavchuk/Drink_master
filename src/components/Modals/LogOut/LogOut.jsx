@@ -40,7 +40,7 @@ export const LogOutModel = ({ onClose, handleModalClick, handleKeyDown }) => {
 
   return (
     <ModalWrapper onClick={handleModalClick} onKeyDown={handleKeyDown}>
-      <ModalContent>
+      <ModalContent className="modal-content">
       <CloseButton onClick={onClose} tabIndex={1} className="close-button">
         <StyledUpdatedCloseButton width={16} height={16} />
         </CloseButton>
