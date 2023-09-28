@@ -13,7 +13,6 @@ export const useFetchIngredients = () => {
       try {
         setIsLoading(true);
         const response = await fetchIngredients('', controller);
-        console.log(response);
         setDrinkIngredients(response);
       } catch (error) {
         setError(error.message);

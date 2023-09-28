@@ -15,7 +15,7 @@ const initialValues = {
   category: 'Other/Unknown',
   glass: 'Whiskey Glass',
   alcoholicType: 'Non-alcoholic',
-  ingridients: [],
+  ingredients: [],
   file: '',
   recipePreparation: '',
 };

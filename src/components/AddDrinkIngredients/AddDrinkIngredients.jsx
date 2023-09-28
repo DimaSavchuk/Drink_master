@@ -18,8 +18,10 @@ const AddDrinkIngredients = () => {
     { name: 'Passoa' },
     { name: 'Prosecco' },
   ];
-  const initialValue = { name: ingridientsList[0].name, volume: '' };
+
   const { drinkIngredients, error, loading } = useFetchIngredients();
+  console.log(drinkIngredients);
+  const initialValue = { name: ingridientsList[0].name, volume: '' };
   return (
     <FieldArray
       name="ingredients"
@@ -39,7 +41,7 @@ const AddDrinkIngredients = () => {
                 <button type="button" onClick={() => remove()}>
                   <TfiMinus size={16} />
                 </button>
-                <span>{ingridients.length}</span>
+                <span>{ingredients.length ? ingredients.length : '0'}</span>
                 <button type="button" onClick={() => push(initialValue)}>
                   <TfiPlus size={16} />
                 </button>
@@ -68,7 +70,7 @@ const AddDrinkIngredients = () => {
                     </FieldSelect>
                     <Field
                       name={`ingridients.${index}.volume`}
-                      placeholder={ingredients.volume}
+                      placeholder={'1 cl'}
                     ></Field>
                     <button type="button" onClick={() => remove(index)}>
                       <TfiClose size={18} />
@@ -83,4 +85,4 @@ const AddDrinkIngredients = () => {
   );
 };
 
-export default AddDrinkIngridients;
+export default AddDrinkIngredients;

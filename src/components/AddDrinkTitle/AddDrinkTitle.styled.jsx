@@ -6,6 +6,13 @@ export const Wrapper = styled.div`
   flex-direction: column;
 
   margin-bottom: 80px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    & > div:not(:last-of-type) {
+      margin-right: 32px;
+    }
+  }
   /* 
   input:focus + label,
   input:focus:not(:placeholder-shown) + label {
@@ -17,7 +24,16 @@ export const Wrapper = styled.div`
   } */
 `;
 
+export const ContentWrapper = styled.div`
+  width: 100%;
+
+  & > div:nth-last-of-type(2) {
+    margin-bottom: 40px;
+  }
+`;
+
 export const FieldStyled = styled(Field)`
+  display: block;
   height: 34px;
 
   text-align: right;
@@ -39,28 +55,11 @@ export const FieldStyled = styled(Field)`
   &::placeholder {
     opacity: 0;
   }
+
+  @media (min-width: 768px) {
+    height: 41px;
+  }
 `;
-
-// export const FieldSelectStyled = styled(Field)`
-//   height: 34px;
-//   padding-bottom: 14px;
-
-//   text-align: right;
-//   color: #f3f3f3;
-
-//   border-style: none;
-//   border-bottom: 1px solid #f3f3f380;
-//   background: transparent;
-
-//   &:focus {
-//     border-bottom: 1px solid #f3f3f3;
-//     outline: transparent;
-//   }
-
-//   &::after {
-//     padding-bottom: 14px;
-//   }
-// `;
 
 export const LabelStyled = styled.label`
   position: absolute;
@@ -80,12 +79,8 @@ export const FieldWrapper = styled.div`
     margin-bottom: 31px;
   }
 
-  &:focus {
-    outline: 1px solid red;
-  }
-
-  &:hover label,
-  &:focus label {
+  input:hover label,
+  input:focus label {
     color: #f3f3f3;
     transition: 200ms ease transform;
   }

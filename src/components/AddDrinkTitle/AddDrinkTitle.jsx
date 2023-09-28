@@ -11,6 +11,7 @@ import {
   FieldRadioLabel,
   RadioButtonsWrapper,
   Wrapper,
+  ContentWrapper,
 } from './AddDrinkTitle.styled';
 
 const AddDrinkTitle = ({ setValue }) => {
@@ -72,7 +73,7 @@ const AddDrinkTitle = ({ setValue }) => {
       <div>
         <AddDrinkAddImage setValue={setValue} />
       </div>
-      <div>
+      <ContentWrapper>
         <FieldWrapper>
           <LabelStyled htmlFor="title">Enter item title</LabelStyled>
           <FieldStyled name={'title'} placeholder="Enter item title" />
@@ -89,28 +90,6 @@ const AddDrinkTitle = ({ setValue }) => {
         />
 
         <AddDrinkDropdownMenu items={glasses.drinkGlasses} title={'Glass'} />
-
-        {/* <FieldWrapper>
-        <LabelStyled htmlFor="category">Category</LabelStyled>
-        <FieldSelectStyled as="select" name="category" placeholder="Category">
-          {initialList.category.map((name, index) => (
-            <option key={index} value={name}>
-              {name}
-            </option>
-          ))}
-        </FieldSelectStyled>
-      </FieldWrapper>
-
-      <FieldWrapper>
-        <LabelStyled htmlFor="glass">Glass</LabelStyled>
-        <FieldSelectStyled as="select" name="glass" placeholder="Glass">
-          {initialList.glass.map((name, index) => (
-            <option key={index} value={name}>
-              {name}
-            </option>
-          ))}
-        </FieldSelectStyled>
-      </FieldWrapper> */}
 
         <RadioButtonsWrapper
           role="cocktailTypeSelect"
@@ -138,7 +117,7 @@ const AddDrinkTitle = ({ setValue }) => {
             </FieldRadioLabel>
           </div>
         </RadioButtonsWrapper>
-      </div>
+      </ContentWrapper>
     </Wrapper>
   );
 };
