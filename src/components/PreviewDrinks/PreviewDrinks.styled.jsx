@@ -50,3 +50,17 @@ export const CocktailsWrap = styled.ul`
     margin-top: 40px;
   }
 `;
+
+export const BtnsWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 20px;
+  }
+`;

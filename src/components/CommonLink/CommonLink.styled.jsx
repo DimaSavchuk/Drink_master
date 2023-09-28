@@ -2,9 +2,13 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const StyledNavLink = styled(NavLink)`
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
   display: inline-block;
   padding: 14px 40px;
   border-radius: 42px;
+  background-color: #f3f3f3;
   background-color: var(--button-color);
 
   color: var(--button-hover-color);
