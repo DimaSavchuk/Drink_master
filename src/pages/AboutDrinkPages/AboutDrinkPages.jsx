@@ -81,7 +81,7 @@ const AboutDrinkPages = () => {
           <IngredientsCards data={drinkInfo.ingredients} />
           <RecipeTitle>Recipe Preparation</RecipeTitle>
           <RecipeDiv>
-            <RecipeInfo>{drinkInfo.instructionsUK}</RecipeInfo>
+            <RecipeInfo>{drinkInfo.instructions}</RecipeInfo>
             <ImageDiv>
               <Image></Image>
             </ImageDiv>
