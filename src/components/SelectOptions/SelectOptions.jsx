@@ -30,7 +30,7 @@ export const SelectOptions = ({ handleSelect, height, items }) => {
                             <Input
                                 value={inputValue}
                                 onChange={handleInputChange}
-                                placeholder="Type here..."
+                                placeholder="Search..."
                             />
                     </Item>
                     {filteredItems.map(item => (

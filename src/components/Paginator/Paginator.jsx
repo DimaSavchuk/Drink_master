@@ -17,8 +17,8 @@ export const Paginator = ({limit, currentPage, itemsLength, handlePageChange, pa
   return (
     <div>
         <Paginate
-          previousLabel={<svg style={{width:'8px', height:'15px'}}><use href={`${sprite}#icon-paginateLeft`} /></svg>}
-          nextLabel={<svg style={{width:'8px', height:'15px'}}><use href={`${sprite}#icon-paginateRight`} /></svg>}
+          previousLabel={<svg style={{width:'8px', height:'15px', fill:'var(--pagination-array-color)'}}><use href={`${sprite}#icon-paginateLeft`} /></svg>}
+          nextLabel={<svg style={{width:'8px', height:'15px', fill:'var(--pagination-array-color)'}}><use href={`${sprite}#icon-paginateRight`} /></svg>}
           pageCount={pageCount}
           onPageChange={handlePageClick}
           forcePage={currentPage} 
