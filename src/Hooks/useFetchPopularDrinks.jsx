@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { fetchGlasses } from '../services/axiosConfig';
+import { fetchPopularDrinks } from '../services/axiosConfig';
 
-export const useFetchGlasses = () => {
-  const [drinkGlasses, setDrinkGlasses] = useState(null);
+export const useFetchIngredients = () => {
+  const [drinksPopular, setDrinksPopular] = useState(null);
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -12,8 +12,9 @@ export const useFetchGlasses = () => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        const response = await fetchGlasses('', controller);
-        setDrinkGlasses(response);
+        const response = await fetchPopularDrinks('', controller);
+        console.log(response.data);
+        setDrinksPopular(response.data.data);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -24,5 +25,5 @@ export const useFetchGlasses = () => {
     fetchData();
   }, []);
 
-  return { drinkGlasses, isLoading, error };
+  return { drinksPopular, isLoading, error };
 };
