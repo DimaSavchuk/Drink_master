@@ -1,3 +1,4 @@
+import AddDrinkAddImage from '../AddDrinkAddImage';
 import AddDrinkDropdownMenu from '../AddDrinkSelectMenu';
 import {
   // FieldSelectStyled,
@@ -8,9 +9,9 @@ import {
   FieldRadioLabel,
   RadioButtonsWrapper,
   TitleInfo,
-} from './AddDrinkTitleInfo.styled';
+} from './AddDrinkTitle.styled';
 
-const AddDrinkTitleInfo = () => {
+const AddDrinkTitle = ({ setValue }) => {
   const initialList = {
     category: [
       'Ordinary Drink',
@@ -63,6 +64,8 @@ const AddDrinkTitleInfo = () => {
 
   return (
     <TitleInfo>
+      <AddDrinkAddImage setValue={setValue} />
+
       <FieldWrapper>
         <LabelStyled htmlFor="title">Enter item title</LabelStyled>
         <FieldStyled name={'title'} placeholder="Enter item title" />
@@ -129,4 +132,4 @@ const AddDrinkTitleInfo = () => {
   );
 };
 
-export default AddDrinkTitleInfo;
+export default AddDrinkTitle;

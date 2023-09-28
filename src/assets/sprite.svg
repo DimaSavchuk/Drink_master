@@ -1,18 +1,6 @@
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1"
     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
-        <!-- <symbol id="icon-logo" viewBox="0 0 32 32">
-<path d="M29.082 0.314h-4.009c-1.237 0-2.24 0.983-2.24 2.195v3.929c0 1.212 1.003 2.195 2.24 2.195h4.009c1.237 0 2.24-0.983 2.24-2.195v-3.929c0-1.212-1.003-2.195-2.24-2.195z"></path>
-<path d="M6.73 23.040h-4.318c-1.332 0-2.412 0.983-2.412 2.195v3.929c0 1.213 1.080 2.195 2.412 2.195h4.318c1.332 0 2.412-0.983 2.412-2.195v-3.929c0-1.212-1.080-2.195-2.412-2.195z"></path>
-<path d="M6.25 11.582h-4.009c-1.237 0-2.24 0.983-2.24 2.195v3.929c0 1.212 1.003 2.195 2.24 2.195h4.009c1.237 0 2.24-0.983 2.24-2.195v-3.929c0-1.212-1.003-2.195-2.24-2.195z"></path>
-<path d="M17.766 22.978h-4.009c-1.237 0-2.24 0.983-2.24 2.195l-0 3.929c0 1.212 1.003 2.195 2.241 2.195h4.009c1.237 0 2.24-0.983 2.24-2.195v-3.929c0-1.212-1.003-2.195-2.24-2.195z"></path>
-<path d="M6.25 0.086h-4.009c-1.237 0-2.24 0.983-2.24 2.195v3.929c0 1.212 1.003 2.195 2.24 2.195h4.009c1.237 0 2.24-0.983 2.24-2.195v-3.929c0-1.212-1.003-2.195-2.24-2.195z"></path>
-<path d="M18.076 11.697h-4.009c-1.237 0-2.24 0.983-2.24 2.195v3.929c0 1.212 1.003 2.195 2.24 2.195h4.009c1.237 0 2.24-0.983 2.24-2.195v-3.929c0-1.212-1.003-2.195-2.24-2.195z"></path>
-<path d="M29.333 22.978h-4.010c-1.237 0-2.24 0.983-2.24 2.195v3.929c0 1.212 1.003 2.195 2.24 2.195h4.009c1.237 0 2.24-0.983 2.24-2.195v-3.929c0-1.212-1.003-2.195-2.24-2.195z"></path>
-<path d="M17.591 0.224h-4.009c-1.237 0-2.24 0.983-2.24 2.195v3.929c0 1.212 1.003 2.195 2.24 2.195h4.009c1.237 0 2.24-0.984 2.24-2.196v-3.929c0-1.212-1.003-2.195-2.24-2.195z"></path>
-<path d="M29.044 11.926h-4.010c-1.237 0-2.24 0.983-2.24 2.195v3.929c0 1.212 1.003 2.195 2.24 2.195h4.009c1.237 0 2.24-0.983 2.24-2.195v-3.929c0-1.212-1.003-2.195-2.24-2.195z"></path>
-</symbol> -->
-
         <symbol id="icon-logo-light" viewBox="0 0 32 32">
             <path
                 d="M22.13 0h-12.26l-9.87 9.87v12.26l9.87 9.87h12.26l9.87-9.87v-12.26l-9.87-9.87zM11.566 22.284l-6.323-6.323 6.323-6.323c2.39-2.39 6.323-2.39 8.713 0l6.323 6.323-6.323 6.323c-2.39 2.39-6.246 2.39-8.713 0z">
@@ -36,17 +24,6 @@
             <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.6842"
                 d="M8 8l16 16"></path>
         </symbol>
-        <!-- <symbol id="icon-burger-menu" viewBox="0 0 32 32">
-            <path fill="none" stroke="#f3f3f3" style="stroke: var(--color1, #f3f3f3)" stroke-linejoin="round"
-                stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M28 13.333h-24"></path>
-            <path fill="none" stroke="#f3f3f3" style="stroke: var(--color1, #f3f3f3)" stroke-linejoin="round"
-                stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M28 8h-24"></path>
-            <path fill="none" stroke="#f3f3f3" style="stroke: var(--color1, #f3f3f3)" stroke-linejoin="round"
-                stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M28 18.667h-24"></path>
-            <path fill="none" stroke="#f3f3f3" style="stroke: var(--color1, #f3f3f3)" stroke-linejoin="round"
-                stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M28 24h-24"></path>
-        </symbol> -->
-
 
         <symbol id="icon-instagram" viewBox="0 0 32 32">
             <path opacity="0.8"
@@ -101,12 +78,6 @@
 
         </symbol>
 
-        <!-- <symbol id="icon-x" viewBox="0 0 32 32">
-            <path fill="none" stroke="#f3f3f3" style="stroke: var(--color1, #f3f3f3)" stroke-linejoin="round"
-                stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M24 8l-16 16"></path>
-            <path fill="none" stroke="#f3f3f3" style="stroke: var(--color1, #f3f3f3)" stroke-linejoin="round"
-                stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M8 8l16 16"></path>
-        </symbol> -->
 
         <symbol id="icon-chevron-down" viewBox="0 0 32 32">
             <path fill="none" stroke="#f3f3f3" style="stroke: var(--color1, #f3f3f3)" stroke-linejoin="round"

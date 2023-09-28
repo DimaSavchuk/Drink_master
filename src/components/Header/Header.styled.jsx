@@ -118,3 +118,23 @@ export const IconWrapper = styled.svg`
     height: ${(props) => props.size1440 || '30px'};
   }
 `;
+
+export const IconLightWrapper = styled.svg`
+  width: ${(props) => props.size || '12px'};
+  height: ${(props) => props.size || '12px'};
+  margin-right: ${(props) => props.marginRight || '0'};
+  margin-left: ${(props) => props.marginLeft || '0'};
+  /* opacity: ${({ visible }) => (visible ? '1' : '0' || '1')}; */
+
+  display: inline-block;
+
+  @media (min-width: 768px) {
+    width: ${(props) => props.size768 || '20px'};
+    height: ${(props) => props.size768 || '20px'};
+  }
+
+  @media (min-width: 1440px) {
+    width: ${(props) => props.size1440 || '30px'};
+    height: ${(props) => props.size1440 || '30px'};
+  }
+`;

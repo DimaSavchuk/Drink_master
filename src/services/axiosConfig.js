@@ -4,9 +4,7 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://rest-api-drink-master.onrender.com/api';
 
 const accessToken =
-
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MGZmYzVhZjhhMWE4NjA3OTNmNjk4ZCIsImlhdCI6MTY5NTgxNjUwOCwiZXhwIjoxNjk2NTM2NTA4fQ.Iycb3FmyQyJfWInubcCv-3V2csCPWwhTK6QDzVaxhNA';
-
 
 axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
 
@@ -206,5 +204,17 @@ export const getCurrentUser = async (user, file, _id) => {
     return response.data.data;
   } catch (error) {
     console.error('Помилка при отриманні даних:', error);
+  }
+};
+
+export const fetchCocktailsByParams = async (credentials) => {
+  console.log(credentials);
+  try {
+    const response = await axios.get('/drinks/search', {
+      params: credentials,
+    });
+    return response;
+  } catch (error) {
+    console.error('Помилка при отриманні даних при фільтрації:', error);
   }
 };

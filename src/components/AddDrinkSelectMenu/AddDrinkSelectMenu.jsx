@@ -3,6 +3,7 @@ import {
   CustomSelect,
   DropMenu,
   Label,
+  SelectItem,
   SelectWrapper,
 } from './AddDrinkSelectMenu.styled';
 import { SelectOpenArrow } from '../SelectOpenArrow/SelectOpenArrow';
@@ -38,9 +39,9 @@ const AddDrinkDropdownMenu = ({ items, title }) => {
       {isOpen && (
         <DropMenu>
           {items.map((item, index) => (
-            <div key={index} onClick={() => handleClickItem(item)}>
+            <SelectItem key={index} onClick={() => handleClickItem(item)}>
               {item}
-            </div>
+            </SelectItem>
           ))}
         </DropMenu>
       )}
