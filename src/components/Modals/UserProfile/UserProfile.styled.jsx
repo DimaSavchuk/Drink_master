@@ -125,7 +125,10 @@ export const AddIconImg = styled.img`
   left: 35%;
   border-radius: 50%;
   cursor: pointer;
-
+  fill: currentColor;
+  & :hover {
+    fill: red;
+  }
   @media screen and (min-width: 768px) {
     width: 32px;
     height: 32px;

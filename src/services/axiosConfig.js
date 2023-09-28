@@ -165,41 +165,23 @@ export const fetchHomePageCocktails = async () => {
   }
 };
 
-export const updateUser = async (_id, name, file) => {
+export const updateUser = async ( name) => {
   // console.log(_id);
   try {
-    const response = await axios.post('/users/updateUser', {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-      data: {
-        name: name,
-        file: file,
-        user: {
-          _id: _id,
-        },
-      },
-    });
+    const response = await axios.patch('/users/update', {
+        name: name, 
+      file: 'Bla'   });
     return response.data.data;
   } catch (error) {
     console.error('Помилка при отриманні даних:', error);
   }
 };
 
-export const getCurrentUser = async (user, file, _id) => {
+export const getCurrentUser = async () => {
   // console.log(_id);
   try {
-    const response = await axios.post('/users/updateUser', {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-      data: {
-        name: name,
-        file: file,
-        user: {
-          _id: _id,
-        },
-      },
+    const response = await axios.get('/users/current', {
+      
     });
     return response.data.data;
   } catch (error) {

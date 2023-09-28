@@ -101,15 +101,18 @@ export const Header = () => {
       // setShowDropDown(false);
       handleCloseUserInfo();
       handleCloseLogOutModal();
+      handleDropDownClose();
       // setEditProfileShow(false);
     }
     e.stopPropagation();
   };
 
   const handleKeyDown = (e) => {
+    console.log("HandleKeyDown");
     if (e.key === 'Escape') {
       handleCloseUserInfo();
       handleCloseLogOutModal();
+      handleDropDownClose();
     }
   };
 
@@ -118,7 +121,7 @@ export const Header = () => {
   return (
     <>
       <HeaderStyled>
-        <HeaderContainer>
+        <HeaderContainer onKeyDown={handleKeyDown}>
           <Navigation>
             <StyledLink to="/">
               <IconWrapper size={'22px'} size768={'28px'} size1440={'28px'}>
@@ -128,7 +131,7 @@ export const Header = () => {
             </StyledLink>
             <PagesMenu />
 
-            // {isAuthVisible ? <UserLogo /> : null}
+               {/* {isAuthVisible ? <UserLogo /> : null} */}
 
             <StyledFlexDiv>
               <StyledDesktopThemeSwitcher>
@@ -141,7 +144,6 @@ export const Header = () => {
                   handleOpenUserInfoModal={openUserInfoModal}
                   handleLogOutModelOpen={openLogOutModal}
                   handleModalClick={handleModalClick}
-                  handleKeyDown={handleKeyDown}
                 />
               )}
               {isLogOutModelOpen && (
