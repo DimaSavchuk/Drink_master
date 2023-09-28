@@ -3,38 +3,7 @@ import tempImg from '../../assets/temp-popular-drink.png';
 import { PopDrinksWrapper } from './PopularDrinks.styled';
 
 const PopularDrinks = () => {
-  // const initialArray = [
-  //   {
-  //     imgLink: tempImg,
-  //     title: 'Gin Lemon',
-  //     descr:
-  //       'A gin and tonic is a highball cocktail made with gin and tonic water poured over a large amount of ice. The ratio of gin to tonic varies according to taste, strength of the gin, other drink mixers being added, etc., with most recipes calling for a ratio between 1:1 and 1:3.',
-  //   },
-  //   {
-  //     imgLink: tempImg,
-  //     title: 'Gin Lemon',
-  //     descr:
-  //       'A gin and tonic is a highball cocktail made with gin and tonic water poured over a large amount of ice. The ratio of gin to tonic varies according to taste, strength of the gin, other drink mixers being added, etc., with most recipes calling for a ratio between 1:1 and 1:3.',
-  //   },
-  //   {
-  //     imgLink: tempImg,
-  //     title: 'Gin Lemon',
-  //     descr:
-  //       'A gin and tonic is a highball cocktail made with gin and tonic water poured over a large amount of ice. The ratio of gin to tonic varies according to taste, strength of the gin, other drink mixers being added, etc., with most recipes calling for a ratio between 1:1 and 1:3.',
-  //   },
-  //   {
-  //     imgLink: tempImg,
-  //     title: 'Gin Lemon',
-  //     descr:
-  //       'A gin and tonic is a highball cocktail made with gin and tonic water poured over a large amount of ice. The ratio of gin to tonic varies according to taste, strength of the gin, other drink mixers being added, etc., with most recipes calling for a ratio between 1:1 and 1:3.',
-  //   },
-  // ];
-
-  // const { drinksPopular, isLoading, error } = fetchPopularDrinks();
-  // console.log(drinksPopular);
-
   const { drinksPopular, isLoading, error } = useFetchPopularDrinks();
-  console.log(drinksPopular, isLoading, error);
 
   return (
     <PopDrinksWrapper>
