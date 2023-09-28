@@ -68,6 +68,7 @@ export const Input = styled.input`
 `;
 
 export const SearchIconWrap = styled.svg`
+  stroke:var(--text-color);
   width: 20px;
   height: 20px;
 `;

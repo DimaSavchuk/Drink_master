@@ -14,7 +14,7 @@ export const OptionsContainer = styled.ul`
   overflow-y: ${({ height }) => (height ? 'scroll' : 'visible')};
   overflow-x: hidden;
   padding: 18px 24px;
-  background-color: var(--button-hover-color);
+  background-color: var(--select-list-color);
   border-radius: 20px;
 
   &::-webkit-scrollbar {
@@ -24,7 +24,7 @@ export const OptionsContainer = styled.ul`
 
   &::-webkit-scrollbar-thumb {
     border-radius: 20px;
-    background-color: #434d67;
+    background-color: var(--scroll-color);
   }
 
   &::-webkit-scrollbar-track {
@@ -77,9 +77,9 @@ export const Item = styled.li`
 export const Input = styled.input`
   width: 100%;
   height: 35px;
-  border-radius: 15px;
   background-color: transparent;
-  border: 1px solid var(--border-input-color);
+  border: none;
+  border-bottom: 1px solid var(--border-input-color);
   opacity: 0.8;
   padding: 0 12px;
 
