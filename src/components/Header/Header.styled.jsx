@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import {NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const HeaderStyled = styled.header`
@@ -28,7 +28,7 @@ export const Navigation = styled.nav`
   align-items: center;
 `;
 
-export const StyledLink = styled(Link)`
+export const StyledLink = styled(NavLink)`
   display: flex;
   align-items: center;
   gap: 8px;

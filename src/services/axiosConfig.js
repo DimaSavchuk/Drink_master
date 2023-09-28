@@ -215,15 +215,3 @@ export const getCurrentUser = async (user, file, _id) => {
     console.error('Помилка при отриманні даних:', error);
   }
 };
-
-export const fetchCocktailsByParams = async (credentials) => {
-  console.log(credentials);
-  try {
-    const response = await axios.get('/drinks/search', {
-      params: credentials,
-    });
-    return response;
-  } catch (error) {
-    console.error('Помилка при отриманні даних при фільтрації:', error);
-  }
-};
