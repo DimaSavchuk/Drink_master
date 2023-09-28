@@ -1,23 +1,19 @@
 import React from 'react';
-import { Container } from './AddDrinkPages.styled';
+import { Container, ContentBlock } from './AddDrinkPages.styled';
 import AddDrinkForm from '../../components/AddDrinkForm';
 import PopularDrinks from '../../components/PopularDrinks';
 import SocialLinks from '../../components/SocialLinks';
+import FollowUs from '../../components/FollowUs/FollowUs';
 
 const AddDrinkPages = () => {
   return (
     <Container>
-      <div>
-        <h2>Add drink</h2>
-        <AddDrinkForm />
-      </div>
-      <div>
-        <h3>Follow us</h3>
-        <SocialLinks />
-      </div>
-      <div>
+      <AddDrinkForm />
+
+      <ContentBlock>
+        <FollowUs />
         <PopularDrinks />
-      </div>
+      </ContentBlock>
     </Container>
   );
 };

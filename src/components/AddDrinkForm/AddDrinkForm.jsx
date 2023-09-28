@@ -3,7 +3,7 @@ import AddDrinkIngredients from '../AddDrinkIngredients';
 import AddDrinkTitle from '../AddDrinkTitle';
 import AddDrinkRecipePrep from '../AddDrinkResipePrep/AddDrinkRecipePrep';
 import { ownDrink } from '../../services/axiosConfig';
-import { AddButton } from './AddDrinkForm.styled';
+import { AddButton, DrinkFormWrapper } from './AddDrinkForm.styled';
 import { nanoid } from '@reduxjs/toolkit';
 import * as yup from 'yup';
 
@@ -35,23 +35,26 @@ const AddDrinkForm = () => {
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={addToBack}
-    >
-      {({ setFieldValue }) => {
-        return (
-          <Form>
-            <AddDrinkTitle setValue={setFieldValue} />
-            <AddDrinkIngredients />
-            <AddDrinkRecipePrep />
+    <DrinkFormWrapper>
+      <h2>Add drink</h2>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={addToBack}
+      >
+        {({ setFieldValue }) => {
+          return (
+            <Form>
+              <AddDrinkTitle setValue={setFieldValue} />
+              <AddDrinkIngredients />
+              <AddDrinkRecipePrep />
 
-            <AddButton type="submit">Add</AddButton>
-          </Form>
-        );
-      }}
-    </Formik>
+              <AddButton type="submit">Add</AddButton>
+            </Form>
+          );
+        }}
+      </Formik>
+    </DrinkFormWrapper>
   );
 };
 

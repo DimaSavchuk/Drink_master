@@ -31,7 +31,7 @@ const PopularDrinks = () => {
 
   return (
     <PopDrinksWrapper>
-      <h3>Popular drinks</h3>
+      <h4>Popular drinks</h4>
       <ul>
         {initialArray.map(({ imgLink, title, descr }, index) => (
           <li key={index}>

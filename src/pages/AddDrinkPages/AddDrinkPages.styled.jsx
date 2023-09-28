@@ -22,12 +22,23 @@ export const Container = styled.div`
     line-height: calc(32 / 28);
   }
 
+  h4 {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: calc (24/18);
+  }
+
   h2,
-  h3 {
+  h3,
+  h4 {
     color: #f3f3f3;
   }
 
   & > div {
+    margin-bottom: 80px;
+  }
+
+  & > div > div:not(:last-of-type) {
     margin-bottom: 80px;
   }
 
@@ -49,5 +60,28 @@ export const Container = styled.div`
       font-weight: 600;
       line-height: calc(44 / 40);
     }
+
+    h4 {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: calc (32/24);
+    }
+  }
+
+  @media (min-width: 1440px) {
+    max-width: 1440px;
+    padding-top: 244px;
+    padding-bottom: 140px;
+    padding-left: 100px;
+    padding-right: 100px;
+
+    display: flex;
+    flex-direction: row;
+  }
+`;
+
+export const ContentBlock = styled.div`
+  @media (min-width: 1440px) {
+    flex-basis: 33%;
   }
 `;

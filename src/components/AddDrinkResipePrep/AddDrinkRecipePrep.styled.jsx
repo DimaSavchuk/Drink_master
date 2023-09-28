@@ -38,6 +38,10 @@ export const FieldTextArea = styled(Field)`
   &::-webkit-resizer {
     display: none;
   }
+
+  @media (min-width: 768px) {
+    width: 480px;
+  }
 `;
 
 export const LabelTextArea = styled.label`
