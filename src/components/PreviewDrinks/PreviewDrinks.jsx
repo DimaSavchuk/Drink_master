@@ -40,7 +40,7 @@ export const PreviewDrinks = ({ numbCocktailsToShow }) => {
     return (
         <PreviewSection>
             <CommonContainer>
-                {isLoading ? <Loader /> : categories.length?
+                {isLoading ? <Loader /> : categories.length>0?
                     <div>
                         <CategoriesList>
                             {categories

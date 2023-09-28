@@ -91,7 +91,7 @@ export const AllDrinksContainer = () => {
                     shouldRenderBtn={shouldRenderButtonSearch}
                     updPage={setCurrentPage} />
         
-                {isLoading ? <Loader /> : cocktails.length && !errorReason &&
+                {isLoading ? <Loader /> : cocktails.length>0 && !errorReason &&
                     (
                         <Wrapper>
                             <CocktailsList>
@@ -107,7 +107,7 @@ export const AllDrinksContainer = () => {
                         </Wrapper>
                     )}
                 {
-                    !isLoading && (errorReason || !cocktails.length) &&
+                    !isLoading && (errorReason || cocktails.length===0) &&
                     <Wrapper>
                         <InfoComponent>We didn`t find anything by your request or some error occured.</InfoComponent>
                     </Wrapper>
