@@ -4,13 +4,13 @@ import { SelectList } from "../SelectList/SelectList";
 import { Button, Form, Input, SearchIconWrap, SearchWrapper, } from "./DrinksSearch.styled";
 import { useState } from "react";
 import { fetchCategories, fetchIngredients } from "../../redux/filters/filtersOperations";
-// import { fetchCategories, fetchIngredients } from "../../services/axiosConfig";
+import { fetchCocktailsByParams } from "../../redux/drinks/drinksOperations";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCategories, selectIngredients} from "../../redux/filters/selectors";
 import { useSearchParams } from "react-router-dom";
-import { fetchCocktailsByParams } from "../../services/axiosConfig";
 
-export const DrinksSearch = ({ shouldRenderBtn }) => {
+
+export const DrinksSearch = ({ shouldRenderBtn, page, limit}) => {
     const dispatch = useDispatch();
 
     const [searchParams, setSearchParams] = useSearchParams();
@@ -32,7 +32,7 @@ export const DrinksSearch = ({ shouldRenderBtn }) => {
     }
 
     const { cocktailName, categoryName, ingredientName } = getUrlParams();
-    const [inputValue, setInputValue] = useState(cocktailName || "");
+    const [inputValue, setInputValue] = useState(cocktailName ? cocktailName : "");
 
     useEffect(() => {
         if (!categories.length) dispatch(fetchCategories());
@@ -42,8 +42,6 @@ export const DrinksSearch = ({ shouldRenderBtn }) => {
     useEffect(() => {
         const getFilteredCocktails = async () => {
             const params = {};
-
-            if (!cocktailName && !categoryName && !ingredientName) return;
         
             if (cocktailName) {
                 params.drink = cocktailName;
@@ -57,15 +55,16 @@ export const DrinksSearch = ({ shouldRenderBtn }) => {
                 params["ingredients.title"]=ingredientName;
             }
 
-            const resp = await fetchCocktailsByParams(params);
-            console.log(resp)
+            params.page = page;
+            params.limit = limit;
+
+            dispatch(fetchCocktailsByParams(params));
+            
         }
         getFilteredCocktails()
-    }, [searchParams, cocktailName, categoryName, ingredientName ]);
-
+    }, [searchParams, cocktailName, categoryName, ingredientName, page, limit, dispatch ]);
 
     const updateSearchParams = (paramName, paramValue, zeroValue) => {
-    
         const queryParams = getUrlParams();
 
         if (paramValue!==zeroValue) {
@@ -93,7 +92,6 @@ export const DrinksSearch = ({ shouldRenderBtn }) => {
     const handleSearchByIngredient = (ingredientName) => {
         updateSearchParams("ingredientName", ingredientName, "Ingredients");
     };
-
 
     return (
         <SearchWrapper>

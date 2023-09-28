@@ -7,6 +7,8 @@ import { useEffect } from "react";
 import { fetchHomePageCocktails } from "../../services/axiosConfig";
 import { Loader } from "../Loader/Loader";
 import { SeeMoreBtn } from "../SeeMoreBtn/SeeMoreBtn";
+import { nanoid } from "@reduxjs/toolkit";
+import { InfoComponent } from "../InfoComponent/InfoComponent";
 
 export const PreviewDrinks = ({ numbCocktailsToShow }) => {
     const [isLoading, setIsLoading] = useState(false);
@@ -18,6 +20,12 @@ export const PreviewDrinks = ({ numbCocktailsToShow }) => {
         const getCocktails = async () => {
             setIsLoading(true);
             const resp = await fetchHomePageCocktails();
+            console.log(resp)
+            if (!resp) {
+                setCategories([]);
+                setIsLoading(false);
+                return;
+            } 
             setCategories(resp);
             setIsLoading(false);
         }
@@ -32,14 +40,14 @@ export const PreviewDrinks = ({ numbCocktailsToShow }) => {
     return (
         <PreviewSection>
             <CommonContainer>
-                {isLoading ? <Loader /> :
+                {isLoading ? <Loader /> : categories.length?
                     <div>
                         <CategoriesList>
                             {categories
                                 .slice(0, limit)
                                 .map(item => {
                                     return (
-                                        <li key={item.categoryName}>
+                                        <li key={nanoid()}>
                                             <CategoryName>{item.category}</CategoryName>
                                             <CocktailsWrap>
                                                 {item.drinks
@@ -58,7 +66,9 @@ export const PreviewDrinks = ({ numbCocktailsToShow }) => {
                             {isShowSeeMoreBtn && <SeeMoreBtn handleClick={handleSeeMoreBtnClick}>More categories</SeeMoreBtn>}
                             <CommonLink navigateTo="/drinks">Other drinks</CommonLink>
                         </BtnsWrapper>
-                    </div>}
+                    </div>
+                    :
+                    <InfoComponent>Some error occured.</InfoComponent>}
             </CommonContainer>
         </PreviewSection>
     );

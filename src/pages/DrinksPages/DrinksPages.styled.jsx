@@ -16,13 +16,15 @@ export const DrinksSection = styled.section`
     }
 `;
 
+export const Wrapper = styled.div`
+    margin-top: 40px;
+`;
+
 export const CocktailsList = styled.ul`
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     row-gap: 20px;
-
-    margin-top: 40px;
 
     @media screen and (min-width: 768px) {
         column-gap: 20px;

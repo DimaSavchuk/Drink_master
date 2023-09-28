@@ -4,30 +4,30 @@ import { DrinksSearch } from '../../components/DrinksSearch/DrinksSearch';
 import { CommonContainer } from '../../components/GlobalStyles/CommonContainer.styled';
 import { PageTitle } from '../../components/PageTitle/PageTitle';
 import { Paginator } from '../../components/Paginator/Paginator';
-import { CocktailsList, DrinksSection } from './DrinksPages.styled';
+import { CocktailsList, DrinksSection, Wrapper } from './DrinksPages.styled';
 import { useSearchParams } from 'react-router-dom';
-import { fetchAllDrinks, fetchCategories, fetchIngredients } from '../../services/axiosConfig';
 import { Loader } from '../../components/Loader/Loader';
-import ErrorPage from '../ErrorPage/ErrorPage';
+import { useSelector } from 'react-redux';
+import { selectCocktails, selectIsLoading, selectTotalCocktails } from '../../redux/drinks/selectors';
+import { InfoComponent } from '../../components/InfoComponent/InfoComponent';
 
 
 const DrinksPages = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const pageFromUrl = searchParams.get('page') ? Number(searchParams.get('page')) - 1 : 0;
   
-  const [cocktails, setCocktails] = useState([]);
+  const cocktails = useSelector(selectCocktails);
+  const totalCocktails = useSelector(selectTotalCocktails);
+  const isLoading = useSelector(selectIsLoading);
   
   const [currentPage, setCurrentPage] = useState(pageFromUrl);
   const [limit, setLimit] = useState(9);
-  const [totalCocktails, setTotalCocktails] = useState(0);
-  const [shouldRenderButtonSearch, setShouldRenderButtonSearch] = useState(false);
   const [pageRangeDisplayed, setPageRangeDisplayed] = useState(3);
-  const [isLimitUpdated, setIsLimitUpdated] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isLoadingFilters, setIsLoadingFilters] = useState(false);
+
+  const [shouldRenderButtonSearch, setShouldRenderButtonSearch] = useState(false);
+  const errorReason = (currentPage + 1 > Math.ceil(totalCocktails / limit));
 
   const updLimit = () => {
-    setIsLimitUpdated(false);
     if (window.innerWidth >= 1440) {
       setLimit(9);
       setShouldRenderButtonSearch(true)
@@ -40,10 +40,7 @@ const DrinksPages = () => {
       setPageRangeDisplayed(3);
       setShouldRenderButtonSearch(false)
     }
-    setIsLimitUpdated(true);
   };
-
-  
 
   useEffect(() => {
     updLimit();
@@ -60,24 +57,8 @@ const DrinksPages = () => {
     };
   }, []);
 
-  useEffect(() => {
-    const fetchAll = async () => {
-      if (isLimitUpdated) {
-        setIsLoading(true);
-        const {data, totalRecipes} = await fetchAllDrinks({ page: currentPage + 1, limit });
-        setCocktails(data);
-        setTotalCocktails(totalRecipes);
-        setIsLoading(false);
-      }
-    }
-    fetchAll();
-
-  }, [currentPage, limit, isLimitUpdated])
-
-  // if(page>cocktails.length/limit) return <p>Error</p>
-  if (currentPage+1 > Math.ceil(totalCocktails / limit) && !isLoading) return <ErrorPage />
-
   const displayCocktails = cocktails
+    .slice(0, limit)
     .map((cocktail) => (
       <li key={cocktail.id}>
         <CocktailCard data={cocktail} />
@@ -89,15 +70,18 @@ const DrinksPages = () => {
     setCurrentPage(page);
   };
   
-
   return (
     <DrinksSection>
       <CommonContainer>
         <PageTitle>Drinks</PageTitle>
-        {isLoading || isLoadingFilters ? <Loader /> :
+        <DrinksSearch
+          page={currentPage + 1}
+          limit={limit}
+          shouldRenderBtn={shouldRenderButtonSearch} />
+        
+        {isLoading ? <Loader /> : cocktails.length && !errorReason &&
           (
-            <div>
-              <DrinksSearch  shouldRenderBtn={shouldRenderButtonSearch} />
+            <Wrapper>
               <CocktailsList>
                 {displayCocktails}
               </CocktailsList>
@@ -108,8 +92,14 @@ const DrinksPages = () => {
                 handlePageChange={handlePageChange}
                 pageRangeDisplayed={pageRangeDisplayed}
               />
-            </div>
+            </Wrapper>
           )}
+        {
+          !isLoading && (errorReason || !cocktails.length) &&
+          <Wrapper>
+            <InfoComponent>We didn`t find anything by your request or some error occured.</InfoComponent>
+          </Wrapper>
+        }
       </CommonContainer>
     </DrinksSection>
   );
