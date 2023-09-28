@@ -1,4 +1,4 @@
-import { TfiPlus } from 'react-icons/tfi';
+import { TfiPlus, TfiReload } from 'react-icons/tfi';
 import {
   AddFileButton,
   BackgroundImg,
@@ -13,10 +13,12 @@ const AddDrinkAddImage = ({ setValue }) => {
 
   const onChangeFileInput = (e) => {
     const imgObj = e.currentTarget.files[0] ?? null;
-    const imgSrc = imgObj ? URL.createObjectURL(imgObj) : setImgUrl(null);
+    const imgSrc = imgObj ? URL.createObjectURL(imgObj) : null;
 
-    imgSrc ? setImgUrl(imgSrc) : setImgUrl(null);
-    imgSrc ? setValue('file', imgObj) : setValue('file', null);
+    if (imgSrc) {
+      setImgUrl(imgSrc);
+      setValue('file', imgObj);
+    }
 
     console.log(imgObj);
     console.log(imgSrc);
@@ -39,9 +41,9 @@ const AddDrinkAddImage = ({ setValue }) => {
           )}
           <Button>
             <Icon>
-              <TfiPlus size={16} />
+              {imgUrl ? <TfiReload size={16} /> : <TfiPlus size={16} />}
             </Icon>
-            {imgUrl ? 'Update' : 'Add image'}
+            {imgUrl ? 'Update file' : 'Add image'}
           </Button>
         </label>
       </AddFileButton>

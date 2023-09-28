@@ -1,5 +1,5 @@
 import { Formik, Form, Field } from 'formik';
-import AddDrinkIngridients from '../AddDrinkIngridients';
+import AddDrinkIngredients from '../AddDrinkIngredients';
 import AddDrinkTitle from '../AddDrinkTitle';
 import AddDrinkRecipePrep from '../AddDrinkResipePrep/AddDrinkRecipePrep';
 import { ownDrink } from '../../services/axiosConfig';
@@ -44,7 +44,7 @@ const AddDrinkForm = () => {
         return (
           <Form>
             <AddDrinkTitle setValue={setFieldValue} />
-            <AddDrinkIngridients />
+            <AddDrinkIngredients />
             <AddDrinkRecipePrep />
 
             <AddButton type="submit">Add</AddButton>
@@ -58,7 +58,7 @@ const AddDrinkForm = () => {
 export default AddDrinkForm;
 
 // import { Formik, Form, Field } from 'formik';
-// import AddDrinkIngridients from '../AddDrinkIngridients';
+// import AddDrinkIngredients from '../AddDrinkIngredients';
 // import AddDrinkTitleInfo from '../AddDrinkTitle/AddDrinkTitleInfo';
 // import { nanoid } from '@reduxjs/toolkit';
 // import * as yup from 'yup';

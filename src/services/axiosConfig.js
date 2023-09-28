@@ -147,6 +147,15 @@ export const fetchCategories = async () => {
   }
 };
 
+export const fetchGlasses = async () => {
+  try {
+    const response = await axios.get('/filters/glasses');
+    return response.data.glasses;
+  } catch (error) {
+    console.error('Помилка при отриманні даних про категорії: ', error);
+  }
+};
+
 export const fetchIngredients = async () => {
   try {
     const response = await axios.get('/filters/ingredients');

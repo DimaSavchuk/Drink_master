@@ -9,7 +9,7 @@ import {
 import { SelectOpenArrow } from '../SelectOpenArrow/SelectOpenArrow';
 import { useField } from 'formik';
 
-const AddDrinkDropdownMenu = ({ items, title }) => {
+const AddDrinkDropdownMenu = ({ items, title, error }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState('');
 
@@ -31,12 +31,14 @@ const AddDrinkDropdownMenu = ({ items, title }) => {
     <SelectWrapper>
       <CustomSelect type="button" onClick={toggleMenu}>
         <Label>{title}</Label>
-        <div style={{ display: 'flex' }}>
-          <span>{selectedValue ? selectedValue : items[0]}</span>
-          <SelectOpenArrow isOpen={isOpen} />
-        </div>
+        {items && (
+          <div style={{ display: 'flex' }}>
+            <span>{selectedValue ? selectedValue : items[0]}</span>
+            <SelectOpenArrow isOpen={isOpen} />
+          </div>
+        )}
       </CustomSelect>
-      {isOpen && (
+      {isOpen && items && (
         <DropMenu>
           {items.map((item, index) => (
             <SelectItem key={index} onClick={() => handleClickItem(item)}>

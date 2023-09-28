@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Field } from 'formik';
 
-export const TitleInfo = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
 
