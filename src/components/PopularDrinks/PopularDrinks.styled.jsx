@@ -38,6 +38,7 @@ export const PopDrinksWrapper = styled.div`
     color: #f3f3f380;
 
     text-overflow: ellipsis;
+    white-space: nowrap;
     overflow: hidden;
   }
 `;
