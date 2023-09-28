@@ -1,9 +1,7 @@
 import { CommonContainer } from '../GlobalStyles/CommonContainer.styled';
 import DrinkCard from '../DrinkCard/DrinkCard';
 import {
-  Container,
   Section,
-  Text,
   Title,
 } from '../FavoritesContainer/FavoritesContainer.styled';
 import { useEffect, useState } from 'react';
@@ -12,9 +10,7 @@ import { deleteDrinkFromOwn, fetchOwnDrinks } from '../../services/axiosConfig';
 import { useSearchParams } from 'react-router-dom';
 import { Loader } from '../Loader/Loader';
 import { Paginator } from '../Paginator/Paginator';
-
-import asrBlueIced from '../../assets/hero/asr_blue_iced_tea_mobile 1.png';
-import asrBlueIced2x from '../../assets/hero/asr_blue_iced_tea_mobile@2x.png';
+import { InfoComponent } from '../InfoComponent/InfoComponent';
 
 const MyDrinksContainer = () => {
   const [cards, setCards] = useState([]);
@@ -108,22 +104,7 @@ const MyDrinksContainer = () => {
                 pageRangeDisplayed={pageRangeDisplayed}
               />
             </>
-          ) : (
-            <div>
-              <picture>
-                <img
-                  style={{ margin: '0 auto' }}
-                  src={asrBlueIced}
-                  srcSet={`${asrBlueIced2x} 2x`}
-                  alt="coctail"
-                  loading="lazy"
-                />
-              </picture>
-              <Container>
-                <Text>You haven't added any own cocktails yet</Text>
-              </Container>
-            </div>
-          )}
+          ) : <InfoComponent>You haven't added any own cocktails yet</InfoComponent>}
         </div>
       </CommonContainer>
     </Section>
