@@ -1,11 +1,11 @@
 import { Formik, Form, Field } from 'formik';
 import AddDrinkIngridients from '../AddDrinkIngridients';
-import AddDrinkTitleInfo from '../AddDrinkTitle/AddDrinkTitleInfo';
+import AddDrinkTitle from '../AddDrinkTitle';
+import AddDrinkRecipePrep from '../AddDrinkResipePrep/AddDrinkRecipePrep';
+import { ownDrink } from '../../services/axiosConfig';
+import { AddButton } from './AddDrinkForm.styled';
 import { nanoid } from '@reduxjs/toolkit';
 import * as yup from 'yup';
-import { ownDrink } from '../../services/axiosConfig';
-import AddDrinkRecipePrep from '../AddDrinkResipePrep/AddDrinkRecipePrep';
-import { AddButton } from './AddDrinkForm.styled';
 
 const validationSchema = yup.object();
 
@@ -43,17 +43,7 @@ const AddDrinkForm = () => {
       {({ setFieldValue }) => {
         return (
           <Form>
-            <input
-              width={200}
-              height={200}
-              type="file"
-              name="file"
-              onChange={(e) => {
-                setFieldValue('file', e.currentTarget.files[0]);
-              }}
-            />
-
-            <AddDrinkTitleInfo />
+            <AddDrinkTitle setValue={setFieldValue} />
             <AddDrinkIngridients />
             <AddDrinkRecipePrep />
 

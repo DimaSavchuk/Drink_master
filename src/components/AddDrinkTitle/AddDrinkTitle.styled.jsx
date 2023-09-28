@@ -63,18 +63,18 @@ export const FieldStyled = styled(Field)`
 // `;
 
 export const LabelStyled = styled.label`
-  color: #f3f3f380;
-  /* color: red; */
-
   position: absolute;
   top: 0;
   left: 0;
+
+  color: #f3f3f380;
 `;
 
 export const FieldWrapper = styled.div`
+  position: relative;
+
   display: flex;
   flex-direction: column;
-  position: relative;
 
   &:not(:last-of-type) {
     margin-bottom: 31px;
@@ -93,6 +93,7 @@ export const FieldWrapper = styled.div`
 
 export const FieldRadioLabel = styled.label`
   margin-left: 4px;
+
   color: #f3f3f380;
 
   &:first-of-type {
@@ -101,19 +102,21 @@ export const FieldRadioLabel = styled.label`
 `;
 
 export const FieldRadio = styled(Field)`
+  margin: 0;
+  width: 16px;
+  height: 16px;
+
   display: flex;
   justify-content: center;
   align-items: center;
 
-  appearance: none;
-  margin: 0;
-
   font: inherit;
   color: currentColor;
-  width: 16px;
-  height: 16px;
+
   border: 1.5px solid #f3f3f380;
   border-radius: 50%;
+
+  appearance: none;
   cursor: pointer;
 
   & + label {
