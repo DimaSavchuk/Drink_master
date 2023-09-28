@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const FooterStyled = styled.footer`
-  background-color: #0a0a11;
+  /* background-color: #0a0a11; */
   padding-top: 40px;
   padding-bottom: 18px;
   border-top: 1px solid rgba(243, 243, 243, 0.2);
