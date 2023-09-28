@@ -3495,13 +3495,17 @@ button {
     height: 220px;
   }
 `,jF=P.div`
+  width: 157px;
+  overflow: hidden;
   margin-top: 8px;
   display: flex;
   flex-wrap: wrap;
+  gap: 8px;
   justify-content: space-between;
   align-items: center;
   @media (min-width: 768px) {
     margin-top: 14px;
+    width: 220px;
   }
 `,NF=P.p`
   color: var(--text-color);
