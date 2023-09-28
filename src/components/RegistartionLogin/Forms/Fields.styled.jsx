@@ -1,11 +1,13 @@
-import styled from '@emotion/styled';
-
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import {
   Form as FormikForm,
   Field as FormikField,
   ErrorMessage as FormikError,
 } from 'formik';
+
+import { CiCalendar } from 'react-icons/ci';
 
 import {
   AiOutlineExclamationCircle,
@@ -29,6 +31,31 @@ export const EyeOff = styled(FiEyeOff)`
   transform: translateY(-50%);
   cursor: pointer;
 `;
+
+export const DatePickerContainer = styled.div`
+  input {
+    display: block;
+  }
+
+   .unfilled {
+    outline: 1px solid rgba(243, 243, 243, 0.2);
+  }
+
+  input.success,
+  input[type='text'].success {
+    outline-color: #3cbc81;
+  }
+
+  input.invalid,
+  input[type='text'].invalid {
+    outline-color: #da1414;
+  }
+  input.invalid,
+  input[type='text'].invalid {
+    outline-color: #da1414;
+  }
+`;
+
 export const Checked = styled(AiOutlineCheckCircle)`
   fill: #3cbc81;
   position: absolute;
@@ -47,8 +74,8 @@ export const Form = styled(FormikForm)`
   display: flex;
   flex-direction: column;
   gap: 14px;
-  margin-bottom: 14px;
   width: 335px;
+  margin-bottom: 14px;
 
   @media (min-width: 768px) {
     width: 400px;
@@ -61,7 +88,6 @@ export const Label = styled.label`
 `;
 
 export const LastLabel = styled(Label)`
-
   margin-bottom: 28px;
 
   @media (min-width: 768px) {
@@ -70,26 +96,29 @@ export const LastLabel = styled(Label)`
 `;
 export const FieldWrapper = styled.div`
   position: relative;
-  
 `;
 export const FormField = styled(FormikField)`
-  padding: 18px 24px;
+  border: none;
   width: 100%;
-
-  outline: 1px solid
-    ${(props) => props.outlinecolor || ' rgba(243, 243, 243, 0.2)'};
-
+  padding: 18px 24px;
   border-radius: 200px;
   color: #f3f3f3;
   background-color: transparent;
   font-size: 14px;
   line-height: 1.28;
-  border: none;
   transition: color 300ms linear;
+
+  outline: 1px solid
+    ${({ className }) =>
+      className === 'fail'
+        ? '#DA1414'
+        : className === 'success'
+        ? '#3CBC81'
+        : ' rgba(243, 243, 243, 0.2)'};
 
   &::placeholder {
     color: rgba(243, 243, 243, 0.5);
-}
+  }
 
   @media (min-width: 768px) {
     padding: 14px 24px;
@@ -101,20 +130,36 @@ export const FormField = styled(FormikField)`
     width: 400px;
   }
 `;
+
+export const Calendar = styled(CiCalendar)`
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: #f3f3f3;
+  cursor: pointer;
+`;
+
+export const DateFieldWrapper = styled.div`
+  position: relative;
+`;
+
 export const CorrectText = styled.span`
-  color: #3CBC81;
+  color: #3cbc81;
   padding-top: 8px;
   padding-left: 25px;
   font-size: 12px;
 `;
 
-
 export const ErrorMessage = styled(FormikError)`
   padding-top: 8px;
+  color: #da1414;
   padding-left: 25px;
   font-size: 12px;
 
-  color: #DA1414;
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 export const SubmitBtn = styled.button`
@@ -128,11 +173,11 @@ export const SubmitBtn = styled.button`
   line-height: 1.12;
   border-radius: 42px;
 
-  cursor: pointer;
-
   transition:
     color 300ms linear,
     background-color 300ms linear;
+
+  cursor: pointer;
 
   &:hover {
     background-color: #f3f3f3;
@@ -142,5 +187,26 @@ export const SubmitBtn = styled.button`
   @media (min-width: 768px) {
     font-size: 16px;
     line-height: 1.12;
+  }
+`;
+
+export const StyledLink = styled(Link)`
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: underline;
+  color: #f3f3f3;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.33;
+
+  cursor: pointer;
+
+  &:hover {
+    /* color: #161f37; */
+  }
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+    line-height: 1.28;
   }
 `;

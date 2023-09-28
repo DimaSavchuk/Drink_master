@@ -16,8 +16,7 @@ export const CardsContainer = styled.ul`
 `;
 
 export const Card = styled.div`
-  /* flex: 1; */
-`;
+ `;
 
 export const DrinkImage = styled.img`
   margin-bottom: 18px;
@@ -30,7 +29,7 @@ export const DrinkImage = styled.img`
 export const DrinkTitle = styled.h2`
   margin-bottom: 4px;
 
-  color: #f3f3f3;
+  color: var(--link-color);
   font-size: 18px;
   font-weight: 500;
   line-height: 1.18;
@@ -48,7 +47,7 @@ export const DrinkTitle = styled.h2`
 export const DrinkStat = styled.p`
   margin-bottom: 18px;
 
-  color: #f3f3f3;
+  color: var(--link-color);
   opacity: 0.5;
   font-size: 14px;
   font-weight: 400;
@@ -64,7 +63,7 @@ export const DrinkStat = styled.p`
 export const DrinkDesc = styled.p`
   margin-bottom: 18px;
 
-  color: #f3f3f3;
+  color: var(--link-color);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.18;
@@ -91,15 +90,15 @@ export const SeeMoreLink = styled(NavLink)`
   padding: 14px 40px;
   gap: 10px;
   border-radius: 42px;
-  background: #161f37;
+  background: var(--button-color);
 
-  color: #f3f3f3;
+  color: var(--button-hover-color);
   font-size: 14px;
   font-weight: 600;
   line-height: 1.28;
   &:hover {
-    background: #f3f3f3;
-    color: #161F37;
+    background: var(--button-hover-color);
+    color: var(--button-color);
   }
   @media (min-width: 768px) {
     font-size: 16px;
@@ -113,14 +112,14 @@ export const DeleteCardBtn = styled.button`
   height: 54px;
   border-radius: 50%;
   border: none;
-  background: #161f37;
+  background: var(--button-color);
 
-  color: #f3f3f3;
+  color: var(--button-hover-color);
   font-size: 14px;
   font-weight: 600;
   line-height: 1.28;
   &:hover {
-    background: #f3f3f3;
-    color: #161f37;
+    background: var(--button-hover-color);
+    color: var(--button-color);
   }
 `;

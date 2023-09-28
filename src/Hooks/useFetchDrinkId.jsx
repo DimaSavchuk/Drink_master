@@ -6,7 +6,7 @@ export const useFetchDrinkId = () => {
   const [drinkInfo, setDrinkInfo] = useState(null);
   const [userId, setUserId] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
   const [isfavorite, setIsFavorite] = useState(null);
 
   const { drinkId } = useParams();
@@ -16,13 +16,13 @@ export const useFetchDrinkId = () => {
     const fetchDataDrink = async () => {
       try {
         setIsLoading(true);
-
+        setError(false);
         const { data, idCurrentUser } = await getDrinkId(drinkId, controller);
 
         setUserId(idCurrentUser);
-        setIsFavorite(data[0].favorites.includes(userId));
-
         setDrinkInfo(...data);
+
+        setIsFavorite(data[0].favorites.includes(idCurrentUser));
       } catch (error) {
         setError(error.message);
       } finally {

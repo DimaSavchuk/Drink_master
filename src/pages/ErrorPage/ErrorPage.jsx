@@ -1,5 +1,10 @@
 import { CommonContainer } from '../../components/GlobalStyles/CommonContainer.styled';
-import { Container, Gradient } from './ErrorPage.styled';
+import {
+  Container,
+  ErrorLetterL,
+  ErrorLetterR,
+  ErrorImg,
+} from './ErrorPage.styled';
 
 import asrBlueIced from '../../assets/hero/asr_blue_iced_tea_mobile 1.png';
 import asrBlueIced2x from '../../assets/hero/asr_blue_iced_tea_mobile@2x.png';
@@ -7,7 +12,7 @@ import asrBlueIced2x from '../../assets/hero/asr_blue_iced_tea_mobile@2x.png';
 const ErrorPage = () => {
   return (
     <Container>
-      <Gradient />
+      {/* <Gradient /> */}
       <CommonContainer>
         <div
           style={{
@@ -16,21 +21,22 @@ const ErrorPage = () => {
             alignItems: 'center',
           }}
         >
-          <span style={{ color: '#363535', fontSize: 150, fontWeight: 600 }}>
+          <ErrorLetterL>
             4
-          </span>
+          </ErrorLetterL>
           <picture>
-            <img
-              style={{ margin: '0 auto' }}
-              src={asrBlueIced}
-              srcSet={`${asrBlueIced2x} 2x`}
+
+            <ErrorImg
+              src="./src/assets/hero/asr_blue_iced_tea_mobile 1.png"
+              srcSet="./src/assets/hero/asr_blue_iced_tea_mobile 1.png 1x, ./src/assets/hero/asr_blue_iced_tea_mobile@2x.png 2x"
+
               alt="coctail"
               loading="lazy"
             />
           </picture>
-          <span style={{ color: '#363535', fontSize: 150, fontWeight: 600 }}>
+          <ErrorLetterR>
             4
-          </span>
+          </ErrorLetterR>
         </div>
       </CommonContainer>
     </Container>

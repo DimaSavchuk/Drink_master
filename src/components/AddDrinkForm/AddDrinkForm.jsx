@@ -1,11 +1,11 @@
 import { Formik, Form, Field } from 'formik';
-import AddDrinkIngridients from '../AddDrinkIngridients';
-import AddDrinkTitleInfo from '../AddDrinkTitle/AddDrinkTitleInfo';
+import AddDrinkIngredients from '../AddDrinkIngredients';
+import AddDrinkTitle from '../AddDrinkTitle';
+import AddDrinkRecipePrep from '../AddDrinkResipePrep/AddDrinkRecipePrep';
+import { ownDrink } from '../../services/axiosConfig';
+import { AddButton, DrinkFormWrapper } from './AddDrinkForm.styled';
 import { nanoid } from '@reduxjs/toolkit';
 import * as yup from 'yup';
-import { ownDrink } from '../../services/axiosConfig';
-import AddDrinkRecipePrep from '../AddDrinkResipePrep/AddDrinkRecipePrep';
-import { AddButton } from './AddDrinkForm.styled';
 
 const validationSchema = yup.object();
 
@@ -15,8 +15,9 @@ const initialValues = {
   category: 'Other/Unknown',
   glass: 'Whiskey Glass',
   alcoholicType: 'Non-alcoholic',
-  ingridients: [],
+  ingredients: [],
   file: '',
+  recipePreparation: '',
 };
 
 const AddDrinkForm = () => {
@@ -34,40 +35,33 @@ const AddDrinkForm = () => {
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={addToBack}
-    >
-      {({ setFieldValue }) => {
-        return (
-          <Form>
-            <input
-              width={200}
-              height={200}
-              type="file"
-              name="file"
-              onChange={(e) => {
-                setFieldValue('file', e.currentTarget.files[0]);
-              }}
-            />
+    <DrinkFormWrapper>
+      <h2>Add drink</h2>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={addToBack}
+      >
+        {({ setFieldValue }) => {
+          return (
+            <Form>
+              <AddDrinkTitle setValue={setFieldValue} />
+              <AddDrinkIngredients />
+              <AddDrinkRecipePrep />
 
-            <AddDrinkTitleInfo />
-            <AddDrinkIngridients />
-            <AddDrinkRecipePrep />
-
-            <AddButton type="submit">Add</AddButton>
-          </Form>
-        );
-      }}
-    </Formik>
+              <AddButton type="submit">Add</AddButton>
+            </Form>
+          );
+        }}
+      </Formik>
+    </DrinkFormWrapper>
   );
 };
 
 export default AddDrinkForm;
 
 // import { Formik, Form, Field } from 'formik';
-// import AddDrinkIngridients from '../AddDrinkIngridients';
+// import AddDrinkIngredients from '../AddDrinkIngredients';
 // import AddDrinkTitleInfo from '../AddDrinkTitle/AddDrinkTitleInfo';
 // import { nanoid } from '@reduxjs/toolkit';
 // import * as yup from 'yup';

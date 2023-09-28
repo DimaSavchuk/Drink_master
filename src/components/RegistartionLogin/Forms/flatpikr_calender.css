@@ -22,16 +22,16 @@
 }
 
 .flatpickr-day {
-  background: none !important;
-  border: 1px solid transparent !important;
+   /* background: none !important; */
+  /* border: 1px solid transparent !important; */
   border-radius: 150px !important;
-  color: rgba(243, 243, 243, 0.9)!important;
+ /* color: rgba(243, 243, 243, 0.9)!important;*/
   cursor: pointer !important;
   font-weight: 400 !important;
   max-width: 39px !important;
   height: 39px !important;
   line-height: 39px !important;
-  margin: 0 !important;
+  margin: 0 !important; 
 }
 .flatpickr-day.selected,
 .flatpickr-day.startRange,
@@ -126,4 +126,4 @@ span.flatpickr-weekday {
   border-radius: 0 !important;
   text-align: right !important;
   padding: 0 8px !important;
-}
+} 

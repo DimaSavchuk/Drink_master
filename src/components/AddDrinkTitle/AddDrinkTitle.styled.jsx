@@ -1,21 +1,44 @@
 import styled from '@emotion/styled';
 import { Field } from 'formik';
 
-export const TitleInfo = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
 
   margin-bottom: 80px;
 
-  &:focus + label,
-  &:not(:placeholder-shown) + label {
+  @media (min-width: 768px) {
+    flex-direction: row;
+    & > div:not(:last-of-type) {
+      margin-right: 32px;
+    }
+  }
+  /* 
+  input:focus + label,
+  input:focus:not(:placeholder-shown) + label {
     transform: translateY(-18px);
+  }
+
+  input:focus + label {
+    color: yellow;
+  } */
+`;
+
+export const ContentWrapper = styled.div`
+  width: 100%;
+
+  & > div:nth-last-of-type(2) {
+    margin-bottom: 40px;
   }
 `;
 
 export const FieldStyled = styled(Field)`
+  display: block;
   height: 34px;
 
+  font-size: 16px;
+  font-weight: 400;
+  line-height: calc(22 / 16);
   text-align: right;
   color: #f3f3f3;
 
@@ -28,60 +51,47 @@ export const FieldStyled = styled(Field)`
     outline: transparent;
   }
 
-  /* &:focus ~ label {
-    color: red;
-  } */
+  &:focus + label {
+    color: #f3f3f3;
+  }
 
   &::placeholder {
     opacity: 0;
   }
-`;
 
-export const FieldSelectStyled = styled(Field)`
-  height: 34px;
-  padding-bottom: 14px;
-
-  text-align: right;
-  color: #f3f3f3;
-
-  border-style: none;
-  border-bottom: 1px solid #f3f3f380;
-  background: transparent;
-
-  &:focus {
-    border-bottom: 1px solid #f3f3f3;
-    outline: transparent;
-  }
-
-  &::after {
-    padding-bottom: 14px;
+  @media (min-width: 768px) {
+    height: 41px;
   }
 `;
 
 export const LabelStyled = styled.label`
-  color: #f3f3f380;
-
   position: absolute;
   top: 0;
   left: 0;
+
+  color: #f3f3f380;
 `;
 
 export const FieldWrapper = styled.div`
+  position: relative;
+
   display: flex;
   flex-direction: column;
-  position: relative;
 
   &:not(:last-of-type) {
     margin-bottom: 31px;
   }
 
-  &:focus > label {
-    color: red;
+  input:hover label,
+  input:focus label {
+    color: #f3f3f3;
+    transition: 200ms ease transform;
   }
 `;
 
 export const FieldRadioLabel = styled.label`
   margin-left: 4px;
+
   color: #f3f3f380;
 
   &:first-of-type {
@@ -90,27 +100,33 @@ export const FieldRadioLabel = styled.label`
 `;
 
 export const FieldRadio = styled(Field)`
+  margin: 0;
+  width: 16px;
+  height: 16px;
+
   display: flex;
   justify-content: center;
   align-items: center;
 
-  appearance: none;
-  margin: 0;
-
   font: inherit;
   color: currentColor;
-  width: 16px;
-  height: 16px;
+
   border: 1.5px solid #f3f3f380;
   border-radius: 50%;
+
+  appearance: none;
   cursor: pointer;
+
+  & + label {
+    cursor: pointer;
+  }
+
+  &:hover + label {
+    color: #f3f3f3;
+  }
 
   &:checked {
     border: 1.5px solid #fff;
-  }
-
-  label {
-    color: #fff;
   }
 
   &::before {

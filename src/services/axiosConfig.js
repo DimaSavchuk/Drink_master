@@ -4,7 +4,7 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://rest-api-drink-master.onrender.com/api';
 
 const accessToken =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTA0NWMwNzIzNzU3NTE5NjgxYjYzZSIsImlhdCI6MTY5NTgyMDI0OCwiZXhwIjoxNjk2NTQwMjQ4fQ.FtmYiXORgiPdvUc-xNadJxl9FOZycE1A8zyynym7ID4';
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MGZmYzVhZjhhMWE4NjA3OTNmNjk4ZCIsImlhdCI6MTY5NTgxNjUwOCwiZXhwIjoxNjk2NTM2NTA4fQ.Iycb3FmyQyJfWInubcCv-3V2csCPWwhTK6QDzVaxhNA';
 
 axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
 
@@ -22,7 +22,7 @@ export const fetchFavoriteDrinks = async () => {
 };
 
 export const deleteDrinkFromFavorite = async (_id) => {
-  console.log(_id);
+  // console.log(_id);
   try {
     const response = await axios.delete('/drinks/favorite/remove', {
       headers: {
@@ -39,7 +39,7 @@ export const deleteDrinkFromFavorite = async (_id) => {
 };
 
 export const addDrinkToFavorite = async (_id) => {
-  console.log(_id);
+  // console.log(_id);
   try {
     const response = await axios.post(
       '/drinks/favorite/add',
@@ -142,6 +142,15 @@ export const fetchCategories = async () => {
   try {
     const response = await axios.get('/filters/categories');
     return response.data.categories;
+  } catch (error) {
+    console.error('Помилка при отриманні даних про категорії: ', error);
+  }
+};
+
+export const fetchGlasses = async () => {
+  try {
+    const response = await axios.get('/filters/glasses');
+    return response.data.glasses;
   } catch (error) {
     console.error('Помилка при отриманні даних про категорії: ', error);
   }

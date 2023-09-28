@@ -7,7 +7,7 @@ import {
   CorrectText,
   Checked,
   Exclamation,
-} from '../SignUpForm.styled';
+} from './Fields.styled';
 
 export const FormFieldInput = ({ fieldName, placeholderText,  }) => {
   const { touched, errors, values } = useFormikContext();

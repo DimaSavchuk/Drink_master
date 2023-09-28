@@ -1,1 +1,1 @@
-export { default } from './AddDrinkTitleInfo';
+export { default } from './AddDrinkTitle';

@@ -19,9 +19,12 @@ export const IngredientFoto = styled.div`
   width: 157px;
   height: 157px;
   border-radius: 8px;
-  background: rgba(22, 31, 55, 0.5);
+  background: #161f37;
   object-fit: cover;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   @media (min-width: 768px) {
     width: 220px;
     height: 220px;
@@ -38,6 +41,7 @@ export const InfoDiv = styled.div`
   }
 `;
 export const TitleIngridient = styled.p`
+  color: var(--text-color);
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -47,7 +51,7 @@ export const TitleIngridient = styled.p`
   }
 `;
 export const Measure = styled.p`
-  color: rgba(243, 243, 243, 0.5);
+  color: var(--see-more-link-color);
   font-size: 14px;
   font-style: normal;
   font-weight: 500;

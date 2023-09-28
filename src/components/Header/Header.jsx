@@ -131,7 +131,7 @@ export const Header = () => {
             </StyledLink>
             <PagesMenu />
 
-               {/* {isAuthVisible ? <UserLogo /> : null} */}
+            {/* {isAuthVisible ? <UserLogo /> : null} */}
 
             <StyledFlexDiv>
               <StyledDesktopThemeSwitcher>
@@ -162,7 +162,6 @@ export const Header = () => {
               )}
 
               {/* {isAuthVisible ? <UserLogo /> : null} */}
-
 
               {isOpen && <ThemeSwitcher />}
 

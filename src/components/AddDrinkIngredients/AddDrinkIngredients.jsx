@@ -6,25 +6,28 @@ import {
   FieldsWrapper,
   IngridientsWrapper,
   TitleWrapper,
-} from './AddDrinkIngridients.styled';
+} from './AddDrinkIngredients.styled';
 import { TfiClose, TfiPlus, TfiMinus } from 'react-icons/tfi';
 import { FiChevronDown } from 'react-icons/fi';
 import { SelectList } from '../SelectList/SelectList';
+import { useFetchIngredients } from '../../Hooks/useFetchIngredients';
 
-const AddDrinkIngridients = () => {
+const AddDrinkIngredients = () => {
   const ingridientsList = [
     { name: 'Lem' },
     { name: 'Passoa' },
     { name: 'Prosecco' },
   ];
-  const initialValue = { name: ingridientsList[0].name, volume: '' };
 
+  const { drinkIngredients, error, loading } = useFetchIngredients();
+  console.log(drinkIngredients);
+  const initialValue = { name: ingridientsList[0].name, volume: '' };
   return (
     <FieldArray
-      name="ingridients"
+      name="ingredients"
       render={({
         form: {
-          values: { ingridients },
+          values: { ingredients },
         },
         push,
         insert,
@@ -38,15 +41,15 @@ const AddDrinkIngridients = () => {
                 <button type="button" onClick={() => remove()}>
                   <TfiMinus size={16} />
                 </button>
-                <span>{ingridients.length}</span>
+                <span>{ingredients.length ? ingredients.length : '0'}</span>
                 <button type="button" onClick={() => push(initialValue)}>
                   <TfiPlus size={16} />
                 </button>
               </FieldCounter>
             </TitleWrapper>
             <div>
-              {ingridients.length > 0 &&
-                ingridients.map((ingridient, index) => (
+              {ingredients.length > 0 &&
+                ingredients.map((ingredient, index) => (
                   <FieldsWrapper
                     key={index}
                     role="ingridientsSelect"
@@ -54,17 +57,21 @@ const AddDrinkIngridients = () => {
                   >
                     <FieldSelect>
                       <Field name={`ingridients.${index}.name`} as="select">
-                        {ingridientsList.map(({ name }, index) => (
-                          <option key={index} value={name}>
-                            {name}
-                          </option>
-                        ))}
+                        {drinkIngredients &&
+                          drinkIngredients.map(({ title }, index) => (
+                            <option key={index} value={title}>
+                              {title}
+                            </option>
+                          ))}
                       </Field>
                       <span style={{ color: '#fff' }}>
                         {<FiChevronDown size={18} />}
                       </span>
                     </FieldSelect>
-                    <Field name={`ingridients.${index}.volume`}>{}</Field>
+                    <Field
+                      name={`ingridients.${index}.volume`}
+                      placeholder={'1 cl'}
+                    ></Field>
                     <button type="button" onClick={() => remove(index)}>
                       <TfiClose size={18} />
                     </button>
@@ -78,4 +85,4 @@ const AddDrinkIngridients = () => {
   );
 };
 
-export default AddDrinkIngridients;
+export default AddDrinkIngredients;

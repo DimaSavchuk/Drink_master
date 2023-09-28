@@ -19,7 +19,13 @@ export const CustomSelect = styled.button`
 
   &:focus {
     border-bottom: 1px solid #f3f3f3;
+
     outline: transparent;
+  }
+
+  &:focus span,
+  &:hover span {
+    color: #f3f3f3;
   }
 
   &::after {
@@ -28,6 +34,10 @@ export const CustomSelect = styled.button`
 
   span {
     display: block;
+  }
+
+  @media (min-width: 768px) {
+    height: 41px;
   }
 `;
 
@@ -38,19 +48,38 @@ export const Label = styled.span`
 export const DropMenu = styled.div`
   max-height: 300px;
   overflow-y: scroll;
+  scroll-behavior: smooth;
+
+  transition: 500ms linear color;
 
   &::-webkit-scrollbar {
     margin-top: 4px;
     width: 4px;
     background-color: transparent;
+    height: 50px;
   }
 
   &::-webkit-scrollbar-thumb {
     background-color: #f3f3f380;
     border-radius: 4px;
   }
-  /* &::-webkit-scrollbar-track {
-    background-color: yellow;
+  &::-webkit-scrollbar-track-piece {
+    background: transparent;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    margin-right: 4px;
+  }
+
+  /* &::-webkit-scrollbar-track-piece:start {
+    background-color: transparent;
+
+    margin-right: 4px;
+  }
+
+  &::-webkit-scrollbar-track-piece:end {
+    background-color: transparent;
+
+    margin-right: 4px;
   } */
 
   position: absolute;
@@ -82,4 +111,8 @@ export const SelectWrapper = styled.div`
   &:not(:last-of-type) {
     margin-bottom: 31px;
   }
+`;
+
+export const SelectItem = styled.div`
+  cursor: pointer;
 `;
