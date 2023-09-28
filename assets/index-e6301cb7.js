@@ -214,7 +214,7 @@ Error generating stack: `+o.message+`
     width: ${e=>e.size1440||"30px"};
     height: ${e=>e.size1440||"30px"};
   }
-`,Xt="/Drink_master/assets/sprite-a23ab822.svg",dt={HOME:"/",DRINKS:"/drinks",MYDRINKS:"/mydrinks",ADDDRINK:"/adddrink",ABOUTDRINK:"/drinks/:drinkId",FAVORITE:"/favorites",START:"/start",REGISTRATION:"/registration",LOGIN:"/login",ERROR:"*",DROPDOWN:"/dropdown"},G8=P.ul`
+`,Xt="/Drink_master/assets/sprite-095dbc9e.svg",dt={HOME:"/",DRINKS:"/drinks",MYDRINKS:"/mydrinks",ADDDRINK:"/adddrink",ABOUTDRINK:"/drinks/:drinkId",FAVORITE:"/favorites",START:"/start",REGISTRATION:"/registration",LOGIN:"/login",ERROR:"*",DROPDOWN:"/dropdown"},G8=P.ul`
   display: flex;
   align-items: center;
   gap: 16px;
@@ -1666,7 +1666,7 @@ attempted value: ${a}
   overflow-y: ${({height:e})=>e?"scroll":"visible"};
   overflow-x: hidden;
   padding: 18px 24px;
-  background-color: var(--button-hover-color);
+  background-color: var(--select-list-color);
   border-radius: 20px;
 
   &::-webkit-scrollbar {
@@ -1676,7 +1676,7 @@ attempted value: ${a}
 
   &::-webkit-scrollbar-thumb {
     border-radius: 20px;
-    background-color: #434d67;
+    background-color: var(--scroll-color);
   }
 
   &::-webkit-scrollbar-track {
@@ -1721,9 +1721,9 @@ attempted value: ${a}
 `,YM=P.input`
   width: 100%;
   height: 35px;
-  border-radius: 15px;
   background-color: transparent;
-  border: 1px solid var(--border-input-color);
+  border: none;
+  border-bottom: 1px solid var(--border-input-color);
   opacity: 0.8;
   padding: 0 12px;
 
@@ -1742,7 +1742,7 @@ attempted value: ${a}
   &:active {
     opacity: 1;
   }
-`,XM=e=>e.filters.categories,GM=e=>e.filters.ingredients,z3=e=>e.filters.isLoading;var B3="Expected a function",Jv=0/0,qM="[object Symbol]",QM=/^\s+|\s+$/g,JM=/^[-+]0x[0-9a-f]+$/i,ZM=/^0b[01]+$/i,eI=/^0o[0-7]+$/i,tI=parseInt,nI=typeof Jr=="object"&&Jr&&Jr.Object===Object&&Jr,rI=typeof self=="object"&&self&&self.Object===Object&&self,iI=nI||rI||Function("return this")(),oI=Object.prototype,aI=oI.toString,sI=Math.max,lI=Math.min,fp=function(){return iI.Date.now()};function cI(e,t,n){var r,i,o,a,s,l,c=0,u=!1,f=!1,d=!0;if(typeof e!="function")throw new TypeError(B3);t=Zv(t)||0,Cu(n)&&(u=!!n.leading,f="maxWait"in n,o=f?sI(Zv(n.maxWait)||0,t):o,d="trailing"in n?!!n.trailing:d);function h(T){var E=r,R=i;return r=i=void 0,c=T,a=e.apply(R,E),a}function v(T){return c=T,s=setTimeout(y,t),u?h(T):a}function m(T){var E=T-l,R=T-c,V=t-E;return f?lI(V,o-R):V}function S(T){var E=T-l,R=T-c;return l===void 0||E>=t||E<0||f&&R>=o}function y(){var T=fp();if(S(T))return g(T);s=setTimeout(y,m(T))}function g(T){return s=void 0,d&&r?h(T):(r=i=void 0,a)}function x(){s!==void 0&&clearTimeout(s),c=0,r=l=i=s=void 0}function k(){return s===void 0?a:g(fp())}function O(){var T=fp(),E=S(T);if(r=arguments,i=this,l=T,E){if(s===void 0)return v(l);if(f)return s=setTimeout(y,t),h(l)}return s===void 0&&(s=setTimeout(y,t)),a}return O.cancel=x,O.flush=k,O}function uI(e,t,n){var r=!0,i=!0;if(typeof e!="function")throw new TypeError(B3);return Cu(n)&&(r="leading"in n?!!n.leading:r,i="trailing"in n?!!n.trailing:i),cI(e,t,{leading:r,maxWait:t,trailing:i})}function Cu(e){var t=typeof e;return!!e&&(t=="object"||t=="function")}function fI(e){return!!e&&typeof e=="object"}function dI(e){return typeof e=="symbol"||fI(e)&&aI.call(e)==qM}function Zv(e){if(typeof e=="number")return e;if(dI(e))return Jv;if(Cu(e)){var t=typeof e.valueOf=="function"?e.valueOf():e;e=Cu(t)?t+"":t}if(typeof e!="string")return e===0?e:+e;e=e.replace(QM,"");var n=ZM.test(e);return n||eI.test(e)?tI(e.slice(2),n?2:8):JM.test(e)?Jv:+e}var pI=uI;const mI=Si(pI),hI=({handleSelect:e,height:t,items:n})=>{const r=Zn(z3),[i,o]=b.useState(""),[a,s]=b.useState([]);b.useEffect(()=>{s(n)},[n]);const l=mI(c=>{const u=c.target.value;o(u);const f=n.filter(d=>d.toLowerCase().includes(u.toLowerCase()));s(f)},500);return p.jsx(WM,{onClick:e,height:t,children:r?p.jsx(VM,{children:"Loading..."}):p.jsxs(p.Fragment,{children:[p.jsx(KM,{children:p.jsx(YM,{value:i,onChange:l,placeholder:"Type here..."})}),a.map(c=>p.jsx("li",{children:p.jsx(HM,{children:c})},c))]})})},gI=P.svg`
+`,XM=e=>e.filters.categories,GM=e=>e.filters.ingredients,z3=e=>e.filters.isLoading;var B3="Expected a function",Jv=0/0,qM="[object Symbol]",QM=/^\s+|\s+$/g,JM=/^[-+]0x[0-9a-f]+$/i,ZM=/^0b[01]+$/i,eI=/^0o[0-7]+$/i,tI=parseInt,nI=typeof Jr=="object"&&Jr&&Jr.Object===Object&&Jr,rI=typeof self=="object"&&self&&self.Object===Object&&self,iI=nI||rI||Function("return this")(),oI=Object.prototype,aI=oI.toString,sI=Math.max,lI=Math.min,fp=function(){return iI.Date.now()};function cI(e,t,n){var r,i,o,a,s,l,c=0,u=!1,f=!1,d=!0;if(typeof e!="function")throw new TypeError(B3);t=Zv(t)||0,Cu(n)&&(u=!!n.leading,f="maxWait"in n,o=f?sI(Zv(n.maxWait)||0,t):o,d="trailing"in n?!!n.trailing:d);function h(T){var E=r,R=i;return r=i=void 0,c=T,a=e.apply(R,E),a}function v(T){return c=T,s=setTimeout(y,t),u?h(T):a}function m(T){var E=T-l,R=T-c,V=t-E;return f?lI(V,o-R):V}function S(T){var E=T-l,R=T-c;return l===void 0||E>=t||E<0||f&&R>=o}function y(){var T=fp();if(S(T))return g(T);s=setTimeout(y,m(T))}function g(T){return s=void 0,d&&r?h(T):(r=i=void 0,a)}function x(){s!==void 0&&clearTimeout(s),c=0,r=l=i=s=void 0}function k(){return s===void 0?a:g(fp())}function O(){var T=fp(),E=S(T);if(r=arguments,i=this,l=T,E){if(s===void 0)return v(l);if(f)return s=setTimeout(y,t),h(l)}return s===void 0&&(s=setTimeout(y,t)),a}return O.cancel=x,O.flush=k,O}function uI(e,t,n){var r=!0,i=!0;if(typeof e!="function")throw new TypeError(B3);return Cu(n)&&(r="leading"in n?!!n.leading:r,i="trailing"in n?!!n.trailing:i),cI(e,t,{leading:r,maxWait:t,trailing:i})}function Cu(e){var t=typeof e;return!!e&&(t=="object"||t=="function")}function fI(e){return!!e&&typeof e=="object"}function dI(e){return typeof e=="symbol"||fI(e)&&aI.call(e)==qM}function Zv(e){if(typeof e=="number")return e;if(dI(e))return Jv;if(Cu(e)){var t=typeof e.valueOf=="function"?e.valueOf():e;e=Cu(t)?t+"":t}if(typeof e!="string")return e===0?e:+e;e=e.replace(QM,"");var n=ZM.test(e);return n||eI.test(e)?tI(e.slice(2),n?2:8):JM.test(e)?Jv:+e}var pI=uI;const mI=Si(pI),hI=({handleSelect:e,height:t,items:n})=>{const r=Zn(z3),[i,o]=b.useState(""),[a,s]=b.useState([]);b.useEffect(()=>{s(n)},[n]);const l=mI(c=>{const u=c.target.value;o(u);const f=n.filter(d=>d.toLowerCase().includes(u.toLowerCase()));s(f)},500);return p.jsx(WM,{onClick:e,height:t,children:r?p.jsx(VM,{children:"Loading..."}):p.jsxs(p.Fragment,{children:[p.jsx(KM,{children:p.jsx(YM,{value:i,onChange:l,placeholder:"Search..."})}),a.map(c=>p.jsx("li",{children:p.jsx(HM,{children:c})},c))]})})},gI=P.svg`
     width: 20px;
     height: 20px;
     transition: all .2s ease;
@@ -1843,6 +1843,7 @@ attempted value: ${a}
     opacity: 1;
   }
 `,CI=P.svg`
+  stroke:var(--text-color);
   width: 20px;
   height: 20px;
 `,Qm=ji("filters/fetchCategories",async(e,{rejectWithValue:t})=>{try{return(await ft.get("/filters/categories")).data.categories}catch(n){return t(n.message)}}),Jm=ji("filters/fetchIngredients",async(e,{rejectWithValue:t})=>{try{return(await ft.get("/filters/ingredients")).data}catch(n){return t(n.message)}}),jc=ji("cocktails/fetchCocktailsByParams",async(e,{rejectWithValue:t})=>{try{return(await ft.get("/drinks/search",{params:e})).data}catch(n){return t(n.message)}}),Zm=()=>{const e=new URLSearchParams(window.location.search),t={};for(const[n,r]of e.entries())t[n]=r;return t},EI=({shouldRenderBtn:e,page:t,limit:n,updPage:r})=>{const i=df(),[o,a]=ju(),s=Zn(XM),l=Zn(GM);Zn(z3);const c=l.map(x=>x.title),{cocktailName:u,categoryName:f,ingredientName:d}=Zm(),[h,v]=b.useState(u||"");b.useEffect(()=>{s.length||i(Qm()),l.length||i(Jm())},[s.length,l.length,i]),b.useEffect(()=>{(async()=>{const k={};u&&(k.drink=u),f&&(k.category=f),d&&(k["ingredients.title"]=d),k.page=t,k.limit=n,i(jc(k))})()},[o,u,f,d,t,n,i]);const m=(x,k,O)=>{const T=Zm();k!==O?T[x]=k:delete T[x],T.page&&(T.page=1),r(0);const E=new URLSearchParams(T).toString();window.history.pushState({},"",`?${E}`),a(T)},S=x=>{x.preventDefault();const O=x.currentTarget.elements.query.value.trim();m("cocktailName",O,"")},y=x=>{m("categoryName",x,"All categories")},g=x=>{m("ingredientName",x,"All ingredients")};return p.jsxs(bI,{children:[p.jsxs(wI,{onSubmit:S,children:[p.jsx("label",{children:p.jsx(SI,{type:"text",placeholder:"Enter the text",name:"query",value:h,onChange:x=>v(x.target.value)})}),e&&p.jsx(kI,{type:"submit",children:p.jsx(CI,{children:p.jsx("use",{href:`${Xt}#icon-search`})})})]}),p.jsx(ex,{items:s,placeholder:f||"All categories",height:"405px",onSelect:y}),p.jsx(ex,{items:c,placeholder:d||"All ingredients",height:"295px",onSelect:g})]})},TI=P.h2`
@@ -1932,7 +1933,7 @@ See https://reactjs.org/docs/forms.html#controlled-components`),ie=I.initialPage
   li.disabled a {
     cursor: default;
   }
-`,vg=({limit:e,currentPage:t,itemsLength:n,handlePageChange:r,pageRangeDisplayed:i})=>{const o=Math.ceil(n/e),a=({selected:s})=>{r(s),window.scrollTo({top:0,behavior:"smooth"})};return p.jsx("div",{children:p.jsx(PI,{previousLabel:p.jsx("svg",{style:{width:"8px",height:"15px"},children:p.jsx("use",{href:`${Xt}#icon-paginateLeft`})}),nextLabel:p.jsx("svg",{style:{width:"8px",height:"15px"},children:p.jsx("use",{href:`${Xt}#icon-paginateRight`})}),pageCount:o,onPageChange:a,forcePage:t,renderOnZeroPageCount:null,breakLabel:"...",pageRangeDisplayed:i,marginPagesDisplayed:1})})},xl=()=>p.jsxs("div",{style:{color:"white",padding:"100px 50px",display:"flex",flexDirection:"column",alignItems:"center"},children:[p.jsx("h1",{style:{padding:"50px"},children:"We are looking for your drink..."}),p.jsx("svg",{id:"icon-drink",viewBox:"0 0 48 48",fill:"currentColor",width:"192",height:"192",children:p.jsx("path",{d:`M16 30v11c0 1.1-0.9 2-2 2l-5.5 0c-1.38 0-2.5 
+`,vg=({limit:e,currentPage:t,itemsLength:n,handlePageChange:r,pageRangeDisplayed:i})=>{const o=Math.ceil(n/e),a=({selected:s})=>{r(s),window.scrollTo({top:0,behavior:"smooth"})};return p.jsx("div",{children:p.jsx(PI,{previousLabel:p.jsx("svg",{style:{width:"8px",height:"15px",fill:"var(--pagination-array-color)"},children:p.jsx("use",{href:`${Xt}#icon-paginateLeft`})}),nextLabel:p.jsx("svg",{style:{width:"8px",height:"15px",fill:"var(--pagination-array-color)"},children:p.jsx("use",{href:`${Xt}#icon-paginateRight`})}),pageCount:o,onPageChange:a,forcePage:t,renderOnZeroPageCount:null,breakLabel:"...",pageRangeDisplayed:i,marginPagesDisplayed:1})})},xl=()=>p.jsxs("div",{style:{color:"white",padding:"100px 50px",display:"flex",flexDirection:"column",alignItems:"center"},children:[p.jsx("h1",{style:{padding:"50px"},children:"We are looking for your drink..."}),p.jsx("svg",{id:"icon-drink",viewBox:"0 0 48 48",fill:"currentColor",width:"192",height:"192",children:p.jsx("path",{d:`M16 30v11c0 1.1-0.9 2-2 2l-5.5 0c-1.38 0-2.5 
         1.12-2.5 2.5s1.12 2.5 2.5 2.5h20c1.38 0 2.5-1.12
         2.5-2.5s-1.12-2.5-2.5-2.5h-5.5c-1.1 0-2-0.9-2-2v-11l8.090-8.189c1.96
         1.378 4.34 2.189 6.91 2.189 6.63 0 12-5.37 12-12s-5.37-12-12-12c-6.29
@@ -1982,7 +1983,7 @@ See https://reactjs.org/docs/forms.html#controlled-components`),ie=I.initialPage
     @media screen and (min-width: 1440px) {
         row-gap: 80px;
     }
-`,LI=()=>{const[e,t]=ju(),n=e.get("page")?Number(e.get("page"))-1:0,r=Zn(_I),i=Zn($I),o=Zn(DI),[a,s]=b.useState(n),[l,c]=b.useState(9),[u,f]=b.useState(3),[d,h]=b.useState(!1),v=a+1>Math.ceil(i/l),m=()=>{window.innerWidth>=1440?(c(9),h(!0),f(6)):window.innerWidth>=768?(c(10),h(!0)):(c(10),f(3),h(!1))};b.useEffect(()=>(m(),window.addEventListener("resize",m),window.scrollTo({top:0,behavior:"smooth"}),()=>{window.removeEventListener("resize",m)}),[]);const S=x=>{const k=Zm();k.page=x;const O=new URLSearchParams(k).toString();window.history.pushState({},"",`?${O}`),t(k)},y=r.slice(0,l).map(x=>p.jsx("li",{children:p.jsx(F3,{data:x})},x.id)),g=x=>{S(x+1),s(x)};return p.jsx(MI,{children:p.jsxs(Fr,{children:[p.jsx(OI,{children:"Drinks"}),p.jsx(EI,{page:a+1,limit:l,shouldRenderBtn:d,updPage:s}),o?p.jsx(xl,{}):r.length&&!v&&p.jsxs(tx,{children:[p.jsx(II,{children:y}),p.jsx(vg,{limit:l,currentPage:a,itemsLength:i,handlePageChange:g,pageRangeDisplayed:u})]}),!o&&(v||!r.length)&&p.jsx(tx,{children:p.jsx(Gf,{children:"We didn`t find anything by your request or some error occured."})})]})})},FI=()=>p.jsx(LI,{}),K3=P.section`
+`,LI=()=>{const[e,t]=ju(),n=e.get("page")?Number(e.get("page"))-1:0,r=Zn(_I),i=Zn($I),o=Zn(DI),[a,s]=b.useState(n),[l,c]=b.useState(9),[u,f]=b.useState(3),[d,h]=b.useState(!1),v=a+1>Math.ceil(i/l),m=()=>{window.innerWidth>=1440?(c(9),h(!0),f(6)):window.innerWidth>=768?(c(10),h(!0)):(c(10),f(3),h(!1))};b.useEffect(()=>(m(),window.addEventListener("resize",m),window.scrollTo({top:0,behavior:"smooth"}),()=>{window.removeEventListener("resize",m)}),[]);const S=x=>{const k=Zm();k.page=x;const O=new URLSearchParams(k).toString();window.history.pushState({},"",`?${O}`),t(k)},y=r.slice(0,l).map(x=>p.jsx("li",{children:p.jsx(F3,{data:x})},x.id)),g=x=>{S(x+1),s(x)};return p.jsx(MI,{children:p.jsxs(Fr,{children:[p.jsx(OI,{children:"Drinks"}),p.jsx(EI,{page:a+1,limit:l,shouldRenderBtn:d,updPage:s}),o?p.jsx(xl,{}):r.length>0&&!v&&p.jsxs(tx,{children:[p.jsx(II,{children:y}),p.jsx(vg,{limit:l,currentPage:a,itemsLength:i,handlePageChange:g,pageRangeDisplayed:u})]}),!o&&(v||r.length===0)&&p.jsx(tx,{children:p.jsx(Gf,{children:"We didn`t find anything by your request or some error occured."})})]})})},FI=()=>p.jsx(LI,{}),K3=P.section`
   padding: 150px 0;
   @media (min-width: 768px) {
     padding: 140px 0;
@@ -2229,6 +2230,9 @@ html {
     --button-color: #F3F3F3;
     --button-hover-color: #161F37;
     --error-color: rgba(243, 243, 243, 0.1 );
+    --select-list-color: #161F37;
+    --scroll-color: #434D67;
+    --pagination-array-color:rgba(243, 243, 243, 0.30);
   }
 
   /* light theme */
@@ -2244,6 +2248,9 @@ html {
     --button-color: #161F37;
     --button-hover-color: #F3F3F3;
     --error-color: rgba(64, 112, 205, 0.1);
+    --select-list-color: #FFFFFF;
+    --scroll-color: : #F3F3F3;
+    --pagination-array-color:rgba(10, 10, 17, 0.30);
   }
 }
 
@@ -2558,7 +2565,7 @@ button {
         font-size: 16px;
         line-height: 1.12;
     }
-`,JL=({handleClick:e,children:t})=>p.jsx(QL,{type:"button",onClick:e,children:t}),ZL=({numbCocktailsToShow:e})=>{const[t,n]=b.useState(!1),[r,i]=b.useState([]),[o,a]=b.useState(4),[s,l]=b.useState(!0);b.useEffect(()=>{(async()=>{n(!0);const f=await rL();if(console.log(f),!f){i([]),n(!1);return}i(f),n(!1)})()},[]);const c=()=>{a(r.length),l(!1)};return p.jsx(KL,{children:p.jsx(Fr,{children:t?p.jsx(xl,{}):r.length?p.jsxs("div",{children:[p.jsx(YL,{children:r.slice(0,o).map(u=>p.jsxs("li",{children:[p.jsx(XL,{children:u.category}),p.jsx(GL,{children:u.drinks.slice(0,e).map(f=>p.jsx("li",{children:p.jsx(F3,{data:f})},f.id))})]},og()))}),p.jsxs(qL,{children:[s&&p.jsx(JL,{handleClick:c,children:"More categories"}),p.jsx(VL,{navigateTo:"/drinks",children:"Other drinks"})]})]}):p.jsx(Gf,{children:"Some error occured."})})})},eF=()=>{const[e,t]=b.useState(1),n=()=>{window.innerWidth>=1440?t(3):window.innerWidth>=768?t(2):t(1)};return b.useEffect(()=>(n(),window.addEventListener("resize",n),()=>{window.removeEventListener("resize",n)}),[]),p.jsxs(p.Fragment,{children:[p.jsx(UL,{}),p.jsx(ZL,{items:WL,numbCocktailsToShow:e})]})},tF=P.div`
+`,JL=({handleClick:e,children:t})=>p.jsx(QL,{type:"button",onClick:e,children:t}),ZL=({numbCocktailsToShow:e})=>{const[t,n]=b.useState(!1),[r,i]=b.useState([]),[o,a]=b.useState(4),[s,l]=b.useState(!0);b.useEffect(()=>{(async()=>{n(!0);const f=await rL();if(console.log(f),!f){i([]),n(!1);return}i(f),n(!1)})()},[]);const c=()=>{a(r.length),l(!1)};return p.jsx(KL,{children:p.jsx(Fr,{children:t?p.jsx(xl,{}):r.length>0?p.jsxs("div",{children:[p.jsx(YL,{children:r.slice(0,o).map(u=>p.jsxs("li",{children:[p.jsx(XL,{children:u.category}),p.jsx(GL,{children:u.drinks.slice(0,e).map(f=>p.jsx("li",{children:p.jsx(F3,{data:f})},f.id))})]},og()))}),p.jsxs(qL,{children:[s&&p.jsx(JL,{handleClick:c,children:"More categories"}),p.jsx(VL,{navigateTo:"/drinks",children:"Other drinks"})]})]}):p.jsx(Gf,{children:"Some error occured."})})})},eF=()=>{const[e,t]=b.useState(1),n=()=>{window.innerWidth>=1440?t(3):window.innerWidth>=768?t(2):t(1)};return b.useEffect(()=>(n(),window.addEventListener("resize",n),()=>{window.removeEventListener("resize",n)}),[]),p.jsxs(p.Fragment,{children:[p.jsx(UL,{}),p.jsx(ZL,{items:WL,numbCocktailsToShow:e})]})},tF=P.div`
   max-width: 375px;
   padding-top: 152px;
   padding-left: 20px;
