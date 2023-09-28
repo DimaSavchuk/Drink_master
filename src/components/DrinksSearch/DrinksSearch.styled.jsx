@@ -41,12 +41,11 @@ export const Input = styled.input`
   background-color: transparent;
   border: 1px solid var(--border-input-color);
   opacity: 0.8;
-  font-family: 'Manrope';
   font-size: 17px;
   line-height: 1.56;
   color: var(--text-color);
   outline: none;
-  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media screen and (max-width: 375px) {
     width: 100%;
@@ -69,6 +68,7 @@ export const Input = styled.input`
 `;
 
 export const SearchIconWrap = styled.svg`
+  stroke:var(--text-color);
   width: 20px;
   height: 20px;
 `;
