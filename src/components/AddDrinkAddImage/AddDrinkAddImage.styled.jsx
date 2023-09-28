@@ -28,8 +28,6 @@ export const BackgroundImg = styled.div`
   border-radius: 8px;
   overflow: hidden;
 
-  /* z-index: -1; */
-
   img {
     display: block;
 
@@ -58,38 +56,51 @@ export const AddFileButton = styled.div`
     cursor: pointer;
   }
 
+  @media (min-width: 768px) {
+    label {
+      width: 320px;
+      height: 320px;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    label {
+      width: 400px;
+      height: 400px;
+    }
+  }
+
   label:hover,
   label:focus,
   label:active {
     background-color: #161f37d7;
-    /* box-shadow: #161f37b2 0px 3px 8px; */
   }
 
   label:hover span,
   label:focus span,
   label:active span {
     background-color: #fff;
-    /* box-shadow: #161f37b2 0px 3px 8px; */
   }
 
   label:hover div,
   label:focus div,
   label:active div {
     color: #fff;
-    /* box-shadow: #161f37b2 0px 3px 8px; */
   }
 `;
 
 export const Button = styled.div`
   height: 90px;
   width: 80px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   color: #f3f3f3;
 
-  z-index: 2;
+  z-index: 1;
 `;
 
 export const Icon = styled.span`

@@ -1,24 +1,19 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import { fetchCategories } from '../services/axiosConfig';
 
-export const useFetchDrinkId = () => {
+export const useFetchCategories = () => {
   const [drinkCategories, setDrinkCategories] = useState(null);
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-
-  // const { drinkId } = useParams();
 
   useEffect(() => {
     const controller = new AbortController();
     const fetchDataCategories = async () => {
       try {
         setIsLoading(true);
-
         const response = await fetchCategories('', controller);
-
-        setDrinkCategories(...response);
+        setDrinkCategories(response);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -26,8 +21,8 @@ export const useFetchDrinkId = () => {
         controller.abort();
       }
     };
-    fetchDataDrink();
-  }, [drinkCategories]);
+    fetchDataCategories();
+  }, []);
 
   return { drinkCategories, isLoading, error };
 };

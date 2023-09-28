@@ -35,6 +35,10 @@ export const CustomSelect = styled.button`
   span {
     display: block;
   }
+
+  @media (min-width: 768px) {
+    height: 41px;
+  }
 `;
 
 export const Label = styled.span`

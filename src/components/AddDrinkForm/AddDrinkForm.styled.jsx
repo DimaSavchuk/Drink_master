@@ -1,5 +1,12 @@
 import { styled } from 'styled-components';
 
+export const DrinkFormWrapper = styled.div`
+  @media (min-width: 1440px) {
+    flex-basis: 67%;
+    margin-right: 94px;
+  }
+`;
+
 export const AddButton = styled.button`
   padding: 14px 40px;
 
