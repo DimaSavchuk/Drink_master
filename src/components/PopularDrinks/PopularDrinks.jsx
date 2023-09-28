@@ -5,6 +5,8 @@ import { PopDrinksWrapper } from './PopularDrinks.styled';
 const PopularDrinks = () => {
   const { drinksPopular, isLoading, error } = useFetchPopularDrinks();
 
+  const QUANTITY_INDEX = 3;
+
   return (
     <PopDrinksWrapper>
       <h4>Popular drinks</h4>
@@ -13,7 +15,7 @@ const PopularDrinks = () => {
       {drinksPopular && (
         <ul>
           {drinksPopular.map(({ drinkThumb, drink, description }, index) => {
-            if (index <= 3)
+            if (index <= QUANTITY_INDEX)
               return (
                 <li key={index}>
                   <img src={drinkThumb} width={90} height={90} />
