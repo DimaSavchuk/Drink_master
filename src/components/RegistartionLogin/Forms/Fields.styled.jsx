@@ -37,19 +37,7 @@ export const DatePickerContainer = styled.div`
     display: block;
   }
 
-  .success {
-    outline: 1px solid #3cbc81;
-  }
-
-  /* .unfilled.active ~ .success {
-    outline: 1px solid green;
-  } */
-
-  .fail {
-    outline: 1px solid #da1414;
-  }
-
-  .unfilled {
+   .unfilled {
     outline: 1px solid rgba(243, 243, 243, 0.2);
   }
 
@@ -62,7 +50,7 @@ export const DatePickerContainer = styled.div`
   input[type='text'].invalid {
     outline-color: #da1414;
   }
-   input.invalid,
+  input.invalid,
   input[type='text'].invalid {
     outline-color: #da1414;
   }

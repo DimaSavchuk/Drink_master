@@ -1,7 +1,7 @@
 // import React from 'react';
 import { Container, Title, Wrapper, Section } from './AuthForm.styled';
 
-const AuthForm = ({ title, children }) => {
+export const AuthForm = ({ title, children }) => {
   return (
     <Section>
       <Container>
@@ -14,4 +14,3 @@ const AuthForm = ({ title, children }) => {
   );
 };
 
-export default AuthForm;

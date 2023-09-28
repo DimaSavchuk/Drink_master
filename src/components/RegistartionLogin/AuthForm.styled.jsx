@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { CommonContainer } from '../../../../../components/GlobalStyles/CommonContainer.styled'
+import { CommonContainer } from '../GlobalStyles/CommonContainer.styled';
 
-import startMobile1x from '../../../../../assets/start/start_mobile@1x.jpg';
-import startMobile2x from '../../../../../assets/start/start_mobile@2x.jpg';
+import startMobile1x from '../../assets/start/start_mobile@1x.jpg';
+import startMobile2x from '../../assets/start/start_mobile@2x.jpg';
 
-import startTublet1x from '../../../../../assets/start/start_tablet@1x.jpg';
-import startTublet2x from '../../../../../assets/start/start_tablet@2x.jpg';
+import startTublet1x from '../../assets/start/start_tablet@1x.jpg';
+import startTublet2x from '../../assets/start/start_tablet@2x.jpg';
 
-import startPC1x from '../../../../../assets/start/start@1x.jpg';
-import startPC2x from '../../../../../assets/start/start@2x.jpg';
+import startPC1x from '../../assets/start/start@1x.jpg';
+import startPC2x from '../../assets/start/start@2x.jpg';
 
 export const Section = styled.section`
   display: flex;

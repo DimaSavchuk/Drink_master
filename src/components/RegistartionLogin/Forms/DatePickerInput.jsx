@@ -2,12 +2,12 @@ import { useEffect,  useRef } from 'react';
 import { useFormikContext } from 'formik';
 import {
   Label,
+  FieldWrapper,
   FormField,
   ErrorMessage,
   Calendar,
-  FieldWrapper,
   CorrectText,
-} from '../SignUpForm.styled';
+} from './Fields.styled';
 
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/themes/dark.css';
@@ -69,7 +69,7 @@ setDatepickerInstance(datepickerRef.current);
     return () => {
       datepickerRef.current.destroy();
     };
-  }, [errors.birthDate, setDatepickerInstance, setFieldValue, setIsDate, touched.birthDate]);
+  }, [ setDatepickerInstance, setFieldValue, setIsDate, errors.birthDate, touched.birthDate]);
  
   return (
     <Label>

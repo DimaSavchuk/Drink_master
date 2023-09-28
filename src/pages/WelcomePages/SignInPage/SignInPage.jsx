@@ -1,7 +1,6 @@
 // import React from 'react';
-import AuthForm from '../RegistrationPage/Form/components/AuthForm';
-import { SignInForm } from './SignInForm/SignInForm';
-
+import { AuthForm } from '../../../components/RegistartionLogin/AuthForm';
+import { SignInForm } from '../../../components/RegistartionLogin/Forms/SignInForm/SignInForm';
 const SignInPage = () => {
   return (
     <AuthForm title={'Sign In'}>
