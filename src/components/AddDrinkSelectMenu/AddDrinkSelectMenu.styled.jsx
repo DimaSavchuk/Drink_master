@@ -116,3 +116,41 @@ export const SelectWrapper = styled.div`
 export const SelectItem = styled.div`
   cursor: pointer;
 `;
+
+export const SearchInput = styled.input`
+  display: block;
+  /* width: 200px; */
+  padding: 4px;
+
+  margin-bottom: 8px;
+
+  /* position: absolute;
+  top: -24px;
+  right: 0; */
+
+  font-size: 12;
+  line-height: calc(16 / 12);
+  color: #f3f3f380;
+
+  border-style: none;
+
+  /* border-radius: 12px; */
+  background-color: #161f37;
+  border-bottom: 1px solid #f3f3f311;
+
+  /* background: transparent; */
+
+  &:focus {
+    color: #f3f3f3;
+    /* border-bottom: 1px solid #f3f3f3; */
+    outline: transparent;
+  }
+
+  &::placeholder {
+    color: #f3f3f380;
+  }
+
+  &:focus::placeholder {
+    color: transparent;
+  }
+`;
