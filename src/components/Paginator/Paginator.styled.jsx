@@ -71,7 +71,30 @@ export const Paginate = styled(ReactPaginate).attrs({
   }
 
   li.disable,
-  li.disabled a {
+  li.disabled a{
     cursor: default;
+  }
+
+  li.disabled a svg{
+    &:hover,
+    &:focus,
+    &:active{
+      fill: var(--pagination-array-color)
+    }
+    
+  }
+`;
+
+export const SvgWrap = styled.svg`
+  width: 8px;
+  height: 15px;
+  fill: var(--pagination-array-color);
+  transition:
+    fill 200ms linear;
+
+  &:hover,
+  &:focus,
+  &:active{
+    fill: var(--text-color);
   }
 `;

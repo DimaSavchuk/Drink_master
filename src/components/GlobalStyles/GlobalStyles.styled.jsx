@@ -45,6 +45,8 @@ html {
     --select-list-color: #161F37;
     --scroll-color: #434D67;
     --pagination-array-color:rgba(243, 243, 243, 0.30);
+    --see-more-link-hover:rgba(250, 250, 250, 0.9);
+    --card-hover:rgba(255, 255, 255, 0.5);
   }
 
   /* light theme */
@@ -61,8 +63,10 @@ html {
     --button-hover-color: #F3F3F3;
     --error-color: rgba(64, 112, 205, 0.1);
     --select-list-color: #FFFFFF;
-    --scroll-color: : #F3F3F3;
+    --scroll-color: #f3f3f3;
     --pagination-array-color:rgba(10, 10, 17, 0.30);
+    --see-more-link-hover:rgba(10, 10, 10, 0.9);
+    --card-hover:rgba(10, 10, 10, 0.5);
   }
 }
 

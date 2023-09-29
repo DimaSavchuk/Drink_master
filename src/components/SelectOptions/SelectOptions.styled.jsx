@@ -28,7 +28,7 @@ export const OptionsContainer = styled.ul`
   }
 
   &::-webkit-scrollbar-track {
-    margin-block: 8px;
+    margin-block: 12px;
   }
 
   @media screen and (max-width: 375px) {
@@ -52,6 +52,8 @@ export const Option = styled.button`
   font-size: 14px;
   line-height: 1.29;
   text-align: start;
+  transition:
+    border-bottom 300ms linear;
 
   &:hover,
   &:focus,
