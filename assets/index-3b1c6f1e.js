@@ -304,7 +304,7 @@ Error generating stack: `+o.message+`
     gap: 14px;
     margin-right: 0px;
   }
-`,T2=e=>{var t;return(t=e.auth.user)==null?void 0:t.name},iE=e=>e.auth.user.AvatarURL,oE=e=>e.auth.isLoggedIn,aE=({onClick:e})=>{const t=In(T2),n=In(iE);return p.jsxs(rE,{onClick:e,children:[p.jsx(tE,{children:p.jsx(nE,{src:n||"https://res.cloudinary.com/dgooxm96o/image/upload/v1695311635/avatars/woddyy.jpg.jpg",alt:"avatar"})}),t||"Name"]})},Po="/Drink_master/assets/ellipse-mobile-blue-f82bbc5e.png",_o="/Drink_master/assets/ellipse-mobile-yellow-932cd110.png",$o="/Drink_master/assets/ellipseright-bottom-mobile-baf8b619.png",Vr="/Drink_master/assets/ellipse-blue-tablet-ef1f5de2.png",Yr="/Drink_master/assets/ellipse-yellow-tablet-4307eb80.png",sE=_.div`
+`,T2=e=>{var t;return(t=e.auth.user)==null?void 0:t.name},iE=e=>e.auth.user.avatarURL,oE=e=>e.auth.isLoggedIn,aE=({onClick:e})=>{const t=In(T2),n=In(iE);return p.jsxs(rE,{onClick:e,children:[p.jsx(tE,{children:p.jsx(nE,{src:n||"https://res.cloudinary.com/dgooxm96o/image/upload/v1695311635/avatars/woddyy.jpg.jpg",alt:"avatar"})}),t||"Name"]})},Po="/Drink_master/assets/ellipse-mobile-blue-f82bbc5e.png",_o="/Drink_master/assets/ellipse-mobile-yellow-932cd110.png",$o="/Drink_master/assets/ellipseright-bottom-mobile-baf8b619.png",Vr="/Drink_master/assets/ellipse-blue-tablet-ef1f5de2.png",Yr="/Drink_master/assets/ellipse-yellow-tablet-4307eb80.png",sE=_.div`
   position: fixed;
   width: 100vw;
   height: 100vh;
