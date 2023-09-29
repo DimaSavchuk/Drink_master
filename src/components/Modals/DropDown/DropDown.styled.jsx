@@ -1,49 +1,42 @@
 import styled from 'styled-components';
 
 
-
 export const ModalWrapper = styled.div`
-  background-color: rgba(0, 0, 0, 0);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: start;
-  padding-top: 60px;
+  position: absolute;
+  top: 70px;
   padding-right: 20px;
+  display: flex;
+  flex-direction: column;
   z-index: 2;
-  /* backdrop-filter: blur(4px); */
+
+  @media screen and (min-width: 375px) {
+    
+    padding-right: calc(((100w - 375px) / 2) + 20px)
+  }
   @media screen and (min-width: 768px) {
-    padding-top: 80px;
-    padding-right: 32px;
+    top: 85px;
+    padding-right: calc(((100w - 768px) / 2) + 32px)
   }
 
   @media screen and (min-width: 1440px) {
-    padding-top: 80px;
-    padding-right: 100px;
+    max-width: 1440px;
+    padding-right: calc(((100w - 1280px) / 2) + 20px)
   }
 `;
 export const ModalContent = styled.div`
   background-color: #161F37;
   border-radius: 8px;
-  width: 177px;
-  height: 134px;
-  margin: 2px;
- 
-  padding: 0;
+  padding: 18px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
 export const ChangeProfileButton = styled.button`
-display: flex;
-align-items: center;
-justify-content: space-between;
-margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
   width: 171px;
   height: 18px;
   padding: 18px;
@@ -76,8 +69,7 @@ export const LogOutButton = styled.button`
   line-height: 1.29;
   transition: background-color 0.5s ease;
   &:hover {
-       /* box-shadow: 1px 0px 3px 4px rgba(35, 93, 171, 0.4) inset; */
     background-color: #F3F3F3;
-  color: #161f37;
+    color: #161f37;
   }
   `;

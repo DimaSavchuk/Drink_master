@@ -23,15 +23,13 @@ import {
   StyledUpdatedCloseButton,
   StyledError,
   StyledMessage,
-  // EditIcon,
+  //  EditIcon,
 } from './UserProfile.styled';
 
 import { updateUserThunk } from '../../../redux/UserInfo/userOperations';
-// import { FiEdit2 } from 'react-icons/fi';
+//  import { FiEdit2 } from 'react-icons/fi';
 import AddIcon from '../../../assets/add_photo.svg';
 import defaultAvatarURL from '../../../assets/user.svg';
-
-// const defaultAvatarURL = require('../../../assets/user.svg');
 
 export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
   useLockBodyScroll();
@@ -40,12 +38,7 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
     const user = useSelector(selectUser);
     
 
-  // const user = {
-  //   name: 'Victoria',
-  //   avatarURL:
-  //     'https://res.cloudinary.com/dgooxm96o/image/upload/v1695311635/avatars/woddyy.jpg.jpg',
-  // };
-  //const [isOpen, setIsOpen] = useState(true); //eslint-disable-line
+  // const [isOpen, setIsOpen] = useState(true); //eslint-disable-line
   const [selectedAvatar, setSelectedAvatar] = useState(null);
   const [imgURL, setImageURL] = useState('');
 

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { useLockBodyScroll } from "@uidotdev/usehooks";
 import {
   ChangeProfileButton,
@@ -6,8 +6,7 @@ import {
   ModalContent,
   ModalWrapper,
 } from './DropDown.styled';
-
-import pencilIcon from '../../../assets/pencil.svg';
+import { FiEdit2 } from 'react-icons/fi';
 
 
 export const DropDown = ( { 
@@ -24,31 +23,6 @@ export const DropDown = ( {
 // }
 ) => {
   useLockBodyScroll();
-  
-  // const handleCloseLogOutModal = () => {
-  //   console.log("handleCloseLogOutModal");
-  //   // setIsChangeProfileOpen(true);
-  //   setIsLogOutModelOpen(false);
-  //   // setEditProfileShow(false);
-  // };
-
-  // const handleModalClick = e => {
-  //   console.log("handleModalClick");
-  //   if (e.target === e.currentTarget) {
-  //     // setShowDropDown(false);
-  //     handleCloseUserInfo();
-  //     handleCloseLogOutModal();
-  //     // setEditProfileShow(false);
-  //   }
-  //   e.stopPropagation();
-  // };
-
-  // const handleKeyDown = e => {
-  //   if (e.key === 'Escape') {
-  //     handleCloseUserInfo();
-  //     handleCloseLogOutModal();
-  //   }
-  // };
 
   return (
     <ModalWrapper onClick={handleModalClick}>
@@ -59,7 +33,7 @@ export const DropDown = ( {
           }}
         >
           Edit profile
-          <img src={pencilIcon} alt="pencil" width="14" />
+          <FiEdit2 size={14} />
         </ChangeProfileButton>
         <LogOutButton onClick={handleLogOutModelOpen}>Log out</LogOutButton>
       </ModalContent>
