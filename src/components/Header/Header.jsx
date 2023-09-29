@@ -20,7 +20,7 @@ import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
 
 //drop down
 import { DropDown } from '../Modals/DropDown/DropDown';
-import { LogOutModel } from '../Modals/LogOut/LogOut';
+import { LogOutModal } from '../Modals/LogOut/LogOut';
 import { UserInfoModal } from '../Modals/UserProfile/UserProfile';
 import { useSelector } from 'react-redux';
 import { selectUserName } from '../../redux/auth/authSelectors';
@@ -65,7 +65,7 @@ export const Header = () => {
     setIsEditProfileDropDownOpen(false);
   };
 
-  const [isLogOutModelOpen, setIsLogOutModelOpen] = useState(false);
+  const [isLogOutModalOpen, setIsLogOutModalOpen] = useState(false);
   const [isUserInfoOpen, setIsUserInfoOpen] = useState(false);
 
   const openUserInfoModal = () => {
@@ -80,14 +80,14 @@ export const Header = () => {
   };
 
   const openLogOutModal = () => {
-    console.log('handleLogOutModel');
-    setIsLogOutModelOpen(true);
+    console.log('handleLogOutModal');
+    setIsLogOutModalOpen(true);
     handleDropDownClose();
   };
 
   const handleCloseLogOutModal = () => {
     console.log('handleCloseLogOutModal');
-    setIsLogOutModelOpen(false);
+    setIsLogOutModalOpen(false);
   };
 
   const handleCloseUserInfo = () => {
@@ -142,12 +142,12 @@ export const Header = () => {
               {isEditProfileDropDownOpen && (
                 <DropDown
                   handleOpenUserInfoModal={openUserInfoModal}
-                  handleLogOutModelOpen={openLogOutModal}
+                  handleLogOutModalOpen={openLogOutModal}
                   handleModalClick={handleModalClick}
                 />
               )}
-              {isLogOutModelOpen && (
-                <LogOutModel
+              {isLogOutModalOpen && (
+                <LogOutModal
                   onClose={handleCloseLogOutModal}
                   handleModalClick={handleModalClick}
                   handleKeyDown={handleKeyDown}

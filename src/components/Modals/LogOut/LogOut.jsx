@@ -12,9 +12,10 @@ import {
   ButtonWrapper,
 } from './LogOut.styled';
 import { CloseButton, StyledUpdatedCloseButton } from '../UserProfile/UserProfile.styled'
-import Notiflix from 'notiflix';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-export const LogOutModel = ({ onClose, handleModalClick, handleKeyDown }) => {
+export const LogOutModal = ({ onClose, handleModalClick, handleKeyDown }) => {
   useLockBodyScroll();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -27,11 +28,10 @@ export const LogOutModel = ({ onClose, handleModalClick, handleKeyDown }) => {
         dispatch(clearState());
         }
         else{
-          Notiflix.Notify.failure('Something went wrong');
+          toast.error('Something went wrong');
         } 
     })
-    .then(Notiflix.Notify.success('The user log out successfully!'));
-      console.log('The user log out successfully!');
+      .then(toast.success('The user log out successfully!'));
         onClose();
   };
 
