@@ -42,6 +42,9 @@ html {
     --button-color: #F3F3F3;
     --button-hover-color: #161F37;
     --error-color: rgba(243, 243, 243, 0.1 );
+    --select-list-color: #161F37;
+    --scroll-color: #434D67;
+    --pagination-array-color:rgba(243, 243, 243, 0.30);
   }
 
   /* light theme */
@@ -57,6 +60,9 @@ html {
     --button-color: #161F37;
     --button-hover-color: #F3F3F3;
     --error-color: rgba(64, 112, 205, 0.1);
+    --select-list-color: #FFFFFF;
+    --scroll-color: : #F3F3F3;
+    --pagination-array-color:rgba(10, 10, 17, 0.30);
   }
 }
 

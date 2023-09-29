@@ -10,18 +10,15 @@ import {
 import { TfiClose, TfiPlus, TfiMinus } from 'react-icons/tfi';
 import { FiChevronDown } from 'react-icons/fi';
 import { SelectList } from '../SelectList/SelectList';
-import { useFetchIngredients } from '../../Hooks/useFetchIngredients';
 
-const AddDrinkIngredients = () => {
-  const ingridientsList = [
-    { name: 'Lem' },
-    { name: 'Passoa' },
-    { name: 'Prosecco' },
-  ];
+const AddDrinkIngredients = ({ ingredientsList }) => {
+  // const ingridientsList = [
+  //   { name: 'Lem' },
+  //   { name: 'Passoa' },
+  //   { name: 'Prosecco' },
+  // ];
 
-  const { drinkIngredients, error, loading } = useFetchIngredients();
-  console.log(drinkIngredients);
-  const initialValue = { name: ingridientsList[0].name, volume: '' };
+  const initialValue = { name: '', volume: '' };
   return (
     <FieldArray
       name="ingredients"
@@ -52,13 +49,13 @@ const AddDrinkIngredients = () => {
                 ingredients.map((ingredient, index) => (
                   <FieldsWrapper
                     key={index}
-                    role="ingridientsSelect"
+                    role="ingredientsSelect"
                     aria-labelledby="ingridientsSelect-group"
                   >
                     <FieldSelect>
-                      <Field name={`ingridients.${index}.name`} as="select">
-                        {drinkIngredients &&
-                          drinkIngredients.map(({ title }, index) => (
+                      <Field name={`ingredients.${index}.name`} as="select">
+                        {ingredientsList &&
+                          ingredientsList.map(({ title }, index) => (
                             <option key={index} value={title}>
                               {title}
                             </option>
@@ -69,7 +66,7 @@ const AddDrinkIngredients = () => {
                       </span>
                     </FieldSelect>
                     <Field
-                      name={`ingridients.${index}.volume`}
+                      name={`ingredients.${index}.volume`}
                       placeholder={'1 cl'}
                     ></Field>
                     <button type="button" onClick={() => remove(index)}>

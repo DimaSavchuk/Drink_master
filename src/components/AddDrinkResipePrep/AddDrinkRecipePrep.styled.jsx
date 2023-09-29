@@ -16,6 +16,10 @@ export const FieldTextArea = styled(Field)`
 
   overflow: auto;
 
+  transition:
+    100ms ease transform,
+    250ms ease opacity;
+
   &:focus {
     border: 1px solid #fff;
   }
@@ -23,7 +27,6 @@ export const FieldTextArea = styled(Field)`
   &::placeholder {
     color: #f3f3f380;
     opacity: 1;
-    transition: 100ms ease transform;
   }
 
   &:focus::placeholder {
@@ -64,4 +67,17 @@ export const FieldWrapper = styled.div`
   h3 {
     margin-bottom: 40px;
   }
+`;
+
+export const ErrorText = styled.div`
+  margin-top: 4px;
+  padding-left: 8px;
+
+  display: block;
+
+  font-size: 12px;
+  font-weight: 400;
+  line-height: calc(14 / 12);
+  color: #da1414;
+  text-align: left;
 `;

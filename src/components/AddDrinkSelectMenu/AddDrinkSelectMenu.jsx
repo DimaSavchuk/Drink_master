@@ -8,6 +8,7 @@ import {
 } from './AddDrinkSelectMenu.styled';
 import { SelectOpenArrow } from '../SelectOpenArrow/SelectOpenArrow';
 import { useField } from 'formik';
+import { ErrorText } from '../AddDrinkTitle/AddDrinkTitle.styled';
 
 const AddDrinkDropdownMenu = ({ items, title, error }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,6 +48,7 @@ const AddDrinkDropdownMenu = ({ items, title, error }) => {
           ))}
         </DropMenu>
       )}
+      {error ? <ErrorText>{error}</ErrorText> : null}
     </SelectWrapper>
   );
 };

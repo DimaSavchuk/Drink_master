@@ -31,13 +31,17 @@ export const IngredientFoto = styled.div`
   }
 `;
 export const InfoDiv = styled.div`
+  width: 157px;
+  overflow: hidden;
   margin-top: 8px;
   display: flex;
   flex-wrap: wrap;
+  gap: 8px;
   justify-content: space-between;
   align-items: center;
   @media (min-width: 768px) {
     margin-top: 14px;
+    width: 220px;
   }
 `;
 export const TitleIngridient = styled.p`

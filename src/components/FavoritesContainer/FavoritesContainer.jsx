@@ -3,10 +3,6 @@ import { useSearchParams } from 'react-router-dom';
 import { CommonContainer } from '../GlobalStyles/CommonContainer.styled';
 import { Section, Title } from './FavoritesContainer.styled';
 import { CardsContainer } from '../DrinkCard/DrinkCard.styled';
-import {
-  Container,
-  Text,
-} from '../FavoritesContainer/FavoritesContainer.styled';
 import DrinkCard from '../DrinkCard/DrinkCard';
 import {
   deleteDrinkFromFavorite,
@@ -15,8 +11,7 @@ import {
 import { Paginator } from '../Paginator/Paginator';
 import { Loader } from '../Loader/Loader';
 
-import heroImage from '../../assets/hero/asr_blue_iced_tea_mobile 1.png';
-import heroImage2x from '../../assets/hero/asr_blue_iced_tea_mobile@2x.png';
+import { InfoComponent } from '../InfoComponent/InfoComponent';
 
 const FavoritesContainer = () => {
   const [cards, setCards] = useState([]);
@@ -110,22 +105,7 @@ const FavoritesContainer = () => {
                 pageRangeDisplayed={pageRangeDisplayed}
               />
             </>
-          ) : (
-            <div>
-              <picture>
-                <img
-                  style={{ margin: '0 auto' }}
-                  src={heroImage}
-                  srcSet={`${heroImage2x} 2x`}
-                  alt="coctail"
-                  loading="lazy"
-                />
-              </picture>
-              <Container>
-                <Text>You haven't added any favorite cocktails yet</Text>
-              </Container>
-            </div>
-          )}
+          ) : <InfoComponent>You haven't added any favorite cocktails yet</InfoComponent>}
         </div>
       </CommonContainer>
     </Section>

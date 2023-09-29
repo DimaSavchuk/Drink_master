@@ -21,7 +21,7 @@ const filtersSlice = createSlice({
             })
             .addCase(fetchIngredients.fulfilled, (state, action) => {
                 state.ingredients = action.payload;
-                state.ingredients.unshift({ title: "Ingredients" });
+                state.ingredients.unshift({ title: "All ingredients" });
                 state.isLoading = false;
             })
             .addCase(fetchIngredients.pending, (state) => {
