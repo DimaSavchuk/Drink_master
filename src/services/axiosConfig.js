@@ -1,7 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://rest-api-drink-master.onrender.com/api';
+// axios.defaults.baseURL = 'https://rest-api-drink-master.onrender.com/api';
+axios.defaults.baseURL = 'http://localhost:3000/api';
 
 const accessToken =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTVlYThmZTdhNmM2NDg3NGUyNzZhOSIsImlhdCI6MTY5NTkzNTEzNSwiZXhwIjoxNjk2NjU1MTM1fQ.rHiMVx9ywKaovo7pBhkggGICZ60Z5RIjGnqXyBcSWR0';
@@ -79,21 +80,6 @@ export const getDrinkId = async (drinkId, controller) => {
 //     console.error('Помилка при відправленні даних:', error);
 //   }
 // });
-
-export const ownDrink = async (data) => {
-  const formData = new FormData();
-  formData.append('file', data.file);
-
-  const response = await axios.post('/drinks/own/add', formData, {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-      'Content-Type': 'multipart/form-data',
-    },
-  });
-
-  console.log(formData);
-  return response.formData;
-};
 
 export const fetchOwnDrinks = async () => {
   try {
@@ -205,4 +191,34 @@ export const getCurrentUser = async () => {
   } catch (error) {
     console.error('Помилка при отриманні даних:', error);
   }
+};
+
+export const ownDrink = async (data) => {
+  console.log(data);
+
+  const newIngredients = JSON.stringify(data.ingredients);
+
+  let formData = new FormData();
+  formData.append('cocktail', data.file);
+  formData.append('drink', data.title);
+  formData.append('category', data.category);
+  formData.append('alcoholic', 'Alcoholic');
+  formData.append('glass', data.glass);
+  formData.append('description', data.recipe);
+  formData.append('instructions', data.recipePreparation);
+  formData.append('ingredients', newIngredients);
+
+  axios
+    .post('/drinks/own/add', formData, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };

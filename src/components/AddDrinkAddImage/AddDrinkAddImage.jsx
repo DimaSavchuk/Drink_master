@@ -19,9 +19,6 @@ const AddDrinkAddImage = ({ setValue }) => {
       setImgUrl(imgSrc);
       setValue('file', imgObj);
     }
-
-    console.log(imgObj);
-    console.log(imgSrc);
   };
 
   return (

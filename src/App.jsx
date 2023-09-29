@@ -19,15 +19,10 @@ import { DropDown } from './components/Modals/DropDown/DropDown';
 import { ROUTES } from './Routes/Routes';
 import { RestrictedRoute } from './Routes/RestrictedRouts';
 import { ToastContainer } from 'react-toastify';
-
-// import UserProfile from './components/Modals/UserProfile/UserProfile';
-// import LogOut from './components/Modals/LogOut/LogOut';
-
-const test = import.meta.env.VITE_API_TEST;
+import { PrivateRoute } from './Routes/PrivateRoute';
 
 function App() {
   useTheme();
-  console.log(test);
   return (
     <AppWrapper>
       <GlobalStyle />
@@ -55,24 +50,15 @@ function App() {
         />
 
         <Route path={ROUTES.HOME} element={<SharedLayout />}>
-          <Route index element={<HomePage />} />
+          {/* <Route index element={<HomePage />} />
           <Route path={ROUTES.DRINKS} element={<DrinksPages />} />
           <Route path={ROUTES.ABOUTDRINK} element={<AboutDrinkPages />} />
           <Route path={ROUTES.ADDDRINK} element={<AddDrink />} />
           <Route path={ROUTES.MYDRINKS} element={<MyDrinksPages />} />
-          <Route path={ROUTES.FAVORITE} element={<FavoritesPages />} />
+          <Route path={ROUTES.FAVORITE} element={<FavoritesPages />} /> */}
 
           {/* Приватні роути */}
 
-          {/* <Route
-          path={ROUTES.HOME}
-          element={
-            <PrivateRoute
-              component={<SharedLayout />}
-              redirectTo={ROUTES.LOGIN}
-            />
-          }
-        >
           <Route
             index
             element={
@@ -82,6 +68,7 @@ function App() {
               />
             }
           />
+
           <Route
             path={ROUTES.DRINKS}
             element={
@@ -91,6 +78,7 @@ function App() {
               />
             }
           />
+
           <Route
             path={ROUTES.ABOUTDRINK}
             element={
@@ -100,6 +88,7 @@ function App() {
               />
             }
           />
+
           <Route
             path={ROUTES.ADDDRINK}
             element={
@@ -109,6 +98,7 @@ function App() {
               />
             }
           />
+
           <Route
             path={ROUTES.MYDRINKS}
             element={
@@ -118,6 +108,7 @@ function App() {
               />
             }
           />
+
           <Route
             path={ROUTES.FAVORITE}
             element={
@@ -128,14 +119,15 @@ function App() {
             }
           />
 
-  <Route
+          <Route
             path="/dropdown"
             element={
               <PrivateRoute
                 component={<DropDown />}
                 redirectTo={ROUTES.LOGIN}
               />
-           */}
+            }
+          />
 
           {/* Тимчасові роути */}
 
@@ -144,7 +136,7 @@ function App() {
             <Route path="logout" element={<LogOut />} />
           </Route> */}
 
-          <Route path="/dropdown" element={<DropDown />} />
+          {/* <Route path="/dropdown" element={<DropDown />} /> */}
           {/* Тимчасові роути */}
           <Route path={ROUTES.ERROR} element={<ErrorPage />} />
         </Route>

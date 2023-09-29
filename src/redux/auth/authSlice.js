@@ -7,8 +7,6 @@ import {
 } from '../UserInfo/userOperations';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 
-
-
 const initialState = {
   user: { name: '', avatarURL: '', email: '' },
   token: null,
@@ -22,15 +20,15 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-        clearState: state => {
-          state.user = { name: '', avatarURL: '', email: '' };
-          state.token = null;
-          state.isLoggedIn = false;
-          state.isfetchingCurrent = false;
-          state.isLoading = false;
-          state.error = null;
-        },
-      },
+    clearState: (state) => {
+      state.user = { name: '', avatarURL: '', email: '' };
+      state.token = null;
+      state.isLoggedIn = false;
+      state.isfetchingCurrent = false;
+      state.isLoading = false;
+      state.error = null;
+    },
+  },
   extraReducers: (builder) =>
     builder
       .addCase(signUpUser.pending, (state) => {
@@ -55,7 +53,7 @@ const authSlice = createSlice({
       .addCase(logInUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        console.log("login", action.payload.user, action.payload)
+        console.log('login', action.payload.user, action.payload);
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
@@ -71,7 +69,7 @@ const authSlice = createSlice({
       .addCase(logoutUser.fulfilled, (state) => {
         state.isLoading = false;
         state.error = null;
-        state.user = { name: '', avatarURL: '', email: '' }
+        state.user = { name: '', avatarURL: '', email: '' };
 
         state.token = null;
         state.isLoggedIn = false;
@@ -82,26 +80,26 @@ const authSlice = createSlice({
         state.error = action.payload;
       })
       .addCase(updateUserThunk.pending, (state) => {
-        state.loading = true;
+        state.isLoading = true;
         Loading.hourglass('We are validating your data...');
       })
       .addCase(updateUserThunk.fulfilled, (state, action) => {
         console.log(action.payload, state.user);
         state.user.name = action.payload.data.name;
         state.user.avatarURL = action.payload.data.avatarURL;
-        state.loading = false;
+        state.isLoading = false;
         Loading.remove();
       })
-      .addCase(updateUserThunk.rejected, (state,  payload ) => {
+      .addCase(updateUserThunk.rejected, (state, payload) => {
         state.error = payload;
-        state.loading = false;
+        state.isLoading = false;
         Loading.remove();
       })
       .addCase(getCurrentUserThunk.pending, (state) => {
-        state.loading = true;
+        state.isLoading = true;
         Loading.hourglass('We are validating your data...');
       })
-  .addCase(getCurrentUserThunk.fulfilled, (state,  payload ) => {
+      .addCase(getCurrentUserThunk.fulfilled, (state, payload) => {
         state.user = {
           name: payload.name,
           email: payload.email,
@@ -110,16 +108,15 @@ const authSlice = createSlice({
         };
         state.firstRender = false;
         state.theme = payload.theme;
-        state.loading = false;
+        state.isLoading = false;
         Loading.remove();
       })
-      .addCase(getCurrentUserThunk.rejected, (state,  payload) => {
+      .addCase(getCurrentUserThunk.rejected, (state, payload) => {
         state.error = payload;
-        state.loading = false;
+        state.isLoading = false;
         Loading.remove();
-      })  
+      }),
 });
 
 export const authReducer = authSlice.reducer;
 export const { clearState } = authSlice.actions;
-
