@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import {
-  selectIsFetchingCurrent,
+  // selectIsFetchingCurrent,
   selectIsLoggedIn,
 } from '../redux/auth/authSelectors';
 import { Navigate } from 'react-router-dom';

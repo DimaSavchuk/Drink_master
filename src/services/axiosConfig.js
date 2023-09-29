@@ -57,7 +57,7 @@ export const addDrinkToFavorite = async (_id) => {
 };
 
 export const getDrinkId = async (drinkId, controller) => {
-  const { data } = await axios.get(`/drinks/byid/${drinkId}`, {
+  const { data } = await axios.get(`/drinks/${drinkId}`, {
     signal: controller.signal,
   });
   return data;
@@ -184,28 +184,25 @@ export const fetchHomePageCocktails = async () => {
   }
 };
 
+export const updateUser = async (name) => {
+  // console.log(_id);
+  try {
+    const response = await axios.patch('/users/update', {
+      name: name,
+      file: 'Bla',
+    });
+    return response.data.data;
+  } catch (error) {
+    console.error('Помилка при отриманні даних:', error);
+  }
+};
 
- export const updateUser = async ( name) => {
-   // console.log(_id);
-   try {
-     const response = await axios.patch('/users/update', {
-         name: name, 
-       file: 'Bla'   });
-     return response.data.data;
-   } catch (error) {
-     console.error('Помилка при отриманні даних:', error);
-   }
- };
-
- export const getCurrentUser = async () => {
-   // console.log(_id);
-   try {
-     const response = await axios.get('/users/current', {
-      
-     });
-     return response.data.data;
-   } catch (error) {
-     console.error('Помилка при отриманні даних:', error);
-   }
- }
-
+export const getCurrentUser = async () => {
+  // console.log(_id);
+  try {
+    const response = await axios.get('/users/current', {});
+    return response.data.data;
+  } catch (error) {
+    console.error('Помилка при отриманні даних:', error);
+  }
+};
