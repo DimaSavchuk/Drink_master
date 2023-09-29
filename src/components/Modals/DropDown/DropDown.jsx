@@ -12,7 +12,7 @@ import { FiEdit2 } from 'react-icons/fi';
 export const DropDown = ( { 
   
   handleOpenUserInfoModal,
-  handleLogOutModelOpen,
+  handleLogOutModalOpen,
   // handleCloseLogOutModal, 
   // handleCloseUserInfo,
   handleModalClick
@@ -35,7 +35,7 @@ export const DropDown = ( {
           Edit profile
           <FiEdit2 size={14} />
         </ChangeProfileButton>
-        <LogOutButton onClick={handleLogOutModelOpen}>Log out</LogOutButton>
+        <LogOutButton onClick={handleLogOutModalOpen}>Log out</LogOutButton>
       </ModalContent>
     </ModalWrapper>
   );

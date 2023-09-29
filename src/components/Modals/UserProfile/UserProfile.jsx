@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 // import { updateUser } from '../../../services/axiosConfig';
-import Notiflix from 'notiflix';
+// import Notiflix from 'notiflix';
 import { useLockBodyScroll } from "@uidotdev/usehooks";
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../../redux/UserInfo/userSelectors';
@@ -30,6 +30,8 @@ import { updateUserThunk } from '../../../redux/UserInfo/userOperations';
 //  import { FiEdit2 } from 'react-icons/fi';
 import AddIcon from '../../../assets/add_photo.svg';
 import defaultAvatarURL from '../../../assets/user.svg';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
   useLockBodyScroll();
@@ -71,11 +73,11 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
     .then(res => {
       console.log(res);
       if (res && res.code === 200) {
-        Notiflix.Notify.success('The user saved successfuly!');
+        toast.success('The user saved successfuly!');
         onClose();
         }
         else {
-          Notiflix.Notify.failure('The user not saved!');
+         toast.error('The user not saved!');
         } 
     })
   };
