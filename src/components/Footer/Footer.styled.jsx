@@ -11,8 +11,39 @@ export const FooterStyled = styled.footer`
   background-image: url(${ellipseLeftFooter}), url(${ellipseRightFooter});
   background-repeat: no-repeat;
   background-position:
-    60% 137%,
-    20% 145%;
+    76% -35%,
+    10% -40%;
+
+  @media (min-width: 768px) {
+    background-position:
+      60% -20%,
+      30% -26%;
+  }
+  @media (min-width: 1440px) {
+    background-position:
+      15% -12%,
+      125% -12%;
+  }
+  @media (min-width: 1640px) {
+    background-position:
+      35% -8%,
+      85% -13%;
+  }
+  @media (min-width: 1840px) {
+    background-position:
+      40% -10%,
+      75% -14%;
+  }
+  @media (min-width: 2040px) {
+    background-position:
+      40% -7%,
+      70% -10%;
+  }
+  @media (min-width: 2340px) {
+    background-position:
+      40% -8%,
+      65% -10%;
+  }
 `;
 
 export const CommonWrapper = styled.div`
