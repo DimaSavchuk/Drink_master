@@ -17,13 +17,14 @@ const FavoritesContainer = () => {
   const [cards, setCards] = useState([]);
   const [isloading, setIsloading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
-  const page = searchParams.get('page')
-    ? Number(searchParams.get('page')) - 1
-    : 0;
+  const page =
+    searchParams.get('page') - 1 ? Number(searchParams.get('page')) : 0;
   const [currentPage, setCurrentPage] = useState(page);
   const [limit, setLimit] = useState(null);
   useState(false);
   const [pageRangeDisplayed, setPageRangeDisplayed] = useState(3);
+  const [showPagination, setShowPagination] = useState(false);
+  const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,12 +33,14 @@ const FavoritesContainer = () => {
         const favoriteDrinks = await fetchFavoriteDrinks();
         setCards(favoriteDrinks);
         setIsloading(false);
+        const calculatedTotalPages = Math.ceil(favoriteDrinks.length / limit);
+        setTotalPages(calculatedTotalPages);
       } catch (error) {
         console.log(error.message);
       }
     };
     fetchData();
-  }, []);
+  }, [limit]);
 
   const pagesVisited = currentPage * limit;
 
@@ -67,6 +70,14 @@ const FavoritesContainer = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (cards.length > limit) {
+      setShowPagination(true);
+    } else {
+      setShowPagination(false);
+    }
+  }, [cards, limit]);
+
   const handlePageChange = (page) => {
     setSearchParams({ page: page + 1 });
     setCurrentPage(page);
@@ -75,6 +86,15 @@ const FavoritesContainer = () => {
   const handleDelete = (_id) => {
     const updatedCards = cards.filter((card) => card._id !== _id);
     setCards(updatedCards);
+
+    console.log(updatedCards.length);
+    console.log(currentPage);
+
+    if (updatedCards.length === 0 && currentPage > 0) {
+      const newPage = currentPage - 1;
+      setCurrentPage(newPage);
+      setSearchParams({ page: newPage + 1 });
+    }
 
     deleteDrinkFromFavorite(_id);
   };
@@ -97,15 +117,21 @@ const FavoritesContainer = () => {
           ) : cards.length > 0 ? (
             <>
               <CardsContainer>{displayedCards}</CardsContainer>
-              <Paginator
-                limit={limit}
-                currentPage={currentPage}
-                itemsLength={cards.length}
-                handlePageChange={handlePageChange}
-                pageRangeDisplayed={pageRangeDisplayed}
-              />
+              {showPagination && (
+                <Paginator
+                  limit={limit}
+                  currentPage={currentPage}
+                  itemsLength={cards.length}
+                  handlePageChange={handlePageChange}
+                  pageRangeDisplayed={pageRangeDisplayed}
+                />
+              )}
             </>
-          ) : <InfoComponent>You haven't added any favorite cocktails yet</InfoComponent>}
+          ) : (
+            <InfoComponent>
+              You haven't added any favorite cocktails yet
+            </InfoComponent>
+          )}
         </div>
       </CommonContainer>
     </Section>
