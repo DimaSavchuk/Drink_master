@@ -4,6 +4,13 @@ import { NavLink } from 'react-router-dom';
 export const CardContainer = styled.div`
   width: 100%;
   max-height: 392px;
+  transition:
+    border-bottom 700ms linear;
+
+  &:hover,
+  &:focus{
+    border-bottom: 1px solid var(--card-hover);
+  }
 
   @media screen and (min-width: 375px) {
     width: 335px;
@@ -57,6 +64,14 @@ export const StyledCocktailLink = styled(NavLink)`
   font-weight: 500;
   line-height: 1.29;
   color: var(--see-more-link-color);
+  transition:
+    color 250ms linear;
+
+  &:hover,
+  &:focus,
+  &:active{
+    color:var(--see-more-link-hover);
+  }
 
   @media screen and (min-width: 768px) {
     font-size: 16px;

@@ -91,23 +91,24 @@ export const AllDrinksContainer = () => {
                     shouldRenderBtn={shouldRenderButtonSearch}
                     updPage={setCurrentPage} />
         
-                {isLoading ? <Loader /> : cocktails.length>0 && !errorReason &&
+                {isLoading ? <Loader /> : cocktails.length > 0 && !errorReason &&
                     (
                         <Wrapper>
                             <CocktailsList>
                                 {displayCocktails}
                             </CocktailsList>
-                            <Paginator
-                                limit={limit}
-                                currentPage={currentPage}
-                                itemsLength={totalCocktails}
-                                handlePageChange={handlePageChange}
-                                pageRangeDisplayed={pageRangeDisplayed}
-                            />
+                            {totalCocktails > limit &&
+                                <Paginator
+                                    limit={limit}
+                                    currentPage={currentPage}
+                                    itemsLength={totalCocktails}
+                                    handlePageChange={handlePageChange}
+                                    pageRangeDisplayed={pageRangeDisplayed}
+                                />}
                         </Wrapper>
                     )}
                 {
-                    !isLoading && (errorReason || cocktails.length===0) &&
+                    !isLoading && (errorReason || cocktails.length === 0) &&
                     <Wrapper>
                         <InfoComponent>We didn`t find anything by your request or some error occured.</InfoComponent>
                     </Wrapper>

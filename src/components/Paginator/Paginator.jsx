@@ -1,4 +1,4 @@
-import { Paginate } from './Paginator.styled';
+import { Paginate, SvgWrap } from './Paginator.styled';
 import sprite from "../../assets/sprite.svg"
 
 export const Paginator = ({limit, currentPage, itemsLength, handlePageChange, pageRangeDisplayed}) => {
@@ -17,8 +17,8 @@ export const Paginator = ({limit, currentPage, itemsLength, handlePageChange, pa
   return (
     <div>
         <Paginate
-          previousLabel={<svg style={{width:'8px', height:'15px', fill:'var(--pagination-array-color)'}}><use href={`${sprite}#icon-paginateLeft`} /></svg>}
-          nextLabel={<svg style={{width:'8px', height:'15px', fill:'var(--pagination-array-color)'}}><use href={`${sprite}#icon-paginateRight`} /></svg>}
+          previousLabel={<SvgWrap><use href={`${sprite}#icon-paginateLeft`} /></SvgWrap>}
+          nextLabel={<SvgWrap><use href={`${sprite}#icon-paginateRight`} /></SvgWrap>}
           pageCount={pageCount}
           onPageChange={handlePageClick}
           forcePage={currentPage} 
