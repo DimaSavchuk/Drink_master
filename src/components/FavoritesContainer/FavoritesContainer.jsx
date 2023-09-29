@@ -3,15 +3,11 @@ import { useSearchParams } from 'react-router-dom';
 import { CommonContainer } from '../GlobalStyles/CommonContainer.styled';
 import { Section, Title } from './FavoritesContainer.styled';
 import { CardsContainer } from '../DrinkCard/DrinkCard.styled';
-import DrinkCard from '../DrinkCard/DrinkCard';
-import {
-  deleteDrinkFromFavorite,
-  fetchFavoriteDrinks,
-} from '../../services/axiosConfig';
 import { Paginator } from '../Paginator/Paginator';
 import { Loader } from '../Loader/Loader';
 
 import { InfoComponent } from '../InfoComponent/InfoComponent';
+import { checkAndSetPage, displayedFavoriteCards, fetchFavorite, handlePageChange, updLimit } from '../../helpers';
 
 const FavoritesContainer = () => {
   const [cards, setCards] = useState([]);
@@ -21,43 +17,17 @@ const FavoritesContainer = () => {
     searchParams.get('page') - 1 ? Number(searchParams.get('page')) : 0;
   const [currentPage, setCurrentPage] = useState(page);
   const [limit, setLimit] = useState(null);
-  useState(false);
   const [pageRangeDisplayed, setPageRangeDisplayed] = useState(3);
   const [showPagination, setShowPagination] = useState(false);
-  const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setIsloading(true);
-        const favoriteDrinks = await fetchFavoriteDrinks();
-        setCards(favoriteDrinks);
-        setIsloading(false);
-        const calculatedTotalPages = Math.ceil(favoriteDrinks.length / limit);
-        setTotalPages(calculatedTotalPages);
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-    fetchData();
-  }, [limit]);
+    fetchFavorite(setIsloading, setCards);
+  }, []);
 
   const pagesVisited = currentPage * limit;
 
-  const updLimit = () => {
-    if (window.innerWidth >= 1440) {
-      setLimit(9);
-      setPageRangeDisplayed(6);
-    } else if (window.innerWidth >= 768) {
-      setLimit(8);
-    } else {
-      setLimit(8);
-      setPageRangeDisplayed(3);
-    }
-  };
-
   useEffect(() => {
-    updLimit();
+    updLimit(setLimit, setPageRangeDisplayed);
     window.addEventListener('resize', updLimit);
 
     window.scrollTo({
@@ -76,36 +46,29 @@ const FavoritesContainer = () => {
     } else {
       setShowPagination(false);
     }
-  }, [cards, limit]);
+  }, [cards.length, limit]);
 
-  const handlePageChange = (page) => {
-    setSearchParams({ page: page + 1 });
-    setCurrentPage(page);
-  };
+  const startIndex = currentPage * limit;
+  const endIndex = startIndex + limit;
+  const elementsOnPage = cards.slice(startIndex, endIndex);
+  const numberOfElementsOnPage = elementsOnPage.length;
 
-  const handleDelete = (_id) => {
-    const updatedCards = cards.filter((card) => card._id !== _id);
-    setCards(updatedCards);
+  useEffect(() => {
+    checkAndSetPage(
+      numberOfElementsOnPage,
+      currentPage,
+      setSearchParams,
+      setCurrentPage,
+    );
+  }, [numberOfElementsOnPage, currentPage, setSearchParams]);
 
-    console.log(updatedCards.length);
-    console.log(currentPage);
-
-    if (updatedCards.length === 0 && currentPage > 0) {
-      const newPage = currentPage - 1;
-      setCurrentPage(newPage);
-      setSearchParams({ page: newPage + 1 });
-    }
-
-    deleteDrinkFromFavorite(_id);
-  };
-
-  const displayedCards = cards
-    .slice(pagesVisited, pagesVisited + limit)
-    .map((card) => (
-      <li key={card._id}>
-        <DrinkCard cardData={card} onDelete={handleDelete} />
-      </li>
-    ));
+  const displayedCards = displayedFavoriteCards(
+    cards,
+    pagesVisited,
+    limit,
+    setCards,
+  );
+  
 
   return (
     <Section>
@@ -122,7 +85,9 @@ const FavoritesContainer = () => {
                   limit={limit}
                   currentPage={currentPage}
                   itemsLength={cards.length}
-                  handlePageChange={handlePageChange}
+                  handlePageChange={(page) =>
+                    handlePageChange(page, setSearchParams, setCurrentPage)
+                  }
                   pageRangeDisplayed={pageRangeDisplayed}
                 />
               )}
