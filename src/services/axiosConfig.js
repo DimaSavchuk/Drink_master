@@ -174,26 +174,26 @@ export const fetchHomePageCocktails = async () => {
   }
 };
 
-export const updateUser = async ( name) => {
-  // console.log(_id);
-  try {
-    const response = await axios.patch('/users/update', {
-        name: name, 
-      file: 'Bla'   });
-    return response.data.data;
-  } catch (error) {
-    console.error('Помилка при отриманні даних:', error);
-  }
-};
+// export const updateUser = async ( name) => {
+//   // console.log(_id);
+//   try {
+//     const response = await axios.patch('/users/update', {
+//         name: name, 
+//       file: 'Bla'   });
+//     return response.data.data;
+//   } catch (error) {
+//     console.error('Помилка при отриманні даних:', error);
+//   }
+// };
 
-export const getCurrentUser = async () => {
-  // console.log(_id);
-  try {
-    const response = await axios.get('/users/current', {
+// export const getCurrentUser = async () => {
+//   // console.log(_id);
+//   try {
+//     const response = await axios.get('/users/current', {
       
-    });
-    return response.data.data;
-  } catch (error) {
-    console.error('Помилка при отриманні даних:', error);
-  }
-};
+//     });
+//     return response.data.data;
+//   } catch (error) {
+//     console.error('Помилка при отриманні даних:', error);
+//   }
+// }
