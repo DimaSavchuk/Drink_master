@@ -1,84 +1,66 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { Loading } from 'notiflix/build/notiflix-loading-aio';
-import {
-    getCurrentUserThunk,
-    updateThemeThunk,
-    updateUserThunk,
-} from './userOperations';
+// import { createSlice } from '@reduxjs/toolkit';
+// import { Loading } from 'notiflix/build/notiflix-loading-aio';
+// import {
+//     getCurrentUserThunk,
+//     // updateThemeThunk,
+//     updateUserThunk,
+// } from './userOperations';
 
-const initialState = {
-  user: { name: '', email: '', avatarURL: '' },
-  theme: 'dark',
-  firstRender: true,
-};
+// const initialState = {
+//   user: { name: '', email: '', avatarURL: '' },
+//   firstRender: true,
+// };
 
-const userInfoSlice = createSlice({
-  name: '@@userInfo',
-  initialState,
-  reducers: {
-    clearState: state => {
-      state.user = { name: '', email: '', avatarURL: '' };
-      state.theme = 'dark';
-      state.firstRender = true;
-    },
-  },
-  extraReducers: {
-    // смена темы
-    [updateThemeThunk.pending]: (state, { payload }) => {
-      state.loading = true;
-      Loading.hourglass('We are validating your data...');
-    },
-    [updateThemeThunk.fulfilled]: (state, { payload }) => {
-      state.theme = payload.theme;
-      state.loading = false;
-      Loading.remove();
-    },
-    [updateThemeThunk.rejected]: (state, { payload }) => {
-      state.error = payload;
-      Loading.remove();
-    },
-    // смена пользователя
-    [updateUserThunk.pending]: (state, { payload }) => {
-      state.loading = true;
-      Loading.hourglass('We are validating your data...');
-    },
+// const userInfoSlice = createSlice({
+//   name: 'user',
+//   initialState,
+//   reducers: {
+//     clearState: state => {
+//       state.user = { name: '', email: '', avatarURL: '' };
+//       state.firstRender = true;
+//     },
+//   },
+//   extraReducers: (builder) => 
+//   builder.addCase(updateUserThunk.pending, (state) => {
+//       state.loading = true;
+//       Loading.hourglass('We are validating your data...');
+//     })
+//     .addCase(updateUserThunk.fulfilled, (state, payload) => {
+//       console.log(payload, state.user);
+//       state.user.name = payload.data.name;
+//       state.user.avatarURL = payload.data.avatarURL;
+//       state.loading = false;
+//       Loading.remove();
+//     })
+//     .addCase(updateUserThunk.rejected, (state,  payload ) => {
+//       state.error = payload;
+//       state.loading = false;
+//       Loading.remove();
+//     })
+//     .addCase(getCurrentUserThunk.pending, (state) => {
+//       state.loading = true;
+//       Loading.hourglass('We are validating your data...');
+//     })
+// .addCase(getCurrentUserThunk.fulfilled, (state,  payload ) => {
+//       state.user = {
+//         name: payload.name,
+//         email: payload.email,
+//         avatarURL: payload.avatarURL,
+//         id: payload._id,
+//       };
+//       state.firstRender = false;
+//       state.theme = payload.theme;
+//       state.loading = false;
+//       Loading.remove();
+//     })
+//     .addCase(getCurrentUserThunk.rejected, (state,  payload) => {
+//       state.error = payload;
+//       state.loading = false;
+//       Loading.remove();
+//     })
+//   },
+// );
 
-    [updateUserThunk.fulfilled]: (state, { payload }) => {
-      state.user = payload;
-      state.loading = false;
-      Loading.remove();
-    },
-    [updateUserThunk.rejected]: (state, { payload }) => {
-      state.error = payload;
-      state.loading = false;
-      Loading.remove();
-    },
-    // текущий пользователь
-    [getCurrentUserThunk.pending]: (state, { payload }) => {
-      state.loading = true;
-      Loading.hourglass('We are validating your data...');
-    },
-
-    [getCurrentUserThunk.fulfilled]: (state, { payload }) => {
-      state.user = {
-        name: payload.name,
-        email: payload.email,
-        avatarURL: payload.avatarURL,
-        id: payload._id,
-      };
-      state.firstRender = false;
-      state.theme = payload.theme;
-      state.loading = false;
-      Loading.remove();
-    },
-    [getCurrentUserThunk.rejected]: (state, { payload }) => {
-      state.error = payload;
-      state.loading = false;
-      Loading.remove();
-    },
-  },
-});
-
-export const userInfoReducer = userInfoSlice.reducer;
-export const { clearState } = userInfoSlice.actions;
+// export const userInfoReducer = userInfoSlice.reducer;
+// export const { clearState } = userInfoSlice.actions;
 

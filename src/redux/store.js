@@ -3,6 +3,8 @@
 
 import { configureStore } from '@reduxjs/toolkit';
 import { authReducer } from './auth/authSlice';
+// import { userInfoReducer } from './UserInfo/userInfoSlice';
+
 
 import {
   persistStore,
@@ -27,7 +29,7 @@ const authPersistConfig = {
 
 export const store = configureStore({
   reducer: {
-    // user: userReducer,
+    //  user: userInfoReducer,
     auth: persistReducer(authPersistConfig, authReducer),
     filters: filtersReducer,
     cocktails:drinksReducer

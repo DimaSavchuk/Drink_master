@@ -1,41 +1,38 @@
-// import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useLockBodyScroll } from "@uidotdev/usehooks";
-// import { logoutThunk } from '../../../../authOperation';
+import { logoutUser } from '../../../redux/auth/authOperations';
+import { clearState } from '../../../redux/auth/authSlice';
+
 import {
   ModalWrapper,
   ModalContent,
   LogOutButton,
-  // CloseButton,
   ModalText,
   ButtonWrapper,
 } from './LogOut.styled';
 import { CloseButton, StyledUpdatedCloseButton } from '../UserProfile/UserProfile.styled'
 import Notiflix from 'notiflix';
-// import XIcon from 'src/assets/x.png';
-// import { clearState } from '../../../redux/UserInfo/userInfoSlice';
 
 export const LogOutModel = ({ onClose, handleModalClick, handleKeyDown }) => {
   useLockBodyScroll();
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleLogout = () => {
-    // TODO: Hanlde LogOut Call to server
-    // dispatch(logoutThunk())
-    //     .unwrap()
-    //     .then(res => {
-    //      console.log('Response:', res);
-    //     if (res && res.status === 200) {
-    //     navigate('/');
-    //     dispatch(clearState());
-    //     }
-    // })
-    // .then(Notiflix.Notify.success('The user log out successfully!'));
-    Notiflix.Notify.success('The user log out successfully!');
-    console.log('The user log out successfully!');
-    navigate('/start');
-    onClose();
-    // TODO: Redirect to welcome page. 
+    dispatch(logoutUser())
+        .unwrap()
+        .then(res => {
+        if (res && res === 204) {
+        navigate('/start');
+        dispatch(clearState());
+        }
+        else{
+          Notiflix.Notify.failure('Something went wrong');
+        } 
+    })
+    .then(Notiflix.Notify.success('The user log out successfully!'));
+      console.log('The user log out successfully!');
+        onClose();
   };
 
   return (

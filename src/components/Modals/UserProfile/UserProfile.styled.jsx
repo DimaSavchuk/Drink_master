@@ -138,9 +138,17 @@ export const AddIconImg = styled.img`
 export const StyledInputWrap = styled.div`
   width: 100%;
   position: relative;
+  color: red;
 @media screen and (min-width: 768px) {
   max-width: 400px;
   }
+`;
+export const EditIcon = styled.span`
+  position: absolute;
+  top: 19px;
+  right: 24px;
+  pointer-events: none;
+  color: red;
 `;
 export const StyledIconError = styled(RiErrorWarningLine)`
   position: absolute;

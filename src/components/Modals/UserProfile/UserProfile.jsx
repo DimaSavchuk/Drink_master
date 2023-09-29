@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import Notiflix from 'notiflix';
 import { useLockBodyScroll } from "@uidotdev/usehooks";
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUserArray } from '../../../redux/UserInfo/userSelectors';
+import { selectUser } from '../../../redux/UserInfo/userSelectors';
 import * as Yup from 'yup';
 import {
   ModalWrapper,
@@ -23,9 +23,11 @@ import {
   StyledUpdatedCloseButton,
   StyledError,
   StyledMessage,
+  // EditIcon,
 } from './UserProfile.styled';
 
 import { updateUserThunk } from '../../../redux/UserInfo/userOperations';
+// import { FiEdit2 } from 'react-icons/fi';
 import AddIcon from '../../../assets/add_photo.svg';
 import defaultAvatarURL from '../../../assets/user.svg';
 
@@ -35,14 +37,15 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
   useLockBodyScroll();
 
     const dispatch = useDispatch();
-    const user = useSelector(selectUserArray);
+    const user = useSelector(selectUser);
+    
 
   // const user = {
   //   name: 'Victoria',
   //   avatarURL:
   //     'https://res.cloudinary.com/dgooxm96o/image/upload/v1695311635/avatars/woddyy.jpg.jpg',
   // };
-  const [isOpen, setIsOpen] = useState(true); //eslint-disable-line
+  //const [isOpen, setIsOpen] = useState(true); //eslint-disable-line
   const [selectedAvatar, setSelectedAvatar] = useState(null);
   const [imgURL, setImageURL] = useState('');
 
@@ -70,21 +73,18 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
   };
 
   const handleOnSubmit = async (values) => {
-    const formData = new FormData();
-    formData.append('name', values.name);
-    if (selectedAvatar) {
-      formData.append('avatarURL', selectedAvatar);
-    }
-    //TODO: Update User onServer
-    const res = await dispatch(updateUserThunk(values.name, selectedAvatar));
-    if (res.meta.requestStatus === 'fulfilled') {
-      Notiflix.Notify.success('The user saved successfuly!');
-      onClose();
-    }
-    else{
-      Notiflix.Notify.failure('The user not saved!');
-      onClose();
-    }
+    dispatch(updateUserThunk({name: values.name, avatarURL: selectedAvatar}))
+    .unwrap()
+    .then(res => {
+      console.log(res);
+      if (res && res.code === 200) {
+        Notiflix.Notify.success('The user saved successfuly!');
+        onClose();
+        }
+        else {
+          Notiflix.Notify.failure('The user not saved!');
+        } 
+    })
   };
 
   let avatar;
@@ -96,7 +96,7 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
     avatar = defaultAvatarURL;
   }
 
-  return isOpen ? (
+  return (
     <ModalWrapper onClick={handleModalClick} onKeyDown={handleKeyDown}>
       <ContentWrapper className="modal-content">
         <CloseButton onClick={onClose} tabIndex={1} className="close-button">
@@ -104,7 +104,7 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
         </CloseButton>
         <StyledForm
           initialValues={{
-            avatarURL: '',
+            avatarURL:  user.avatarURL || '',
             name: user.name || '',
           }}
           validationSchema={Yup.object({
@@ -134,7 +134,8 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
                   <StyledInputFile
                     type="file"
                     id="avatarInput"
-                    accept="image/*"
+                    name="file"
+                    // accept="image/*"
                     onChange={handleAvatarChange}
                   />
                 </label>
@@ -156,6 +157,9 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
                       : ''
                   }
                 />
+                {/* <EditIcon>
+                    <FiEdit2 size={14} />
+                </EditIcon> */}
                 {errors.name && touched.name && (
                   <div>
                     <StyledIconError color="red" />{' '}
@@ -175,5 +179,4 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
         </StyledForm>
       </ContentWrapper>
     </ModalWrapper>
-  ) : null;
-};
+)};
