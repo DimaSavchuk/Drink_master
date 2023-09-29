@@ -2588,11 +2588,11 @@ button {
   }
 `,aF=_.button`
     padding: 14px 40px;
-    border: none;
+    border: 1px solid var(--border-link-color);
     border-radius: 42px;
-    background-color: #f3f3f3;
+    background-color: var(--button-color);
 
-    color: #161f37;
+    color: var(--button-hover-color);
     font-size: 14px;
     font-weight: 600;
     line-height: 1.29;
@@ -2603,8 +2603,8 @@ button {
 
     &:hover,
     &:focus {
-        color: #f3f3f3;
-        background-color: #161f37;
+        color: var(--button-color);
+        background-color: var(--button-hover-color);
     }
 
     @media screen and (max-width: 767px) {
