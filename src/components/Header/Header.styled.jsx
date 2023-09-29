@@ -1,4 +1,4 @@
-import {NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const HeaderStyled = styled.header`
@@ -12,6 +12,7 @@ export const HeaderContainer = styled.div`
   margin: 0 auto;
 
   @media (min-width: 768px) {
+    /* min-height: 84px; */
     max-width: 768px;
     padding: 20px 32px;
   }
