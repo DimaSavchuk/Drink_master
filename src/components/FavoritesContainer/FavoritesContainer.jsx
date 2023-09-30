@@ -7,7 +7,14 @@ import { Paginator } from '../Paginator/Paginator';
 import { Loader } from '../Loader/Loader';
 
 import { InfoComponent } from '../InfoComponent/InfoComponent';
-import { checkAndSetPage, displayedFavoriteCards, fetchFavorite, handlePageChange, updLimit } from '../../helpers';
+import {
+  checkAndSetPage,
+  countElements,
+  displayedFavoriteCards,
+  fetchFavorite,
+  handlePageChange,
+  updLimit,
+} from '../../helpers';
 
 const FavoritesContainer = () => {
   const [cards, setCards] = useState([]);
@@ -27,7 +34,10 @@ const FavoritesContainer = () => {
   const pagesVisited = currentPage * limit;
 
   useEffect(() => {
-    updLimit(setLimit, setPageRangeDisplayed);
+    const { newLimit, newPageRangeDisplayed } = updLimit();
+    setLimit(newLimit);
+    setPageRangeDisplayed(newPageRangeDisplayed);
+
     window.addEventListener('resize', updLimit);
 
     window.scrollTo({
@@ -48,10 +58,7 @@ const FavoritesContainer = () => {
     }
   }, [cards.length, limit]);
 
-  const startIndex = currentPage * limit;
-  const endIndex = startIndex + limit;
-  const elementsOnPage = cards.slice(startIndex, endIndex);
-  const numberOfElementsOnPage = elementsOnPage.length;
+  const { numberOfElementsOnPage } = countElements(cards, currentPage, limit);
 
   useEffect(() => {
     checkAndSetPage(
@@ -68,7 +75,6 @@ const FavoritesContainer = () => {
     limit,
     setCards,
   );
-  
 
   return (
     <Section>

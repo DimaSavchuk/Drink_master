@@ -9,7 +9,7 @@ import { useSearchParams } from 'react-router-dom';
 import { Loader } from '../Loader/Loader';
 import { Paginator } from '../Paginator/Paginator';
 import { InfoComponent } from '../InfoComponent/InfoComponent';
-import { checkAndSetPage, displayedFavoriteCards, fetchOwn, handlePageChange, updLimit } from '../../helpers';
+import { checkAndSetPage, countElements, displayedFavoriteCards, fetchOwn, handlePageChange, updLimit } from '../../helpers';
 
 const MyDrinksContainer = () => {
   const [cards, setCards] = useState([]);
@@ -29,10 +29,14 @@ const MyDrinksContainer = () => {
   }, []);
 
   const pagesVisited = currentPage * limit;
+  updLimit(setLimit, setPageRangeDisplayed);
 
-    useEffect(() => {
-    updLimit(setLimit, setPageRangeDisplayed);
-    window.addEventListener('resize', updLimit);
+  useEffect(() => {
+      const { newLimit, newPageRangeDisplayed } = updLimit();
+      setLimit(newLimit);
+    setPageRangeDisplayed(newPageRangeDisplayed);
+    
+      window.addEventListener('resize', updLimit);
 
     window.scrollTo({
       top: 0,
@@ -52,10 +56,7 @@ const MyDrinksContainer = () => {
     }
   }, [cards.length, limit]);
 
-  const startIndex = currentPage * limit;
-  const endIndex = startIndex + limit;
-  const elementsOnPage = cards.slice(startIndex, endIndex);
-  const numberOfElementsOnPage = elementsOnPage.length;
+  const { numberOfElementsOnPage } = countElements(cards, currentPage, limit);
 
   useEffect(() => {
     checkAndSetPage(

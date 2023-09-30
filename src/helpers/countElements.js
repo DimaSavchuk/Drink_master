@@ -4,7 +4,6 @@ export const countElements = (cards, currentPage, limit) => {
   const elementsOnPage = cards.slice(startIndex, endIndex);
   const numberOfElementsOnPage = elementsOnPage.length;
 
-  return {
-    numberOfElementsOnPage,
-  };
+  return { startIndex, endIndex, elementsOnPage, numberOfElementsOnPage };
 };
+

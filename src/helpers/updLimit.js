@@ -1,11 +1,7 @@
-export const updLimit = (setLimit, setPageRangeDisplayed) => {
-  if (window.innerWidth >= 1440) {
-    setLimit(9);
-    setPageRangeDisplayed(6);
-  } else if (window.innerWidth >= 768) {
-    setLimit(8);
-  } else {
-    setLimit(8);
-    setPageRangeDisplayed(3);
-  }
+export const updLimit = () => {
+  const newLimit =
+    window.innerWidth >= 1440 ? 9 : window.innerWidth >= 768 ? 8 : 8;
+  const newPageRangeDisplayed = window.innerWidth >= 1440 ? 6 : 3;
+
+  return { newLimit, newPageRangeDisplayed };
 };
