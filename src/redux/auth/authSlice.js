@@ -125,6 +125,7 @@ const authSlice = createSlice({
       .addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {
         state.user.name = payload.user.name;
         state.user.email = payload.user.email;
+        state.user.avatarURL = payload.user.avatarURL;
 
         state.isLoggedIn = true;
         state.isRefreshing = false;

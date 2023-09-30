@@ -1,4 +1,4 @@
-import { useEffect,  useRef} from 'react';
+import { useEffect, useRef } from 'react';
 import { useFormikContext } from 'formik';
 import {
   Label,
@@ -23,7 +23,6 @@ export const DatePickerInput = ({
   setDatepickerInstance,
   // setIsError,
   // isError,
-  
 }) => {
   const { setFieldValue } = useFormikContext();
   const datepickerRef = useRef();
@@ -49,7 +48,6 @@ export const DatePickerInput = ({
       },
       onChange: function (_, dateStr) {
         setFieldValue('birthDate', dateStr);
-        console.log(dateStr);
         const altInput = this._input;
         altInput.classList.remove('invalid', 'success', 'unfilled');
         altInput.classList.add(dateStr ? 'success' : 'unfilled');
@@ -73,7 +71,13 @@ export const DatePickerInput = ({
     return () => {
       datepickerRef.current.destroy();
     };
-  }, [setDatepickerInstance, setFieldValue, setIsDate, errors.birthDate, touched.birthDate]);
+  }, [
+    setDatepickerInstance,
+    setFieldValue,
+    setIsDate,
+    errors.birthDate,
+    touched.birthDate,
+  ]);
 
   return (
     <Label>

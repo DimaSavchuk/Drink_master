@@ -50,7 +50,7 @@ const AddDrinkForm = () => {
       <h2>Add drink</h2>
       <Formik
         initialValues={initialValues}
-        // validationSchema={validationSchema}
+        validationSchema={validationSchema}
         onSubmit={onSubmitForm}
       >
         {({ setFieldValue, errors }) => (

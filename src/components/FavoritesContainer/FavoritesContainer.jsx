@@ -4,7 +4,7 @@ import { CommonContainer } from '../GlobalStyles/CommonContainer.styled';
 import { Section, Title } from './FavoritesContainer.styled';
 import { CardsContainer } from '../DrinkCard/DrinkCard.styled';
 import { Paginator } from '../Paginator/Paginator';
-import { Loader } from '../Loader/Loader';
+import { Loading } from '../Loading/Loading';
 
 import { InfoComponent } from '../InfoComponent/InfoComponent';
 import {
@@ -82,7 +82,7 @@ const FavoritesContainer = () => {
         <div>
           <Title>Favorites</Title>
           {isloading ? (
-            <Loader />
+            <Loading />
           ) : cards.length > 0 ? (
             <>
               <CardsContainer>{displayedCards}</CardsContainer>

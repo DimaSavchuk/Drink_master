@@ -13,8 +13,7 @@ export const fetchFavoriteDrinks = async () => {
 };
 
 export const deleteDrinkFromFavorite = async (_id) => {
-  // console.log(_id);
-  try {
+    try {
     const response = await axios.delete('/drinks/favorite/remove', {
       data: {
         recipeId: _id,
@@ -27,7 +26,7 @@ export const deleteDrinkFromFavorite = async (_id) => {
 };
 
 export const addDrinkToFavorite = async (_id) => {
-  // console.log(_id);
+
   try {
     const response = await axios.post('/drinks/favorite/add', {
       recipeId: _id,
@@ -159,7 +158,7 @@ export const ownDrink = async (data) => {
   formData.append('cocktail', data.file);
   formData.append('drink', data.title);
   formData.append('category', data.category);
-  formData.append('alcoholic', 'Alcoholic');
+  formData.append('alcoholic', data.alcoholicType);
   formData.append('glass', data.glass);
   formData.append('description', data.recipe);
   formData.append('instructions', data.recipePreparation);
