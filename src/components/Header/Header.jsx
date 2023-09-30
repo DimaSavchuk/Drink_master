@@ -54,8 +54,10 @@ export const Header = () => {
   }, [isOpen]);
 
   //drop down
+  
   const [isEditProfileDropDownOpen, setIsEditProfileDropDownOpen] =
     useState(false);
+    const [isDropDownOpen, setDropDownOpen] = useState(false);
 
   const openDropDown = () => {
     setIsEditProfileDropDownOpen(true);
@@ -63,8 +65,8 @@ export const Header = () => {
 
   const handleDropDownClose = () => {
     setIsEditProfileDropDownOpen(false);
+    setDropDownOpen(false);
   };
-
   const [isLogOutModalOpen, setIsLogOutModalOpen] = useState(false);
   const [isUserInfoOpen, setIsUserInfoOpen] = useState(false);
 
@@ -124,8 +126,6 @@ export const Header = () => {
             </StyledLink>
             <PagesMenu />
 
-            {/* {isAuthVisible ? <UserLogo /> : null} */}
-
             <StyledFlexDiv>
               <StyledDesktopThemeSwitcher>
                 <ThemeSwitcher />
@@ -137,6 +137,7 @@ export const Header = () => {
                   handleOpenUserInfoModal={openUserInfoModal}
                   handleLogOutModalOpen={openLogOutModal}
                   handleModalClick={handleModalClick}
+                  onClose={handleDropDownClose}
                 />
               )}
               {isLogOutModalOpen && (
