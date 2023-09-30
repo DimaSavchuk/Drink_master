@@ -25,6 +25,7 @@ import {
   selectIsLoadingUser,
   selectIsRefreshing,
 } from './redux/auth/authSelectors';
+
 import { Loading } from './components/Loading/loading';
 import { useEffect } from 'react';
 import { fetchCurrentUser } from './redux/auth/authOperations';

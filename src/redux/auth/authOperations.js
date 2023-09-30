@@ -3,6 +3,7 @@ import axios from 'axios';
 // import { allusion } from '../../../src/api/allusion';
 
 axios.defaults.baseURL = 'https://rest-api-drink-master.onrender.com/api';
+// axios.defaults.baseURL = 'https://rest-api-drink-master.onrender.com/api';
 
 const setToken = (token) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
