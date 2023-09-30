@@ -6,6 +6,7 @@ import {
   Text,
   Wrapper,
   StyledLink,
+  StyledLinkActive,
 } from './StartPage.styled';
 
 const StartPage = () => {
@@ -21,7 +22,7 @@ const StartPage = () => {
           retrieve your own recipes at any time.
         </Text>
         <Wrapper>
-          <StyledLink to="/registration">Sign Up</StyledLink>
+          <StyledLinkActive to="/registration">Sign Up</StyledLinkActive>
           <StyledLink to="/login"> Sign In</StyledLink>
         </Wrapper>
       </Container>

@@ -37,7 +37,7 @@ export const DatePickerContainer = styled.div`
     display: block;
   }
 
-   .unfilled {
+  .unfilled {
     outline: 1px solid rgba(243, 243, 243, 0.2);
   }
 
@@ -46,10 +46,6 @@ export const DatePickerContainer = styled.div`
     outline-color: #3cbc81;
   }
 
-  input.invalid,
-  input[type='text'].invalid {
-    outline-color: #da1414;
-  }
   input.invalid,
   input[type='text'].invalid {
     outline-color: #da1414;
@@ -152,6 +148,16 @@ export const CorrectText = styled.span`
 `;
 
 export const ErrorMessage = styled(FormikError)`
+  padding-top: 8px;
+  color: #da1414;
+  padding-left: 25px;
+  font-size: 12px;
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
+`;
+export const Error = styled.p`
   padding-top: 8px;
   color: #da1414;
   padding-left: 25px;
