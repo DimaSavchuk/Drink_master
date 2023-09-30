@@ -51,7 +51,7 @@ export const AddFileButton = styled.div`
     align-items: center;
 
     border-radius: 8px;
-    background-color: #161f3780;
+    background-color: var(--add-drink-form-background-color);
 
     cursor: pointer;
   }

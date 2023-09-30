@@ -68,6 +68,7 @@ function App() {
         />
 
         <Route path={ROUTES.HOME} element={<SharedLayout />}>
+
           <Route
             index
             element={

@@ -61,9 +61,7 @@ const AddDrinkIngredients = ({ ingredientsList }) => {
                             </option>
                           ))}
                       </Field>
-                      <span style={{ color: '#fff' }}>
-                        {<FiChevronDown size={18} />}
-                      </span>
+                      <span>{<FiChevronDown size={18} />}</span>
                     </FieldSelect>
                     <Field
                       name={`ingredients.${index}.volume`}

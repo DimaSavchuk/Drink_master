@@ -31,7 +31,7 @@ export const Container = styled.div`
   h2,
   h3,
   h4 {
-    color: #f3f3f3;
+    color: var(--text-color);
   }
 
   & > div {
