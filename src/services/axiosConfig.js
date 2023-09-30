@@ -159,7 +159,7 @@ export const ownDrink = async (data) => {
   formData.append('cocktail', data.file);
   formData.append('drink', data.title);
   formData.append('category', data.category);
-  formData.append('alcoholic', 'Alcoholic');
+  formData.append('alcoholic', data.alcoholicType);
   formData.append('glass', data.glass);
   formData.append('description', data.recipe);
   formData.append('instructions', data.recipePreparation);

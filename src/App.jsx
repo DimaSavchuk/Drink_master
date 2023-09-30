@@ -68,15 +68,6 @@ function App() {
         />
 
         <Route path={ROUTES.HOME} element={<SharedLayout />}>
-          {/* <Route index element={<HomePage />} />
-          <Route path={ROUTES.DRINKS} element={<DrinksPages />} />
-          <Route path={ROUTES.ABOUTDRINK} element={<AboutDrinkPages />} />
-          <Route path={ROUTES.ADDDRINK} element={<AddDrink />} />
-          <Route path={ROUTES.MYDRINKS} element={<MyDrinksPages />} />
-          <Route path={ROUTES.FAVORITE} element={<FavoritesPages />} /> */}
-
-          {/* Приватні роути */}
-
           <Route
             index
             element={
@@ -147,15 +138,6 @@ function App() {
             }
           />
 
-          {/* Тимчасові роути */}
-
-          {/* <Route path="/dropdown" element={<DropDown />}>
-            <Route path="profile" element={<UserProfile />} />
-            <Route path="logout" element={<LogOut />} />
-          </Route> */}
-
-          {/* <Route path="/dropdown" element={<DropDown />} /> */}
-          {/* Тимчасові роути */}
           <Route path={ROUTES.ERROR} element={<ErrorPage />} />
         </Route>
       </Routes>
