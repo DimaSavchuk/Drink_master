@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { useTheme } from './Hooks/useTheme';
 import SharedLayout from './components/SharedLayout/SharedLayout';
 import StartPage from './pages/WelcomePages/StartPage/StartPage';
@@ -29,8 +29,11 @@ import {
 import { Loading } from './components/Loading/loading';
 import { useEffect } from 'react';
 import { fetchCurrentUser } from './redux/auth/authOperations';
+import { selectRoutePath } from './redux/route/routeSelectors';
 
 function App() {
+  const routeActual = useSelector(selectRoutePath);
+  const navigate = useNavigate();
   const isLoadingUser = useSelector(selectIsLoadingUser);
   const isRefreshing = useSelector(selectIsRefreshing);
   const dispatch = useDispatch();
@@ -38,6 +41,7 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchCurrentUser());
+    navigate(routeActual);
   }, [dispatch]);
 
   return (
@@ -45,7 +49,7 @@ function App() {
       <GlobalStyle />
       <ToastContainer theme="dark" />
       {isLoadingUser && <Loading />}
-      {isRefreshing && <Loading refreshing={isRefreshing} />}
+      {isRefreshing && <Loading refreshing={isRefreshing.toString()} />}
       <Routes>
         <Route path="/start" element={<StartPage />} />
         <Route
