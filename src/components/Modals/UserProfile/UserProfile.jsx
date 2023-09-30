@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 // import { updateUser } from '../../../services/axiosConfig';
 // import Notiflix from 'notiflix';
-import { useLockBodyScroll } from "@uidotdev/usehooks";
+// import { useLockBodyScroll } from "@uidotdev/usehooks";
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../../redux/UserInfo/userSelectors';
 import * as Yup from 'yup';
@@ -34,7 +34,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
-  useLockBodyScroll();
+  // useLockBodyScroll();
 
     const dispatch = useDispatch();
     const user = useSelector(selectUser);

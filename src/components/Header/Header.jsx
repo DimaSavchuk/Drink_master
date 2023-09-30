@@ -17,6 +17,7 @@ import { useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import '../MobileMenu/TransitionStyles.css';
 import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 //drop down
 import { DropDown } from '../Modals/DropDown/DropDown';
@@ -41,6 +42,7 @@ export const Header = () => {
     } else {
       setIsAuthVisible(false);
     }
+    isOpen ? enableBodyScroll(document) : disableBodyScroll(document);
   };
 
   useEffect(() => {
