@@ -2,13 +2,19 @@ import { useState } from "react";
 import { CocktailCard } from "../CocktailCard/CocktailCard"
 import { CommonLink } from "../CommonLink/CommonLink";
 import { CommonContainer } from "../GlobalStyles/CommonContainer.styled";
-import { BtnsWrapper, CategoriesList, CategoryName, CocktailsWrap, PreviewSection} from "./PreviewDrinks.styled";
+import {
+    BtnsWrapper,
+    CategoriesList,
+    CategoryName,
+    CocktailsWrap,
+    PreviewSection
+} from "./PreviewDrinks.styled";
 import { useEffect } from "react";
 import { fetchHomePageCocktails } from "../../services/axiosConfig";
-import { Loader } from "../Loader/Loader";
 import { SeeMoreBtn } from "../SeeMoreBtn/SeeMoreBtn";
 import { nanoid } from "@reduxjs/toolkit";
 import { InfoComponent } from "../InfoComponent/InfoComponent";
+import { Loading } from "../Loading/Loading";
 
 export const PreviewDrinks = ({ numbCocktailsToShow }) => {
     const [isLoading, setIsLoading] = useState(false);
@@ -40,7 +46,7 @@ export const PreviewDrinks = ({ numbCocktailsToShow }) => {
     return (
         <PreviewSection>
             <CommonContainer>
-                {isLoading ? <Loader /> : categories.length>0?
+                {isLoading ? <Loading /> : categories.length>0?
                     <div>
                         <CategoriesList>
                             {categories

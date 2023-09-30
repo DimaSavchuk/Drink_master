@@ -5,12 +5,12 @@ import { CommonContainer } from '../GlobalStyles/CommonContainer.styled';
 import { PageTitle } from '../PageTitle/PageTitle';
 import { Paginator } from '../Paginator/Paginator';
 import { useSearchParams } from 'react-router-dom';
-import { Loader } from '../Loader/Loader';
 import { useSelector } from 'react-redux';
 import { selectCocktails, selectIsLoading, selectTotalCocktails } from '../../redux/drinks/selectors';
 import { InfoComponent } from '../InfoComponent/InfoComponent';
 import { getUrlParams } from '../../helpers/getUrlParams';
 import { CocktailsList, DrinksSection, Wrapper } from './AllDrinksContainer.styled';
+import { Loading } from '../Loading/Loading';
 
 export const AllDrinksContainer = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -91,7 +91,7 @@ export const AllDrinksContainer = () => {
                     shouldRenderBtn={shouldRenderButtonSearch}
                     updPage={setCurrentPage} />
         
-                {isLoading ? <Loader /> : cocktails.length > 0 && !errorReason &&
+                {isLoading ? <Loading /> : cocktails.length > 0 && !errorReason &&
                     (
                         <Wrapper>
                             <CocktailsList>
