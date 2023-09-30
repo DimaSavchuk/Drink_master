@@ -8,25 +8,24 @@ import {
 } from './DropDown.styled';
 import { FiEdit2 } from 'react-icons/fi';
 
-
-export const DropDown = ( { 
-  
-  handleOpenUserInfoModal,
-  handleLogOutModalOpen,
-  // handleCloseLogOutModal, 
-  // handleCloseUserInfo,
-  handleModalClick
- }
-//   {
-//   setEditProfileShow,
-//   setShowDropDown,
-// }
+export const DropDown = (
+  {
+    handleOpenUserInfoModal,
+    handleLogOutModalOpen,
+    // handleCloseLogOutModal,
+    // handleCloseUserInfo,
+    handleModalClick,
+  },
+  //   {
+  //   setEditProfileShow,
+  //   setShowDropDown,
+  // }
 ) => {
   // useLockBodyScroll();
 
   return (
     <ModalWrapper onClick={handleModalClick}>
-      <ModalContent  className="modal-content">
+      <ModalContent className="modal-content">
         <ChangeProfileButton
           onClick={() => {
             handleOpenUserInfoModal();
