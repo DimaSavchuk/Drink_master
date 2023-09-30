@@ -1,16 +1,15 @@
 import { CommonContainer } from '../GlobalStyles/CommonContainer.styled';
-import DrinkCard from '../DrinkCard/DrinkCard';
 import {
   Section,
   Title,
 } from '../FavoritesContainer/FavoritesContainer.styled';
 import { useEffect, useState } from 'react';
 import { CardsContainer } from '../DrinkCard/DrinkCard.styled';
-import { deleteDrinkFromOwn, fetchOwnDrinks } from '../../services/axiosConfig';
 import { useSearchParams } from 'react-router-dom';
 import { Loader } from '../Loader/Loader';
 import { Paginator } from '../Paginator/Paginator';
 import { InfoComponent } from '../InfoComponent/InfoComponent';
+import { checkAndSetPage, countElements, displayedFavoriteCards, fetchOwn, handlePageChange, updLimit } from '../../helpers';
 
 const MyDrinksContainer = () => {
   const [cards, setCards] = useState([]);
@@ -21,40 +20,23 @@ const MyDrinksContainer = () => {
     : 0;
   const [currentPage, setCurrentPage] = useState(page);
   const [limit, setLimit] = useState(null);
-  useState(false);
   const [pageRangeDisplayed, setPageRangeDisplayed] = useState(3);
+  const [showPagination, setShowPagination] = useState(false);
 
+  
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setIsloading(true);
-        const ownDrinks = await fetchOwnDrinks();
-        setCards(ownDrinks);
-        setIsloading(false);
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-    fetchData();
+    fetchOwn(setIsloading, setCards);
   }, []);
 
   const pagesVisited = currentPage * limit;
-
-  const updLimit = () => {
-    if (window.innerWidth >= 1440) {
-      setLimit(9);
-      setPageRangeDisplayed(6);
-    } else if (window.innerWidth >= 768) {
-      setLimit(8);
-    } else {
-      setLimit(8);
-      setPageRangeDisplayed(3);
-    }
-  };
+  updLimit(setLimit, setPageRangeDisplayed);
 
   useEffect(() => {
-    updLimit();
-    window.addEventListener('resize', updLimit);
+      const { newLimit, newPageRangeDisplayed } = updLimit();
+      setLimit(newLimit);
+    setPageRangeDisplayed(newPageRangeDisplayed);
+    
+      window.addEventListener('resize', updLimit);
 
     window.scrollTo({
       top: 0,
@@ -66,25 +48,30 @@ const MyDrinksContainer = () => {
     };
   }, []);
 
-  const handlePageChange = (page) => {
-    setSearchParams({ page: page + 1 });
-    setCurrentPage(page);
-  };
+  useEffect(() => {
+    if (cards.length > limit) {
+      setShowPagination(true);
+    } else {
+      setShowPagination(false);
+    }
+  }, [cards.length, limit]);
 
-  const handleDelete = (_id) => {
-    const updatedCards = cards.filter((card) => card._id !== _id);
-    setCards(updatedCards);
+  const { numberOfElementsOnPage } = countElements(cards, currentPage, limit);
 
-    deleteDrinkFromOwn(_id);
-  };
+  useEffect(() => {
+    checkAndSetPage(
+      numberOfElementsOnPage,
+      currentPage,
+      setSearchParams,
+      setCurrentPage,)
+  }, [numberOfElementsOnPage, currentPage, setSearchParams]);
 
-  const displayedCards = cards
-    .slice(pagesVisited, pagesVisited + limit)
-    .map((card) => (
-      <li key={card._id}>
-        <DrinkCard cardData={card} onDelete={handleDelete} />
-      </li>
-    ));
+    const displayedCards = displayedFavoriteCards(
+      cards,
+      pagesVisited,
+      limit,
+      setCards,
+    );
 
   return (
     <Section>
@@ -96,15 +83,23 @@ const MyDrinksContainer = () => {
           ) : cards.length > 0 ? (
             <>
               <CardsContainer>{displayedCards}</CardsContainer>
-              <Paginator
-                limit={limit}
-                currentPage={currentPage}
-                itemsLength={cards.length}
-                handlePageChange={handlePageChange}
-                pageRangeDisplayed={pageRangeDisplayed}
-              />
+              {showPagination && (
+                <Paginator
+                  limit={limit}
+                  currentPage={currentPage}
+                  itemsLength={cards.length}
+                  handlePageChange={(page) =>
+                    handlePageChange(page, setSearchParams, setCurrentPage)
+                  }
+                  pageRangeDisplayed={pageRangeDisplayed}
+                />
+              )}
             </>
-          ) : <InfoComponent>You haven't added any own cocktails yet</InfoComponent>}
+          ) : (
+            <InfoComponent>
+              You haven't added any own cocktails yet
+            </InfoComponent>
+          )}
         </div>
       </CommonContainer>
     </Section>
