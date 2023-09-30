@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { Hero } from './Hero/Hero';
 import { useEffect } from 'react';
-import cocktails from "./testData.json";
+import cocktails from './testData.json';
 import { PreviewDrinks } from '../../components/PreviewDrinks/PreviewDrinks';
+import { Motivation } from '../../components/Motivation/Motivation.styled';
 
 export const HomePage = () => {
   const [numbCocktailsToShow, setNumbCocktailsToShow] = useState(1);
@@ -20,7 +21,7 @@ export const HomePage = () => {
   useEffect(() => {
     updCocktailsNumb();
     window.addEventListener('resize', updCocktailsNumb);
-    
+
     return () => {
       window.removeEventListener('resize', updCocktailsNumb);
     };
@@ -29,7 +30,10 @@ export const HomePage = () => {
   return (
     <>
       <Hero />
-      <PreviewDrinks items={cocktails} numbCocktailsToShow={numbCocktailsToShow} />
+      <PreviewDrinks
+        items={cocktails}
+        numbCocktailsToShow={numbCocktailsToShow}
+      />
     </>
   );
 };

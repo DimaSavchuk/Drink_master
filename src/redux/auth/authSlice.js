@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { logInUser, logoutUser, signUpUser } from './authOperations';
+import {
+  fetchCurrentUser,
+  logInUser,
+  logoutUser,
+  signUpUser,
+} from './authOperations';
 import {
   getCurrentUserThunk,
   // updateThemeThunk,
@@ -116,6 +121,20 @@ const authSlice = createSlice({
         state.isLoading = false;
         Loading.remove();
       }),
+  // .addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {
+  //   state.user.name = payload.name;
+  //   state.user.email = payload.email;
+
+  //   state.isLoggedIn = true;
+  //   // state.isRefreshing = false;
+  // })
+  // .addCase(fetchCurrentUser.rejected, (state, action) => {
+  //   state.error = action.payload;
+  //   // state.isRefreshing = false;
+  // })
+  // .addCase(fetchCurrentUser.pending, (state) => {
+  //   // state.isRefreshing = true;
+  // }),
 });
 
 export const authReducer = authSlice.reducer;
