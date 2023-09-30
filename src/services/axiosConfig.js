@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// axios.defaults.baseURL = 'https://rest-api-drink-master.onrender.com/api';
-axios.defaults.baseURL = 'http://localhost:3000/api';
+axios.defaults.baseURL = 'https://rest-api-drink-master.onrender.com/api';
+// axios.defaults.baseURL = 'http://localhost:3000/api';
 
 const accessToken =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MTVlYThmZTdhNmM2NDg3NGUyNzZhOSIsImlhdCI6MTY5NTkzNTEzNSwiZXhwIjoxNjk2NjU1MTM1fQ.rHiMVx9ywKaovo7pBhkggGICZ60Z5RIjGnqXyBcSWR0';
