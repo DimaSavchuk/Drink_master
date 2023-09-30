@@ -6,6 +6,7 @@ import {
   Title,
   Wrapper,
   ContentWrapper,
+  Image,
 } from './Hero.styled';
 
 import asrBlueIced from '../../../assets/hero/asr_blue_iced_tea_mobile 1.png';
@@ -27,8 +28,7 @@ export const Hero = () => {
           </ContentWrapper>
           {/* <ImgWrapper> */}
           <picture>
-            <img
-              style={({ margin: '0 auto' }, { width: 360 })}
+            <Image
               src={asrBlueIced}
               srcSet={`${asrBlueIced2x} 2x`}
               alt="coctail"

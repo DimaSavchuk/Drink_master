@@ -11,7 +11,7 @@ export const HeroSection = styled.section`
   }
 
   @media (min-width: 1440px) {
-    padding-top: 269px;
+    padding-top: 212px;
     padding-bottom: 160px;
   }
 `;
@@ -54,6 +54,7 @@ export const Text = styled.p`
 
   @media (min-width: 1440px) {
     margin-bottom: 40px;
+    max-width: 510px;
   }
 `;
 
@@ -101,13 +102,21 @@ export const Wrapper = styled.div`
   @media (min-width: 1440px) {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
   }
 `;
 
 export const ContentWrapper = styled.div`
   @media (min-width: 1440px) {
-    max-width: 715px;
-    margin-top: 57px;
+    max-width: 750px;
+    /* margin-top: 57px; */
+  }
+`;
+
+export const Image = styled.img`
+  width: 198px;
+  margin: 0 auto;
+  @media (min-width: 768px) {
+    width: 359px;
   }
 `;
