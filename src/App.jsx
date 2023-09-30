@@ -20,14 +20,32 @@ import { ROUTES } from './Routes/Routes';
 import { RestrictedRoute } from './Routes/RestrictedRouts';
 import { ToastContainer } from 'react-toastify';
 import { PrivateRoute } from './Routes/PrivateRoute';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  selectIsLoadingUser,
+  selectIsRefreshing,
+} from './redux/auth/authSelectors';
+
+import { Loading } from './components/Loading/loading';
+import { useEffect } from 'react';
+import { fetchCurrentUser } from './redux/auth/authOperations';
 
 function App() {
+  const isLoadingUser = useSelector(selectIsLoadingUser);
+  const isRefreshing = useSelector(selectIsRefreshing);
+  const dispatch = useDispatch();
   useTheme();
+
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
+
   return (
     <AppWrapper>
       <GlobalStyle />
       <ToastContainer theme="dark" />
-
+      {isLoadingUser && <Loading />}
+      {isRefreshing && <Loading refreshing={isRefreshing} />}
       <Routes>
         <Route path="/start" element={<StartPage />} />
         <Route
