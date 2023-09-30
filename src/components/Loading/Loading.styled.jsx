@@ -2,11 +2,13 @@ import styled from 'styled-components';
 
 export const Backdrop = styled.div`
   position: fixed;
+  z-index: 2000;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgb(10, 10, 17, 0.8);
+  background-color: ${(props) =>
+    props.refreshing ? 'rgb(10, 10, 17)' : 'rgb(10, 10, 17,0.5)'};
   backdrop-filter: blur(2px) drop-shadow(4px 4px 10px blue);
 `;
 

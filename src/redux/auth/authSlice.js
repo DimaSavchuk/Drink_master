@@ -18,6 +18,7 @@ const initialState = {
   isLoggedIn: false,
   isfetchingCurrent: false,
   isLoading: false,
+  isRefreshing: false,
   error: null,
 };
 
@@ -120,21 +121,21 @@ const authSlice = createSlice({
         state.error = payload;
         state.isLoading = false;
         Loading.remove();
-      }),
-  // .addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {
-  //   state.user.name = payload.name;
-  //   state.user.email = payload.email;
+      })
+      .addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {
+        state.user.name = payload.user.name;
+        state.user.email = payload.user.email;
 
-  //   state.isLoggedIn = true;
-  //   // state.isRefreshing = false;
-  // })
-  // .addCase(fetchCurrentUser.rejected, (state, action) => {
-  //   state.error = action.payload;
-  //   // state.isRefreshing = false;
-  // })
-  // .addCase(fetchCurrentUser.pending, (state) => {
-  //   // state.isRefreshing = true;
-  // }),
+        state.isLoggedIn = true;
+        state.isRefreshing = false;
+      })
+      .addCase(fetchCurrentUser.rejected, (state, action) => {
+        state.error = action.payload;
+        state.isRefreshing = false;
+      })
+      .addCase(fetchCurrentUser.pending, (state) => {
+        state.isRefreshing = true;
+      }),
 });
 
 export const authReducer = authSlice.reducer;

@@ -1,22 +1,22 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-// import axios from 'axios';
-import { allusion } from '../../../src/api/allusion';
+import axios from 'axios';
+// import { allusion } from '../../../src/api/allusion';
 
-// axios.defaults.baseURL = 'https://rest-api-drink-master.onrender.com/api';
+axios.defaults.baseURL = 'https://rest-api-drink-master.onrender.com/api';
 
 const setToken = (token) => {
-  allusion.defaults.headers.common.Authorization = `Bearer ${token}`;
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
 const clearToken = () => {
-  allusion.defaults.headers.common['Authorization'] = ``;
+  axios.defaults.headers.common['Authorization'] = ``;
 };
 
 export const signUpUser = createAsyncThunk(
   'auth/signup',
   async (credentials, { rejectWithValue }) => {
     try {
-      const { data } = await allusion.post('/auth/signup', credentials);
+      const { data } = await axios.post('/auth/signup', credentials);
       setToken(data.data.token);
       return data;
     } catch ({ response }) {
@@ -30,7 +30,7 @@ export const logInUser = createAsyncThunk(
   'auth/signin',
   async (credentials, { rejectWithValue }) => {
     try {
-      const res = await allusion.post('/auth/signin', credentials);
+      const res = await axios.post('/auth/signin', credentials);
       setToken(res.data.token);
       return res.data;
     } catch ({ response }) {
@@ -42,7 +42,7 @@ export const logInUser = createAsyncThunk(
 
 export const logoutUser = createAsyncThunk('auth/signout', async () => {
   try {
-    const res = await allusion.post('auth/signout');
+    const res = await axios.post('auth/signout');
     clearToken();
     return res.status;
   } catch ({ response }) {
@@ -60,8 +60,9 @@ export const fetchCurrentUser = createAsyncThunk(
     }
     setToken(token);
     try {
-      const { data } = await axios.get('/users/current');
-      console.log(data);
+      const {
+        data: { data },
+      } = await axios.get('/users/current');
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
