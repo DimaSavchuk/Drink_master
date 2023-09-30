@@ -8,7 +8,7 @@ export const UserLogoWrapper = styled.span`
 
   /* border-radius: 32px; */
   /* background-color: #f3f3f3; */
-  
+
   /* background:
     url(<path-to-image>),
     lightgray -11.36px 0px / 157.912% 105.357% no-repeat,
@@ -46,7 +46,7 @@ export const Button = styled.button`
   background-color: transparent;
   border: none;
 
-  color: #f3f3f3;
+  color: var(--button-color);
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
