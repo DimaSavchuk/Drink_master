@@ -7,7 +7,6 @@ export const updateUserThunk = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       let res = null;
-      console.log('NB', data, data.avatarURL);
       if (data.avatarURL) {
         res = await axios.patch(
           'users/update',
