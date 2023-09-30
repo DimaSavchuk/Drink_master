@@ -1,5 +1,5 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useLocation, useParams } from 'react-router-dom';
 
 import {
   Box,
@@ -23,8 +23,17 @@ import {
   deleteDrinkFromFavorite,
 } from '../../services/axiosConfig';
 import { Loader } from '../../components/Loader/Loader';
+import { useDispatch } from 'react-redux';
+import { setSelectedRoute } from '../../redux/route/routeSlice';
 
 const AboutDrinkPages = () => {
+  const location = useLocation();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setSelectedRoute(location.pathname));
+  }, [dispatch]);
+
   const { drinkInfo, userId, isLoading, error, isfavorite, setIsFavorite } =
     useFetchDrinkId();
   // const [isfavorite, setIsFavorite] = useState(favorite);
