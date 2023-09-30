@@ -33,7 +33,8 @@ export const logInUser = createAsyncThunk(
     try {
       const res = await axios.post('/auth/signin', credentials);
       setToken(res.data.token);
-      return res.data;
+      console.log(res.data);
+      return 'LOGIN => ', res.data;
     } catch ({ response }) {
       const { status } = response;
       return rejectWithValue(status);
@@ -64,6 +65,7 @@ export const fetchCurrentUser = createAsyncThunk(
       const {
         data: { data },
       } = await axios.get('/users/current');
+      console.log(data);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

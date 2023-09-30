@@ -9,7 +9,6 @@ import {
 import './TransitionStyles.css';
 import { ROUTES } from '../../Routes/Routes';
 export const MobileMenu = ({ isOpen, onClose }) => {
-  console.log(isOpen);
   //   const nodeRef = useRef(null);
   return (
     <MenuWrapper>

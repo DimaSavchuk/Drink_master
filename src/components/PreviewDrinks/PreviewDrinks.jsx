@@ -17,31 +17,31 @@ import { InfoComponent } from "../InfoComponent/InfoComponent";
 import { Loading } from "../Loading/Loading";
 
 export const PreviewDrinks = ({ numbCocktailsToShow }) => {
-    const [isLoading, setIsLoading] = useState(false);
-    const [categories, setCategories] = useState([]);
-    const [limit, setLimit] = useState(4);
-    const [isShowSeeMoreBtn, setIsShowSeeMoreBtn] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+  const [categories, setCategories] = useState([]);
+  const [limit, setLimit] = useState(4);
+  const [isShowSeeMoreBtn, setIsShowSeeMoreBtn] = useState(true);
 
-    useEffect(() => {
-        const getCocktails = async () => {
-            setIsLoading(true);
-            const resp = await fetchHomePageCocktails();
-            console.log(resp)
-            if (!resp) {
-                setCategories([]);
-                setIsLoading(false);
-                return;
-            } 
-            setCategories(resp);
-            setIsLoading(false);
-        }
-        getCocktails()
-    }, []);
+  useEffect(() => {
+    const getCocktails = async () => {
+      setIsLoading(true);
+      const resp = await fetchHomePageCocktails();
+      if (!resp) {
+        setCategories([]);
+        setIsLoading(false);
+        return;
+      }
+      setCategories(resp);
+      setIsLoading(false);
+    };
+    getCocktails();
+  }, []);
 
-    const handleSeeMoreBtnClick = () => {
-        setLimit(categories.length);
-        setIsShowSeeMoreBtn(false);
-    }
+  const handleSeeMoreBtnClick = () => {
+    setLimit(categories.length);
+    setIsShowSeeMoreBtn(false);
+  };
+
 
     return (
         <PreviewSection>

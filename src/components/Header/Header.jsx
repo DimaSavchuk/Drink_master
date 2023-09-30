@@ -58,12 +58,10 @@ export const Header = () => {
     useState(false);
 
   const openDropDown = () => {
-    console.log('openDropDown');
     setIsEditProfileDropDownOpen(true);
   };
 
   const handleDropDownClose = () => {
-    console.log('handleDropDownClose');
     setIsEditProfileDropDownOpen(false);
   };
 
@@ -71,8 +69,6 @@ export const Header = () => {
   const [isUserInfoOpen, setIsUserInfoOpen] = useState(false);
 
   const openUserInfoModal = () => {
-    console.log('handleOpenUserInfo');
-
     setIsUserInfoOpen(true);
     handleDropDownClose();
 
@@ -82,23 +78,19 @@ export const Header = () => {
   };
 
   const openLogOutModal = () => {
-    console.log('handleLogOutModal');
     setIsLogOutModalOpen(true);
     handleDropDownClose();
   };
 
   const handleCloseLogOutModal = () => {
-    console.log('handleCloseLogOutModal');
     setIsLogOutModalOpen(false);
   };
 
   const handleCloseUserInfo = () => {
-    console.log('handleCloseUserInfo');
     setIsUserInfoOpen(false);
   };
 
   const handleModalClick = (e) => {
-    console.log('handleModalClick');
     if (e.target === e.currentTarget) {
       // setShowDropDown(false);
       handleCloseUserInfo();
@@ -110,7 +102,6 @@ export const Header = () => {
   };
 
   const handleKeyDown = (e) => {
-    console.log("HandleKeyDown");
     if (e.key === 'Escape') {
       handleCloseUserInfo();
       handleCloseLogOutModal();

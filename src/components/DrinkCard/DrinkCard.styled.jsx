@@ -86,7 +86,9 @@ export const DrinkBtnContainer = styled.div`
 export const SeeMoreLink = styled(NavLink)`
   margin-right: 8px;
 
-  display: block;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
   padding: 14px 40px;
   gap: 10px;
   border-radius: 42px;

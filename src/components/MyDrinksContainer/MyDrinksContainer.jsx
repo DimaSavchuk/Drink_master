@@ -1,15 +1,23 @@
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { CommonContainer } from '../GlobalStyles/CommonContainer.styled';
 import {
   Section,
   Title,
 } from '../FavoritesContainer/FavoritesContainer.styled';
-import { useEffect, useState } from 'react';
 import { CardsContainer } from '../DrinkCard/DrinkCard.styled';
-import { useSearchParams } from 'react-router-dom';
-import { Loader } from '../Loader/Loader';
 import { Paginator } from '../Paginator/Paginator';
+import { Loading } from '../Loading/Loading';
+
 import { InfoComponent } from '../InfoComponent/InfoComponent';
-import { checkAndSetPage, countElements, displayedFavoriteCards, fetchOwn, handlePageChange, updLimit } from '../../helpers';
+import {
+  checkAndSetPage,
+  countElements,
+  displayedFavoriteCards,
+  fetchOwn,
+  handlePageChange,
+  updLimit,
+} from '../../helpers';
 
 const MyDrinksContainer = () => {
   const [cards, setCards] = useState([]);
@@ -23,20 +31,18 @@ const MyDrinksContainer = () => {
   const [pageRangeDisplayed, setPageRangeDisplayed] = useState(3);
   const [showPagination, setShowPagination] = useState(false);
 
-  
   useEffect(() => {
     fetchOwn(setIsloading, setCards);
   }, []);
 
   const pagesVisited = currentPage * limit;
-  updLimit(setLimit, setPageRangeDisplayed);
 
   useEffect(() => {
-      const { newLimit, newPageRangeDisplayed } = updLimit();
-      setLimit(newLimit);
+    const { newLimit, newPageRangeDisplayed } = updLimit();
+    setLimit(newLimit);
     setPageRangeDisplayed(newPageRangeDisplayed);
-    
-      window.addEventListener('resize', updLimit);
+
+    window.addEventListener('resize', updLimit);
 
     window.scrollTo({
       top: 0,
@@ -63,15 +69,16 @@ const MyDrinksContainer = () => {
       numberOfElementsOnPage,
       currentPage,
       setSearchParams,
-      setCurrentPage,)
+      setCurrentPage,
+    );
   }, [numberOfElementsOnPage, currentPage, setSearchParams]);
 
-    const displayedCards = displayedFavoriteCards(
-      cards,
-      pagesVisited,
-      limit,
-      setCards,
-    );
+  const displayedCards = displayedFavoriteCards(
+    cards,
+    pagesVisited,
+    limit,
+    setCards,
+  );
 
   return (
     <Section>
@@ -79,7 +86,7 @@ const MyDrinksContainer = () => {
         <div>
           <Title>My drinks</Title>
           {isloading ? (
-            <Loader />
+            <Loading />
           ) : cards.length > 0 ? (
             <>
               <CardsContainer>{displayedCards}</CardsContainer>
