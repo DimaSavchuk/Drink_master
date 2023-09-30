@@ -13,7 +13,7 @@ import { InfoComponent } from '../InfoComponent/InfoComponent';
 import {
   checkAndSetPage,
   countElements,
-  displayedFavoriteCards,
+  displayedOwnCards,
   fetchOwn,
   handlePageChange,
   updLimit,
@@ -73,7 +73,7 @@ const MyDrinksContainer = () => {
     );
   }, [numberOfElementsOnPage, currentPage, setSearchParams]);
 
-  const displayedCards = displayedFavoriteCards(
+  const displayedCards = displayedOwnCards(
     cards,
     pagesVisited,
     limit,
