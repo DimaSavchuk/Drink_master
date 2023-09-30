@@ -13,7 +13,7 @@ export const HeaderContainer = styled.div`
   margin: 0 auto;
 
   @media (min-width: 768px) {
-    /* min-height: 84px; */
+    min-height: 84px;
     max-width: 768px;
     padding: 20px 32px;
   }
@@ -102,7 +102,7 @@ export const Button = styled.button`
 export const IconWrapper = styled.svg`
   width: ${(props) => props.size || '12px'};
   height: ${(props) => props.size || '12px'};
-  fill: var(--link-color);
+  fill: ${(props) => props.color || 'var(--link-color)'};
   stroke: var(--link-color);
   margin-right: ${(props) => props.marginRight || '0'};
   margin-left: ${(props) => props.marginLeft || '0'};

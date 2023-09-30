@@ -2,7 +2,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 // import axios from 'axios';
 import { allusion } from '../../../src/api/allusion';
 
-
 // axios.defaults.baseURL = 'https://rest-api-drink-master.onrender.com/api';
 
 const setToken = (token) => {
@@ -12,7 +11,6 @@ const setToken = (token) => {
 const clearToken = () => {
   allusion.defaults.headers.common['Authorization'] = ``;
 };
-
 
 export const signUpUser = createAsyncThunk(
   'auth/signup',
@@ -35,11 +33,11 @@ export const logInUser = createAsyncThunk(
       const res = await allusion.post('/auth/signin', credentials);
       setToken(res.data.token);
       return res.data;
-    } catch ({response}) {
+    } catch ({ response }) {
       const { status } = response;
       return rejectWithValue(status);
     }
-  }
+  },
 );
 
 export const logoutUser = createAsyncThunk('auth/signout', async () => {
@@ -47,8 +45,26 @@ export const logoutUser = createAsyncThunk('auth/signout', async () => {
     const res = await allusion.post('auth/signout');
     clearToken();
     return res.status;
-  } catch ({response}) {
+  } catch ({ response }) {
     const { status } = response;
     console.log(status);
   }
 });
+
+export const fetchCurrentUser = createAsyncThunk(
+  'auth/fetchCurrentUser',
+  async (_, { rejectWithValue, getState }) => {
+    const token = getState().auth.token;
+    if (token === null) {
+      return rejectWithValue();
+    }
+    setToken(token);
+    try {
+      const { data } = await axios.get('/users/current');
+      console.log(data);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  },
+);
