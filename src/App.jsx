@@ -49,7 +49,7 @@ function App() {
       <GlobalStyle />
       <ToastContainer theme="dark" />
       {isLoadingUser && <Loading />}
-      {isRefreshing && <Loading refreshing={isRefreshing.toString()} />}
+      {isRefreshing && <Loading />}
       <Routes>
         <Route path="/start" element={<StartPage />} />
         <Route
@@ -72,7 +72,6 @@ function App() {
         />
 
         <Route path={ROUTES.HOME} element={<SharedLayout />}>
-
           <Route
             index
             element={

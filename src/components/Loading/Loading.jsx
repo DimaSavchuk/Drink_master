@@ -1,9 +1,9 @@
 import { Backdrop, WrapperForLoader } from './Loading.styled';
 import { Dna } from 'react-loader-spinner';
 
-export const Loading = ({ refreshing }) => {
+export const Loading = () => {
   return (
-    <Backdrop refreshing={refreshing}>
+    <Backdrop>
       <WrapperForLoader>
         <Dna
           visible={true}
