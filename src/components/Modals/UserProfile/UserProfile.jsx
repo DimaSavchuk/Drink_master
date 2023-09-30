@@ -70,7 +70,6 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
     dispatch(updateUserThunk({ name: values.name, avatarURL: selectedAvatar }))
       .unwrap()
       .then((res) => {
-        console.log(res);
         if (res && res.code === 200) {
           toast.success('The user saved successfuly!');
           onClose();
