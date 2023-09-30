@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { useLockBodyScroll } from "@uidotdev/usehooks";
+// import { useLockBodyScroll } from "@uidotdev/usehooks";
 import { logoutUser } from '../../../redux/auth/authOperations';
 import { clearState } from '../../../redux/auth/authSlice';
 
@@ -16,7 +16,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const LogOutModal = ({ onClose, handleModalClick, handleKeyDown }) => {
-  useLockBodyScroll();
+  // useLockBodyScroll();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleLogout = () => {
