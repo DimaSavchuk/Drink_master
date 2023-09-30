@@ -3,7 +3,8 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { signUpUser } from '../../../../redux/auth/authOperations';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
+import Notiflix from 'notiflix';
 import 'react-toastify/dist/ReactToastify.css';
 import { FormFieldInput } from '../FormField';
 import { DatePickerInput } from '../DatePickerInput';
@@ -20,8 +21,8 @@ import {
 const validationSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, 'The name is too short!')
-    .required(' Name is required'),
-  birthDate: Yup.string().required('* Birth date is required'),
+    .required('Name is required'),
+  birthDate: Yup.string().required('Birth date is required'),
   email: Yup.string()
     .email('This is an ERROR e-mail')
     .required('E-mail is required'),
@@ -34,7 +35,9 @@ const validationSchema = Yup.object().shape({
 
 export const SignUpForm = () => {
   const dispatch = useDispatch();
-  const [isDate, setIsDate] = useState(false); // <-- Create a state to store datepicker instance
+  const [isDate, setIsDate] = useState(false); 
+    // const [isError, setIsError] = useState(false);
+
   const [datepickerInstance, setDatepickerInstance] = useState(null);
 
   const handleSubmit = (
@@ -46,14 +49,15 @@ export const SignUpForm = () => {
       .unwrap()
       .then((res) => {
         if (res && res.status === 201) {
-          toast.success('Registration successful');
+          Notiflix.Notify.success('Registration successful');
         }
       })
       .catch((errorStatus) => {
-        if (errorStatus === 409) toast.error('User already exists...');
-        else toast.error('Something went wrong... Try again...');
+        if (errorStatus === 409) Notiflix.Notify.failure('User already exists...');
+        else Notiflix.Notify.failure('Something went wrong... Try again...');
       });
     setIsDate(false);
+    // setIsError(false);
     resetForm();
     datepickerInstance.destroy();
     setFieldValue('birthDate', '');
@@ -72,7 +76,7 @@ export const SignUpForm = () => {
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        {({ isSubmitting, errors, touched }) => (
+        {({ isSubmitting, errors, touched, setFieldError }) => (
           <Form>
             <FormFieldInput
               fieldName="name"
@@ -87,7 +91,10 @@ export const SignUpForm = () => {
               placeholderText={'dd/mm/yyyy'}
               isDate={isDate}
               setIsDate={setIsDate}
+              // isError={isError}
+              // setIsError={setIsError}
               setDatepickerInstance={setDatepickerInstance}
+              setFieldError={setFieldError}
             />
             <FormFieldInput
               fieldName="email"
