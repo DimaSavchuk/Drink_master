@@ -1,5 +1,5 @@
 // import { useState } from 'react';
-import { useLockBodyScroll } from "@uidotdev/usehooks";
+// import { useLockBodyScroll } from "@uidotdev/usehooks";
 import {
   ChangeProfileButton,
   LogOutButton,
@@ -22,7 +22,7 @@ export const DropDown = ( {
 //   setShowDropDown,
 // }
 ) => {
-  useLockBodyScroll();
+  // useLockBodyScroll();
 
   return (
     <ModalWrapper onClick={handleModalClick}>
