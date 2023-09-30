@@ -13,7 +13,7 @@ export const PopDrinksWrapper = styled.div`
     font-size: 16px;
     font-weight: 500;
     line-height: calc(22 / 16);
-    color: #f3f3f3;
+    color: var(--text-color);
   }
 
   ul {
@@ -41,7 +41,7 @@ export const PopDrinksWrapper = styled.div`
     font-size: 14px;
     font-weight: 400;
     line-height: calc(18 / 14);
-    color: #f3f3f380;
+    color: var(--see-more-link-color);
 
     line-clamp: 3;
     box-orient: vertical;
