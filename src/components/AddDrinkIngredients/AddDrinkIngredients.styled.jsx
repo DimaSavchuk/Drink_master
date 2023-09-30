@@ -24,7 +24,7 @@ export const FieldCounter = styled.div`
   justify-content: center;
   align-items: center;
 
-  border: 1px solid #f3f3f380;
+  border: 1px solid var(--see-more-link-color);
   border-radius: 200px;
 
   button {
@@ -34,12 +34,12 @@ export const FieldCounter = styled.div`
     font-size: 16px;
     border: none;
     background: transparent;
-    color: #f3f3f380;
+    color: var(--see-more-link-color);
   }
 
   button:hover,
   button:active {
-    color: #f3f3f3;
+    color: var(--text-color);
   }
 
   span {
@@ -50,7 +50,7 @@ export const FieldCounter = styled.div`
     font-size: 14px;
     line-height: calc(18 / 14);
     text-align: center;
-    color: #f3f3f3;
+    color: var(--text-color);
   }
 `;
 
@@ -69,16 +69,16 @@ export const FieldsWrapper = styled.div`
     margin-right: 8px;
 
     background: transparent;
-    border: 1px solid #f3f3f380;
+    border: 1px solid var(--see-more-link-color);
     border-radius: 200px;
 
     font-size: 14px;
     line-height: calc(18 / 14);
     font-weight: 400;
-    color: #f3f3f3;
+    color: var(--text-color);
 
     &:focus {
-      border: 1px solid #f3f3f3;
+      border: 1px solid var(--text-color);
       outline: none;
     }
   }
@@ -98,12 +98,12 @@ export const FieldsWrapper = styled.div`
     padding: 0;
     border: none;
     background: none;
-    color: #f3f3f380;
+    color: var(--see-more-link-color);
   }
 
   button:hover,
   button:active {
-    color: #f3f3f3;
+    color: var(--text-color);
   }
 `;
 
@@ -117,12 +117,12 @@ export const FieldSelect = styled.div`
     pointer-events: none;
     top: 16px;
     right: 24px;
-    color: #fff;
+    color: var(--text-color);
     /* clip-path: polygon(100% 0%, 0 0%, 50% 100%); */
   }
 
   option {
-    background-color: #161f37;
-    color: #f3f3f366;
+    background-color: var(--button-hover-color);
+    color: var(--see-more-link-color);
   }
 `;

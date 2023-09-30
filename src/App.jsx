@@ -68,12 +68,12 @@ function App() {
         />
 
         <Route path={ROUTES.HOME} element={<SharedLayout />}>
-          {/* <Route index element={<HomePage />} />
+          <Route index element={<HomePage />} />
           <Route path={ROUTES.DRINKS} element={<DrinksPages />} />
           <Route path={ROUTES.ABOUTDRINK} element={<AboutDrinkPages />} />
           <Route path={ROUTES.ADDDRINK} element={<AddDrink />} />
           <Route path={ROUTES.MYDRINKS} element={<MyDrinksPages />} />
-          <Route path={ROUTES.FAVORITE} element={<FavoritesPages />} /> */}
+          <Route path={ROUTES.FAVORITE} element={<FavoritesPages />} />
 
           {/* Приватні роути */}
 

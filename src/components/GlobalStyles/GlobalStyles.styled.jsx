@@ -47,6 +47,8 @@ html {
     --pagination-array-color:rgba(243, 243, 243, 0.30);
     --see-more-link-hover:rgba(250, 250, 250, 0.9);
     --card-hover:rgba(255, 255, 255, 0.5);
+    --footer-background-color: transparent;
+    --add-drink-form-background-color: rgba(22, 31, 55, 0.50);
   }
 
   /* light theme */
@@ -67,6 +69,8 @@ html {
     --pagination-array-color:rgba(10, 10, 17, 0.30);
     --see-more-link-hover:rgba(10, 10, 10, 0.9);
     --card-hover:rgba(10, 10, 10, 0.5);
+    --footer-background-color: #0A0A11;
+    --add-drink-form-background-color: #161F37;
   }
 }
 

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import ellipseLeftFooter from '../../assets/footer/ellipseleft-footer.png';
 import ellipseRightFooter from '../../assets/footer/ellipseright-footer.png';
 export const FooterStyled = styled.footer`
-  /* background-color: #0a0a11; */
+  background-color: var(--footer-background-color);
   padding-top: 40px;
   padding-bottom: 18px;
   border-top: 1px solid rgba(243, 243, 243, 0.2);
