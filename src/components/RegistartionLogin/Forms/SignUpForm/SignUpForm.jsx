@@ -36,7 +36,7 @@ const validationSchema = Yup.object().shape({
 export const SignUpForm = () => {
   const dispatch = useDispatch();
   const [isDate, setIsDate] = useState(false); 
-    // const [isError, setIsError] = useState(false);
+    const [isError, setIsError] = useState(false);
 
   const [datepickerInstance, setDatepickerInstance] = useState(null);
 
@@ -57,7 +57,7 @@ export const SignUpForm = () => {
         else Notiflix.Notify.failure('Something went wrong... Try again...');
       });
     setIsDate(false);
-    // setIsError(false);
+    setIsError(false);
     resetForm();
     datepickerInstance.destroy();
     setFieldValue('birthDate', '');
@@ -91,8 +91,8 @@ export const SignUpForm = () => {
               placeholderText={'dd/mm/yyyy'}
               isDate={isDate}
               setIsDate={setIsDate}
-              // isError={isError}
-              // setIsError={setIsError}
+              isError={isError}
+              setIsError={setIsError}
               setDatepickerInstance={setDatepickerInstance}
               setFieldError={setFieldError}
             />
