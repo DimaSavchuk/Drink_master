@@ -6,7 +6,6 @@ export const HeaderStyled = styled.header`
   position: absolute;
   z-index: 100;
   width: 100%;
-  /* position: relative; */
 `;
 export const HeaderContainer = styled.div`
   padding: 20px;

@@ -5,7 +5,7 @@ import {
   FieldsWrapper,
   IngridientsWrapper,
   TitleWrapper,
-  FieldImput,
+  FieldSelectInput,
 } from './AddDrinkIngredients.styled';
 import { TfiClose, TfiPlus, TfiMinus } from 'react-icons/tfi';
 import { FiChevronDown } from 'react-icons/fi';
@@ -47,7 +47,7 @@ const AddDrinkIngredients = ({ ingredientsList }) => {
                       aria-labelledby="ingridientsSelect-group"
                     >
                       <FieldSelect>
-                        <FieldImput
+                        <FieldSelectInput
                           name={`ingredients.${index}.title`}
                           as="select"
                         >
@@ -63,7 +63,7 @@ const AddDrinkIngredients = ({ ingredientsList }) => {
                                 </option>
                               );
                             })}
-                        </FieldImput>
+                        </FieldSelectInput>
                         <span>{<FiChevronDown size={18} />}</span>
                       </FieldSelect>
                       <Field

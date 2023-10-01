@@ -12,7 +12,6 @@ import asrBlueIced2x from '../../assets/hero/asr_blue_iced_tea_mobile@2x.png';
 const ErrorPage = () => {
   return (
     <Container>
-      {/* <Gradient /> */}
       <CommonContainer>
         <div
           style={{
