@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect,  useRef} from 'react';
 import { useFormikContext } from 'formik';
 import {
   Label,
@@ -7,7 +7,7 @@ import {
   ErrorMessage,
   Calendar,
   CorrectText,
-  // Error
+  Error,
 } from './Fields.styled';
 
 import flatpickr from 'flatpickr';
@@ -21,8 +21,8 @@ export const DatePickerInput = ({
   isDate,
   setIsDate,
   setDatepickerInstance,
-  // setIsError,
-  // isError,
+  setIsError,
+  isError,
 }) => {
   const { setFieldValue } = useFormikContext();
   const datepickerRef = useRef();
@@ -41,28 +41,40 @@ export const DatePickerInput = ({
         altInput.classList.add(dateStr ? 'success' : 'unfilled');
 
         if (touched.birthDate && errors.birthDate) {
-          console.log(touched.birthDate && errors.birthDate);
           altInput.classList.remove('unfilled', 'success');
+          altInput.classList.add('invalid');
+        }
+        if (isError) {
           altInput.classList.add('invalid');
         }
       },
       onChange: function (_, dateStr) {
+        console.log(dateStr);
         setFieldValue('birthDate', dateStr);
         const altInput = this._input;
+
         altInput.classList.remove('invalid', 'success', 'unfilled');
-        altInput.classList.add(dateStr ? 'success' : 'unfilled');
-        dateStr ? setIsDate(true) : setIsDate(false);
+        if (dateStr) {
+          setIsDate(true);
+          setIsError(false);
+          altInput.classList.add('success');
+        } else {
+          setIsDate(false);
+          setIsError(true);
+          altInput.classList.add('unfilled');
+        }
       },
       onClose: function (_, dateStr) {
         const altInput = this._input;
         altInput.classList.remove('invalid', 'success', 'unfilled');
-        altInput.classList.add(dateStr ? 'success' : 'unfilled');
-        if (altInput.value === '') {
+        if (!dateStr) {
           altInput.classList.remove('unfilled', 'success');
           altInput.classList.add('invalid');
+          setIsError(true);
         } else if (touched.birthDate && errors.birthDate) {
           altInput.classList.remove('unfilled', 'success');
           altInput.classList.add('invalid');
+          setIsError(true);
         }
       },
     });
@@ -77,6 +89,8 @@ export const DatePickerInput = ({
     setIsDate,
     errors.birthDate,
     touched.birthDate,
+    setIsError,
+    isError,
   ]);
 
   return (
@@ -91,11 +105,11 @@ export const DatePickerInput = ({
         />
         <Calendar size="20" />
       </FieldWrapper>
-      {isDate && <CorrectText>This is CORRECT date</CorrectText>}
-      {/* {isError && !errors.birthDate && (
-        <Error>Birth date is required</Error>
-      )} */}
-      <ErrorMessage name="birthDate" component="span" />
+      {isDate && !isError && <CorrectText>This is CORRECT date</CorrectText>}
+      {isError && <Error>Birth date is required</Error>}
+      {!isError && !isDate && (
+        <ErrorMessage name="birthDate" component="span" />
+      )}
     </Label>
   );
 };
