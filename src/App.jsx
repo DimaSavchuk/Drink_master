@@ -41,7 +41,7 @@ const { DropDown } = lazy(() =>
 );
 const ErrorPages = lazy(() => import('./pages/ErrorPage/ErrorPage'));
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage/PrivacyPolicyPage'));
-const TermsOfServisePage = lazy(() => import('./pages/TermsOfServisePage/TermsOfServisePage'))
+const TermsOfServicePage = lazy(() => import('./pages/TermsOfServicePage/TermsOfServicePage'))
 
 function App() {
   const routeActual = useSelector(selectRoutePath);
@@ -154,7 +154,7 @@ function App() {
             }
           />
           <Route path={ROUTES.POLICY} element={<PrivacyPolicyPage />} />
-          <Route path={ROUTES.SERVICE} element={<TermsOfServisePage />} />
+          <Route path={ROUTES.SERVICE} element={<TermsOfServicePage />} />
           <Route path={ROUTES.ERROR} element={<ErrorPages />} />
         </Route>
       </Routes>

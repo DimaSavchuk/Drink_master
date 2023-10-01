@@ -5,12 +5,14 @@ import {
   Title,
 } from '../PrivacyPolicyPage/PrivaciPolicy.styled';
 
-const TermsOfServisePage = () => {
+
+const TermsOfServicePage = () => {
+  
   return (
     <Container>
       <CommonContainer>
         <div>
-          <Title>Terms of servise</Title>
+          <Title>Terms of Service</Title>
           <Text>
             This "User Agreement" (the "Agreement") sets forth the terms and
             conditions governing the use of the Drink Master application ("App")
@@ -94,4 +96,4 @@ const TermsOfServisePage = () => {
   );
 };
 
-export default TermsOfServisePage;
+export default TermsOfServicePage;
