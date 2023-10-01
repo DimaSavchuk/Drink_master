@@ -7,8 +7,7 @@ export const Backdrop = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgb(10, 10, 17, 0.8);
-  /* background-color: var(--loader-background-color); */
+  background-color: var(--loader-background-color);
   backdrop-filter: blur(4px);
 `;
 
