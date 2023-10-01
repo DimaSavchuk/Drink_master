@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const ModalWrap = styled.div`
@@ -10,19 +9,9 @@ export const UserLogoWrapper = styled.span`
   width: 32px;
   height: 32px;
 
-  /* border-radius: 32px; */
-  /* background-color: #f3f3f3; */
-
-  /* background:
-    url(<path-to-image>),
-    lightgray -11.36px 0px / 157.912% 105.357% no-repeat,
-    #f3f3f3; */
-
   @media (min-width: 768px) {
     width: 44px;
     height: 44px;
-    /* border-radius: 44px; */
-    /* background-color: white; */
   }
 
   @media (min-width: 1280px) {
