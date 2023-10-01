@@ -47,13 +47,11 @@ const AddDrinkIngredients = ({ ingredientsList }) => {
                       aria-labelledby="ingridientsSelect-group"
                     >
                       <FieldSelect>
-                        <FieldSelectInput
-                          name={`ingredients.${index}.title`}
-                          as="select"
-                        >
+                        <Field name={`ingredients.${index}.title`} as="select">
                           {ingredientsList &&
                             ingredientsList.map((ingredient) => {
                               const { title, _id } = ingredient;
+
                               return (
                                 <option
                                   key={ingredient._id}
@@ -63,7 +61,7 @@ const AddDrinkIngredients = ({ ingredientsList }) => {
                                 </option>
                               );
                             })}
-                        </FieldSelectInput>
+                        </Field>
                         <span>{<FiChevronDown size={18} />}</span>
                       </FieldSelect>
                       <Field

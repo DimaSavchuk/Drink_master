@@ -18,7 +18,6 @@ export const TitleWrapper = styled.div`
 `;
 
 export const FieldCounter = styled.div`
-  /* width: 104px; */
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 16px;
@@ -141,6 +140,50 @@ export const FieldSelect = styled.div`
     right: 24px;
     color: var(--text-color);
     /* clip-path: polygon(100% 0%, 0 0%, 50% 100%); */
+  }
+
+  select {
+    width: 100%;
+
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 18px;
+    padding-right: 36px;
+
+    background: transparent;
+    border: 1px solid var(--see-more-link-color);
+    border-radius: 200px;
+
+    font-size: 14px;
+    line-height: calc(18 / 14);
+    font-weight: 400;
+    color: var(--text-color);
+
+    cursor: pointer;
+    appearance: none;
+
+    &:focus {
+      border: 1px solid var(--text-color);
+      outline: none;
+    }
+
+    &::-webkit-scrollbar {
+      margin-top: 4px;
+      width: 4px;
+      background-color: transparent;
+      height: 50px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--see-more-link-color);
+      border-radius: 4px;
+    }
+    &::-webkit-scrollbar-track-piece {
+      background-color: var(--button-hover-color);
+      margin-top: 18px;
+      margin-bottom: 18px;
+      margin-right: 4px;
+    }
   }
 
   option {
