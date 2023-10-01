@@ -1,4 +1,4 @@
-import{s as r}from"./index-9204f303.js";const a=r.svg`
+import{s as r}from"./index-10cdc6f2.js";const a=r.svg`
     width: 20px;
     height: 20px;
     transition: all .2s ease;
