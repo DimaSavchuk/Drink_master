@@ -1,4 +1,4 @@
-import{s as f,j as o,r as z,m as V,d as R,u as Q,b as Y,c as J,a as K}from"./index-b4cc8346.js";import{g as O,a as tt,d as it}from"./axiosConfig-17d75731.js";const et=f.h1`
+import{s as f,j as o,r as z,m as V,d as R,u as Q,b as Y,c as J,a as K}from"./index-43e16493.js";import{g as O,a as tt,d as it}from"./axiosConfig-d141811f.js";const et=f.h1`
   color: var(--text-color);
   font-size: 32px;
   font-style: normal;
