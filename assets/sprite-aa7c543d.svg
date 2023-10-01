@@ -77,7 +77,10 @@
 
         </symbol>
 
-
+        <symbol id="icon-chevron-down-black" viewBox="0 0 32 32">
+            <path fill="none" stroke="#f3f3f3" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4"
+                stroke-width="2.88" d="M8 20l8-8 8 8"></path>
+        </symbol>
         <symbol id="icon-chevron-down" viewBox="0 0 32 32">
             <path fill="none" stroke="#f3f3f3" style="stroke: var(--text-color)" stroke-linejoin="round"
                 stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.88" d="M8 20l8-8 8 8"></path>
