@@ -1,4 +1,4 @@
-import{s as e,N as s,j as i}from"./index-d210b990.js";import{p as c,a as h}from"./InfoComponent-75840b5e.js";const m=e.div`
+import{s as i,N as d,j as e,D as c}from"./index-9204f303.js";import{p as h,a as l}from"./InfoComponent-cebdadbe.js";const p=i.div`
   width: 100%;
   max-height: 392px;
   transition: border-bottom 700ms linear;
@@ -22,7 +22,7 @@ import{s as e,N as s,j as i}from"./index-d210b990.js";import{p as c,a as h}from"
     width: 400px;
     max-height: 438px;
   }
-`,l=e.img`
+`,m=i.img`
   width: 100%;
   height: 360px;
   border-radius: 8px;
@@ -34,12 +34,12 @@ import{s as e,N as s,j as i}from"./index-d210b990.js";import{p as c,a as h}from"
     width: 400px;
     height: 400px;
   }
-`,x=e.div`
+`,x=i.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 14px;
-`,p=e.p`
+`,w=i.p`
   font-size: 14px;
   font-weight: 500;
   line-height: 1.12;
@@ -49,7 +49,7 @@ import{s as e,N as s,j as i}from"./index-d210b990.js";import{p as c,a as h}from"
     font-size: 17px;
     line-height: 1.33;
   }
-`,w=e(s)`
+`,g=i(d)`
   font-size: 14px;
   font-weight: 500;
   line-height: 1.29;
@@ -66,4 +66,11 @@ import{s as e,N as s,j as i}from"./index-d210b990.js";import{p as c,a as h}from"
     font-size: 16px;
     line-height: 1.12;
   }
-`,k=({data:o})=>{const{_id:r,drink:t,drinkThumb:a}=o,d=()=>window.matchMedia?window.matchMedia("only screen and (min-resolution: 192dpi)").matches:!1;return i.jsxs(m,{children:[i.jsx(l,{src:a,alt:`${t} photo`,loading:"lazy",onError:n=>{n.target.src=d()?c:h}}),i.jsxs(x,{children:[i.jsx(p,{children:t}),i.jsx(w,{to:`/drinks/${r}`,children:"See more"})]})]})};export{k as C};
+`,u=({data:r})=>{const{_id:o,drink:t,drinkThumb:a}=r,s=()=>window.matchMedia?window.matchMedia("only screen and (min-resolution: 192dpi)").matches:!1;return e.jsxs(p,{children:[e.jsx(m,{src:a,alt:`${t} photo`,loading:"lazy",onError:n=>{n.target.src=s()?h:l}}),e.jsxs(x,{children:[e.jsx(w,{children:t}),e.jsx(g,{to:`/drinks/${o}`,children:"See more"})]})]})},f=i.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 300px;
+  backdrop-filter: blur(4px);
+`,b=()=>e.jsx(f,{children:e.jsx(c,{visible:!0,height:"120",width:"120",ariaLabel:"dna-loading",wrapperStyle:{},wrapperClass:"dna-wrapper"})});export{u as C,b as L};
