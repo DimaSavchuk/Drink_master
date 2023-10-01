@@ -73,10 +73,6 @@ export const Header = () => {
   const openUserInfoModal = () => {
     setIsUserInfoOpen(true);
     handleDropDownClose();
-
-    // setIsChangeProfileOpen(false);
-    // setShowDropDown(false);
-    // setEditProfileShow(true);
   };
 
   const openLogOutModal = () => {
@@ -94,11 +90,9 @@ export const Header = () => {
 
   const handleModalClick = (e) => {
     if (e.target === e.currentTarget) {
-      // setShowDropDown(false);
       handleCloseUserInfo();
       handleCloseLogOutModal();
       handleDropDownClose();
-      // setEditProfileShow(false);
     }
     e.stopPropagation();
   };
@@ -154,8 +148,6 @@ export const Header = () => {
                   handleKeyDown={handleKeyDown}
                 />
               )}
-
-              {/* {isAuthVisible ? <UserLogo /> : null} */}
 
               {isOpen && <ThemeSwitcher />}
 

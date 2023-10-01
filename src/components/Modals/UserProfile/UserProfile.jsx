@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react';
-// import { updateUser } from '../../../services/axiosConfig';
-// import Notiflix from 'notiflix';
 import { useLockBodyScroll } from '@uidotdev/usehooks';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../../redux/UserInfo/userSelectors';
@@ -39,7 +37,6 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
 
-  // const [isOpen, setIsOpen] = useState(true); //eslint-disable-line
   const [selectedAvatar, setSelectedAvatar] = useState(null);
   const [imgURL, setImageURL] = useState('');
 
@@ -108,13 +105,6 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
                 'Name can only contain letters or numbers.',
               ),
           })}
-          // onSubmit={async (values) => {
-          //   console.log('submit');
-          //   const formData = new FormData();
-          //   formData.append('name', values.name);
-          //   formData.append('avatarURL', values.avatarURL);
-          //   //await dispatch(updateUserThunk(formData));
-          // }}
           onSubmit={handleOnSubmit}
         >
           {({ errors, touched, handleChange, setFieldTouched }) => (
@@ -127,7 +117,6 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
                     type="file"
                     id="avatarInput"
                     name="file"
-                    // accept="image/*"
                     onChange={handleAvatarChange}
                   />
                 </label>

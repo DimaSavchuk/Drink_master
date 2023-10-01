@@ -1,5 +1,3 @@
-// import { useState } from 'react';
-// import { useLockBodyScroll } from "@uidotdev/usehooks";
 import {
   ChangeProfileButton,
   LogOutButton,
@@ -14,13 +12,7 @@ export const DropDown = (
     handleLogOutModalOpen,
     handleModalClick,
     onClose,
-    // handleCloseLogOutModal,
-    // handleCloseUserInfo, 
   }) => {
-  //   {
-  //   setEditProfileShow,
-  //   setShowDropDown,
-  // }
   return (
     <ModalWrapper onClick={handleModalClick} onClose={onClose}>
       <ModalContent className="modal-content">
