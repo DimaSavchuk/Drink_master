@@ -1,4 +1,4 @@
-import{s as n,L as x,j as i,C as l,N as k,r as o,a as f,n as v,u as b,b as w,c as j}from"./index-c618a562.js";import{a as y,b as Q,I as T}from"./InfoComponent-b0f5a2ef.js";import{C}from"./CocktailCard-fd623edd.js";import{f as S}from"./axiosConfig-245658d0.js";const z=n.section`
+import{s as n,L as x,j as i,C as l,N as k,r as o,a as f,n as v,u as b,b as w,c as j}from"./index-1b224412.js";import{a as y,b as Q,I as T}from"./InfoComponent-adbbfe0b.js";import{C}from"./CocktailCard-4cfb8bc2.js";import{f as S}from"./axiosConfig-ac50fd19.js";const z=n.section`
   padding-top: 152px;
   padding-bottom: 112px;
 

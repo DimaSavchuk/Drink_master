@@ -1,4 +1,4 @@
-import{p as e,j as r,C as t}from"./index-c618a562.js";const i=e.section`
+import{p as e,j as r,C as t}from"./index-1b224412.js";const i=e.section`
   padding-top: 200px;
   padding-bottom: 112px;
   background-color: var(--background-color);
