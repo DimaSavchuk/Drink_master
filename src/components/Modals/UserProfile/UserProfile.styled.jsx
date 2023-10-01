@@ -24,6 +24,7 @@ export const ModalWrapper = styled.div`
   padding-top: 150px;
   z-index: 2;
   backdrop-filter: blur(4px);
+  transition: color 300ms linear,background-color 300ms linear;
 `;
 export const ContentWrapper = styled.div`
   background-color: #161F37;
@@ -60,6 +61,8 @@ margin-bottom: 12px;
   font-size: 1.5rem;
   width: 24px;
   height: 24px;
+  transition: color 300ms linear,background-color 300ms linear;
+
   @media screen and (min-width: 768px) {
     width: 32px;
     height: 32px;
@@ -178,15 +181,16 @@ margin-top: 93px;
   width: 100%;
   height: 54px;
   border-radius: 200px;
-  border: 1px solid rgba(243, 243, 243, 0.2);
+  border: 1px solid var(--border-input-color);
   opacity: 0.800000011920929;
   background-color: transparent;
   padding: 18px 24px;
   padding-right: 50px;
-  color: rgba(243, 243, 243, 0.5);
+  color: var(--about-drink-title-color);
   font-size: 14px;
   font-weight: 400;
   line-height: calc(18 / 14);
+  transition: color 300ms linear,background-color 300ms linear;
    @media screen and (min-width: 768px) {
     margin-top: 136px;
     height: 56px;
@@ -198,8 +202,8 @@ margin-top: 93px;
   &:focus,
   &:hover {
     outline: none;
-    color: #f3f3f3;
-    border-color: rgba(243, 243, 243, 0.5);
+    color: var(--button-color);
+    border-color: var(--about-drink-title-color);
     background-color: transparent;
   }
   &.valid-border {
@@ -233,18 +237,18 @@ export const SaveChangeButton = styled.button`
   padding: 18px 90px;
   outline: none;
   border: none;
-  border-color: #434D67;
+  border-color: var(--scroll-color);
   border-radius: 42px;
-  background-color: #F3F3F3;
+  background-color: var(--button-color);
   color: rgba(22, 31, 55, 1);
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 1.29;
-  transition: background-color 0.5s ease;
+  transition: color 300ms linear,background-color 300ms linear;
   &:hover {
-    background-color: #434D67;
-    color: #F3F3F3;
+    background-color: var(--scroll-color);
+    color: var(--button-color);
   }
   @media screen and (min-width: 768px) {
     margin-top: 25px;
@@ -275,7 +279,8 @@ export const StyledMessage = styled.p`
 export const StyledUpdatedCloseButton = styled(CloseButtonIcon)`
   width: 24px;
   height: 24px;
-  fill: #F3F3F3;
+  fill: var(--button-color);
+  transition: fill 300ms linear;
 
   @media screen and (min-width: 768px) {
     width: 32px;
@@ -283,7 +288,7 @@ export const StyledUpdatedCloseButton = styled(CloseButtonIcon)`
   }
 
   &:hover {
-    fill: #434d43;
+    fill: var(--scroll-color);
   }
 `;
 

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 
 export const ModalWrapper = styled.div`
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.8);
   position: fixed;
   top: 0;
   left: 0;
@@ -13,9 +13,10 @@ export const ModalWrapper = styled.div`
   align-items: start;
   padding-top: 150px;
   backdrop-filter: blur(4px);
+  transition: background-color 300ms linear;
 `;
 export const ModalContent = styled.div`
-  background-color: #161F37;
+  background-color: var(--select-list-color);
   border-radius: 8px;
   width: 335px;
   height: 193px;
@@ -46,7 +47,7 @@ margin-bottom: 12px;
   }
 `;
 export const ModalText = styled.h1`
-color: #F3F3F3;
+color: var(--button-color);
 text-align: center;
 font-size: 14px;
 font-style: normal;
@@ -78,16 +79,16 @@ export const LogOutButton = styled.button`
   border-radius: 42px;
   outline: none;
   border: none;
-  background-color: #434D67;
-  color: #f3f3f3;
+  background-color: var(--scroll-color);
+  color: var(--button-color);
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: 1.13;
-  transition: background-color 0.5s ease;
+  transition: color 300ms linear,background-color 300ms linear;
   &:hover {
-    background-color: #f3f3f3;
-    color: #161f37;
+    background-color: var(--button-color);
+    color: var(--select-list-color);
   }
 @media screen and (min-width: 768px) {
     padding: 18px 69px;
