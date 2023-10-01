@@ -148,6 +148,13 @@ export const FieldSelect = styled.div`
     width: 200px;
     background-color: var(--button-hover-color);
     color: var(--see-more-link-color);
+    border-style: none;
+  }
+
+  option:hover,
+  option:selected {
+    background-color: var(--button-hover-color);
+    color: var(--see-more-link-color);
   }
 
   @media screen and (min-width: 768px) {
