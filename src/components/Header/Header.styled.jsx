@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const HeaderStyled = styled.header`
-  border-bottom: 1px solid rgba(243, 243, 243, 0.2);
+  border-bottom: 1px solid var(--border-link-color);
   position: absolute;
   z-index: 100;
   width: 100%;
