@@ -13,7 +13,7 @@ import sprite from '../../assets/sprite.svg';
 import { PagesMenu } from './PagesMenu/PagesMenu';
 import { UserLogo } from './UserLogo/UserLogo';
 import { MobileMenu } from '../MobileMenu/MobileMenu';
-import { useEffect, useRef } from 'react';
+import { useEffect, useCallback } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import '../MobileMenu/TransitionStyles.css';
 import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
@@ -97,20 +97,27 @@ export const Header = () => {
     e.stopPropagation();
   };
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = useCallback((e) => {
     if (e.key === 'Escape') {
       handleCloseUserInfo();
       handleCloseLogOutModal();
       handleDropDownClose();
     }
-  };
+  }, []);
 
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+  
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [handleKeyDown]);
   //drop down
 
   return (
     <>
       <HeaderStyled>
-        <HeaderContainer onKeyDown={handleKeyDown}>
+        <HeaderContainer onClose={handleKeyDown}>
           <Navigation>
             <StyledLink to="/">
               <IconWrapper size={'22px'} size768={'28px'} size1440={'28px'}>
