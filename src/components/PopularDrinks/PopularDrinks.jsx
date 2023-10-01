@@ -1,28 +1,31 @@
 import { useFetchPopularDrinks } from '../../Hooks/useFetchPopularDrinks';
-import tempImg from '../../assets/temp-popular-drink.png';
-import { PopDrinksWrapper } from './PopularDrinks.styled';
+import { PopDrinksWrapper, StyledNavLink } from './PopularDrinks.styled';
 
 const PopularDrinks = () => {
   const { drinksPopular, isLoading, error } = useFetchPopularDrinks();
 
+  const drinks = drinksPopular || [];
   const QUANTITY_INDEX = 3;
 
   return (
     <PopDrinksWrapper>
       <h4>Popular drinks</h4>
-      {isLoading && <div>Loading...</div>}
       {error && <div>error</div>}
-      {drinksPopular && (
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : (
         <ul>
-          {drinksPopular.map(({ drinkThumb, drink, description }, index) => {
+          {drinks.map(({ drinkThumb, drink, description, _id }, index) => {
             if (index <= QUANTITY_INDEX)
               return (
                 <li key={index}>
-                  <img src={drinkThumb} width={90} height={90} />
-                  <div>
-                    <h6>{drink}</h6>
-                    <p>{description}</p>
-                  </div>
+                  <StyledNavLink to={`/drinks/${_id}`}>
+                    <img src={drinkThumb} width={90} height={90} />
+                    <div>
+                      <h6>{drink}</h6>
+                      <p>{description}</p>
+                    </div>
+                  </StyledNavLink>
                 </li>
               );
           })}

@@ -10,8 +10,8 @@ import placeholder from '../../assets/block.jpg';
 import plaseholder2x from '../../assets/block@2x.jpg';
 
 export const CocktailCard = ({ data }) => {
-  const { _id: id, drink: cocktailName, drinkThumb: imgLink} = data;
-  
+  const { _id: id, drink: cocktailName, drinkThumb: imgLink } = data;
+
   const isRetina = () => {
     if (window.matchMedia) {
       const mq = window.matchMedia('only screen and (min-resolution: 192dpi)');

@@ -1,8 +1,9 @@
 import SocialLinks from '../SocialLinks';
+import { Title } from './FollowUs.styled';
 
 const FollowUs = () => (
   <div>
-    <h4>Follow us</h4>
+    <Title>Follow us</Title>
     <SocialLinks />
   </div>
 );
