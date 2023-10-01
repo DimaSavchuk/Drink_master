@@ -1,6 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
+export const ModalWrap = styled.div`
+position: relative;
+`;
+
 export const UserLogoWrapper = styled.span`
   display: block;
   width: 32px;
