@@ -70,9 +70,11 @@ export const Form = styled(FormikForm)`
   display: flex;
   flex-direction: column;
   gap: 14px;
-  width: 335px;
+  width: 85vw;
   margin-bottom: 14px;
-
+  @media (min-width: 375px) {
+    width: 335px;
+  }
   @media (min-width: 768px) {
     width: 400px;
   }
