@@ -1,6 +1,8 @@
 # DRINK-MASTER-Frontend
 
 Клієнтська частина проекту "DRINK-MASTER", яка надає інтерфейс користувача для перегляду та замовлення напоїв.
+![DRINK-MASTER](https://github.com/DimaSavchuk/Drink_master/blob/main/src/img/readme_img/readme.jpg)
+
 
 ## Технічний стек
 ![React](https://img.shields.io/badge/React-%23007ACC.svg?style=for-the-badge&logo=react&logoColor=white)
@@ -18,17 +20,25 @@
 
 ## Основні функції
 - Перегляд доступних напоїв та їх описів.
+  
+![Main-Page](https://github.com/DimaSavchuk/Drink_master/blob/main/src/img/readme_img/readme_1.jpg)
+
+- Світла та темна тема
+  
+![Світла тема](https://github.com/DimaSavchuk/Drink_master/blob/main/src/img/readme_img/readme_3.jpg)
+
 - Додавання напоїв до власної колекції.
+  
 - Можливість створення рецепту власного напою з індивідульно підібраними інгридієнтами.
+  
+![Додавання напою](https://github.com/DimaSavchuk/Drink_master/blob/main/src/img/readme_img/readme_2.jpg)
+
 - Зручний інтерфейс для навігації між сторінками за допомогою React Router.
 
-## Зроблене та майбутні покращення
+## Реалізований функціонал
 - [x] Базовий дизайн та функціонал сторінок.
 - [x] Світла та темна тема.
 - [x] Створення та аутентифікація користувача. 
 - [x] Інтеграція з REST API бекенду для отримання даних про напої та користувача.
 - [x] Реалізований зручний пошук по колекції напоів.
-- [x] Додана можливість створення нових напоїв та їх додавання до ізбраного.
-
-
-![Приклад](/шлях/до/вашої/папки/example.jpg)
+- [x] Додана можливість створення нових напоїв та їх додавання до колекції улюблених напоїв.
