@@ -1,11 +1,19 @@
+import { useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { setSelectedRoute } from '../../redux/route/routeSlice';
 import { CommonContainer } from '../../components/GlobalStyles/CommonContainer.styled';
-import {
-  Container,
- } from './PrivaciPolicy.styled/';
+import { Container } from './PrivaciPolicy.styled/';
 import { Text, Title } from './PrivaciPolicy.styled';
 
-
 const PrivacyPolicyPage = () => {
+  const location = useLocation();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setSelectedRoute(location.pathname));
+  }, [dispatch, location.pathname]);
+
   return (
     <Container>
       <CommonContainer>

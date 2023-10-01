@@ -1,6 +1,5 @@
-// import { CommonContainer } from '../../components/GlobalStyles/CommonContainer.styled';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import FavoritesContainer from '../../components/FavoritesContainer/FavoritesContainer';
 import { useEffect } from 'react';
 import { setSelectedRoute } from '../../redux/route/routeSlice';
@@ -12,7 +11,7 @@ const FavoritesPages = () => {
 
   useEffect(() => {
     dispatch(setSelectedRoute(location.pathname));
-  }, [dispatch]);
+  }, [dispatch, location.pathname]);
 
   return <FavoritesContainer />;
 };

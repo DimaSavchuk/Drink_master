@@ -9,7 +9,7 @@ const MyDrinksPages = () => {
 
   useEffect(() => {
     dispatch(setSelectedRoute(location.pathname));
-  }, [dispatch]);
+  }, [dispatch, location.pathname]);
   return <MyDrinksContainer />;
 };
 
