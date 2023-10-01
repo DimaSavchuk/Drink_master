@@ -61,3 +61,4 @@ export const AppWrapper = styled.div`
       85% 250px;
   }
 `;
+
