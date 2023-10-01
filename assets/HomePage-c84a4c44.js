@@ -1,4 +1,4 @@
-import{s as n,L as x,j as i,C as l,N as k,r as o,a as f,n as v,u as b,b as w,c as j}from"./index-1b224412.js";import{a as y,b as Q,I as T}from"./InfoComponent-adbbfe0b.js";import{C}from"./CocktailCard-4cfb8bc2.js";import{f as S}from"./axiosConfig-ac50fd19.js";const z=n.section`
+import{s as n,L as x,j as i,C as l,N as k,r as o,a as f,n as v,u as b,b as w,c as j}from"./index-9504d94d.js";import{a as y,b as Q}from"./asr_blue_iced_tea_mobile@2x-e4321999.js";import{C as T}from"./CocktailCard-2e458477.js";import{f as C}from"./axiosConfig-c7886a33.js";import{I as S}from"./InfoComponent-734da94d.js";const z=n.section`
   padding-top: 152px;
   padding-bottom: 112px;
 
@@ -214,7 +214,7 @@ import{s as n,L as x,j as i,C as l,N as k,r as o,a as f,n as v,u as b,b as w,c a
         font-size: 16px;
         line-height: 1.12;
     }
-`,Y=({handleClick:t,children:e})=>i.jsx(F,{type:"button",onClick:t,children:e}),_=({numbCocktailsToShow:t})=>{const[e,a]=o.useState(!1),[r,d]=o.useState([]),[p,m]=o.useState(4),[u,h]=o.useState(!0);o.useEffect(()=>{(async()=>{a(!0);const c=await S();if(!c){d([]),a(!1);return}d(c),a(!1)})()},[]);const g=()=>{m(r.length),h(!1)};return i.jsx(O,{children:i.jsx(l,{children:e?i.jsx(f,{}):r.length>0?i.jsxs("div",{children:[i.jsx(A,{children:r.slice(0,p).map(s=>i.jsxs("li",{children:[i.jsx(R,{children:s.category}),i.jsx(U,{children:s.drinks.slice(0,t).map(c=>i.jsx("li",{children:i.jsx(C,{data:c})},c.id))})]},v()))}),i.jsxs($,{children:[u&&i.jsx(Y,{handleClick:g,children:"More categories"}),i.jsx(H,{navigateTo:"/drinks",children:"Other drinks"})]})]}):i.jsx(T,{children:"Some error occured."})})})},q="/Drink_master/assets/motivation-7a7aa611.png";n.div`
+`,Y=({handleClick:t,children:e})=>i.jsx(F,{type:"button",onClick:t,children:e}),_=({numbCocktailsToShow:t})=>{const[e,a]=o.useState(!1),[r,d]=o.useState([]),[p,m]=o.useState(4),[u,h]=o.useState(!0);o.useEffect(()=>{(async()=>{a(!0);const c=await C();if(!c){d([]),a(!1);return}d(c),a(!1)})()},[]);const g=()=>{m(r.length),h(!1)};return i.jsx(O,{children:i.jsx(l,{children:e?i.jsx(f,{}):r.length>0?i.jsxs("div",{children:[i.jsx(A,{children:r.slice(0,p).map(s=>i.jsxs("li",{children:[i.jsx(R,{children:s.category}),i.jsx(U,{children:s.drinks.slice(0,t).map(c=>i.jsx("li",{children:i.jsx(T,{data:c})},c.id))})]},v()))}),i.jsxs($,{children:[u&&i.jsx(Y,{handleClick:g,children:"More categories"}),i.jsx(H,{navigateTo:"/drinks",children:"Other drinks"})]})]}):i.jsx(S,{children:"Some error occured."})})})},q="/Drink_master/assets/motivation-7a7aa611.png";n.div`
   position: absolute;
   width: 500px;
   height: 500px;
@@ -223,4 +223,4 @@ import{s as n,L as x,j as i,C as l,N as k,r as o,a as f,n as v,u as b,b as w,c a
     linear-gradient(0deg, rgba(10, 10, 17, 0.4) 0%, rgba(10, 10, 17, 0.4) 100%),
     url(${q}),
     lightgray -82.157px -396.532px / 143.003% 184.878% no-repeat;
-`;const X=()=>{const t=b(),e=w();o.useEffect(()=>{e(j(t.pathname))},[e]);const[a,r]=o.useState(1),d=()=>{window.innerWidth>=1440?r(3):window.innerWidth>=768?r(2):r(1)};return o.useEffect(()=>(d(),window.addEventListener("resize",d),()=>{window.removeEventListener("resize",d)}),[]),i.jsxs(i.Fragment,{children:[i.jsx(M,{}),i.jsx(_,{items:W,numbCocktailsToShow:a})]})};export{X as default};
+`;const Z=()=>{const t=b(),e=w();o.useEffect(()=>{e(j(t.pathname))},[e]);const[a,r]=o.useState(1),d=()=>{window.innerWidth>=1440?r(3):window.innerWidth>=768?r(2):r(1)};return o.useEffect(()=>(d(),window.addEventListener("resize",d),()=>{window.removeEventListener("resize",d)}),[]),i.jsxs(i.Fragment,{children:[i.jsx(M,{}),i.jsx(_,{items:W,numbCocktailsToShow:a})]})};export{Z as default};

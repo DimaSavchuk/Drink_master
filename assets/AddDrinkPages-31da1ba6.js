@@ -1,4 +1,4 @@
-import{s as d,G as v,j as e,F as $,m,o as B,r as i,p,q as M,t as G,v as f,w as N,x as q,y as U,n as V,I as w,k,u as O,b as _,c as Q}from"./index-1b224412.js";import{S as Y}from"./SelectOpenArrow-938a93f5.js";import{a as J,b as X,c as H,o as K,d as Z}from"./axiosConfig-ac50fd19.js";const ee=d.div`
+import{s as d,G as v,j as e,F as $,o as m,p as B,r as i,q as p,t as M,v as G,w as f,x as N,y as q,z as U,n as V,I as w,k,u as O,b as _,c as Q}from"./index-9504d94d.js";import{S as Y}from"./SelectOpenArrow-bfe0b090.js";import{b as J,c as X,e as H,o as K,h as Z}from"./axiosConfig-c7886a33.js";const ee=d.div`
   max-width: 375px;
   padding-top: 152px;
   padding-left: 20px;
@@ -481,13 +481,13 @@ import{s as d,G as v,j as e,F as $,m,o as B,r as i,p,q as M,t as G,v as f,w as N
       margin-right: 32px;
     }
   }
-`,Se=p.div`
+`,ze=p.div`
   width: 100%;
 
   & > div:nth-last-of-type(2) {
     margin-bottom: 40px;
   }
-`,z=p.label`
+`,S=p.label`
   position: absolute;
   top: 0;
   left: 0;
@@ -586,7 +586,7 @@ import{s as d,G as v,j as e,F as $,m,o as B,r as i,p,q as M,t as G,v as f,w as N
   &:checked::before {
     transform: scale(1);
   }
-`,ze=p.div`
+`,Se=p.div`
   display: flex;
 
   div {
@@ -597,7 +597,7 @@ import{s as d,G as v,j as e,F as $,m,o as B,r as i,p,q as M,t as G,v as f,w as N
   input:checked ~ label {
     color: var(--text-color);
   }
-`,S=p.div`
+`,z=p.div`
   margin-top: 4px;
 
   display: block;
@@ -607,7 +607,7 @@ import{s as d,G as v,j as e,F as $,m,o as B,r as i,p,q as M,t as G,v as f,w as N
   line-height: calc(14 / 12);
   color: #da1414;
   text-align: right;
-`,A=({items:t,title:r,error:n})=>{const[o,l]=i.useState(!1),[s,a]=i.useState(""),[x,c]=i.useState(""),u=i.useRef(),b=i.useRef(),j=i.useRef(),E=r.toLowerCase(),T=h=>t.filter(g=>g.toLowerCase().includes(h.toLowerCase())),[,,{setValue:P}]=M({name:E}),R=()=>{l(h=>!h)},W=h=>{a(h),R(),P(h),c("")};return i.useEffect(()=>{b&&(c(""),o&&b.current&&b.current.focus())},[o]),i.useEffect(()=>{const h=g=>{u.current&&u.current.contains(g.target)&&l(!0),j.current&&!j.current.contains(g.target)&&l(!1)};return window.addEventListener("click",h),()=>{window.removeEventListener("click",h)}}),e.jsxs(je,{children:[e.jsxs(me,{type:"button",ref:u,children:[e.jsx(be,{children:r}),t&&e.jsxs("div",{style:{display:"flex"},children:[e.jsx("span",{children:s||""}),e.jsx(Y,{isOpen:o})]})]}),o&&t&&e.jsx(e.Fragment,{children:e.jsxs(ve,{ref:j,children:[t.length>20&&e.jsx(ke,{ref:b,type:"text",name:`${r}Filter`,placeholder:"Search...",onChange:h=>c(h.target.value)}),T(x).map((h,g)=>e.jsx(we,{onClick:()=>W(h),children:h},g))]})}),n?e.jsx(S,{children:n}):null]})},Fe=({categoriesList:t,glassesList:r,setValue:n,errors:o})=>e.jsxs(ye,{children:[e.jsx(fe,{setValue:n}),e.jsxs(Se,{children:[e.jsxs(F,{children:[e.jsx(z,{htmlFor:"title",children:"Enter item title"}),e.jsx(I,{name:"title",placeholder:"Enter item title"}),o.title?e.jsx(S,{children:o.title}):null]}),e.jsxs(F,{children:[e.jsx(z,{htmlFor:"recipe",children:"Enter about recipe"}),e.jsx(I,{name:"recipe",placeholder:"Enter about recipe"}),o.recipe?e.jsx(S,{children:o.recipe}):null]}),e.jsx(A,{items:t,title:"Category",error:o.category}),e.jsx(A,{items:r,title:"Glass",error:o.glass}),e.jsxs(ze,{role:"cocktailTypeSelect","aria-labelledby":"cocktailTypeSelect-group",children:[e.jsxs("div",{children:[e.jsx(D,{type:"radio",name:"alcoholicType",id:"radioAlco",value:"Alcoholic"}),e.jsx(C,{htmlFor:"radioAlco",children:"Alcoholic"})]}),e.jsxs("div",{children:[e.jsx(D,{type:"radio",name:"alcoholicType",id:"radioNonAlco",value:"Non-alcoholic"}),e.jsx(C,{htmlFor:"radioNonAlco",children:"Non-alcoholic"})]})]})]})]}),Ie=d(m)`
+`,A=({items:t,title:r,error:n})=>{const[o,l]=i.useState(!1),[s,a]=i.useState(""),[x,c]=i.useState(""),u=i.useRef(),b=i.useRef(),j=i.useRef(),E=r.toLowerCase(),T=h=>t.filter(g=>g.toLowerCase().includes(h.toLowerCase())),[,,{setValue:P}]=M({name:E}),R=()=>{l(h=>!h)},W=h=>{a(h),R(),P(h),c("")};return i.useEffect(()=>{b&&(c(""),o&&b.current&&b.current.focus())},[o]),i.useEffect(()=>{const h=g=>{u.current&&u.current.contains(g.target)&&l(!0),j.current&&!j.current.contains(g.target)&&l(!1)};return window.addEventListener("click",h),()=>{window.removeEventListener("click",h)}}),e.jsxs(je,{children:[e.jsxs(me,{type:"button",ref:u,children:[e.jsx(be,{children:r}),t&&e.jsxs("div",{style:{display:"flex"},children:[e.jsx("span",{children:s||""}),e.jsx(Y,{isOpen:o})]})]}),o&&t&&e.jsx(e.Fragment,{children:e.jsxs(ve,{ref:j,children:[t.length>20&&e.jsx(ke,{ref:b,type:"text",name:`${r}Filter`,placeholder:"Search...",onChange:h=>c(h.target.value)}),T(x).map((h,g)=>e.jsx(we,{onClick:()=>W(h),children:h},g))]})}),n?e.jsx(z,{children:n}):null]})},Fe=({categoriesList:t,glassesList:r,setValue:n,errors:o})=>e.jsxs(ye,{children:[e.jsx(fe,{setValue:n}),e.jsxs(ze,{children:[e.jsxs(F,{children:[e.jsx(S,{htmlFor:"title",children:"Enter item title"}),e.jsx(I,{name:"title",placeholder:"Enter item title"}),o.title?e.jsx(z,{children:o.title}):null]}),e.jsxs(F,{children:[e.jsx(S,{htmlFor:"recipe",children:"Enter about recipe"}),e.jsx(I,{name:"recipe",placeholder:"Enter about recipe"}),o.recipe?e.jsx(z,{children:o.recipe}):null]}),e.jsx(A,{items:t,title:"Category",error:o.category}),e.jsx(A,{items:r,title:"Glass",error:o.glass}),e.jsxs(Se,{role:"cocktailTypeSelect","aria-labelledby":"cocktailTypeSelect-group",children:[e.jsxs("div",{children:[e.jsx(D,{type:"radio",name:"alcoholicType",id:"radioAlco",value:"Alcoholic"}),e.jsx(C,{htmlFor:"radioAlco",children:"Alcoholic"})]}),e.jsxs("div",{children:[e.jsx(D,{type:"radio",name:"alcoholicType",id:"radioNonAlco",value:"Non-alcoholic"}),e.jsx(C,{htmlFor:"radioNonAlco",children:"Non-alcoholic"})]})]})]})]}),Ie=d(m)`
   /* display: block; */
   width: 100%;
   height: 184px;
