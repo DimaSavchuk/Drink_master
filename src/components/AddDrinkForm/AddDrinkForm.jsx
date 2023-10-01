@@ -16,7 +16,7 @@ const validationSchema = yup.object({
   category: yup.string().required('must have more than 1 item'),
   glass: yup.string().required('must have more than 1 item'),
   alcoholicType: yup.string().required('choose alcoholic type drink'),
-  ingredients: yup.array().length(1, 'must have more than 1 item').required(),
+  // ingredients: yup.array().length(1, 'must have more than 1 item').required(),
   // file: '',
   // recipePreparation: yup.string().trim().required('enter about a recipe'),
 });
