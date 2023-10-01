@@ -152,38 +152,6 @@ export const Header = () => {
               {isOpen && <ThemeSwitcher />}
 
               <Button onClick={handleToggleMenu}>
-                {/* {isOpen ? (
-                  <IconWrapper
-                    className={isOpen ? 'icon-wrapper active' : 'icon-wrapper'}
-                    size={'32px'}
-                    size768={'38px'}
-                    // visible={isOpen.toString()}
-                  >
-                    <use href={`${sprite}#icon-x`} />
-                  </IconWrapper>
-                ) : (
-                  <IconWrapper
-                    className={isOpen ? 'icon-wrapper' : 'icon-wrapper active'}
-                    size={'32px'}
-                    size768={'38px'}
-                    // visible={true}
-                  >
-                    <use
-                      href={`${sprite}#icon-burger-menu
-                      `}
-                    />
-                  </IconWrapper>
-                )} */}
-                {/* 
-                <IconWrapper
-                  className={isOpen ? 'icon-wrapper active' : 'icon-wrapper'}
-                  size={'32px'}
-                  size768={'38px'}
-                >
-                  <use
-                    href={`${sprite}#${isOpen ? 'icon-x' : 'icon-burger-menu'}`}
-                  />
-                </IconWrapper> */}
                 <IconWrapper
                   className={isOpen ? 'icon-wrapper active' : 'icon-wrapper'}
                   size={'32px'}

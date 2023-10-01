@@ -3,6 +3,10 @@ import { Field } from 'formik';
 
 export const IngridientsWrapper = styled.div`
   margin-bottom: 80px;
+
+  @media screen and (min-width: 1440px) {
+    max-width: 540px;
+  }
 `;
 
 export const TitleWrapper = styled.div`
@@ -60,7 +64,6 @@ export const FieldsWrapper = styled.div`
 
   margin-bottom: 18px;
 
-  select,
   input {
     padding-top: 16px;
     padding-bottom: 16px;
@@ -83,11 +86,6 @@ export const FieldsWrapper = styled.div`
     }
   }
 
-  select {
-    appearance: none;
-    cursor: pointer;
-  }
-
   input {
     width: 100px;
   }
@@ -104,10 +102,35 @@ export const FieldsWrapper = styled.div`
   button:active {
     color: var(--text-color);
   }
+
+  @media screen and (min-width: 768px) {
+    input {
+      flex-basis: 20%;
+      width: 100%;
+    }
+
+    button {
+      margin-left: auto;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    input {
+      flex-basis: 28%;
+    }
+  }
 `;
 
 export const FieldSelect = styled.div`
   position: relative;
+  /* border-radius: 12px; */
+  /* border: none; */
+  margin-right: 8px;
+
+  &:focus {
+    border: 1px solid var(--text-color);
+    outline: none;
+  }
 
   span {
     /* content: ''; */
@@ -125,17 +148,65 @@ export const FieldSelect = styled.div`
     width: 200px;
     background-color: var(--button-hover-color);
     color: var(--see-more-link-color);
+    border-style: none;
   }
-`;
 
-export const FieldImput = styled(Field)`
-  width: 200px;
+  option:hover,
+  option:selected {
+    background-color: var(--button-hover-color);
+    color: var(--see-more-link-color);
+  }
 
   @media screen and (min-width: 768px) {
-    width: 320px;
+    flex-basis: 47%;
+    margin-right: 14px;
   }
 
   @media screen and (min-width: 1440px) {
-    width: 320px;
+    flex-basis: 58%;
+  }
+`;
+
+export const FieldSelectInput = styled(Field)`
+  width: 100%;
+
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 18px;
+  padding-right: 36px;
+
+  background: transparent;
+  border: 1px solid var(--see-more-link-color);
+  border-radius: 200px;
+
+  font-size: 14px;
+  line-height: calc(18 / 14);
+  font-weight: 400;
+  color: var(--text-color);
+
+  cursor: pointer;
+  appearance: none;
+
+  &:focus {
+    border: 1px solid var(--text-color);
+    outline: none;
+  }
+
+  &::-webkit-scrollbar {
+    margin-top: 4px;
+    width: 4px;
+    background-color: transparent;
+    height: 50px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--see-more-link-color);
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-track-piece {
+    background-color: var(--button-hover-color);
+    margin-top: 18px;
+    margin-bottom: 18px;
+    margin-right: 4px;
   }
 `;
