@@ -6,11 +6,11 @@ import { Footer } from '../Footer/Footer';
 const SharedLayout = () => {
   return (
     <>
-      <Header />
       <Suspense fallback={null}>
+        <Header />
         <Outlet />
+        <Footer />
       </Suspense>
-      <Footer />
     </>
   );
 };
