@@ -1,35 +1,45 @@
+import { lazy, useEffect } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
+
 import { useTheme } from './Hooks/useTheme';
-import SharedLayout from './components/SharedLayout/SharedLayout';
-import StartPage from './pages/WelcomePages/StartPage/StartPage';
-import RegistrationPage from './pages/WelcomePages/RegistrationPage/RegistrationPage';
-import SignInPage from './pages/WelcomePages/SignInPage/SignInPage';
-import DrinksPages from './pages/DrinksPages/DrinksPages';
-import FavoritesPages from './pages/FavoritesPages/FavoritesPages';
-import MyDrinksPages from './pages/MyDrinksPages/MyDrinksPages';
-import ErrorPage from './pages/ErrorPage/ErrorPage';
 
 import { AppWrapper } from './App.styled';
 import { GlobalStyle } from './components/GlobalStyles/GlobalStyles.styled';
-import { HomePage } from './pages/HomePage/HomePage';
-import AddDrink from './pages/AddDrinkPages/AddDrinkPages';
-import AboutDrinkPages from './pages/AboutDrinkPages/AboutDrinkPages';
 
-import { DropDown } from './components/Modals/DropDown/DropDown';
 import { ROUTES } from './Routes/Routes';
 import { RestrictedRoute } from './Routes/RestrictedRouts';
-import { ToastContainer } from 'react-toastify';
 import { PrivateRoute } from './Routes/PrivateRoute';
-import { useDispatch, useSelector } from 'react-redux';
+
 import {
   selectIsLoadingUser,
   selectIsRefreshing,
 } from './redux/auth/authSelectors';
-
-import { Loading } from './components/Loading/Loading';
-import { useEffect } from 'react';
 import { fetchCurrentUser } from './redux/auth/authOperations';
 import { selectRoutePath } from './redux/route/routeSelectors';
+
+import { Loading } from './components/Loading/Loading';
+
+import SharedLayout from './components/SharedLayout/SharedLayout';
+import StartPage from './pages/WelcomePages/StartPage/StartPage';
+import RegistrationPage from './pages/WelcomePages/RegistrationPage/RegistrationPage';
+import SignInPage from './pages/WelcomePages/SignInPage/SignInPage';
+
+const HomePages = lazy(() => import('./pages/HomePage/HomePage'));
+const DrinksPages = lazy(() => import('./pages/DrinksPages/DrinksPages'));
+const AboutDrinkPages = lazy(() =>
+  import('./pages/AddDrinkPages/AddDrinkPages'),
+);
+const AddDrinkPages = lazy(() => import('./pages/AddDrinkPages/AddDrinkPages'));
+const MyDrinksPages = lazy(() => import('./pages/MyDrinksPages/MyDrinksPages'));
+const FavoritesPages = lazy(() =>
+  import('./pages/FavoritesPages/FavoritesPages'),
+);
+const { DropDown } = lazy(() =>
+  import('./components/Modals/DropDown/DropDown'),
+);
+const ErrorPages = lazy(() => import('./pages/ErrorPage/ErrorPage'));
 
 function App() {
   const routeActual = useSelector(selectRoutePath);
@@ -76,7 +86,7 @@ function App() {
             index
             element={
               <PrivateRoute
-                component={<HomePage />}
+                component={<HomePages />}
                 redirectTo={ROUTES.LOGIN}
               />
             }
@@ -106,7 +116,7 @@ function App() {
             path={ROUTES.ADDDRINK}
             element={
               <PrivateRoute
-                component={<AddDrink />}
+                component={<AddDrinkPages />}
                 redirectTo={ROUTES.LOGIN}
               />
             }
@@ -133,7 +143,7 @@ function App() {
           />
 
           <Route
-            path="/dropdown"
+            path={ROUTES.DROPDOWN}
             element={
               <PrivateRoute
                 component={<DropDown />}
@@ -142,7 +152,7 @@ function App() {
             }
           />
 
-          <Route path={ROUTES.ERROR} element={<ErrorPage />} />
+          <Route path={ROUTES.ERROR} element={<ErrorPages />} />
         </Route>
       </Routes>
     </AppWrapper>
