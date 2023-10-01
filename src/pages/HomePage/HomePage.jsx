@@ -1,10 +1,20 @@
 import { useState } from 'react';
 import { Hero } from './Hero/Hero';
 import { useEffect } from 'react';
-import cocktails from "./testData.json";
+import cocktails from './testData.json';
 import { PreviewDrinks } from '../../components/PreviewDrinks/PreviewDrinks';
+import { Motivation } from '../../components/Motivation/Motivation.styled';
+import { useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setSelectedRoute } from '../../redux/route/routeSlice';
 
 export const HomePage = () => {
+  const location = useLocation();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setSelectedRoute(location.pathname));
+  }, [dispatch]);
   const [numbCocktailsToShow, setNumbCocktailsToShow] = useState(1);
 
   const updCocktailsNumb = () => {
@@ -20,7 +30,7 @@ export const HomePage = () => {
   useEffect(() => {
     updCocktailsNumb();
     window.addEventListener('resize', updCocktailsNumb);
-    
+
     return () => {
       window.removeEventListener('resize', updCocktailsNumb);
     };
@@ -29,7 +39,10 @@ export const HomePage = () => {
   return (
     <>
       <Hero />
-      <PreviewDrinks items={cocktails} numbCocktailsToShow={numbCocktailsToShow} />
+      <PreviewDrinks
+        items={cocktails}
+        numbCocktailsToShow={numbCocktailsToShow}
+      />
     </>
   );
 };

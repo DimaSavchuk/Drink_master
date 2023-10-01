@@ -3,7 +3,7 @@ import { deleteDrinkFromFavorite, deleteDrinkFromOwn } from "../services/axiosCo
 export const handleDeleteFavorite = (_id, cards, setCards) => {
   const updatedCards = cards.filter((card) => card._id !== _id);
   setCards(updatedCards);
-
+  
   deleteDrinkFromFavorite(_id);
 };
 

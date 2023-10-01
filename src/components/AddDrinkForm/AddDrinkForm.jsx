@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Formik, Form } from 'formik';
 import AddDrinkIngredients from '../AddDrinkIngredients';
 import AddDrinkTitle from '../AddDrinkTitle';
@@ -35,7 +34,6 @@ const initialValues = {
 
 const AddDrinkForm = () => {
   const onSubmitForm = (data, action) => {
-    console.log('SUBMIT');
     data.id = nanoid();
     ownDrink(data);
     action.resetForm();
@@ -50,7 +48,7 @@ const AddDrinkForm = () => {
       <h2>Add drink</h2>
       <Formik
         initialValues={initialValues}
-        // validationSchema={validationSchema}
+        validationSchema={validationSchema}
         onSubmit={onSubmitForm}
       >
         {({ setFieldValue, errors }) => (

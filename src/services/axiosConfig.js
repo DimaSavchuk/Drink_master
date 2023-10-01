@@ -1,21 +1,11 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://rest-api-drink-master.onrender.com/api';
+// axios.defaults.baseURL = 'https://rest-api-drink-master.onrender.com/api';
 // axios.defaults.baseURL = 'http://localhost:3000/api';
-
-const accessToken =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MGZmYzVhZjhhMWE4NjA3OTNmNjk4ZCIsImlhdCI6MTY5NTk2NTcxMiwiZXhwIjoxNjk2Njg1NzEyfQ.zBUyYFAmDkX5uPDZAztwGUm-ty7CiVju9FWdCwRiEXQ';
-
-axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
 
 export const fetchFavoriteDrinks = async () => {
   try {
-    const response = await axios.get('/drinks/favorite', {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
+    const response = await axios.get('/drinks/favorite');
     return response.data.data;
   } catch (error) {
     console.error('Помилка при отриманні даних:', error);
@@ -23,12 +13,8 @@ export const fetchFavoriteDrinks = async () => {
 };
 
 export const deleteDrinkFromFavorite = async (_id) => {
-  // console.log(_id);
   try {
     const response = await axios.delete('/drinks/favorite/remove', {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
       data: {
         recipeId: _id,
       },
@@ -40,17 +26,10 @@ export const deleteDrinkFromFavorite = async (_id) => {
 };
 
 export const addDrinkToFavorite = async (_id) => {
-  // console.log(_id);
   try {
-    const response = await axios.post(
-      '/drinks/favorite/add',
-      {
-        recipeId: _id,
-      },
-      {
-        headers: { Authorization: `Bearer ${accessToken}` },
-      },
-    );
+    const response = await axios.post('/drinks/favorite/add', {
+      recipeId: _id,
+    });
     return response.data.data;
   } catch (error) {
     console.error('Помилка при отриманні даних:', error);
@@ -64,30 +43,9 @@ export const getDrinkId = async (drinkId, controller) => {
   return data;
 };
 
-// export const ownDrink = createAsyncThunk(`/drinks/own/add`, async (data) => {
-//   console.log('ВИКЛИК МЕТОДУ');
-//   try {
-//     const response = await axios.post('/drinks/own/add', {
-//       headers: {
-//         Authorization: `Bearer ${accessToken}`,
-//       },
-//       data: {
-//         data,
-//       },
-//     });
-//     return response.data;
-//   } catch (error) {
-//     console.error('Помилка при відправленні даних:', error);
-//   }
-// });
-
 export const fetchOwnDrinks = async () => {
   try {
-    const response = await axios.get('/drinks/own', {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
+    const response = await axios.get('/drinks/own');
     return response.data.data;
   } catch (error) {
     console.error('Помилка при отриманні даних:', error);
@@ -97,9 +55,6 @@ export const fetchOwnDrinks = async () => {
 export const deleteDrinkFromOwn = async (_id) => {
   try {
     const response = await axios.delete('/drinks/own/remove', {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
       data: {
         recipeId: _id,
       },
@@ -194,15 +149,24 @@ export const getCurrentUser = async () => {
 };
 
 export const ownDrink = async (data) => {
-  console.log(data);
+  const ingredients = data.ingredients.map(({ measure, title }) => {
+    const newObj = JSON.parse(title);
+    const newIngObj = {
+      title: newObj.title,
+      ingredientId: newObj._id,
+      measure: measure,
+    };
 
-  const newIngredients = JSON.stringify(data.ingredients);
+    return newIngObj;
+  });
+
+  const newIngredients = JSON.stringify(ingredients);
 
   let formData = new FormData();
   formData.append('cocktail', data.file);
   formData.append('drink', data.title);
   formData.append('category', data.category);
-  formData.append('alcoholic', 'Alcoholic');
+  formData.append('alcoholic', data.alcoholicType);
   formData.append('glass', data.glass);
   formData.append('description', data.recipe);
   formData.append('instructions', data.recipePreparation);
@@ -211,7 +175,6 @@ export const ownDrink = async (data) => {
   axios
     .post('/drinks/own/add', formData, {
       headers: {
-        Authorization: `Bearer ${accessToken}`,
         'Content-Type': 'multipart/form-data',
       },
     })

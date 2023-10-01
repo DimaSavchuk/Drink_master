@@ -13,7 +13,6 @@ export const useFetchPopularDrinks = () => {
       try {
         setIsLoading(true);
         const response = await fetchPopularDrinks('', controller);
-        console.log(response.data);
         setDrinksPopular(response.data);
       } catch (error) {
         setError(error.message);

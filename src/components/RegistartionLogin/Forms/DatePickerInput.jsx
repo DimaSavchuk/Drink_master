@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect,  useRef} from 'react';
 import { useFormikContext } from 'formik';
 import {
   Label,
@@ -109,7 +109,7 @@ export const DatePickerInput = ({
       {isError && <Error>Birth date is required</Error>}
       {!isError && !isDate && (
         <ErrorMessage name="birthDate" component="span" />
-      )}{' '}
+      )}
     </Label>
   );
 };

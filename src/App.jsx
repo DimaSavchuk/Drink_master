@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { useTheme } from './Hooks/useTheme';
 import SharedLayout from './components/SharedLayout/SharedLayout';
 import StartPage from './pages/WelcomePages/StartPage/StartPage';
@@ -20,14 +20,36 @@ import { ROUTES } from './Routes/Routes';
 import { RestrictedRoute } from './Routes/RestrictedRouts';
 import { ToastContainer } from 'react-toastify';
 import { PrivateRoute } from './Routes/PrivateRoute';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  selectIsLoadingUser,
+  selectIsRefreshing,
+} from './redux/auth/authSelectors';
+
+import { Loading } from './components/Loading/Loading';
+import { useEffect } from 'react';
+import { fetchCurrentUser } from './redux/auth/authOperations';
+import { selectRoutePath } from './redux/route/routeSelectors';
 
 function App() {
+  const routeActual = useSelector(selectRoutePath);
+  const navigate = useNavigate();
+  const isLoadingUser = useSelector(selectIsLoadingUser);
+  const isRefreshing = useSelector(selectIsRefreshing);
+  const dispatch = useDispatch();
   useTheme();
+
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+    navigate(routeActual);
+  }, [dispatch]);
+
   return (
     <AppWrapper>
       <GlobalStyle />
       <ToastContainer theme="dark" />
-
+      {isLoadingUser && <Loading />}
+      {isRefreshing && <Loading />}
       <Routes>
         <Route path="/start" element={<StartPage />} />
         <Route
@@ -50,15 +72,6 @@ function App() {
         />
 
         <Route path={ROUTES.HOME} element={<SharedLayout />}>
-          {/* <Route index element={<HomePage />} />
-          <Route path={ROUTES.DRINKS} element={<DrinksPages />} />
-          <Route path={ROUTES.ABOUTDRINK} element={<AboutDrinkPages />} />
-          <Route path={ROUTES.ADDDRINK} element={<AddDrink />} />
-          <Route path={ROUTES.MYDRINKS} element={<MyDrinksPages />} />
-          <Route path={ROUTES.FAVORITE} element={<FavoritesPages />} /> */}
-
-          {/* Приватні роути */}
-
           <Route
             index
             element={
@@ -129,15 +142,6 @@ function App() {
             }
           />
 
-          {/* Тимчасові роути */}
-
-          {/* <Route path="/dropdown" element={<DropDown />}>
-            <Route path="profile" element={<UserProfile />} />
-            <Route path="logout" element={<LogOut />} />
-          </Route> */}
-
-          {/* <Route path="/dropdown" element={<DropDown />} /> */}
-          {/* Тимчасові роути */}
           <Route path={ROUTES.ERROR} element={<ErrorPage />} />
         </Route>
       </Routes>

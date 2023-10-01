@@ -7,10 +7,10 @@ export const FieldTextArea = styled(Field)`
   height: 184px;
   padding: 16px 18px;
 
-  color: #f3f3f3;
+  color: var(--text-color);
 
   background-color: transparent;
-  border: 1px solid #f3f3f380;
+  border: 1px solid var(--see-more-link-color);
   border-radius: 14px;
   outline: transparent;
 
@@ -21,11 +21,11 @@ export const FieldTextArea = styled(Field)`
     250ms ease opacity;
 
   &:focus {
-    border: 1px solid #fff;
+    border: 1px solid var(--text-color);
   }
 
   &::placeholder {
-    color: #f3f3f380;
+    color: var(--see-more-link-color);
     opacity: 1;
   }
 
@@ -53,7 +53,7 @@ export const LabelTextArea = styled.label`
   top: 18px;
   opacity: 0;
 
-  color: #f3f3f380;
+  color: var(--see-more-link-color);
 
   transition: 200ms ease transform 100ms;
 `;

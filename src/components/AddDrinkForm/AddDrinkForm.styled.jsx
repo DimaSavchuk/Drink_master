@@ -13,10 +13,10 @@ export const AddButton = styled.button`
   font-family: inherit;
   font-weight: 600;
   font-size: 14px;
-  color: #161f37;
+  color: var(--button-hover-color);
   line-height: calc(18 / 14);
 
-  background-color: #f3f3f3;
+  background-color: var(--button-color);
   border: none;
   border-radius: 42px;
 
@@ -26,7 +26,7 @@ export const AddButton = styled.button`
 
   &:focus,
   &:hover {
-    color: #f3f3f3;
-    background-color: #161f37;
+    color: var(--button-color);
+    background-color: var(--button-hover-color);
   }
 `;

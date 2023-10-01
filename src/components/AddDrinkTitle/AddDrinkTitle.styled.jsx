@@ -28,7 +28,8 @@ export const LabelStyled = styled.label`
   top: 0;
   left: 0;
 
-  color: #f3f3f380;
+  color: var(--text-color);
+  opacity: 0.5;
 `;
 
 export const FieldWrapper = styled.div`
@@ -43,7 +44,7 @@ export const FieldWrapper = styled.div`
 
   &:hover label,
   &:focus-within label {
-    color: #f3f3f3;
+    color: var(--text-color);
     transition: 200ms ease transform;
   }
 `;
@@ -56,14 +57,14 @@ export const FieldStyled = styled(Field)`
   font-weight: 400;
   line-height: calc(22 / 16);
   text-align: right;
-  color: #f3f3f3;
+  color: var(--text-color);
 
   border-style: none;
-  border-bottom: 1px solid #f3f3f380;
+  border-bottom: 1px solid var(--see-more-link-color);
   background: transparent;
 
   &:focus {
-    border-bottom: 1px solid #f3f3f3;
+    border-bottom: 1px solid var(--text-color);
     outline: transparent;
   }
 
@@ -79,7 +80,7 @@ export const FieldStyled = styled(Field)`
 export const FieldRadioLabel = styled.label`
   margin-left: 4px;
 
-  color: #f3f3f380;
+  color: var(--see-more-link-color);
 
   &:first-of-type {
     margin-right: 14px;
@@ -98,7 +99,7 @@ export const FieldRadio = styled(Field)`
   font: inherit;
   color: currentColor;
 
-  border: 1.5px solid #f3f3f380;
+  border: 1.5px solid var(--see-more-link-color);
   border-radius: 50%;
 
   appearance: none;
@@ -109,11 +110,11 @@ export const FieldRadio = styled(Field)`
   }
 
   &:hover + label {
-    color: #f3f3f3;
+    color: var(--text-color);
   }
 
   &:checked {
-    border: 1.5px solid #fff;
+    border: 1.5px solid var(--text-color);
   }
 
   &::before {
@@ -123,7 +124,7 @@ export const FieldRadio = styled(Field)`
     border-radius: 50%;
     transform: scale(0);
     transition: 120ms transform ease-in-out;
-    background-color: #fff;
+    background-color: var(--text-color);
   }
 
   &:checked::before {
@@ -140,7 +141,7 @@ export const RadioButtonsWrapper = styled.div`
   }
 
   input:checked ~ label {
-    color: #fff;
+    color: var(--text-color);
   }
 `;
 

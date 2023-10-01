@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 // import { updateUser } from '../../../services/axiosConfig';
 // import Notiflix from 'notiflix';
-import { useLockBodyScroll } from "@uidotdev/usehooks";
+import { useLockBodyScroll } from '@uidotdev/usehooks';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../../redux/UserInfo/userSelectors';
 import * as Yup from 'yup';
@@ -36,21 +36,20 @@ import 'react-toastify/dist/ReactToastify.css';
 export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
   useLockBodyScroll();
 
-    const dispatch = useDispatch();
-    const user = useSelector(selectUser);
-    
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
 
   // const [isOpen, setIsOpen] = useState(true); //eslint-disable-line
   const [selectedAvatar, setSelectedAvatar] = useState(null);
   const [imgURL, setImageURL] = useState('');
 
   useEffect(() => {
-    const handleOutsideClick = event => {
-    if (!event.target.closest('.modal-content')) {
+    const handleOutsideClick = (event) => {
+      if (!event.target.closest('.modal-content')) {
         onClose(); // first time close (if modal in update user form)
         onClose(); // second time close if user is on logout + edit selection
-    }
-  };
+      }
+    };
     window.addEventListener('mousedown', handleOutsideClick);
     return () => {
       window.removeEventListener('mousedown', handleOutsideClick);
@@ -68,18 +67,16 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
   };
 
   const handleOnSubmit = async (values) => {
-    dispatch(updateUserThunk({name: values.name, avatarURL: selectedAvatar}))
-    .unwrap()
-    .then(res => {
-      console.log(res);
-      if (res && res.code === 200) {
-        toast.success('The user saved successfuly!');
-        onClose();
+    dispatch(updateUserThunk({ name: values.name, avatarURL: selectedAvatar }))
+      .unwrap()
+      .then((res) => {
+        if (res && res.code === 200) {
+          toast.success('The user saved successfuly!');
+          onClose();
+        } else {
+          toast.error('The user not saved!');
         }
-        else {
-         toast.error('The user not saved!');
-        } 
-    })
+      });
   };
 
   let avatar;
@@ -99,7 +96,7 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
         </CloseButton>
         <StyledForm
           initialValues={{
-            avatarURL:  user.avatarURL || '',
+            avatarURL: user.avatarURL || '',
             name: user.name || '',
           }}
           validationSchema={Yup.object({
@@ -174,4 +171,5 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
         </StyledForm>
       </ContentWrapper>
     </ModalWrapper>
-)};
+  );
+};

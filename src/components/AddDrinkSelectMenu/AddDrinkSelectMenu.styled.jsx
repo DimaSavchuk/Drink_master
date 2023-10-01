@@ -11,21 +11,21 @@ export const CustomSelect = styled.button`
   align-items: center;
 
   text-align: right;
-  color: #f3f3f3;
+  color: var(--text-color);
 
   border-style: none;
-  border-bottom: 1px solid #f3f3f380;
+  border-bottom: 1px solid var(--see-more-link-color);
   background: transparent;
 
   &:focus {
-    border-bottom: 1px solid #f3f3f3;
+    border-bottom: 1px solid var(--text-color);
 
     outline: transparent;
   }
 
   &:focus span,
   &:hover span {
-    color: #f3f3f3;
+    color: var(--text-color);
   }
 
   &::after {
@@ -42,7 +42,7 @@ export const CustomSelect = styled.button`
 `;
 
 export const Label = styled.span`
-  color: #f3f3f380;
+  color: var(--see-more-link-color);
 `;
 
 export const DropMenu = styled.div`
@@ -60,7 +60,7 @@ export const DropMenu = styled.div`
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #f3f3f380;
+    background-color: var(--see-more-link-color);
     border-radius: 4px;
   }
   &::-webkit-scrollbar-track-piece {
@@ -89,10 +89,10 @@ export const DropMenu = styled.div`
 
   font-size: 12;
   line-height: calc(16 / 12);
-  color: #f3f3f380;
+  color: var(--see-more-link-color);
 
   border-radius: 12px;
-  background-color: #161f37;
+  background-color: var(--button-hover-color);
   z-index: 10;
 
   div:not(:last-of-type) {
@@ -101,7 +101,7 @@ export const DropMenu = styled.div`
 
   div:hover,
   div:focus {
-    color: #f3f3f3;
+    color: var(--text-color);
   }
 `;
 
@@ -130,24 +130,24 @@ export const SearchInput = styled.input`
 
   font-size: 12;
   line-height: calc(16 / 12);
-  color: #f3f3f380;
+  color: var(--see-more-link-color);
 
   border-style: none;
 
   /* border-radius: 12px; */
-  background-color: #161f37;
+  background-color: var(--button-hover-color);
   border-bottom: 1px solid #f3f3f311;
 
   /* background: transparent; */
 
   &:focus {
-    color: #f3f3f3;
+    color: var(--text-color);
     /* border-bottom: 1px solid #f3f3f3; */
     outline: transparent;
   }
 
   &::placeholder {
-    color: #f3f3f380;
+    color: var(--see-more-link-color);
   }
 
   &:focus::placeholder {

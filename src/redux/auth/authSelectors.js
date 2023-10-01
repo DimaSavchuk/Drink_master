@@ -8,3 +8,5 @@ export const selectAvatarURL = (state) => state.auth.user.avatarURL;
 export const selectIsLoggedIn = (state) => state.auth.isLoggedIn;
 
 export const selectIsFetchingCurrent = (state) => state.auth.isfetchingCurrent;
+export const selectIsLoadingUser = (state) => state.auth.isLoading;
+export const selectIsRefreshing = (state) => state.auth.isRefreshing;
