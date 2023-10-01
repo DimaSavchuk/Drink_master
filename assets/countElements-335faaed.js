@@ -1,4 +1,4 @@
-import{s as a,N as m,j as r,z as x}from"./index-4c1113fc.js";import{p as h,a as g}from"./InfoComponent-442f9046.js";import{d as w,i as f,j as b,k as u}from"./axiosConfig-5d2b2ec6.js";const E=a.section`
+import{s as a,N as m,j as r,z as x}from"./index-0f129346.js";import{p as h,a as g}from"./InfoComponent-2315f90f.js";import{d as w,i as f,j as b,k as u}from"./axiosConfig-dd5270b3.js";const E=a.section`
   padding: 152px 0;
   @media (min-width: 768px) {
     padding: 224px 0;
