@@ -47,7 +47,7 @@ function App() {
   const routeActual = useSelector(selectRoutePath);
   const navigate = useNavigate();
   const isLoadingUser = useSelector(selectIsLoadingUser);
-  const isRefreshing = useSelector(selectIsRefreshing);
+  // const isRefreshing = useSelector(selectIsRefreshing);
   const dispatch = useDispatch();
   useTheme();
 
@@ -61,7 +61,7 @@ function App() {
       <GlobalStyle />
       <ToastContainer theme="dark" />
       {isLoadingUser && <Loading />}
-      {isRefreshing && <Loading />}
+      {/* {isRefreshing && <Loading />} */}
       <Routes>
         <Route path="/start" element={<StartPage />} />
         <Route
