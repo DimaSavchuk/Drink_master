@@ -284,6 +284,23 @@ export const PolicyText = styled.p`
   }
 `;
 
+export const PolicyLink = styled(Link)`
+  color: rgba(243, 243, 243, 0.5);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.33;
+  letter-spacing: -0.24px;
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+    line-height: 1.28;
+    letter-spacing: -0.28px;
+  }
+
+  @media (min-width: 1440px) {
+  }
+`;
+
 export const PolicyContainer = styled.div`
   display: flex;
   gap: 14px;
