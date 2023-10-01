@@ -29,7 +29,7 @@ import SignInPage from './pages/WelcomePages/SignInPage/SignInPage';
 const HomePages = lazy(() => import('./pages/HomePage/HomePage'));
 const DrinksPages = lazy(() => import('./pages/DrinksPages/DrinksPages'));
 const AboutDrinkPages = lazy(() =>
-  import('./pages/AddDrinkPages/AddDrinkPages'),
+  import('./pages/AboutDrinkPages/AboutDrinkPages'),
 );
 const AddDrinkPages = lazy(() => import('./pages/AddDrinkPages/AddDrinkPages'));
 const MyDrinksPages = lazy(() => import('./pages/MyDrinksPages/MyDrinksPages'));
