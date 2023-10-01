@@ -84,7 +84,6 @@ export const FieldsWrapper = styled.div`
   }
 
   select {
-    width: 200px;
     appearance: none;
     cursor: pointer;
   }
@@ -122,7 +121,21 @@ export const FieldSelect = styled.div`
   }
 
   option {
+    font-size: 14px;
+    width: 200px;
     background-color: var(--button-hover-color);
     color: var(--see-more-link-color);
+  }
+`;
+
+export const FieldImput = styled(Field)`
+  width: 200px;
+
+  @media screen and (min-width: 768px) {
+    width: 320px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 320px;
   }
 `;
