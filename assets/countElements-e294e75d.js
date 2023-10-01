@@ -1,4 +1,4 @@
-import{s as a,N as m,j as r,z as x}from"./index-e54c19b5.js";import{p as h,a as g}from"./InfoComponent-a45d4cc8.js";import{d as w,i as f,j as b,k as u}from"./axiosConfig-4777505d.js";const E=a.section`
+import{s as a,N as m,j as r,B as x}from"./index-91891bef.js";import{p as h,a as g}from"./InfoComponent-288ea0e3.js";import{d as w,i as f,j as b,k as u}from"./axiosConfig-74d832f6.js";const B=a.section`
   padding: 152px 0;
   @media (min-width: 768px) {
     padding: 224px 0;
@@ -6,7 +6,7 @@ import{s as a,N as m,j as r,z as x}from"./index-e54c19b5.js";import{p as h,a as 
   @media (min-width: 1440px) {
     padding-top: 244px;
   }
-`,M=a.h1`
+`,E=a.h1`
   margin-bottom: 40px;
 
   color: var(--link-color);
@@ -36,7 +36,7 @@ import{s as a,N as m,j as r,z as x}from"./index-e54c19b5.js";import{p as h,a as 
   line-height: 1.42;
 `;a.div`
   margin: 0 auto;
-`;const R=a.ul`
+`;const M=a.ul`
   margin-bottom: 40px;
   display: grid;
   grid-row-gap: 40px;
@@ -143,4 +143,4 @@ import{s as a,N as m,j as r,z as x}from"./index-e54c19b5.js";import{p as h,a as 
     background: var(--button-hover-color);
     color: var(--button-color);
   }
-`,W=(t,i,n,o)=>{if(t===0&&(console.log(t),i>0)){const e=i;n({page:e+1}),o(e)}},l=({cardData:t,onDelete:i})=>{const{drink:n,description:o,alcoholic:e,_id:s,drinkThumb:d}=t,p=()=>window.matchMedia?window.matchMedia("only screen and (min-resolution: 192dpi)").matches:!1;return r.jsxs(k,{children:[r.jsx("picture",{children:r.jsx(v,{src:d,alt:"coctail",loading:"lazy",onError:c=>{c.target.src=p()?h:g}})}),r.jsx(y,{children:n}),r.jsx(j,{children:e}),r.jsx(D,{children:o}),r.jsxs(z,{children:[r.jsx(C,{to:`/drinks/${s}`,children:"See more"}),r.jsx(F,{type:"button",id:s,onClick:()=>i(s),children:r.jsx(x,{size:24})})]})]})},O=(t,i,n)=>{const o=i.filter(e=>e._id!==t);n(o),w(t)},S=(t,i,n)=>{const o=i.filter(e=>e._id!==t);n(o),f(t)},_=(t,i,n,o)=>t.slice(i,i+n).map(e=>r.jsx("li",{children:r.jsx(l,{cardData:e,onDelete:s=>O(s,t,o)})},e._id)),q=(t,i,n,o)=>t.slice(i,i+n).map(e=>r.jsx("li",{children:r.jsx(l,{cardData:e,onDelete:s=>S(s,t,o)})},e._id)),B=async(t,i)=>{try{t(!0);const n=await b();i(n),t(!1)}catch(n){console.log(n.message)}},N=async(t,i)=>{try{t(!0);const n=await u();i(n),t(!1)}catch(n){console.log(n.message)}},A=(t,i,n)=>{i({page:t+1}),n(t)},I=()=>{const t=window.innerWidth>=1440?9:(window.innerWidth>=768,8),i=window.innerWidth>=1440?6:3;return{newLimit:t,newPageRangeDisplayed:i}},$=(t,i,n)=>{const o=i*n,e=o+n,s=t.slice(o,e),d=s.length;return{startIndex:o,endIndex:e,elementsOnPage:s,numberOfElementsOnPage:d}};export{R as C,E as S,M as T,W as a,B as b,$ as c,q as d,_ as e,N as f,A as h,I as u};
+`,R=(t,i,n,o)=>{if(t===0&&(console.log(t),i>0)){const e=i;n({page:e+1}),o(e)}},l=({cardData:t,onDelete:i})=>{const{drink:n,description:o,alcoholic:e,_id:s,drinkThumb:d}=t,p=()=>window.matchMedia?window.matchMedia("only screen and (min-resolution: 192dpi)").matches:!1;return r.jsxs(k,{children:[r.jsx("picture",{children:r.jsx(v,{src:d,alt:"coctail",loading:"lazy",onError:c=>{c.target.src=p()?h:g}})}),r.jsx(y,{children:n}),r.jsx(j,{children:e}),r.jsx(D,{children:o}),r.jsxs(z,{children:[r.jsx(C,{to:`/drinks/${s}`,children:"See more"}),r.jsx(F,{type:"button",id:s,onClick:()=>i(s),children:r.jsx(x,{size:24})})]})]})},O=(t,i,n)=>{const o=i.filter(e=>e._id!==t);n(o),w(t)},S=(t,i,n)=>{const o=i.filter(e=>e._id!==t);n(o),f(t)},W=(t,i,n,o)=>t.slice(i,i+n).map(e=>r.jsx("li",{children:r.jsx(l,{cardData:e,onDelete:s=>O(s,t,o)})},e._id)),_=(t,i,n,o)=>t.slice(i,i+n).map(e=>r.jsx("li",{children:r.jsx(l,{cardData:e,onDelete:s=>S(s,t,o)})},e._id)),q=async(t,i)=>{try{t(!0);const n=await b();i(n),t(!1)}catch(n){console.log(n.message)}},N=async(t,i)=>{try{t(!0);const n=await u();i(n),t(!1)}catch(n){console.log(n.message)}},A=(t,i,n)=>{i({page:t+1}),n(t)},I=()=>{const t=window.innerWidth>=1440?9:(window.innerWidth>=768,8),i=window.innerWidth>=1440?6:3;return{newLimit:t,newPageRangeDisplayed:i}},$=(t,i,n)=>{const o=i*n,e=o+n,s=t.slice(o,e),d=s.length;return{startIndex:o,endIndex:e,elementsOnPage:s,numberOfElementsOnPage:d}};export{M as C,B as S,E as T,R as a,q as b,$ as c,_ as d,W as e,N as f,A as h,I as u};

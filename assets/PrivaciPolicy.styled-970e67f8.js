@@ -1,8 +1,7 @@
-import{s as o}from"./index-e54c19b5.js";const i=o.section`
+import{s as t}from"./index-91891bef.js";const i=t.section`
   padding-top: 200px;
   padding-bottom: 112px;
-  background-color: var(--background-color);
-`,n=o.h1`
+`,n=t.h1`
   margin-bottom: 40px;
 
   color: var(--link-color);
@@ -17,9 +16,9 @@ import{s as o}from"./index-e54c19b5.js";const i=o.section`
     margin-bottom: 62px;
     font-size: 64px;
   }
-`,a=o.p`
+`,e=t.p`
   color: var(--text-color);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.42;
-`;export{i as C,n as T,a};
+`;export{i as C,n as T,e as a};
