@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 export const Section = styled.section`
-  padding: 150px 0;
+  padding: 152px 0;
   @media (min-width: 768px) {
-    padding: 140px 0;
+    padding: 224px 0;
   }
   @media (min-width: 1440px) {
-    padding-top: 158px;
+    padding-top: 244px;
   }
 `;
 

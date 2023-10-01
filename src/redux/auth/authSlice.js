@@ -87,23 +87,23 @@ const authSlice = createSlice({
       })
       .addCase(updateUserThunk.pending, (state) => {
         state.isLoading = true;
-        Loading.hourglass('We are validating your data...');
+        // Loading.hourglass('We are validating your data...');
       })
       .addCase(updateUserThunk.fulfilled, (state, action) => {
         console.log(action.payload, state.user);
         state.user.name = action.payload.data.name;
         state.user.avatarURL = action.payload.data.avatarURL;
         state.isLoading = false;
-        Loading.remove();
+        // Loading.remove();
       })
       .addCase(updateUserThunk.rejected, (state, payload) => {
         state.error = payload;
         state.isLoading = false;
-        Loading.remove();
+        // Loading.remove();
       })
       .addCase(getCurrentUserThunk.pending, (state) => {
         state.isLoading = true;
-        Loading.hourglass('We are validating your data...');
+        // Loading.hourglass('We are validating your data...');
       })
       .addCase(getCurrentUserThunk.fulfilled, (state, payload) => {
         state.user = {
@@ -115,12 +115,12 @@ const authSlice = createSlice({
         state.firstRender = false;
         state.theme = payload.theme;
         state.isLoading = false;
-        Loading.remove();
+        // Loading.remove();
       })
       .addCase(getCurrentUserThunk.rejected, (state, payload) => {
         state.error = payload;
         state.isLoading = false;
-        Loading.remove();
+        // Loading.remove();
       })
       .addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {
         state.user.name = payload.user.name;

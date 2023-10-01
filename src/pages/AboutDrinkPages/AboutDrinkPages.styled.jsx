@@ -18,15 +18,15 @@ export const Title = styled.h1`
 
 export const Box = styled.section`
   color: #f3f3f3;
-  padding: 80px 20px 80px 20px;
+  padding: 152px 20px 80px 20px;
   margin-left: auto;
   margin-right: auto;
   @media (min-width: 768px) {
     max-width: 770px;
-    padding: 140px 32px 140px 32px;
+    padding: 224px 32px 140px 32px;
   }
   @media (min-width: 1440px) {
-    padding: 140px 100px 140px 100px;
+    padding: 244px 100px 140px 100px;
     max-width: 1445px;
   }
 `;
@@ -93,6 +93,16 @@ export const ButtonAddFavorite = styled.button`
   background: var(--button-color);
   padding: 14px 40px;
   margin-top: 40px;
+  border: none;
+  transition:
+    color 300ms linear,
+    background-color 300ms linear;
+
+  &:hover,
+  &:focus {
+    color: var(--link-color);
+    background-color: var(--button-hover-color);
+  }
   @media (min-width: 768px) {
     padding: 18px 44px;
     font-size: 16px;

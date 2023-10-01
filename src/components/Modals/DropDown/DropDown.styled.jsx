@@ -3,18 +3,24 @@ import styled from 'styled-components';
 
 export const ModalWrapper = styled.div`
   position: absolute;
-  top: 70px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   padding-right: 20px;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
+  justify-content: flex-end;
   z-index: 2;
+  background-color: transparent;
+  padding-top:75px;
 
   @media screen and (min-width: 375px) {
     
     padding-right: calc(((100w - 375px) / 2) + 20px)
   }
   @media screen and (min-width: 768px) {
-    top: 85px;
+    padding-top: 85px;
     padding-right: calc(((100w - 768px) / 2) + 32px)
   }
 
@@ -26,6 +32,8 @@ export const ModalWrapper = styled.div`
 export const ModalContent = styled.div`
   background-color: #161F37;
   border-radius: 8px;
+  /* width: 177px; */
+  height: 134px;
   padding: 18px;
   display: flex;
   flex-direction: column;
@@ -56,7 +64,12 @@ export const ChangeProfileButton = styled.button`
 `;
 export const LogOutButton = styled.button`
   display: block;
-  padding: 12px 45px;
+  /* top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; */
+  width: 141px;
+  padding: 12px 44px;
   margin-top: 20px; 
   border-radius: 42px;
   outline: none;

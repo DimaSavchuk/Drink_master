@@ -12,19 +12,17 @@ export const DropDown = (
   {
     handleOpenUserInfoModal,
     handleLogOutModalOpen,
-    // handleCloseLogOutModal,
-    // handleCloseUserInfo,
     handleModalClick,
-  },
+    onClose,
+    // handleCloseLogOutModal,
+    // handleCloseUserInfo, 
+  }) => {
   //   {
   //   setEditProfileShow,
   //   setShowDropDown,
   // }
-) => {
-  // useLockBodyScroll();
-
   return (
-    <ModalWrapper onClick={handleModalClick}>
+    <ModalWrapper onClick={handleModalClick} onClose={onClose}>
       <ModalContent className="modal-content">
         <ChangeProfileButton
           onClick={() => {
