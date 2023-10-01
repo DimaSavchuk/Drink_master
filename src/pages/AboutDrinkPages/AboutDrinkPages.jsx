@@ -25,6 +25,7 @@ import {
 import { Loader } from '../../components/Loader/Loader';
 import { useDispatch } from 'react-redux';
 import { setSelectedRoute } from '../../redux/route/routeSlice';
+import { Loading } from '../../components/Loading/Loading';
 
 const AboutDrinkPages = () => {
   const location = useLocation();
@@ -54,7 +55,7 @@ const AboutDrinkPages = () => {
   return (
     <Box>
       {error && <h1>Error!!!</h1>}
-      {isLoading && <Loader />}
+      {isLoading && <Loading />}
       {drinkInfo && (
         <>
           <DivTitle>
