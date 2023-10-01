@@ -149,6 +149,7 @@ export const getCurrentUser = async () => {
 };
 
 export const ownDrink = async (data) => {
+  console.log(data);
   const ingredients = data.ingredients.map(({ measure, title }) => {
     const newObj = JSON.parse(title);
     const newIngObj = {

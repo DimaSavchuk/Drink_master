@@ -28,6 +28,7 @@ const AddDrinkAddImage = ({ setValue }) => {
         name="file"
         id="add-file"
         onChange={onChangeFileInput}
+        accept="image/*"
       />
       <AddFileButton>
         <label htmlFor="add-file">

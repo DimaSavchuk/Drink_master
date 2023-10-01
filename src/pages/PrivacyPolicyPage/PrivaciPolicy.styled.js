@@ -1,9 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.section`
   padding-top: 200px;
   padding-bottom: 112px;
-  background-color: var(--background-color);
 `;
 
 export const Title = styled.h1`
