@@ -22,10 +22,11 @@ import {
   addDrinkToFavorite,
   deleteDrinkFromFavorite,
 } from '../../services/axiosConfig';
-import { Loader } from '../../components/Loader/Loader';
 import { useDispatch } from 'react-redux';
 import { setSelectedRoute } from '../../redux/route/routeSlice';
 import { Loading } from '../../components/Loading/Loading';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 
 const AboutDrinkPages = () => {
   const location = useLocation();
@@ -37,7 +38,6 @@ const AboutDrinkPages = () => {
 
   const { drinkInfo, userId, isLoading, error, isfavorite, setIsFavorite } =
     useFetchDrinkId();
-  // const [isfavorite, setIsFavorite] = useState(favorite);
   const { drinkId } = useParams();
 
   function isFavoriteTrue(data) {
@@ -46,10 +46,13 @@ const AboutDrinkPages = () => {
 
   async function addFavorite() {
     const res = await addDrinkToFavorite(drinkId);
+    console.log(res)
+    if (res) Notify.success('Added to favorites');
     isFavoriteTrue(res);
   }
   async function deleteFavorite() {
     const res = await deleteDrinkFromFavorite(drinkId);
+    if (res) Notify.success('Deleted from favorites');
     isFavoriteTrue(res);
   }
   return (
