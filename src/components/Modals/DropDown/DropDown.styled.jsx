@@ -28,9 +28,8 @@ export const ModalWrapper = styled.div`
   }
 `;
 export const ModalContent = styled.div`
-  background-color: #161F37;
+  background-color: var(--select-list-color);
   border-radius: 8px;
-  /* width: 177px; */
   height: 134px;
   padding: 18px;
   display: flex;
@@ -50,7 +49,7 @@ export const ChangeProfileButton = styled.button`
   border-radius: 42px;
   background-color: transparent;
   cursor: pointer;
-  color: #F3F3F3;
+  color: var(--button-color);
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -68,15 +67,15 @@ export const LogOutButton = styled.button`
   border-radius: 42px;
   outline: none;
   border: none;
-  background-color: #434D67;
-  color: #F3F3F3;
+  background-color: var(--scroll-color);
+  color: var(--button-color);
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 1.29;
   transition: background-color 0.5s ease;
   &:hover {
-    background-color: #F3F3F3;
-    color: #161f37;
+    background-color: var(--button-color);
+    color: var(--select-list-color);
   }
   `;
