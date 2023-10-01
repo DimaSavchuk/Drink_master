@@ -18,7 +18,7 @@ import {
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export const LogOutModal = ({ onClose, handleModalClick, handleKeyDown }) => {
+export const LogOutModal = ({ onClose, handleModalClick }) => {
   useLockBodyScroll();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -38,7 +38,7 @@ export const LogOutModal = ({ onClose, handleModalClick, handleKeyDown }) => {
   };
 
   return (
-    <ModalWrapper onClick={handleModalClick} onKeyDown={handleKeyDown}>
+    <ModalWrapper onClick={handleModalClick}>
       <ModalContent className="modal-content">
         <CloseButton onClick={onClose} tabIndex={1} className="close-button">
           <StyledUpdatedCloseButton width={16} height={16} />
@@ -49,7 +49,6 @@ export const LogOutModal = ({ onClose, handleModalClick, handleKeyDown }) => {
           <LogOutButton onClick={onClose}>Cancel</LogOutButton>
         </ButtonWrapper>
       </ModalContent>
-      `
     </ModalWrapper>
   );
 };

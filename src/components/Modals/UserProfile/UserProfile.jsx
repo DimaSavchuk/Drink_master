@@ -31,7 +31,7 @@ import defaultAvatarURL from '../../../assets/user.svg';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
+export const UserInfoModal = ({ onClose, handleModalClick }) => {
   useLockBodyScroll();
 
   const dispatch = useDispatch();
@@ -86,7 +86,7 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
   }
 
   return (
-    <ModalWrapper onClick={handleModalClick} onKeyDown={handleKeyDown}>
+    <ModalWrapper onClick={handleModalClick}>
       <ContentWrapper className="modal-content">
         <CloseButton onClick={onClose} tabIndex={1} className="close-button">
           <StyledUpdatedCloseButton width={16} height={16} />
