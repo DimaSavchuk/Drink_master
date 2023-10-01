@@ -18,7 +18,6 @@ export const DrinksSearch = ({ shouldRenderBtn, page, limit, updPage }) => {
 
     const categories = useSelector(selectCategories);
     const ingredients = useSelector(selectIngredients);
-    const isFiltersLoading = useSelector(selectIsLoadingFilters);
 
     const ingredientsNames = ingredients.map(ingredient => ingredient.title);
 
@@ -92,8 +91,6 @@ export const DrinksSearch = ({ shouldRenderBtn, page, limit, updPage }) => {
     };
 
     return (
-        // <div>
-        //     {!isFiltersLoading && (
                 <SearchWrapper>
                     <Form onSubmit={handleSearchByValue}>
                         <label>
@@ -124,7 +121,5 @@ export const DrinksSearch = ({ shouldRenderBtn, page, limit, updPage }) => {
                         height="295px" 
                         onSelect={handleSearchByIngredient} />
                 </SearchWrapper>
-        //     )}
-        // </div>
     );
 };

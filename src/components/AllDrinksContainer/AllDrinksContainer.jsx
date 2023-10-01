@@ -4,13 +4,14 @@ import { DrinksSearch } from '../DrinksSearch/DrinksSearch';
 import { CommonContainer } from '../GlobalStyles/CommonContainer.styled';
 import { PageTitle } from '../PageTitle/PageTitle';
 import { Paginator } from '../Paginator/Paginator';
-import { useSearchParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useLocation, useSearchParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectCocktails, selectIsLoading, selectTotalCocktails } from '../../redux/drinks/selectors';
 import { InfoComponent } from '../InfoComponent/InfoComponent';
 import { getUrlParams } from '../../helpers/getUrlParams';
 import { CocktailsList, DrinksSection, Wrapper } from './AllDrinksContainer.styled';
 import { Loading } from '../Loading/Loading';
+import { setSelectedRoute } from '../../redux/route/routeSlice';
 
 export const AllDrinksContainer = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -23,9 +24,18 @@ export const AllDrinksContainer = () => {
     const [currentPage, setCurrentPage] = useState(pageFromUrl);
     const [limit, setLimit] = useState(9);
     const [pageRangeDisplayed, setPageRangeDisplayed] = useState(3);
+    const allParams = getUrlParams();
 
     const [shouldRenderButtonSearch, setShouldRenderButtonSearch] = useState(false);
     const errorReason = (currentPage + 1 > Math.ceil(totalCocktails / limit));
+
+    const location = useLocation();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        const params = new URLSearchParams(allParams).toString();
+        dispatch(setSelectedRoute(`${location.pathname}?${params}`));
+    }, [dispatch, location, allParams]);
 
     const updLimit = () => {
         if (window.innerWidth >= 1440) {
@@ -41,10 +51,8 @@ export const AllDrinksContainer = () => {
             setShouldRenderButtonSearch(false)
         }
     };
-
     useEffect(() => {
         updLimit();
-
         window.addEventListener('resize', updLimit);
     
         window.scrollTo({

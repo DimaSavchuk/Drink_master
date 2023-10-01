@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { CommonContainer } from '../GlobalStyles/CommonContainer.styled';
 import { Section, Title } from './FavoritesContainer.styled';
 import { CardsContainer } from '../DrinkCard/DrinkCard.styled';
@@ -15,21 +15,33 @@ import {
   handlePageChange,
   updLimit,
 } from '../../helpers';
+import { getUrlParams } from '../../helpers/getUrlParams';
+import { useDispatch } from 'react-redux';
+import { setSelectedRoute } from '../../redux/route/routeSlice';
 
 const FavoritesContainer = () => {
   const [cards, setCards] = useState([]);
   const [isloading, setIsloading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const page =
-    searchParams.get('page') - 1 ? Number(searchParams.get('page')) : 0;
+    searchParams.get('page') ? Number(searchParams.get('page')) - 1 : 0;
   const [currentPage, setCurrentPage] = useState(page);
   const [limit, setLimit] = useState(null);
   const [pageRangeDisplayed, setPageRangeDisplayed] = useState(3);
   const [showPagination, setShowPagination] = useState(false);
+  const allParams = getUrlParams();
+
+  const location = useLocation();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetchFavorite(setIsloading, setCards);
   }, []);
+
+  useEffect(() => {
+    const params = new URLSearchParams(allParams).toString();
+        dispatch(setSelectedRoute(`${location.pathname}?${params}`));
+    }, [dispatch, location, allParams]);
 
   const pagesVisited = currentPage * limit;
 
