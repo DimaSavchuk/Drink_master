@@ -1,4 +1,4 @@
-import{s as o}from"./index-797efe47.js";const i=o.section`
+import{s as o}from"./index-4c1113fc.js";const i=o.section`
   padding-top: 200px;
   padding-bottom: 112px;
   background-color: var(--background-color);
