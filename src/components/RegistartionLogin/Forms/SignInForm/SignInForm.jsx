@@ -26,7 +26,6 @@ export const SignInForm = () => {
     dispatch(logInUser(values))
       .unwrap()
       .then(() => {
-        // toast.success('You are logged in');
         Notiflix.Notify.success('You are logged in');
       })
       .catch((errorStatus) => {
