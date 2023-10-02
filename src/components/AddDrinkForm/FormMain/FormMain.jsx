@@ -1,4 +1,4 @@
-import { Formik, Form } from 'formik';
+import { Formik, Form, useField } from 'formik';
 import { ownDrink } from '../../../services/axiosConfig';
 import { AddButton, DrinkFormWrapper } from './FormMain.styled';
 import { useFetchGlasses } from '../../../Hooks/useFetchGlasses';
@@ -16,20 +16,25 @@ const validationSchema = yup.object().shape({
     .string()
     .trim()
     .required('Please enter information about the recipe'),
-  category: yup.string().required('Must have more than 1 item'),
-  glass: yup.string().required('Must have more than 1 item'),
+  category: yup.string().required('Please select a category'),
+  glass: yup.string().required('Please select a glass'),
   ingredients: yup
     .array()
-    .length(1, 'You must have more than 1 item')
-    .required(),
+    .of(
+      yup.object().shape({
+        title: yup.string().required('Please select a title'),
+        measure: yup.string().required('Please enter a measure'),
+      }),
+    )
+    .required()
+    .min(1, 'You must have more than 1 item'),
   file: yup
     .mixed()
-    .test('file', 'Please select a valid image file', (value) => {
-      if (!value) {
-        return true;
-      }
-      return value && value.type.startsWith('image/');
-    }),
+    // .test('file', 'Please select a valid image file', (value) => {
+    //   if (!value) return true;
+    //   return value && value.type.startsWith('image/*');
+    // })
+    .required('Please add the drink recipe image'),
   recipePreparation: yup.string().trim().required('enter about a recipe'),
 });
 
@@ -48,6 +53,8 @@ const FormMain = () => {
   const onSubmitForm = (data, action) => {
     data.id = nanoid();
     ownDrink(data);
+    console.log(data);
+
     action.resetForm();
   };
 
@@ -60,24 +67,27 @@ const FormMain = () => {
       <h2>Add drink</h2>
       <Formik
         initialValues={initialValues}
-        // validationSchema={validationSchema}
+        validationSchema={validationSchema}
         onSubmit={onSubmitForm}
       >
-        {({ setFieldValue, errors }) => (
+        {({ setFieldValue, touched, errors }) => (
           <Form>
             <TitleBlock
               categoriesList={categories.drinkCategories}
               glassesList={glasses.drinkGlasses}
               setValue={setFieldValue}
               errors={errors}
+              touched={touched}
             />
             <IngredientsBlock
               items={ingredients.drinkIngredients}
               title={'Ingridients'}
+              // errors={errors.ingredients}
+              // touched={touched.ingredients}
             />
             <RecipePreparation
-              setValue={setFieldValue}
               error={errors.recipePreparation}
+              touched={touched.recipePreparation}
             />
             <AddButton type="submit">Add</AddButton>
           </Form>

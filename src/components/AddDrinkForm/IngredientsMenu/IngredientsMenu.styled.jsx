@@ -110,10 +110,6 @@ export const SelectWrapper = styled.div`
 
   position: relative;
 
-  &:not(:last-of-type) {
-    margin-bottom: 31px;
-  }
-
   @media screen and (min-width: 768px) {
     flex-basis: 47%;
     margin-right: 14px;

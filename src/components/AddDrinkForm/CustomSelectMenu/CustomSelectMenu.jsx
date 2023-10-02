@@ -12,9 +12,8 @@ import { SelectOpenArrow } from '../../SelectOpenArrow/SelectOpenArrow';
 import { useField } from 'formik';
 import { ErrorText } from '../TitleBlock/TitleBlock.styled';
 
-const CustomSelectMenu = ({ items, title, error }) => {
+const CustomSelectMenu = ({ items, title, touched, error }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
 
   const selectRef = useRef();
@@ -25,14 +24,13 @@ const CustomSelectMenu = ({ items, title, error }) => {
   const filteredItems = (value) =>
     items.filter((item) => item.toLowerCase().includes(value.toLowerCase()));
 
-  const [, , { setValue }] = useField({ name: titleValue });
+  const [, meta, { setValue }] = useField({ name: titleValue });
 
   const toggleMenu = () => {
     setIsOpen((prevState) => !prevState);
   };
 
   const handleClickItem = (item) => {
-    setSelectedValue(item);
     toggleMenu();
     setValue(item);
     setSearchQuery('');
@@ -71,8 +69,8 @@ const CustomSelectMenu = ({ items, title, error }) => {
       <CustomSelect type="button" ref={selectRef} menuOpen={isOpen}>
         <Label>{title}</Label>
         {items && (
-          <PlaceholderWrap selected={selectedValue}>
-            <span>{selectedValue ? selectedValue : ''}</span>
+          <PlaceholderWrap selected={meta.value}>
+            <span>{meta.value ? meta.value : ''}</span>
             <SelectOpenArrow isOpen={isOpen} />
           </PlaceholderWrap>
         )}
@@ -97,7 +95,7 @@ const CustomSelectMenu = ({ items, title, error }) => {
           </DropMenu>
         </>
       )}
-      {error ? <ErrorText>{error}</ErrorText> : null}
+      {touched && error ? <ErrorText>{error}</ErrorText> : null}
     </SelectWrapper>
   );
 };

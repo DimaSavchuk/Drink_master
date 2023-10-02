@@ -9,8 +9,9 @@ import {
 } from './IngredientsMenu.styled';
 import { SelectOpenArrow } from '../../SelectOpenArrow/SelectOpenArrow';
 import { ErrorText } from '../TitleBlock/TitleBlock.styled';
+import { ErrorMessage, useField } from 'formik';
 
-const IngredientsMenu = ({ items, title, error, ingredient }) => {
+const IngredientsMenu = ({ items, title, ingredient, index }) => {
   // const { items, title, error, ingredient } = props ?? {};
 
   const [isOpen, setIsOpen] = useState(false);
@@ -29,17 +30,18 @@ const IngredientsMenu = ({ items, title, error, ingredient }) => {
       item.title.toLowerCase().includes(value.toLowerCase()),
     );
 
-  // const [, , { setValue }] = useField({ name: titleValue });
+  // [field, meta, helpers]
+  // const [field, meta, helpers] = useField(`ingredients.${index}`);
+  // console.log(meta);
+  // console.log(helpers);
 
   const toggleMenu = () => {
     setIsOpen((prevState) => !prevState);
   };
 
   const handleClickItem = (item) => {
-    console.log('item =>', item);
     setSelectedValue(item);
     toggleMenu();
-    // setValue(item.title);
     setSearchQuery('');
     setIsValue(true);
 
@@ -106,7 +108,9 @@ const IngredientsMenu = ({ items, title, error, ingredient }) => {
           </DropMenu>
         </>
       )}
-      {error ? <ErrorText>{error}</ErrorText> : null}
+      {/* {meta.touched && error.title ? (
+        <ErrorText>{error.title}</ErrorText>
+      ) : null} */}
     </SelectWrapper>
   );
 };

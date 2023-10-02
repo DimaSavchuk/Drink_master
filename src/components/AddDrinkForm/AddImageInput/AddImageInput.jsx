@@ -7,19 +7,32 @@ import {
   InputWrapper,
 } from './AddImageInput.styled';
 import { useState } from 'react';
+import { ErrorText } from '../AddImageInput/AddImageInput.styled';
+import { useField } from 'formik';
+import { useEffect } from 'react';
 
 const AddImageInput = ({ setValue }) => {
-  const [imgUrl, setImgUrl] = useState('');
+  const [fileUrl, setFileUrl] = useState('');
+
+  const [field, meta] = useField('file');
 
   const onChangeFileInput = (e) => {
     const imgObj = e.currentTarget.files[0] ?? null;
-    const imgSrc = imgObj ? URL.createObjectURL(imgObj) : null;
+    const linkToFile = imgObj ? URL.createObjectURL(imgObj) : null;
 
-    if (imgSrc) {
-      setImgUrl(imgSrc);
+    if (linkToFile) {
+      setFileUrl(linkToFile);
       setValue('file', imgObj);
     }
   };
+
+  useEffect(() => {
+    // if (!fileUrl) return;
+    if (field.value === null) {
+      setFileUrl('');
+      return;
+    }
+  }, [field]);
 
   return (
     <InputWrapper>
@@ -32,19 +45,20 @@ const AddImageInput = ({ setValue }) => {
       />
       <AddFileButton>
         <label htmlFor="add-file">
-          {imgUrl && (
+          {fileUrl && (
             <BackgroundImg>
-              <img id="uploaded-file" src={imgUrl} />
+              <img id="uploaded-file" src={fileUrl} />
             </BackgroundImg>
           )}
           <Button>
             <Icon>
-              {imgUrl ? <TfiReload size={16} /> : <TfiPlus size={16} />}
+              {fileUrl ? <TfiReload size={16} /> : <TfiPlus size={16} />}
             </Icon>
-            {imgUrl ? 'Update file' : 'Add image'}
+            {fileUrl ? 'Update file' : 'Add image'}
           </Button>
         </label>
       </AddFileButton>
+      {meta.touched && meta.error ? <ErrorText>{meta.error}</ErrorText> : null}
     </InputWrapper>
   );
 };
