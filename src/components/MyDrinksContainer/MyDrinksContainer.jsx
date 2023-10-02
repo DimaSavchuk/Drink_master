@@ -24,7 +24,7 @@ import { setSelectedRoute } from '../../redux/route/routeSlice';
 
 const MyDrinksContainer = () => {
   const [cards, setCards] = useState([]);
-  const [isloading, setIsloading] = useState(false);
+  const [isloading, setIsloading] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
   const page = searchParams.get('page')
     ? Number(searchParams.get('page')) - 1
@@ -44,8 +44,8 @@ const MyDrinksContainer = () => {
 
   useEffect(() => {
     const params = new URLSearchParams(allParams).toString();
-        dispatch(setSelectedRoute(`${location.pathname}?${params}`));
-    }, [dispatch, location, allParams]);
+    dispatch(setSelectedRoute(`${location.pathname}?${params}`));
+  }, [dispatch, location, allParams]);
 
   const pagesVisited = currentPage * limit;
 
