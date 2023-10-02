@@ -151,10 +151,13 @@ export const StyledInputWrap = styled.div`
 `;
 export const EditIcon = styled.span`
   position: absolute;
-  top: 153px;
+  top: 110px;
   right: 24px;
   pointer-events: none;
   color: white;
+  @media screen and (min-width: 768px) {
+    top: 153px;
+  }
 `;
 export const StyledIconError = styled(RiErrorWarningLine)`
   position: absolute;
