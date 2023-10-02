@@ -5,10 +5,10 @@ import {
   Button,
   Icon,
   InputWrapper,
-} from './AddDrinkAddImage.styled';
+} from './AddImageInput.styled';
 import { useState } from 'react';
 
-const AddDrinkAddImage = ({ setValue }) => {
+const AddImageInput = ({ setValue }) => {
   const [imgUrl, setImgUrl] = useState('');
 
   const onChangeFileInput = (e) => {
@@ -48,4 +48,4 @@ const AddDrinkAddImage = ({ setValue }) => {
     </InputWrapper>
   );
 };
-export default AddDrinkAddImage;
+export default AddImageInput;

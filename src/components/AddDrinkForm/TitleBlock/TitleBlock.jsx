@@ -1,5 +1,5 @@
-import AddDrinkAddImage from '../AddDrinkAddImage';
-import AddDrinkDropdownMenu from '../AddDrinkSelectMenu';
+import AddImage from '../AddImageInput';
+import CustomSelectMenu from '../CustomSelectMenu';
 import {
   FieldStyled,
   FieldWrapper,
@@ -10,12 +10,12 @@ import {
   Wrapper,
   ContentWrapper,
   ErrorText,
-} from './AddDrinkTitle.styled';
+} from './TitleBlock.styled';
 
-const AddDrinkTitle = ({ categoriesList, glassesList, setValue, errors }) => {
+const TitleBlock = ({ categoriesList, glassesList, setValue, errors }) => {
   return (
     <Wrapper>
-      <AddDrinkAddImage setValue={setValue} />
+      <AddImage setValue={setValue} />
 
       <ContentWrapper>
         <FieldWrapper>
@@ -30,13 +30,13 @@ const AddDrinkTitle = ({ categoriesList, glassesList, setValue, errors }) => {
           {errors.recipe ? <ErrorText>{errors.recipe}</ErrorText> : null}
         </FieldWrapper>
 
-        <AddDrinkDropdownMenu
+        <CustomSelectMenu
           items={categoriesList}
           title={'Category'}
           error={errors.category}
         />
 
-        <AddDrinkDropdownMenu
+        <CustomSelectMenu
           items={glassesList}
           title={'Glass'}
           error={errors.glass}
@@ -73,4 +73,4 @@ const AddDrinkTitle = ({ categoriesList, glassesList, setValue, errors }) => {
   );
 };
 
-export default AddDrinkTitle;
+export default TitleBlock;

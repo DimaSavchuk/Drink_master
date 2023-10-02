@@ -2,25 +2,28 @@ import styled from '@emotion/styled';
 
 export const CustomSelect = styled.button`
   width: 100%;
-  height: 34px;
-  padding-bottom: 14px;
-  padding-left: 0;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 18px;
+  padding-right: 18px;
 
-  text-align: right;
+  font-size: 14px;
+  line-height: calc(18 / 14);
+  font-weight: 400;
   color: var(--text-color);
 
-  border-style: none;
-  border-bottom: 1px solid var(--see-more-link-color);
   background: transparent;
+  border: 1px solid
+    ${({ menuOpen }) =>
+      menuOpen ? 'var(--text-color)' : 'var(--see-more-link-color)'};
+  border-radius: 200px;
 
-  &:focus {
-    border-bottom: 1px solid var(--text-color);
+  cursor: pointer;
 
-    outline: transparent;
+  &:focus,
+  &:hover {
+    outline: none;
   }
 
   &:focus span,
@@ -31,22 +34,30 @@ export const CustomSelect = styled.button`
   &::after {
     padding-bottom: 14px;
   }
+`;
+
+export const PlaceholderWrap = styled.div`
+  display: flex;
+  align-items: center;
+
+  color: ${({ selected }) =>
+    selected === false ? 'var(--see-more-link-color)' : 'var(--text-color)'};
 
   span {
     display: block;
   }
 
-  @media (min-width: 768px) {
-    height: 41px;
+  svg {
+    margin-left: auto;
   }
 `;
 
-export const Label = styled.span`
-  color: var(--see-more-link-color);
-`;
+// export const Label = styled.span`
+//   color: var(--see-more-link-color);
+// `;
 
 export const DropMenu = styled.div`
-  max-height: 300px;
+  max-height: 400px;
   overflow-y: scroll;
   scroll-behavior: smooth;
 
@@ -70,20 +81,8 @@ export const DropMenu = styled.div`
     margin-right: 4px;
   }
 
-  /* &::-webkit-scrollbar-track-piece:start {
-    background-color: transparent;
-
-    margin-right: 4px;
-  }
-
-  &::-webkit-scrollbar-track-piece:end {
-    background-color: transparent;
-
-    margin-right: 4px;
-  } */
-
   position: absolute;
-  top: 24px;
+  top: 48px;
   right: 0;
   padding: 10px;
 
@@ -106,10 +105,22 @@ export const DropMenu = styled.div`
 `;
 
 export const SelectWrapper = styled.div`
+  margin-right: 8px;
+  width: 100%;
+
   position: relative;
 
   &:not(:last-of-type) {
     margin-bottom: 31px;
+  }
+
+  @media screen and (min-width: 768px) {
+    flex-basis: 47%;
+    margin-right: 14px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    flex-basis: 58%;
   }
 `;
 
@@ -118,31 +129,21 @@ export const SelectItem = styled.div`
 `;
 
 export const SearchInput = styled.input`
-  display: block;
-  /* width: 200px; */
   padding: 4px;
-
   margin-bottom: 8px;
 
-  /* position: absolute;
-  top: -24px;
-  right: 0; */
+  display: block;
 
   font-size: 12;
   line-height: calc(16 / 12);
   color: var(--see-more-link-color);
 
   border-style: none;
-
-  /* border-radius: 12px; */
   background-color: var(--button-hover-color);
   border-bottom: 1px solid #f3f3f311;
 
-  /* background: transparent; */
-
   &:focus {
     color: var(--text-color);
-    /* border-bottom: 1px solid #f3f3f3; */
     outline: transparent;
   }
 

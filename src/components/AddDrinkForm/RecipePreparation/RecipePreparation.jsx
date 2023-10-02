@@ -2,10 +2,10 @@ import {
   FieldTextArea,
   FieldWrapper,
   LabelTextArea,
-} from './AddDrinkRecipePrep.styled';
-import { ErrorText } from './AddDrinkRecipePrep.styled';
+} from './RecipePreparation.styled';
+import { ErrorText } from './RecipePreparation.styled';
 
-const AddDrinkRecipePrep = ({ error, setValue }) => {
+const RecipePreparation = ({ error, setValue }) => {
   return (
     <FieldWrapper>
       <h3>Recipe Preparation</h3>
@@ -25,4 +25,4 @@ const AddDrinkRecipePrep = ({ error, setValue }) => {
   );
 };
 
-export default AddDrinkRecipePrep;
+export default RecipePreparation;

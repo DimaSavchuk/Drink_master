@@ -2,40 +2,49 @@ import { useEffect, useRef, useState } from 'react';
 import {
   CustomSelect,
   DropMenu,
-  Label,
+  PlaceholderWrap,
   SearchInput,
   SelectItem,
   SelectWrapper,
-} from './AddDrinkSelectMenu.styled';
-import { SelectOpenArrow } from '../SelectOpenArrow/SelectOpenArrow';
-import { useField } from 'formik';
-import { ErrorText } from '../AddDrinkTitle/AddDrinkTitle.styled';
-import { useCallback } from 'react';
+} from './IngredientsMenu.styled';
+import { SelectOpenArrow } from '../../SelectOpenArrow/SelectOpenArrow';
+import { ErrorText } from '../TitleBlock/TitleBlock.styled';
 
-const AddDrinkDropdownMenu = ({ items, title, error }) => {
+const IngredientsMenu = ({ items, title, error, ingredient }) => {
+  // const { items, title, error, ingredient } = props ?? {};
+
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState('');
+  const [selectedValue, setSelectedValue] = useState({ id: '', title: '' });
   const [searchQuery, setSearchQuery] = useState('');
+  const [isValue, setIsValue] = useState(false);
 
   const selectRef = useRef();
   const searchInputRef = useRef();
   const dropdownMenuRef = useRef();
 
   const titleValue = title.toLowerCase();
-  const filteredItems = (value) =>
-    items.filter((item) => item.toLowerCase().includes(value.toLowerCase()));
 
-  const [, , { setValue }] = useField({ name: titleValue });
+  const filteredItems = (value) =>
+    items.filter((item) =>
+      item.title.toLowerCase().includes(value.toLowerCase()),
+    );
+
+  // const [, , { setValue }] = useField({ name: titleValue });
 
   const toggleMenu = () => {
     setIsOpen((prevState) => !prevState);
   };
 
   const handleClickItem = (item) => {
+    console.log('item =>', item);
     setSelectedValue(item);
     toggleMenu();
-    setValue(item);
+    // setValue(item.title);
     setSearchQuery('');
+    setIsValue(true);
+
+    ingredient.title = item.title;
+    ingredient.ingredientId = item._id;
   };
 
   useEffect(() => {
@@ -64,17 +73,17 @@ const AddDrinkDropdownMenu = ({ items, title, error }) => {
     return () => {
       window.removeEventListener('click', handler);
     };
-  });
+  }, []);
 
   return (
     <SelectWrapper>
-      <CustomSelect type="button" ref={selectRef}>
-        <Label>{title}</Label>
+      <CustomSelect type="button" ref={selectRef} menuOpen={isOpen}>
         {items && (
-          <div style={{ display: 'flex' }}>
-            <span>{selectedValue ? selectedValue : ''}</span>
+          <PlaceholderWrap selected={isValue}>
+            <span>{selectedValue.title ? selectedValue.title : 'Select'}</span>
+
             <SelectOpenArrow isOpen={isOpen} />
-          </div>
+          </PlaceholderWrap>
         )}
       </CustomSelect>
       {isOpen && items && (
@@ -89,9 +98,9 @@ const AddDrinkDropdownMenu = ({ items, title, error }) => {
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
             )}
-            {filteredItems(searchQuery).map((item, index) => (
-              <SelectItem key={index} onClick={() => handleClickItem(item)}>
-                {item}
+            {filteredItems(searchQuery).map((item) => (
+              <SelectItem key={item._id} onClick={() => handleClickItem(item)}>
+                {item.title}
               </SelectItem>
             ))}
           </DropMenu>
@@ -102,4 +111,4 @@ const AddDrinkDropdownMenu = ({ items, title, error }) => {
   );
 };
 
-export default AddDrinkDropdownMenu;
+export default IngredientsMenu;
