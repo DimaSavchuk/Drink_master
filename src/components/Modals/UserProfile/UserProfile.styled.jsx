@@ -24,10 +24,12 @@ export const ModalWrapper = styled.div`
   padding-top: 150px;
   z-index: 2;
   backdrop-filter: blur(4px);
-  transition: color 300ms linear,background-color 300ms linear;
+  transition:
+    color 300ms linear,
+    background-color 300ms linear;
 `;
 export const ContentWrapper = styled.div`
-  background-color: #161F37;
+  background-color: #161f37;
   border-radius: 16px;
   width: 335px;
   height: 345px;
@@ -42,7 +44,7 @@ export const ContentWrapper = styled.div`
   background-size: auto;
   background-repeat: no-repeat;
 
-@media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     width: 500px;
     height: 426px;
     background-image: url(${ellipseTabletYellow}), url(${ellipseTabletBlue});
@@ -52,16 +54,18 @@ export const ContentWrapper = styled.div`
   }
 `;
 export const CloseButton = styled.button`
-margin-top: 14px;
-margin-left: 297px;
-margin-bottom: 12px;
+  margin-top: 14px;
+  margin-left: 297px;
+  margin-bottom: 12px;
   background: none;
   border: none;
   cursor: pointer;
   font-size: 1.5rem;
   width: 24px;
   height: 24px;
-  transition: color 300ms linear,background-color 300ms linear;
+  transition:
+    color 300ms linear,
+    background-color 300ms linear;
 
   @media screen and (min-width: 768px) {
     width: 32px;
@@ -72,7 +76,6 @@ margin-bottom: 12px;
   }
 `;
 export const StyledForm = styled(Formik)``;
-
 
 export const StyledFormInsight = styled(Form)`
   max-width: 285px;
@@ -92,7 +95,7 @@ export const UserAvatarWrapper = styled.div`
   margin: 0 auto;
   @media screen and (min-width: 768px) {
     width: 100px;
-  margin: 0 auto;
+    margin: 0 auto;
   }
 `;
 export const AvatarFrame = styled.img`
@@ -103,10 +106,10 @@ export const AvatarFrame = styled.img`
   margin: 0 auto;
   border-radius: 50%;
   background-image: url({defaultAvatarURL});
-  
-@media screen and (min-width: 768px) {
-  width: 100px;
-  height: 100px;
+
+  @media screen and (min-width: 768px) {
+    width: 100px;
+    height: 100px;
   }
 `;
 
@@ -142,16 +145,19 @@ export const StyledInputWrap = styled.div`
   width: 100%;
   position: relative;
   color: red;
-@media screen and (min-width: 768px) {
-  max-width: 400px;
+  @media screen and (min-width: 768px) {
+    max-width: 400px;
   }
 `;
 export const EditIcon = styled.span`
   position: absolute;
-  top: 19px;
+  top: 110px;
   right: 24px;
   pointer-events: none;
-  color: red;
+  color: white;
+  @media screen and (min-width: 768px) {
+    top: 153px;
+  }
 `;
 export const StyledIconError = styled(RiErrorWarningLine)`
   position: absolute;
@@ -160,7 +166,7 @@ export const StyledIconError = styled(RiErrorWarningLine)`
   right: 24px;
   top: 70%;
   transform: translateY(-50%);
-@media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     top: 75%;
   }
 `;
@@ -171,13 +177,13 @@ export const StyledIconChecked = styled(IoIosCheckmarkCircleOutline)`
   right: 24px;
   top: 70%;
   transform: translateY(-50%);
-@media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     top: 75%;
   }
 `;
 
 export const StyledInput = styled(Field)`
-margin-top: 93px;
+  margin-top: 93px;
   width: 100%;
   height: 54px;
   border-radius: 200px;
@@ -190,8 +196,10 @@ margin-top: 93px;
   font-size: 14px;
   font-weight: 400;
   line-height: calc(18 / 14);
-  transition: color 300ms linear,background-color 300ms linear;
-   @media screen and (min-width: 768px) {
+  transition:
+    color 300ms linear,
+    background-color 300ms linear;
+  @media screen and (min-width: 768px) {
     margin-top: 136px;
     height: 56px;
     padding: 14px 24px;
@@ -245,7 +253,9 @@ export const SaveChangeButton = styled.button`
   font-style: normal;
   font-weight: 600;
   line-height: 1.29;
-  transition: color 300ms linear,background-color 300ms linear;
+  transition:
+    color 300ms linear,
+    background-color 300ms linear;
   &:hover {
     background-color: var(--scroll-color);
     color: var(--button-color);
@@ -257,7 +267,6 @@ export const SaveChangeButton = styled.button`
     line-height: 1.13;
   }
 `;
-
 
 export const StyledError = styled(ErrorMessage)`
   margin-top: 8px;
@@ -291,5 +300,3 @@ export const StyledUpdatedCloseButton = styled(CloseButtonIcon)`
     fill: var(--scroll-color);
   }
 `;
-
-

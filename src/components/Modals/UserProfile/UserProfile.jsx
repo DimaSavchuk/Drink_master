@@ -21,11 +21,11 @@ import {
   StyledUpdatedCloseButton,
   StyledError,
   StyledMessage,
-  //  EditIcon,
+  EditIcon,
 } from './UserProfile.styled';
 
 import { updateUserThunk } from '../../../redux/UserInfo/userOperations';
-//  import { FiEdit2 } from 'react-icons/fi';
+import { FiEdit2 } from 'react-icons/fi';
 import AddIcon from '../../../assets/add_photo.svg';
 import defaultAvatarURL from '../../../assets/user.svg';
 import { toast } from 'react-toastify';
@@ -138,9 +138,9 @@ export const UserInfoModal = ({ onClose, handleModalClick }) => {
                       : ''
                   }
                 />
-                {/* <EditIcon>
-                    <FiEdit2 size={14} />
-                </EditIcon> */}
+                <EditIcon>
+                  <FiEdit2 size={20} />
+                </EditIcon>
                 {errors.name && touched.name && (
                   <div>
                     <StyledIconError color="red" />{' '}
