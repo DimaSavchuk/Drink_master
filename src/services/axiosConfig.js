@@ -148,18 +148,12 @@ export const getCurrentUser = async () => {
 };
 
 export const ownDrink = async (data) => {
-  const ingredients = data.ingredients.map(({ measure, title }) => {
-    const newObj = JSON.parse(title);
-    const newIngObj = {
-      title: newObj.title,
-      ingredientId: newObj._id,
-      measure: measure,
-    };
+  const { ingredients } = data;
+  console.log(ingredients);
+  const newIngredients = JSON.stringify(data.ingredients);
 
-    return newIngObj;
-  });
-
-  const newIngredients = JSON.stringify(ingredients);
+  console.log(data);
+  console.log(newIngredients);
 
   let formData = new FormData();
   formData.append('cocktail', data.file);
@@ -178,7 +172,7 @@ export const ownDrink = async (data) => {
       },
     })
     .then((response) => {
-      // console.log(response);
+      console.log(response);
     })
     .catch((error) => {
       console.log(error);
