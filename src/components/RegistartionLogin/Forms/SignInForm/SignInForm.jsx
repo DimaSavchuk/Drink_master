@@ -8,6 +8,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Form, SubmitBtn, StyledLink } from '../Fields.styled';
 import { FormFieldInput } from '../FormField';
 import { PasswordField } from '../PasswordField';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../../../Routes/Routes';
 // import Notiflix from 'notiflix';
 
 const SignInSchema = Yup.object().shape({
@@ -22,6 +24,7 @@ const SignInSchema = Yup.object().shape({
 
 export const SignInForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = (values, { resetForm }) => {
     dispatch(logInUser(values))
@@ -30,13 +33,13 @@ export const SignInForm = () => {
         toast.success('You are logged in');
       })
       .catch((errorStatus) => {
-        if (errorStatus === 400)
-          toast.failure('Bed request... Try again');
+        if (errorStatus === 400) toast.failure('Bed request... Try again');
         else if (errorStatus === 401)
           toast.error('E-mai or password is incorect...Try again.');
         else toast.error('User is not registered :(');
       });
     resetForm();
+    navigate(ROUTES.HOME);
   };
   return (
     <Formik
