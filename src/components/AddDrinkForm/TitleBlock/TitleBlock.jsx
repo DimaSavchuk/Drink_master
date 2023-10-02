@@ -1,4 +1,3 @@
-import { Field } from 'formik';
 import AddImage from '../AddImageInput';
 import CustomSelectMenu from '../CustomSelectMenu';
 import {
@@ -22,11 +21,7 @@ const TitleBlock = ({
 }) => {
   return (
     <Wrapper>
-      <AddImage
-        setValue={setValue}
-        // touched={touched.AddImage}
-        // errors={errors.AddImage}
-      />
+      <AddImage setValue={setValue} />
 
       <ContentWrapper>
         <FieldWrapper>

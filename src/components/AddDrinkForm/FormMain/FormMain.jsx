@@ -1,4 +1,4 @@
-import { Formik, Form, useField } from 'formik';
+import { Formik, Form } from 'formik';
 import { ownDrink } from '../../../services/axiosConfig';
 import { AddButton, DrinkFormWrapper } from './FormMain.styled';
 import { useFetchGlasses } from '../../../Hooks/useFetchGlasses';
@@ -27,7 +27,7 @@ const validationSchema = yup.object().shape({
       }),
     )
     .required()
-    .min(1, 'You must have more than 1 item'),
+    .min(1, 'Select more than 1 item'),
   file: yup
     .mixed()
     // .test('file', 'Please select a valid image file', (value) => {
@@ -35,7 +35,10 @@ const validationSchema = yup.object().shape({
     //   return value && value.type.startsWith('image/*');
     // })
     .required('Please add the drink recipe image'),
-  recipePreparation: yup.string().trim().required('enter about a recipe'),
+  recipePreparation: yup
+    .string()
+    .trim()
+    .required('Please enter about a recipe'),
 });
 
 const initialValues = {
@@ -80,8 +83,6 @@ const FormMain = () => {
             <IngredientsBlock
               items={ingredients.drinkIngredients}
               title={'Ingridients'}
-              // errors={errors.ingredients}
-              // touched={touched.ingredients}
             />
             <RecipePreparation
               error={errors.recipePreparation}

@@ -122,8 +122,7 @@ export const Icon = styled.span`
 
 export const ErrorText = styled.div`
   position: absolute;
-  bottom: -12px;
-  right: 0;
+  bottom: 24px;
 
   margin-top: 4px;
 
