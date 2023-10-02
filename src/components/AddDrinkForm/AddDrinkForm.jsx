@@ -1,5 +1,4 @@
 import { Formik, Form } from 'formik';
-import AddDrinkIngredients from '../AddDrinkIngredients';
 import AddDrinkTitle from '../AddDrinkTitle';
 import AddDrinkRecipePrep from '../AddDrinkResipePrep/AddDrinkRecipePrep';
 import { ownDrink } from '../../services/axiosConfig';
@@ -10,6 +9,9 @@ import { nanoid } from '@reduxjs/toolkit';
 import { useFetchIngredients } from '../../Hooks/useFetchIngredients';
 
 import * as yup from 'yup';
+import AddDrinkDropdownMenu from '../AddDrinkSelectMenu/AddDrinkSelectMenu';
+import Ingredients from './Ingredients/Ingredients';
+import AddDrinkIngredients from './AddDrinkIngredients/AddDrinkIngredients';
 
 const validationSchema = yup.object().shape({
   title: yup.string().trim().required('Please enter a drink title'),
@@ -61,7 +63,7 @@ const AddDrinkForm = () => {
       <h2>Add drink</h2>
       <Formik
         initialValues={initialValues}
-        validationSchema={validationSchema}
+        // validationSchema={validationSchema}
         onSubmit={onSubmitForm}
       >
         {({ setFieldValue, errors }) => (
@@ -73,7 +75,8 @@ const AddDrinkForm = () => {
               errors={errors}
             />
             <AddDrinkIngredients
-              ingredientsList={ingredients.drinkIngredients}
+              items={ingredients.drinkIngredients}
+              title={'Ingridients'}
             />
             <AddDrinkRecipePrep
               setValue={setFieldValue}

@@ -1,16 +1,14 @@
 import { FieldArray, Field } from 'formik';
 import {
   FieldCounter,
-  FieldSelect,
   FieldsWrapper,
   IngridientsWrapper,
   TitleWrapper,
-  FieldSelectInput,
 } from './AddDrinkIngredients.styled';
 import { TfiClose, TfiPlus, TfiMinus } from 'react-icons/tfi';
-import { FiChevronDown } from 'react-icons/fi';
+import Ingredients from '../Ingredients/Ingredients';
 
-const AddDrinkIngredients = ({ ingredientsList }) => {
+const AddDrinkIngredients = ({ items, title }) => {
   const initialValue = { title: '', measure: '' };
 
   return (
@@ -46,24 +44,11 @@ const AddDrinkIngredients = ({ ingredientsList }) => {
                       role="ingredientsSelect"
                       aria-labelledby="ingridientsSelect-group"
                     >
-                      <FieldSelect>
-                        <Field name={`ingredients.${index}.title`} as="select">
-                          {ingredientsList &&
-                            ingredientsList.map((ingredient) => {
-                              const { title, _id } = ingredient;
-
-                              return (
-                                <option
-                                  key={ingredient._id}
-                                  value={JSON.stringify({ title, _id })}
-                                >
-                                  {ingredient.title}
-                                </option>
-                              );
-                            })}
-                        </Field>
-                        <span>{<FiChevronDown size={18} />}</span>
-                      </FieldSelect>
+                      <Ingredients
+                        items={items}
+                        title={title}
+                        ingredient={ingredient}
+                      />
                       <Field
                         name={`ingredients.${index}.measure`}
                         placeholder={'1 cl'}
