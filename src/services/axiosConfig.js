@@ -1,4 +1,9 @@
 import axios from 'axios';
+import {
+  fetchingFirstRecipeError,
+  fetchingFirstRecipeSuccess,
+  fetchingInProgress,
+} from '../redux/motivation/motivationSlice';
 
 // axios.defaults.baseURL = 'https://rest-api-drink-master.onrender.com/api';
 // axios.defaults.baseURL = 'http://localhost:3000/api';
@@ -147,7 +152,7 @@ export const getCurrentUser = async () => {
   }
 };
 
-export const ownDrink = async (data) => {
+export const ownDrink = async (data, dispatch) => {
   const { ingredients } = data;
   console.log(ingredients);
   const newIngredients = JSON.stringify(data.ingredients);
@@ -172,9 +177,19 @@ export const ownDrink = async (data) => {
       },
     })
     .then((response) => {
+      const {
+        data: { firstRecipe },
+      } = response;
+      console.log(firstRecipe);
+      if (firstRecipe) {
+        dispatch(fetchingFirstRecipeSuccess(true));
+      } else {
+        dispatch(fetchingFirstRecipeSuccess(false));
+      }
       console.log(response);
     })
     .catch((error) => {
       console.log(error);
+      dispatch(fetchingFirstRecipeError(error.message));
     });
 };

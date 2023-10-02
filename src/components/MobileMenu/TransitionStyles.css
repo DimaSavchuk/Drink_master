@@ -1,41 +1,26 @@
-/* .menu-enter {
+.motivation-enter {
   opacity: 0;
 }
 
-.menu-enter-active {
+.motivation-enter-active {
   opacity: 1;
-  transition: opacity 500ms ease-in;
+  transition: opacity 400ms ease-in;
+}
+.motivation-enter-done {
+  opacity: 1;
+}
+.motivation-exit {
+  opacity: 1;
 }
 
-.menu-exit {
-  opacity: 1;
-}
-
-.menu-exit-active {
+.motivation-exit-active {
   opacity: 0;
-  transition: opacity 500ms ease-in;
-} */
 
-/* .wrapper {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  z-index: 2;
-  background-color: #0a0a11;
-  overflow: hidden;
-
-  background-image: url('../../assets/mobile-menu/ellipse-mobile-blue.png'),
-    url('../../assets/mobile-menu/ellipse-mobile-yellow.png');
-  background-position:
-    100% 60%,
-    60% -84px;
-  background-repeat: no-repeat;
-} */
-
+  transition: opacity 400ms ease-in;
+}
+.motivation-exit-done {
+  opacity: 0;
+}
 .menu-enter {
   opacity: 0;
   transform: translateY(-91%);
