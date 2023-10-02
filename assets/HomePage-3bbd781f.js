@@ -1,4 +1,4 @@
-import{s as o,L as x,j as i,C as l,N as f,r as t,n as k,u as b,a as v,b as w}from"./index-2f9f488b.js";import{a as j,b as y}from"./asr_blue_iced_tea_mobile@2x-e4321999.js";import{C as Q}from"./CocktailCard-7be710ea.js";import{f as T}from"./axiosConfig-97417e35.js";import{I as C}from"./InfoComponent-946398d1.js";import{L as S}from"./LittleLoading-b2dae153.js";import"./LittleLoading.styled-35c8b9a6.js";const z=o.section`
+import{s as o,L as x,j as i,C as l,N as f,r as t,n as k,u as b,a as v,b as w}from"./index-853f690c.js";import{a as j,b as y}from"./asr_blue_iced_tea_mobile@2x-e4321999.js";import{C as Q}from"./CocktailCard-d3cb1f5c.js";import{f as T}from"./axiosConfig-31499234.js";import{I as C}from"./InfoComponent-c0b473ef.js";import{L as S}from"./LittleLoading-e6228fa8.js";const z=o.section`
   padding-top: 152px;
   padding-bottom: 112px;
 
@@ -284,4 +284,4 @@ import{s as o,L as x,j as i,C as l,N as f,r as t,n as k,u as b,a as v,b as w}fro
   &:focus svg {
     stroke: #161f37;
   }
-`;const ii=()=>{const e=b(),n=v();t.useEffect(()=>{n(w(e.pathname))},[n]);const[a,r]=t.useState(1),d=()=>{window.innerWidth>=1440?r(3):window.innerWidth>=768?r(2):r(1)};return t.useEffect(()=>(d(),window.addEventListener("resize",d),()=>{window.removeEventListener("resize",d)}),[]),i.jsxs(i.Fragment,{children:[i.jsx(M,{}),i.jsx(q,{items:W,numbCocktailsToShow:a})]})};export{ii as default};
+`;const _=()=>{const e=b(),n=v();t.useEffect(()=>{n(w(e.pathname))},[n]);const[a,r]=t.useState(1),d=()=>{window.innerWidth>=1440?r(3):window.innerWidth>=768?r(2):r(1)};return t.useEffect(()=>(d(),window.addEventListener("resize",d),()=>{window.removeEventListener("resize",d)}),[]),i.jsxs(i.Fragment,{children:[i.jsx(M,{}),i.jsx(q,{items:W,numbCocktailsToShow:a})]})};export{_ as default};

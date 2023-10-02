@@ -1,4 +1,4 @@
-import{s,r,G as y,o as S,j as e,p as h,e as j,F as z,E as G,q as O,t as A,v as b,w as V,x as U,y as _,z as Q,n as Y,N as X,I as L,u as H,a as J,b as K}from"./index-2f9f488b.js";import{b as Z,c as ee,e as te,o as oe,h as re}from"./axiosConfig-97417e35.js";import{A as ie}from"./SelectOpenArrow.styled-bb129d69.js";import{L as ne}from"./LittleLoading-b2dae153.js";import"./LittleLoading.styled-35c8b9a6.js";const ae=s.div`
+import{s,r,G as y,o as S,j as e,p as h,e as j,F as z,E as G,q as O,t as A,v as b,w as V,x as U,y as _,z as Q,n as Y,N as X,I as L,u as H,a as J,b as K}from"./index-853f690c.js";import{b as Z,c as ee,e as te,o as oe,h as re}from"./axiosConfig-31499234.js";import{A as ie}from"./SelectOpenArrow.styled-83c5609a.js";import{L as ne}from"./LittleLoading-e6228fa8.js";const ae=s.div`
   max-width: 375px;
   padding-top: 152px;
   padding-left: 20px;
@@ -1034,4 +1034,4 @@ import{s,r,G as y,o as S,j as e,p as h,e as j,F as z,E as G,q as O,t as A,v as b
   @media screen and (min-width: 1440px) {
     padding-top: 110px;
   }
-`,st=()=>e.jsxs("div",{children:[e.jsx(lt,{children:"Follow us"}),e.jsx(at,{})]}),gt=()=>{const t=H(),i=J();return r.useEffect(()=>{i(K(t.pathname))},[i]),e.jsxs(ae,{children:[e.jsx(et,{}),e.jsxs(le,{children:[e.jsx(st,{}),e.jsx(it,{})]})]})};export{gt as default};
+`,st=()=>e.jsxs("div",{children:[e.jsx(lt,{children:"Follow us"}),e.jsx(at,{})]}),xt=()=>{const t=H(),i=J();return r.useEffect(()=>{i(K(t.pathname))},[i]),e.jsxs(ae,{children:[e.jsx(et,{}),e.jsxs(le,{children:[e.jsx(st,{}),e.jsx(it,{})]})]})};export{xt as default};
