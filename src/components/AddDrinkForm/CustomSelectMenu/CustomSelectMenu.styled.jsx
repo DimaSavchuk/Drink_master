@@ -41,6 +41,18 @@ export const CustomSelect = styled.button`
   }
 `;
 
+export const PlaceholderWrap = styled.div`
+  display: flex;
+  align-items: center;
+
+  color: ${({ selected }) =>
+    !selected ? 'var(--see-more-link-color)' : 'var(--text-color)'};
+
+  span {
+    display: block;
+  }
+`;
+
 export const Label = styled.span`
   color: var(--see-more-link-color);
 `;
@@ -69,18 +81,6 @@ export const DropMenu = styled.div`
     margin-bottom: 18px;
     margin-right: 4px;
   }
-
-  /* &::-webkit-scrollbar-track-piece:start {
-    background-color: transparent;
-
-    margin-right: 4px;
-  }
-
-  &::-webkit-scrollbar-track-piece:end {
-    background-color: transparent;
-
-    margin-right: 4px;
-  } */
 
   position: absolute;
   top: 24px;
@@ -119,30 +119,20 @@ export const SelectItem = styled.div`
 
 export const SearchInput = styled.input`
   display: block;
-  /* width: 200px; */
   padding: 4px;
 
   margin-bottom: 8px;
-
-  /* position: absolute;
-  top: -24px;
-  right: 0; */
 
   font-size: 12;
   line-height: calc(16 / 12);
   color: var(--see-more-link-color);
 
   border-style: none;
-
-  /* border-radius: 12px; */
   background-color: var(--button-hover-color);
   border-bottom: 1px solid #f3f3f311;
 
-  /* background: transparent; */
-
   &:focus {
     color: var(--text-color);
-    /* border-bottom: 1px solid #f3f3f3; */
     outline: transparent;
   }
 

@@ -1,17 +1,14 @@
 import { Formik, Form } from 'formik';
-import AddDrinkTitle from '../AddDrinkTitle';
-import AddDrinkRecipePrep from '../AddDrinkResipePrep/AddDrinkRecipePrep';
-import { ownDrink } from '../../services/axiosConfig';
-import { AddButton, DrinkFormWrapper } from './AddDrinkForm.styled';
-import { useFetchGlasses } from '../../Hooks/useFetchGlasses';
-import { useFetchCategories } from '../../Hooks/useFetchCategories';
-import { nanoid } from '@reduxjs/toolkit';
-import { useFetchIngredients } from '../../Hooks/useFetchIngredients';
-
+import { ownDrink } from '../../../services/axiosConfig';
+import { AddButton, DrinkFormWrapper } from './FormMain.styled';
+import { useFetchGlasses } from '../../../Hooks/useFetchGlasses';
+import { useFetchCategories } from '../../../Hooks/useFetchCategories';
+import { useFetchIngredients } from '../../../Hooks/useFetchIngredients';
+import TitleBlock from '../TitleBlock';
+import IngredientsBlock from '../IngredientsBlock/IngredientsBlock';
+import RecipePreparation from '../RecipePreparation/RecipePreparation';
 import * as yup from 'yup';
-import AddDrinkDropdownMenu from '../AddDrinkSelectMenu/AddDrinkSelectMenu';
-import Ingredients from './Ingredients/Ingredients';
-import AddDrinkIngredients from './AddDrinkIngredients/AddDrinkIngredients';
+import { nanoid } from '@reduxjs/toolkit';
 
 const validationSchema = yup.object().shape({
   title: yup.string().trim().required('Please enter a drink title'),
@@ -47,7 +44,7 @@ const initialValues = {
   recipePreparation: '',
 };
 
-const AddDrinkForm = () => {
+const FormMain = () => {
   const onSubmitForm = (data, action) => {
     data.id = nanoid();
     ownDrink(data);
@@ -68,17 +65,17 @@ const AddDrinkForm = () => {
       >
         {({ setFieldValue, errors }) => (
           <Form>
-            <AddDrinkTitle
+            <TitleBlock
               categoriesList={categories.drinkCategories}
               glassesList={glasses.drinkGlasses}
               setValue={setFieldValue}
               errors={errors}
             />
-            <AddDrinkIngredients
+            <IngredientsBlock
               items={ingredients.drinkIngredients}
               title={'Ingridients'}
             />
-            <AddDrinkRecipePrep
+            <RecipePreparation
               setValue={setFieldValue}
               error={errors.recipePreparation}
             />
@@ -90,4 +87,4 @@ const AddDrinkForm = () => {
   );
 };
 
-export default AddDrinkForm;
+export default FormMain;

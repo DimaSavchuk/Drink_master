@@ -1,14 +1,16 @@
 import { FieldArray, Field } from 'formik';
 import {
+  CloseButton,
   FieldCounter,
+  FieldMeasure,
   FieldsWrapper,
   IngridientsWrapper,
   TitleWrapper,
-} from './AddDrinkIngredients.styled';
+} from './IngredientsBlock.styled';
 import { TfiClose, TfiPlus, TfiMinus } from 'react-icons/tfi';
-import Ingredients from '../Ingredients/Ingredients';
+import IngredientsMenu from '../IngredientsMenu';
 
-const AddDrinkIngredients = ({ items, title }) => {
+const IngredientsBlock = ({ items, title }) => {
   const initialValue = { title: '', measure: '' };
 
   return (
@@ -44,19 +46,19 @@ const AddDrinkIngredients = ({ items, title }) => {
                       role="ingredientsSelect"
                       aria-labelledby="ingridientsSelect-group"
                     >
-                      <Ingredients
+                      <IngredientsMenu
                         items={items}
                         title={title}
                         ingredient={ingredient}
                       />
-                      <Field
+                      <FieldMeasure
                         name={`ingredients.${index}.measure`}
                         placeholder={'1 cl'}
-                      ></Field>
+                      />
 
-                      <button type="button" onClick={() => remove(index)}>
+                      <CloseButton type="button" onClick={() => remove(index)}>
                         <TfiClose size={18} />
-                      </button>
+                      </CloseButton>
                     </FieldsWrapper>
                   );
                 })}
@@ -68,4 +70,4 @@ const AddDrinkIngredients = ({ items, title }) => {
   );
 };
 
-export default AddDrinkIngredients;
+export default IngredientsBlock;

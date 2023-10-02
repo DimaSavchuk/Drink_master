@@ -2,19 +2,19 @@ import { useEffect, useRef, useState } from 'react';
 import {
   CustomSelect,
   DropMenu,
+  Label,
+  PlaceholderWrap,
   SearchInput,
   SelectItem,
   SelectWrapper,
-} from './Ingredients.styled';
+} from './CustomSelectMenu.styled';
 import { SelectOpenArrow } from '../../SelectOpenArrow/SelectOpenArrow';
 import { useField } from 'formik';
-import { ErrorText } from '../../AddDrinkTitle/AddDrinkTitle.styled';
+import { ErrorText } from '../TitleBlock/TitleBlock.styled';
 
-const Ingredients = (ingredientsItem) => {
-  const { items, title, error, ingredient } = ingredientsItem ?? {};
-
+const CustomSelectMenu = ({ items, title, error }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState({ id: '', title: '' });
+  const [selectedValue, setSelectedValue] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
 
   const selectRef = useRef();
@@ -22,11 +22,8 @@ const Ingredients = (ingredientsItem) => {
   const dropdownMenuRef = useRef();
 
   const titleValue = title.toLowerCase();
-
   const filteredItems = (value) =>
-    items.filter((item) =>
-      item.title.toLowerCase().includes(value.toLowerCase()),
-    );
+    items.filter((item) => item.toLowerCase().includes(value.toLowerCase()));
 
   const [, , { setValue }] = useField({ name: titleValue });
 
@@ -35,14 +32,10 @@ const Ingredients = (ingredientsItem) => {
   };
 
   const handleClickItem = (item) => {
-    console.log('item =>', item);
     setSelectedValue(item);
     toggleMenu();
-    setValue(item.title);
+    setValue(item);
     setSearchQuery('');
-
-    ingredient.title = item.title;
-    ingredient.ingredientId = item._id;
   };
 
   useEffect(() => {
@@ -71,16 +64,17 @@ const Ingredients = (ingredientsItem) => {
     return () => {
       window.removeEventListener('click', handler);
     };
-  }, []);
+  });
 
   return (
     <SelectWrapper>
-      <CustomSelect type="button" ref={selectRef}>
+      <CustomSelect type="button" ref={selectRef} menuOpen={isOpen}>
+        <Label>{title}</Label>
         {items && (
-          <div style={{ display: 'flex' }}>
-            <span>{selectedValue.title ? selectedValue.title : ''}</span>
+          <PlaceholderWrap selected={selectedValue}>
+            <span>{selectedValue ? selectedValue : ''}</span>
             <SelectOpenArrow isOpen={isOpen} />
-          </div>
+          </PlaceholderWrap>
         )}
       </CustomSelect>
       {isOpen && items && (
@@ -95,9 +89,9 @@ const Ingredients = (ingredientsItem) => {
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
             )}
-            {filteredItems(searchQuery).map((item) => (
-              <SelectItem key={item.id} onClick={() => handleClickItem(item)}>
-                {item.title}
+            {filteredItems(searchQuery).map((item, index) => (
+              <SelectItem key={index} onClick={() => handleClickItem(item)}>
+                {item}
               </SelectItem>
             ))}
           </DropMenu>
@@ -108,4 +102,4 @@ const Ingredients = (ingredientsItem) => {
   );
 };
 
-export default Ingredients;
+export default CustomSelectMenu;
