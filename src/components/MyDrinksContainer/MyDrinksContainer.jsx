@@ -21,6 +21,7 @@ import {
 import { getUrlParams } from '../../helpers/getUrlParams';
 import { useDispatch } from 'react-redux';
 import { setSelectedRoute } from '../../redux/route/routeSlice';
+import { LittleLoading } from '../Loading/LittleLoading';
 
 const MyDrinksContainer = () => {
   const [cards, setCards] = useState([]);
@@ -44,8 +45,8 @@ const MyDrinksContainer = () => {
 
   useEffect(() => {
     const params = new URLSearchParams(allParams).toString();
-        dispatch(setSelectedRoute(`${location.pathname}?${params}`));
-    }, [dispatch, location, allParams]);
+    dispatch(setSelectedRoute(`${location.pathname}?${params}`));
+  }, [dispatch, location, allParams]);
 
   const pagesVisited = currentPage * limit;
 
@@ -98,7 +99,7 @@ const MyDrinksContainer = () => {
         <div>
           <Title>My drinks</Title>
           {isloading ? (
-            <Loading />
+            <LittleLoading />
           ) : cards.length > 0 ? (
             <>
               <CardsContainer>{displayedCards}</CardsContainer>

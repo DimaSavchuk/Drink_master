@@ -2,6 +2,7 @@ import { useFetchPopularDrinks } from '../../Hooks/useFetchPopularDrinks';
 import { PopDrinksWrapper, StyledNavLink } from './PopularDrinks.styled';
 
 import { Loader } from '../Loader/Loader';
+import { LittleLoading } from '../Loading/LittleLoading';
 
 const PopularDrinks = () => {
   const { drinksPopular, isLoading, error } = useFetchPopularDrinks();
@@ -14,7 +15,7 @@ const PopularDrinks = () => {
       <h4>Popular drinks</h4>
       {error && <div>error</div>}
       {isLoading ? (
-        <Loader />
+        <LittleLoading />
       ) : (
         <ul>
           {drinks.map(({ drinkThumb, drink, description, _id }, index) => {

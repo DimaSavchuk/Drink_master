@@ -32,7 +32,8 @@ html {
   /* dark theme */
   &[data-theme='dark'] {
     --background-color: #0A0A11;
-    --loader-background-color: rgb(10, 10, 17, 0.8);
+    --loader-background-color: rgba(10, 10, 17, 0.8);
+    --loader-background-color-without-opacity: rgba(10, 10, 17);
     --text-color: #F3F3F3;
     --see-more-link-color: rgba(243, 243, 243, 0.50);
     --border-link-color: rgba(243, 243, 243, 0.2);
@@ -55,7 +56,8 @@ html {
   /* light theme */
   &[data-theme='light'] {
     --background-color: #F3F3F3;
-    --loader-background-color: rgb( 218, 218, 230, 0.8);
+    --loader-background-color: rgba( 218, 218, 230, 0.8);
+    --loader-background-color-without-opacity: rgba( 218, 218, 230);
     --text-color: #0A0A11;
     --see-more-link-color: rgba(10, 10, 17, 0.50);
     --border-link-color: rgba(22, 31, 55, 0.20);
