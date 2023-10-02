@@ -4,7 +4,6 @@ import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { signUpUser } from '../../../../redux/auth/authOperations';
 import { toast } from 'react-toastify';
-// import Notiflix from 'notiflix';
 import 'react-toastify/dist/ReactToastify.css';
 import { FormFieldInput } from '../FormField';
 import { DatePickerInput } from '../DatePickerInput';

@@ -10,7 +10,6 @@ import { FormFieldInput } from '../FormField';
 import { PasswordField } from '../PasswordField';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../../../Routes/Routes';
-// import Notiflix from 'notiflix';
 
 const SignInSchema = Yup.object().shape({
   email: Yup.string()

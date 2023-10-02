@@ -25,8 +25,9 @@ import {
 import { useDispatch } from 'react-redux';
 import { setSelectedRoute } from '../../redux/route/routeSlice';
 import { Loading } from '../../components/Loading/Loading';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { LittleLoading } from '../../components/Loading/LittleLoading';
+// import { LittleLoading } from '../../components/Loading/LittleLoading';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const AboutDrinkPages = () => {
@@ -47,12 +48,12 @@ const AboutDrinkPages = () => {
 
   async function addFavorite() {
     const res = await addDrinkToFavorite(drinkId);
-    if (res) Notify.success('Added to favorites');
+    if (res) toast.success('Added to favorites');
     isFavoriteTrue(res);
   }
   async function deleteFavorite() {
     const res = await deleteDrinkFromFavorite(drinkId);
-    if (res) Notify.success('Deleted from favorites');
+    if (res) toast.success('Deleted from favorites');
     isFavoriteTrue(res);
   }
   return (
