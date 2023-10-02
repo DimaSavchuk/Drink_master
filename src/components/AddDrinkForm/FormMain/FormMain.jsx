@@ -53,8 +53,6 @@ const FormMain = () => {
   const onSubmitForm = (data, action) => {
     data.id = nanoid();
     ownDrink(data);
-    console.log(data);
-
     action.resetForm();
   };
 

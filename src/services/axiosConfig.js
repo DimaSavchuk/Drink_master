@@ -148,12 +148,7 @@ export const getCurrentUser = async () => {
 };
 
 export const ownDrink = async (data) => {
-  const { ingredients } = data;
-  console.log(ingredients);
   const newIngredients = JSON.stringify(data.ingredients);
-
-  console.log(data);
-  console.log(newIngredients);
 
   let formData = new FormData();
   formData.append('cocktail', data.file);
