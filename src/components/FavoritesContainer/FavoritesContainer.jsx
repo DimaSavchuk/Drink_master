@@ -22,7 +22,7 @@ import { LittleLoading } from '../Loading/LittleLoading';
 
 const FavoritesContainer = () => {
   const [cards, setCards] = useState([]);
-  const [isloading, setIsloading] = useState(false);
+  const [isloading, setIsloading] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
   const page = searchParams.get('page')
     ? Number(searchParams.get('page')) - 1

@@ -5,7 +5,7 @@ import { getDrinkId } from '../services/axiosConfig';
 export const useFetchDrinkId = () => {
   const [drinkInfo, setDrinkInfo] = useState(null);
   const [userId, setUserId] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
   const [isfavorite, setIsFavorite] = useState(null);
 
