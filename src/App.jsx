@@ -36,7 +36,7 @@ const MyDrinksPages = lazy(() => import('./pages/MyDrinksPages/MyDrinksPages'));
 const FavoritesPages = lazy(() =>
   import('./pages/FavoritesPages/FavoritesPages'),
 );
-const { DropDown } = lazy(() =>
+const DropDown = lazy(() =>
   import('./components/Modals/DropDown/DropDown'),
 );
 const ErrorPages = lazy(() => import('./pages/ErrorPage/ErrorPage'));
