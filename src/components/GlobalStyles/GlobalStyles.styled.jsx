@@ -51,6 +51,7 @@ html {
     --card-hover:rgba(255, 255, 255, 0.5);
     --footer-background-color: transparent;
     --add-drink-form-background-color: rgba(22, 31, 55, 0.50);
+    --change-modal-btn: rgba(22, 31, 55, 1);
   }
 
   /* light theme */
@@ -75,6 +76,7 @@ html {
     --card-hover:rgba(10, 10, 10, 0.5);
     --footer-background-color: #0A0A11;
     --add-drink-form-background-color: #161F37;
+    --change-modal-btn: #F3F3F3;
   }
 }
 
