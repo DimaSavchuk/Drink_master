@@ -1,1 +1,0 @@
-import{j as r,D as a}from"./index-a52ff6fe.js";import{W as e}from"./LittleLoading.styled-bb8713dd.js";const p=()=>r.jsx(e,{children:r.jsx(a,{visible:!0,height:"120",width:"120",ariaLabel:"dna-loading",wrapperStyle:{},wrapperClass:"dna-wrapper"})});export{p as L};
