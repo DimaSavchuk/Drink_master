@@ -26,6 +26,8 @@ import { useDispatch } from 'react-redux';
 import { setSelectedRoute } from '../../redux/route/routeSlice';
 import { Loading } from '../../components/Loading/Loading';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { LittleLoading } from '../../components/Loading/LittleLoading';
+
 
 const AboutDrinkPages = () => {
   const location = useLocation();
@@ -56,7 +58,9 @@ const AboutDrinkPages = () => {
   return (
     <Box>
       {error && <h1>Error!!!</h1>}
-      {isLoading && <Loading />}
+      {isLoading && (
+        <Loading bgc={'var(--loader-background-color-without-opacity)'} />
+      )}
       {drinkInfo && (
         <>
           <DivTitle>

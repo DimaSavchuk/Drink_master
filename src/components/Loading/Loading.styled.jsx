@@ -7,7 +7,7 @@ export const Backdrop = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--loader-background-color);
+  background-color: ${(props) => props.bgc || 'var(--loader-background-color)'};
   backdrop-filter: blur(4px);
 `;
 
