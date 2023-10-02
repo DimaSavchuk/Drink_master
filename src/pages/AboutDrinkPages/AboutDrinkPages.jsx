@@ -28,6 +28,7 @@ import { Loading } from '../../components/Loading/Loading';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { LittleLoading } from '../../components/Loading/LittleLoading';
 
+
 const AboutDrinkPages = () => {
   const location = useLocation();
   const dispatch = useDispatch();
@@ -46,7 +47,6 @@ const AboutDrinkPages = () => {
 
   async function addFavorite() {
     const res = await addDrinkToFavorite(drinkId);
-    console.log(res);
     if (res) Notify.success('Added to favorites');
     isFavoriteTrue(res);
   }

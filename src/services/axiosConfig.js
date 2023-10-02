@@ -109,7 +109,6 @@ export const fetchIngredients = async () => {
 export const fetchPopularDrinks = async () => {
   try {
     const response = await axios.get('/drinks/popular');
-    console.log(response.data);
     return response.data;
   } catch (error) {
     console.error('Помилка при отриманні даних: ', error);
@@ -179,7 +178,7 @@ export const ownDrink = async (data) => {
       },
     })
     .then((response) => {
-      console.log(response);
+      // console.log(response);
     })
     .catch((error) => {
       console.log(error);

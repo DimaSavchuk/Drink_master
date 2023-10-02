@@ -62,7 +62,6 @@ const authSlice = createSlice({
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
-        console.log(state);
       })
       .addCase(logInUser.rejected, (state, action) => {
         state.isLoading = false;
@@ -78,7 +77,6 @@ const authSlice = createSlice({
 
         state.token = null;
         state.isLoggedIn = false;
-        console.log(state);
       })
       .addCase(logoutUser.rejected, (state, action) => {
         state.isLoading = false;
@@ -88,7 +86,6 @@ const authSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(updateUserThunk.fulfilled, (state, action) => {
-        console.log(action.payload, state.user);
         state.user.name = action.payload.data.name;
         state.user.avatarURL = action.payload.data.avatarURL;
         state.isLoading = false;

@@ -1,4 +1,4 @@
-import { useEffect,  useRef} from 'react';
+import { useEffect, useRef } from 'react';
 import { useFormikContext } from 'formik';
 import {
   Label,
@@ -49,7 +49,6 @@ export const DatePickerInput = ({
         }
       },
       onChange: function (_, dateStr) {
-        console.log(dateStr);
         setFieldValue('birthDate', dateStr);
         const altInput = this._input;
 
