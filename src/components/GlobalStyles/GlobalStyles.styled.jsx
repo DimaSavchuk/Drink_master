@@ -182,4 +182,8 @@ button {
   font-size: 14px;
   color:red;
 }
+
+.Toastify__toast-container--top-right {
+    top: 85px;
+}
 `;
