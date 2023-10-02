@@ -1,4 +1,4 @@
-import{q as t,j as r,C as i}from"./index-28d5b7ae.js";import{a as e,b as n}from"./asr_blue_iced_tea_mobile@2x-e4321999.js";const o=t.section`
+import{o as t,j as r,C as i}from"./index-1deecc6a.js";import{a as e,b as o}from"./asr_blue_iced_tea_mobile@2x-e4321999.js";const n=t.section`
   padding-top: 200px;
   padding-bottom: 112px;
   background-color: var(--background-color);
@@ -32,4 +32,4 @@ import{q as t,j as r,C as i}from"./index-28d5b7ae.js";import{a as e,b as n}from"
   @media (min-width: 1440px) {
     font-size: 200px;
   }
-`,c=()=>r.jsx(o,{children:r.jsx(i,{children:r.jsxs("div",{style:{display:"flex",justifyContent:"center",alignItems:"center"},children:[r.jsx(a,{children:"4"}),r.jsx("picture",{children:r.jsx(s,{src:e,srcSet:`${n} 2x`,alt:"coctail",loading:"lazy"})}),r.jsx(x,{children:"4"})]})})});export{c as default};
+`,c=()=>r.jsx(n,{children:r.jsx(i,{children:r.jsxs("div",{style:{display:"flex",justifyContent:"center",alignItems:"center"},children:[r.jsx(a,{children:"4"}),r.jsx("picture",{children:r.jsx(s,{src:e,srcSet:`${o} 2x`,alt:"coctail",loading:"lazy"})}),r.jsx(x,{children:"4"})]})})});export{c as default};
