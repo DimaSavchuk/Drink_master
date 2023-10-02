@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Field } from 'formik';
+import { ErrorMessage, Field } from 'formik';
 
 export const IngridientsWrapper = styled.div`
   margin-bottom: 80px;
@@ -61,7 +61,8 @@ export const FieldsWrapper = styled.div`
   display: flex;
   align-items: center;
 
-  margin-bottom: 18px;
+  margin-bottom: 24px;
+  /* margin-bottom: 31px; */
 `;
 
 export const FieldMeasure = styled(Field)`
@@ -184,4 +185,20 @@ export const FieldSelectInput = styled(Field)`
     margin-bottom: 18px;
     margin-right: 4px;
   }
+`;
+
+export const ErrorText = styled(ErrorMessage)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 4px;
+  padding-left: 8px;
+
+  /* display: block; */
+
+  font-size: 12px;
+  font-weight: 400;
+  line-height: calc(14 / 12);
+  color: #da1414;
+  text-align: left;
 `;

@@ -1,4 +1,4 @@
-import { FieldArray, Field } from 'formik';
+import { FieldArray, Field, useField, getIn, ErrorMessage } from 'formik';
 import {
   CloseButton,
   FieldCounter,
@@ -6,12 +6,17 @@ import {
   FieldsWrapper,
   IngridientsWrapper,
   TitleWrapper,
+  // ErrorText,
 } from './IngredientsBlock.styled';
 import { TfiClose, TfiPlus, TfiMinus } from 'react-icons/tfi';
 import IngredientsMenu from '../IngredientsMenu';
+import { ErrorText } from '../RecipePreparation/RecipePreparation.styled';
 
 const IngredientsBlock = ({ items, title }) => {
   const initialValue = { title: '', measure: '' };
+
+  const [field, meta, helpers] = useField('ingredients');
+  // console.log(field);
 
   return (
     <FieldArray
@@ -23,6 +28,9 @@ const IngredientsBlock = ({ items, title }) => {
         push,
         remove,
       }) => {
+        // console.log('touched', meta.touched);
+        // console.log(`error`, meta.error);
+
         return (
           <IngridientsWrapper>
             <TitleWrapper>
@@ -50,11 +58,16 @@ const IngredientsBlock = ({ items, title }) => {
                         items={items}
                         title={title}
                         ingredient={ingredient}
+                        index={index}
                       />
-                      <FieldMeasure
-                        name={`ingredients.${index}.measure`}
-                        placeholder={'1 cl'}
-                      />
+
+                      <div style={{ position: 'relative' }}>
+                        <FieldMeasure
+                          name={`ingredients.${index}.measure`}
+                          placeholder={'1 cl'}
+                          index={index}
+                        />
+                      </div>
 
                       <CloseButton type="button" onClick={() => remove(index)}>
                         <TfiClose size={18} />
@@ -62,6 +75,14 @@ const IngredientsBlock = ({ items, title }) => {
                     </FieldsWrapper>
                   );
                 })}
+              {/* {ingredients.length > 0 &&
+              errors &&
+              typeof errors.ingredients === 'string' ? (
+                <ErrorText>{errors.ingredients.title}</ErrorText>
+              ) : null} */}
+              {meta.touched && meta.error && typeof meta.error === 'string' && (
+                <ErrorText>{meta.error}</ErrorText>
+              )}
             </div>
           </IngridientsWrapper>
         );
