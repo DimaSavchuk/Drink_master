@@ -28,7 +28,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setSelectedRoute } from '../../redux/route/routeSlice';
 import { Loading } from '../../components/Loading/Loading';
 
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import {
   fetchingFirstFavoriteError,
   fetchingFirstFavoriteSuccess,
@@ -44,6 +43,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const images = [motivSecond, motivSecond2x];
 
 const AboutDrinkPages = () => {
+  const [isLoad, setIsLoad] = useState(null);
   const location = useLocation();
   const dispatch = useDispatch();
   const firstFavorite = useSelector(selectFirstFavorite);
@@ -87,6 +87,7 @@ const AboutDrinkPages = () => {
 
   async function addFavorite() {
     try {
+      setIsLoad(true);
       const res = await addDrinkToFavorite(drinkId);
       if (res.data) toast.success('Added to favorites');
       isFavoriteTrue(res.data);
@@ -97,12 +98,21 @@ const AboutDrinkPages = () => {
       }
     } catch (error) {
       dispatch(fetchingFirstFavoriteError(error.message));
+    } finally {
+      setIsLoad(false);
     }
   }
   async function deleteFavorite() {
-    const res = await deleteDrinkFromFavorite(drinkId);
-    if (res) toast.success('Deleted from favorites');
-    isFavoriteTrue(res);
+    try {
+      setIsLoad(true);
+      const res = await deleteDrinkFromFavorite(drinkId);
+      if (res) toast.success('Deleted from favorites');
+      isFavoriteTrue(res);
+    } catch (e) {
+      console.log(e.message);
+    } finally {
+      setIsLoad(false);
+    }
   }
   return (
     <>
@@ -121,7 +131,7 @@ const AboutDrinkPages = () => {
         />
       </CSSTransition>
       <Box>
-        {error && <h1>Error!!!</h1>}
+        {error && <Title>Error!!!</Title>}
 
         {isLoading && (
           <Loading bgc={'var(--loader-background-color-without-opacity)'} />
@@ -136,11 +146,19 @@ const AboutDrinkPages = () => {
                 </TitleAlcohol>
                 <TitleDescription>{drinkInfo.description}</TitleDescription>
                 {isfavorite ? (
-                  <ButtonAddFavorite type="button" onClick={deleteFavorite}>
+                  <ButtonAddFavorite
+                    type="button"
+                    onClick={deleteFavorite}
+                    disabled={isLoad}
+                  >
                     Remove from favorites
                   </ButtonAddFavorite>
                 ) : (
-                  <ButtonAddFavorite type="button" onClick={addFavorite}>
+                  <ButtonAddFavorite
+                    type="button"
+                    onClick={addFavorite}
+                    disabled={isLoad}
+                  >
                     Add to favorite drinks
                   </ButtonAddFavorite>
                 )}
