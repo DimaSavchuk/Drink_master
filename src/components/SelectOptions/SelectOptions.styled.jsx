@@ -47,18 +47,17 @@ export const Option = styled.button`
   height: 100%;
   background-color: transparent;
   border: none;
-  color: var(--text-color);
+  color: var(--see-more-link-color);
   font-family: 'Manrope';
   font-size: 14px;
   line-height: 1.29;
   text-align: start;
-  transition:
-    border-bottom 300ms linear;
+  transition: border-bottom 300ms linear;
 
   &:hover,
   &:focus,
   &:active {
-    border-bottom: 1px solid var(--see-more-link-color);
+    color: var(--text-color);
   }
 
   @media screen and (min-width: 768px) {
@@ -73,11 +72,11 @@ export const Text = styled.p`
 
 export const Item = styled.li`
   width: 100%;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 `;
 
 export const Input = styled.input`
-  width: 100%;
+  /* width: 100%;
   height: 35px;
   background-color: transparent;
   border: none;
@@ -85,23 +84,35 @@ export const Input = styled.input`
   opacity: 0.8;
   padding: 0 12px;
 
-  font-size:14px;
+  font-size: 14px;
   line-height: 1.29;
   color: var(--text-color);
   outline: none;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1); */
+
+  display: block;
+  padding: 4px;
+
+  /* margin-bottom: 8px; */
+
+  font-size: 12;
+  line-height: calc(16 / 12);
+  color: var(--see-more-link-color);
+
+  border-style: none;
+  background-color: var(--button-hover-color);
+  border-bottom: 1px solid #f3f3f311;
+
+  &:focus {
+    color: var(--text-color);
+    outline: transparent;
+  }
 
   &::placeholder {
-    color: var(--text-color);
+    color: var(--see-more-link-color);
   }
 
-  &:hover,
-  &:focus,
-  &:active {
-    opacity: 1;
+  &:focus::placeholder {
+    color: transparent;
   }
 `;
-
-  
-
-  
