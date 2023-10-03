@@ -81,7 +81,6 @@ export const SocialLink = styled.a`
   &:hover,
   &:focus {
     border: 1px solid rgba(64, 112, 205, 0.5);
-    /* border: 1px solid rgba(221, 255, 0, 0.2); */
     background-color: #f3f3f3;
   }
   &:hover svg,
@@ -268,6 +267,23 @@ export const RightsContainer = styled.div`
 `;
 
 export const PolicyText = styled.p`
+  color: rgba(243, 243, 243, 0.5);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.33;
+  letter-spacing: -0.24px;
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+    line-height: 1.28;
+    letter-spacing: -0.28px;
+  }
+
+  @media (min-width: 1440px) {
+  }
+`;
+
+export const PolicyLink = styled(Link)`
   color: rgba(243, 243, 243, 0.5);
   font-size: 12px;
   font-weight: 400;

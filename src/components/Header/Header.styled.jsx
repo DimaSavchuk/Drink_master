@@ -2,11 +2,10 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const HeaderStyled = styled.header`
-  border-bottom: 1px solid rgba(243, 243, 243, 0.2);
+  border-bottom: 1px solid var(--border-link-color);
   position: absolute;
   z-index: 100;
   width: 100%;
-  /* position: relative; */
 `;
 export const HeaderContainer = styled.div`
   padding: 20px;
@@ -94,11 +93,6 @@ export const Button = styled.button`
   }
 `;
 
-// export const NavigationDesktop = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-// `;
 export const IconWrapper = styled.svg`
   width: ${(props) => props.size || '12px'};
   height: ${(props) => props.size || '12px'};
@@ -106,7 +100,6 @@ export const IconWrapper = styled.svg`
   stroke: var(--link-color);
   margin-right: ${(props) => props.marginRight || '0'};
   margin-left: ${(props) => props.marginLeft || '0'};
-  /* opacity: ${({ visible }) => (visible ? '1' : '0' || '1')}; */
 
   display: inline-block;
 
@@ -126,7 +119,6 @@ export const IconLightWrapper = styled.svg`
   height: ${(props) => props.size || '12px'};
   margin-right: ${(props) => props.marginRight || '0'};
   margin-left: ${(props) => props.marginLeft || '0'};
-  /* opacity: ${({ visible }) => (visible ? '1' : '0' || '1')}; */
 
   display: inline-block;
 

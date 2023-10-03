@@ -9,9 +9,9 @@ export const ROUTES = {
   REGISTRATION: '/registration',
   LOGIN: '/login',
   ERROR: '*',
+  POLICY: '/policy',
+  SERVICE: '/service',
 
   // Тимчасові роути
-
-  // USER_PROFILE: '/profile',
   DROPDOWN: '/dropdown',
 };

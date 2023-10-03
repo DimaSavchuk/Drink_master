@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 export const PopDrinksWrapper = styled.div`
@@ -5,15 +6,6 @@ export const PopDrinksWrapper = styled.div`
 
   h4 {
     margin-bottom: 28px;
-  }
-
-  h6 {
-    margin-bottom: 8px;
-
-    font-size: 16px;
-    font-weight: 500;
-    line-height: calc(22 / 16);
-    color: var(--text-color);
   }
 
   ul {
@@ -25,14 +17,33 @@ export const PopDrinksWrapper = styled.div`
     margin-bottom: 24px;
   }
 
-  li {
-    display: flex;
+  @media (min-width: 768px) {
+    h4 {
+      margin-bottom: 40px;
+    }
+
+    ul {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+
+    ul > li:not(:last-of-type) {
+      margin-bottom: unset;
+    }
   }
 
-  li > img {
-    margin-right: 14px;
+  @media (min-width: 1440px) {
+    ul {
+      flex-direction: column;
+      flex-wrap: nowrap;
+      gap: 28px;
+    }
   }
+`;
 
+export const StyledNavLink = styled(NavLink)`
+  display: flex;
   p {
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -50,25 +61,21 @@ export const PopDrinksWrapper = styled.div`
     overflow: hidden;
   }
 
+  h6 {
+    margin-bottom: 8px;
+
+    font-size: 16px;
+    font-weight: 500;
+    line-height: calc(22 / 16);
+    color: var(--text-color);
+  }
+
+  img {
+    margin-right: 14px;
+  }
+
   @media (min-width: 768px) {
-    h4 {
-      margin-bottom: 40px;
-    }
-
-    ul {
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 32px;
-    }
-
-    li {
-      flex-basis: calc(50% - 32px);
-    }
-
-    ul > li:not(:last-of-type) {
-      margin-bottom: unset;
-    }
-
+    flex-basis: calc(50% - 32px);
     p {
       font-size: 14px;
       font-weight: 400;
@@ -76,15 +83,7 @@ export const PopDrinksWrapper = styled.div`
     }
   }
 
-  @media (min-width: 1440px) {
-    ul {
-      flex-direction: column;
-      flex-wrap: nowrap;
-      gap: 28px;
-    }
-
-    li {
-      flex-basis: 100%;
-    }
+  @media screen and (min-width: 1440px) {
+    flex-basis: 100%;
   }
 `;

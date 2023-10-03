@@ -1,9 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-// import { allusion } from '../../../src/api/allusion';
 
 axios.defaults.baseURL = 'https://rest-api-drink-master.onrender.com/api';
-// axios.defaults.baseURL = 'https://rest-api-drink-master.onrender.com/api';
 
 const setToken = (token) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -33,7 +31,6 @@ export const logInUser = createAsyncThunk(
     try {
       const res = await axios.post('/auth/signin', credentials);
       setToken(res.data.token);
-      console.log(res.data);
       return 'LOGIN => ', res.data;
     } catch ({ response }) {
       const { status } = response;
@@ -49,7 +46,6 @@ export const logoutUser = createAsyncThunk('auth/signout', async () => {
     return res.status;
   } catch ({ response }) {
     const { status } = response;
-    console.log(status);
   }
 });
 
@@ -65,7 +61,6 @@ export const fetchCurrentUser = createAsyncThunk(
       const {
         data: { data },
       } = await axios.get('/users/current');
-      console.log(data);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

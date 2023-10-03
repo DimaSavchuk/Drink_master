@@ -32,6 +32,8 @@ html {
   /* dark theme */
   &[data-theme='dark'] {
     --background-color: #0A0A11;
+    --loader-background-color: rgba(10, 10, 17, 0.8);
+    --loader-background-color-without-opacity: rgba(10, 10, 17);
     --text-color: #F3F3F3;
     --see-more-link-color: rgba(243, 243, 243, 0.50);
     --border-link-color: rgba(243, 243, 243, 0.2);
@@ -49,11 +51,14 @@ html {
     --card-hover:rgba(255, 255, 255, 0.5);
     --footer-background-color: transparent;
     --add-drink-form-background-color: rgba(22, 31, 55, 0.50);
+    --change-modal-btn: rgba(22, 31, 55, 1);
   }
 
   /* light theme */
   &[data-theme='light'] {
     --background-color: #F3F3F3;
+    --loader-background-color: rgba( 218, 218, 230, 0.8);
+    --loader-background-color-without-opacity: rgba( 218, 218, 230);
     --text-color: #0A0A11;
     --see-more-link-color: rgba(10, 10, 17, 0.50);
     --border-link-color: rgba(22, 31, 55, 0.20);
@@ -71,6 +76,7 @@ html {
     --card-hover:rgba(10, 10, 10, 0.5);
     --footer-background-color: #0A0A11;
     --add-drink-form-background-color: #161F37;
+    --change-modal-btn: #F3F3F3;
   }
 }
 
@@ -175,5 +181,9 @@ button {
 .error-message {
   font-size: 14px;
   color:red;
+}
+
+.Toastify__toast-container--top-right {
+    top: 85px;
 }
 `;

@@ -3,8 +3,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { signUpUser } from '../../../../redux/auth/authOperations';
-// import { toast } from 'react-toastify';
-import Notiflix from 'notiflix';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FormFieldInput } from '../FormField';
 import { DatePickerInput } from '../DatePickerInput';
@@ -49,12 +48,12 @@ export const SignUpForm = () => {
       .unwrap()
       .then((res) => {
         if (res && res.status === 201) {
-          Notiflix.Notify.success('Registration successful');
+          toast.success('Registration successful');
         }
       })
       .catch((errorStatus) => {
-        if (errorStatus === 409) Notiflix.Notify.failure('User already exists...');
-        else Notiflix.Notify.failure('Something went wrong... Try again...');
+        if (errorStatus === 409) toast.error('User already exists...');
+        else toast.error('Something went wrong... Try again...');
       });
     setIsDate(false);
     setIsError(false);

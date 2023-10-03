@@ -13,7 +13,7 @@ import sprite from '../../assets/sprite.svg';
 import { PagesMenu } from './PagesMenu/PagesMenu';
 import { UserLogo } from './UserLogo/UserLogo';
 import { MobileMenu } from '../MobileMenu/MobileMenu';
-import { useEffect, useRef } from 'react';
+import { useEffect, useCallback } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import '../MobileMenu/TransitionStyles.css';
 import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
@@ -73,10 +73,6 @@ export const Header = () => {
   const openUserInfoModal = () => {
     setIsUserInfoOpen(true);
     handleDropDownClose();
-
-    // setIsChangeProfileOpen(false);
-    // setShowDropDown(false);
-    // setEditProfileShow(true);
   };
 
   const openLogOutModal = () => {
@@ -94,29 +90,34 @@ export const Header = () => {
 
   const handleModalClick = (e) => {
     if (e.target === e.currentTarget) {
-      // setShowDropDown(false);
       handleCloseUserInfo();
       handleCloseLogOutModal();
       handleDropDownClose();
-      // setEditProfileShow(false);
     }
     e.stopPropagation();
   };
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = useCallback((e) => {
     if (e.key === 'Escape') {
       handleCloseUserInfo();
       handleCloseLogOutModal();
       handleDropDownClose();
     }
-  };
+  }, []);
 
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+  
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [handleKeyDown]);
   //drop down
 
   return (
     <>
       <HeaderStyled>
-        <HeaderContainer onKeyDown={handleKeyDown}>
+        <HeaderContainer onClose={handleKeyDown}>
           <Navigation>
             <StyledLink to="/">
               <IconWrapper size={'22px'} size768={'28px'} size1440={'28px'}>
@@ -155,43 +156,9 @@ export const Header = () => {
                 />
               )}
 
-              {/* {isAuthVisible ? <UserLogo /> : null} */}
-
               {isOpen && <ThemeSwitcher />}
 
               <Button onClick={handleToggleMenu}>
-                {/* {isOpen ? (
-                  <IconWrapper
-                    className={isOpen ? 'icon-wrapper active' : 'icon-wrapper'}
-                    size={'32px'}
-                    size768={'38px'}
-                    // visible={isOpen.toString()}
-                  >
-                    <use href={`${sprite}#icon-x`} />
-                  </IconWrapper>
-                ) : (
-                  <IconWrapper
-                    className={isOpen ? 'icon-wrapper' : 'icon-wrapper active'}
-                    size={'32px'}
-                    size768={'38px'}
-                    // visible={true}
-                  >
-                    <use
-                      href={`${sprite}#icon-burger-menu
-                      `}
-                    />
-                  </IconWrapper>
-                )} */}
-                {/* 
-                <IconWrapper
-                  className={isOpen ? 'icon-wrapper active' : 'icon-wrapper'}
-                  size={'32px'}
-                  size768={'38px'}
-                >
-                  <use
-                    href={`${sprite}#${isOpen ? 'icon-x' : 'icon-burger-menu'}`}
-                  />
-                </IconWrapper> */}
                 <IconWrapper
                   className={isOpen ? 'icon-wrapper active' : 'icon-wrapper'}
                   size={'32px'}

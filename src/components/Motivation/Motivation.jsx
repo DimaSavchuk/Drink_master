@@ -1,13 +1,46 @@
-import styled from 'styled-components';
+import { IconWrapper } from '../Header/Header.styled';
+import {
+  Backdrop,
+  Background,
+  Button,
+  IconBack,
+  Text,
+  Wrapper,
+} from './Motivation.styled';
+import sprite from '../../assets/sprite.svg';
 import motiv from '../../assets/motivation/motivation.png';
+// import motivSecond from '../../assets/motivation/motivation2.png';
+import { useEffect } from 'react';
 
-export const Background = styled.div`
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  border-radius: 30px;
-  background:
-    linear-gradient(0deg, rgba(10, 10, 17, 0.4) 0%, rgba(10, 10, 17, 0.4) 100%),
-    url(${motiv}),
-    lightgray -82.157px -396.532px / 143.003% 184.878% no-repeat;
-`;
+export const Motivation = ({
+  isShown,
+  text = 'Wow! You have added the first recipe to your drinks!',
+  onClose,
+  image,
+}) => {
+  useEffect(() => {
+    if (isShown === true) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isShown]);
+
+  return (
+    <Backdrop>
+      <Background background={image}>
+        <Wrapper>
+          <IconBack>
+            <use href={`${sprite}#icon-motiv-vector`} />
+          </IconBack>
+          <Text>{text}</Text>
+          <Button onClick={onClose}>
+            <IconWrapper size={28} size768={28} size1440={28}>
+              <use href={`${sprite}#icon-close-motiv`} />
+            </IconWrapper>
+          </Button>
+        </Wrapper>
+      </Background>
+    </Backdrop>
+  );
+};

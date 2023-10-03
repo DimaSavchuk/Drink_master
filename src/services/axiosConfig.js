@@ -1,7 +1,9 @@
 import axios from 'axios';
+import {
+  fetchingFirstRecipeError,
+  fetchingFirstRecipeSuccess,
+} from '../redux/motivation/motivationSlice';
 
-// axios.defaults.baseURL = 'https://rest-api-drink-master.onrender.com/api';
-// axios.defaults.baseURL = 'http://localhost:3000/api';
 
 export const fetchFavoriteDrinks = async () => {
   try {
@@ -30,7 +32,9 @@ export const addDrinkToFavorite = async (_id) => {
     const response = await axios.post('/drinks/favorite/add', {
       recipeId: _id,
     });
-    return response.data.data;
+    return response.data;
+
+    // return response.data.data;
   } catch (error) {
     console.error('Помилка при отриманні даних:', error);
   }
@@ -109,7 +113,6 @@ export const fetchIngredients = async () => {
 export const fetchPopularDrinks = async () => {
   try {
     const response = await axios.get('/drinks/popular');
-    console.log(response.data);
     return response.data;
   } catch (error) {
     console.error('Помилка при отриманні даних: ', error);
@@ -139,7 +142,6 @@ export const updateUser = async (name) => {
 };
 
 export const getCurrentUser = async () => {
-  // console.log(_id);
   try {
     const response = await axios.get('/users/current', {});
     return response.data.data;
@@ -148,19 +150,8 @@ export const getCurrentUser = async () => {
   }
 };
 
-export const ownDrink = async (data) => {
-  const ingredients = data.ingredients.map(({ measure, title }) => {
-    const newObj = JSON.parse(title);
-    const newIngObj = {
-      title: newObj.title,
-      ingredientId: newObj._id,
-      measure: measure,
-    };
-
-    return newIngObj;
-  });
-
-  const newIngredients = JSON.stringify(ingredients);
+export const ownDrink = async (data, dispatch) => {
+  const newIngredients = JSON.stringify(data.ingredients);
 
   let formData = new FormData();
   formData.append('cocktail', data.file);
@@ -179,9 +170,19 @@ export const ownDrink = async (data) => {
       },
     })
     .then((response) => {
+      const {
+        data: { firstRecipe },
+      } = response;
+      console.log(firstRecipe);
+      if (firstRecipe) {
+        dispatch(fetchingFirstRecipeSuccess(true));
+      } else {
+        dispatch(fetchingFirstRecipeSuccess(false));
+      }
       console.log(response);
     })
     .catch((error) => {
       console.log(error);
+      dispatch(fetchingFirstRecipeError(error.message));
     });
 };

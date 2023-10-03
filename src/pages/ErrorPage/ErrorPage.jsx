@@ -12,7 +12,6 @@ import asrBlueIced2x from '../../assets/hero/asr_blue_iced_tea_mobile@2x.png';
 const ErrorPage = () => {
   return (
     <Container>
-      {/* <Gradient /> */}
       <CommonContainer>
         <div
           style={{
@@ -21,22 +20,16 @@ const ErrorPage = () => {
             alignItems: 'center',
           }}
         >
-          <ErrorLetterL>
-            4
-          </ErrorLetterL>
+          <ErrorLetterL>4</ErrorLetterL>
           <picture>
-
             <ErrorImg
-              src="./src/assets/hero/asr_blue_iced_tea_mobile 1.png"
-              srcSet="./src/assets/hero/asr_blue_iced_tea_mobile 1.png 1x, ./src/assets/hero/asr_blue_iced_tea_mobile@2x.png 2x"
-
+              src={asrBlueIced}
+              srcSet={`${asrBlueIced2x} 2x`}
               alt="coctail"
               loading="lazy"
             />
           </picture>
-          <ErrorLetterR>
-            4
-          </ErrorLetterR>
+          <ErrorLetterR>4</ErrorLetterR>
         </div>
       </CommonContainer>
     </Container>

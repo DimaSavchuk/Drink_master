@@ -1,6 +1,5 @@
 import axios from 'axios';
 import * as Yup from 'yup';
-// import { Notify } from 'notiflix';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -17,11 +16,12 @@ import {
   Input,
   Button,
   PolicyContainer,
-  PolicyText,
   RightsContainer,
   CommonWrapper,
   FormContainer,
   ErrorMessage,
+  PolicyLink,
+  PolicyText,
 } from './Footer.styled';
 import sprite from '../../assets/sprite.svg';
 import {
@@ -208,8 +208,8 @@ export const Footer = () => {
           <RightsContainer>
             <PolicyText>©2023 Drink Master. All rights reserved.</PolicyText>
             <PolicyContainer>
-              <PolicyText>Privacy Policy</PolicyText>
-              <PolicyText>Terms of Service</PolicyText>
+              <PolicyLink to="/policy">Privacy Policy</PolicyLink>
+              <PolicyLink to="/service">Terms of Service</PolicyLink>
             </PolicyContainer>
           </RightsContainer>
         </div>

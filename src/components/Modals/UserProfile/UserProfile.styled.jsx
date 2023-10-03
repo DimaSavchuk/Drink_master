@@ -24,9 +24,12 @@ export const ModalWrapper = styled.div`
   padding-top: 150px;
   z-index: 2;
   backdrop-filter: blur(4px);
+  transition:
+    color 300ms linear,
+    background-color 300ms linear;
 `;
 export const ContentWrapper = styled.div`
-  background-color: #161F37;
+  background-color: var(--background-color);
   border-radius: 16px;
   width: 335px;
   height: 345px;
@@ -41,7 +44,7 @@ export const ContentWrapper = styled.div`
   background-size: auto;
   background-repeat: no-repeat;
 
-@media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     width: 500px;
     height: 426px;
     background-image: url(${ellipseTabletYellow}), url(${ellipseTabletBlue});
@@ -51,15 +54,19 @@ export const ContentWrapper = styled.div`
   }
 `;
 export const CloseButton = styled.button`
-margin-top: 14px;
-margin-left: 297px;
-margin-bottom: 12px;
+  margin-top: 14px;
+  margin-left: 297px;
+  margin-bottom: 12px;
   background: none;
   border: none;
   cursor: pointer;
   font-size: 1.5rem;
   width: 24px;
   height: 24px;
+  transition:
+    color 300ms linear,
+    background-color 300ms linear;
+
   @media screen and (min-width: 768px) {
     width: 32px;
     height: 32px;
@@ -69,7 +76,6 @@ margin-bottom: 12px;
   }
 `;
 export const StyledForm = styled(Formik)``;
-
 
 export const StyledFormInsight = styled(Form)`
   max-width: 285px;
@@ -89,7 +95,7 @@ export const UserAvatarWrapper = styled.div`
   margin: 0 auto;
   @media screen and (min-width: 768px) {
     width: 100px;
-  margin: 0 auto;
+    margin: 0 auto;
   }
 `;
 export const AvatarFrame = styled.img`
@@ -100,10 +106,10 @@ export const AvatarFrame = styled.img`
   margin: 0 auto;
   border-radius: 50%;
   background-image: url({defaultAvatarURL});
-  
-@media screen and (min-width: 768px) {
-  width: 100px;
-  height: 100px;
+
+  @media screen and (min-width: 768px) {
+    width: 100px;
+    height: 100px;
   }
 `;
 
@@ -139,16 +145,19 @@ export const StyledInputWrap = styled.div`
   width: 100%;
   position: relative;
   color: red;
-@media screen and (min-width: 768px) {
-  max-width: 400px;
+  @media screen and (min-width: 768px) {
+    max-width: 400px;
   }
 `;
 export const EditIcon = styled.span`
   position: absolute;
-  top: 19px;
+  top: 110px;
   right: 24px;
   pointer-events: none;
-  color: red;
+  color: var(--text-color);
+  @media screen and (min-width: 768px) {
+    top: 153px;
+  }
 `;
 export const StyledIconError = styled(RiErrorWarningLine)`
   position: absolute;
@@ -157,7 +166,7 @@ export const StyledIconError = styled(RiErrorWarningLine)`
   right: 24px;
   top: 70%;
   transform: translateY(-50%);
-@media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     top: 75%;
   }
 `;
@@ -168,26 +177,29 @@ export const StyledIconChecked = styled(IoIosCheckmarkCircleOutline)`
   right: 24px;
   top: 70%;
   transform: translateY(-50%);
-@media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     top: 75%;
   }
 `;
 
 export const StyledInput = styled(Field)`
-margin-top: 93px;
+  margin-top: 93px;
   width: 100%;
   height: 54px;
   border-radius: 200px;
-  border: 1px solid rgba(243, 243, 243, 0.2);
+  border: 1px solid var(--border-input-color);
   opacity: 0.800000011920929;
   background-color: transparent;
   padding: 18px 24px;
   padding-right: 50px;
-  color: rgba(243, 243, 243, 0.5);
+  color: var(--about-drink-title-color);
   font-size: 14px;
   font-weight: 400;
   line-height: calc(18 / 14);
-   @media screen and (min-width: 768px) {
+  transition:
+    color 300ms linear,
+    background-color 300ms linear;
+  @media screen and (min-width: 768px) {
     margin-top: 136px;
     height: 56px;
     padding: 14px 24px;
@@ -198,8 +210,8 @@ margin-top: 93px;
   &:focus,
   &:hover {
     outline: none;
-    color: #f3f3f3;
-    border-color: rgba(243, 243, 243, 0.5);
+    color: var(--button-color);
+    border-color: var(--about-drink-title-color);
     background-color: transparent;
   }
   &.valid-border {
@@ -233,18 +245,20 @@ export const SaveChangeButton = styled.button`
   padding: 18px 90px;
   outline: none;
   border: none;
-  border-color: #434D67;
+  border-color: var(--scroll-color);
   border-radius: 42px;
-  background-color: #F3F3F3;
-  color: rgba(22, 31, 55, 1);
+  background-color: var(--button-color);
+  color: var(--change-modal-btn);
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 1.29;
-  transition: background-color 0.5s ease;
+  transition:
+    color 300ms linear,
+    background-color 300ms linear;
   &:hover {
-    background-color: #434D67;
-    color: #F3F3F3;
+    background-color: var(--scroll-color);
+    color: var(--button-color);
   }
   @media screen and (min-width: 768px) {
     margin-top: 25px;
@@ -253,7 +267,6 @@ export const SaveChangeButton = styled.button`
     line-height: 1.13;
   }
 `;
-
 
 export const StyledError = styled(ErrorMessage)`
   margin-top: 8px;
@@ -275,7 +288,8 @@ export const StyledMessage = styled.p`
 export const StyledUpdatedCloseButton = styled(CloseButtonIcon)`
   width: 24px;
   height: 24px;
-  fill: #F3F3F3;
+  fill: var(--button-color);
+  transition: fill 300ms linear;
 
   @media screen and (min-width: 768px) {
     width: 32px;
@@ -283,8 +297,6 @@ export const StyledUpdatedCloseButton = styled(CloseButtonIcon)`
   }
 
   &:hover {
-    fill: #434d43;
+    fill: var(--scroll-color);
   }
 `;
-
-

@@ -7,8 +7,8 @@ export const Backdrop = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgb(10, 10, 17);
-  backdrop-filter: blur(2px) drop-shadow(4px 4px 10px blue);
+  background-color: ${(props) => props.bgc || 'var(--loader-background-color)'};
+  backdrop-filter: blur(4px);
 `;
 
 export const WrapperForLoader = styled.div`

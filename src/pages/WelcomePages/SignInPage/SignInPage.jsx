@@ -1,4 +1,3 @@
-// import React from 'react';
 import { AuthForm } from '../../../components/RegistartionLogin/AuthForm';
 import { SignInForm } from '../../../components/RegistartionLogin/Forms/SignInForm/SignInForm';
 const SignInPage = () => {

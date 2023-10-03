@@ -1,20 +1,21 @@
-import { useState } from "react";
-import { CocktailCard } from "../CocktailCard/CocktailCard"
-import { CommonLink } from "../CommonLink/CommonLink";
-import { CommonContainer } from "../GlobalStyles/CommonContainer.styled";
+import { useState } from 'react';
+import { CocktailCard } from '../CocktailCard/CocktailCard';
+import { CommonLink } from '../CommonLink/CommonLink';
+import { CommonContainer } from '../GlobalStyles/CommonContainer.styled';
 import {
-    BtnsWrapper,
-    CategoriesList,
-    CategoryName,
-    CocktailsWrap,
-    PreviewSection
-} from "./PreviewDrinks.styled";
-import { useEffect } from "react";
-import { fetchHomePageCocktails } from "../../services/axiosConfig";
-import { SeeMoreBtn } from "../SeeMoreBtn/SeeMoreBtn";
-import { nanoid } from "@reduxjs/toolkit";
-import { InfoComponent } from "../InfoComponent/InfoComponent";
-import { Loading } from "../Loading/Loading";
+  BtnsWrapper,
+  CategoriesList,
+  CategoryName,
+  CocktailsWrap,
+  PreviewSection,
+} from './PreviewDrinks.styled';
+import { useEffect } from 'react';
+import { fetchHomePageCocktails } from '../../services/axiosConfig';
+import { SeeMoreBtn } from '../SeeMoreBtn/SeeMoreBtn';
+import { nanoid } from '@reduxjs/toolkit';
+import { InfoComponent } from '../InfoComponent/InfoComponent';
+import { Loading } from '../Loading/Loading';
+import { LittleLoading } from '../Loading/LittleLoading';
 
 export const PreviewDrinks = ({ numbCocktailsToShow }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -41,6 +42,7 @@ export const PreviewDrinks = ({ numbCocktailsToShow }) => {
     setLimit(categories.length);
     setIsShowSeeMoreBtn(false);
   };
+
 
 
     return (
@@ -79,3 +81,4 @@ export const PreviewDrinks = ({ numbCocktailsToShow }) => {
         </PreviewSection>
     );
 };
+

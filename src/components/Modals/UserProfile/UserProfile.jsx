@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react';
-// import { updateUser } from '../../../services/axiosConfig';
-// import Notiflix from 'notiflix';
 import { useLockBodyScroll } from '@uidotdev/usehooks';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../../redux/UserInfo/userSelectors';
@@ -23,25 +21,26 @@ import {
   StyledUpdatedCloseButton,
   StyledError,
   StyledMessage,
-  //  EditIcon,
+  EditIcon,
 } from './UserProfile.styled';
 
 import { updateUserThunk } from '../../../redux/UserInfo/userOperations';
-//  import { FiEdit2 } from 'react-icons/fi';
+import { FiEdit2 } from 'react-icons/fi';
 import AddIcon from '../../../assets/add_photo.svg';
 import defaultAvatarURL from '../../../assets/user.svg';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
+export const UserInfoModal = ({ onClose, handleModalClick }) => {
   useLockBodyScroll();
 
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
 
-  // const [isOpen, setIsOpen] = useState(true); //eslint-disable-line
   const [selectedAvatar, setSelectedAvatar] = useState(null);
   const [imgURL, setImageURL] = useState('');
+  const [isEditing, setIsEditing] = useState(true);
+  
 
   useEffect(() => {
     const handleOutsideClick = (event) => {
@@ -87,9 +86,9 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
   } else {
     avatar = defaultAvatarURL;
   }
-
+  
   return (
-    <ModalWrapper onClick={handleModalClick} onKeyDown={handleKeyDown}>
+    <ModalWrapper onClick={handleModalClick}>
       <ContentWrapper className="modal-content">
         <CloseButton onClick={onClose} tabIndex={1} className="close-button">
           <StyledUpdatedCloseButton width={16} height={16} />
@@ -108,13 +107,6 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
                 'Name can only contain letters or numbers.',
               ),
           })}
-          // onSubmit={async (values) => {
-          //   console.log('submit');
-          //   const formData = new FormData();
-          //   formData.append('name', values.name);
-          //   formData.append('avatarURL', values.avatarURL);
-          //   //await dispatch(updateUserThunk(formData));
-          // }}
           onSubmit={handleOnSubmit}
         >
           {({ errors, touched, handleChange, setFieldTouched }) => (
@@ -127,7 +119,6 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
                     type="file"
                     id="avatarInput"
                     name="file"
-                    // accept="image/*"
                     onChange={handleAvatarChange}
                   />
                 </label>
@@ -140,6 +131,7 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
                   onChange={(e) => {
                     setFieldTouched('name');
                     handleChange(e);
+                    setIsEditing(false)
                   }}
                   className={
                     touched.name && !errors.name
@@ -149,9 +141,9 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
                       : ''
                   }
                 />
-                {/* <EditIcon>
-                    <FiEdit2 size={14} />
-                </EditIcon> */}
+                {isEditing ? (<EditIcon>
+                    <FiEdit2 size={20} />
+                </EditIcon>) : null}
                 {errors.name && touched.name && (
                   <div>
                     <StyledIconError color="red" />{' '}
@@ -165,7 +157,7 @@ export const UserInfoModal = ({ onClose, handleModalClick, handleKeyDown }) => {
                   </div>
                 )}
               </StyledInputWrap>
-              <SaveChangeButton type="submit">Save changes</SaveChangeButton>
+              <SaveChangeButton type="submit" onClick={() => setIsEditing(false)}>Save changes</SaveChangeButton>
             </StyledFormInsight>
           )}
         </StyledForm>

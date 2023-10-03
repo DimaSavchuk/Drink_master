@@ -1,41 +1,53 @@
+import { lazy, useEffect } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
+
 import { useTheme } from './Hooks/useTheme';
+
+import { AppWrapper } from './App.styled';
+import { GlobalStyle } from './components/GlobalStyles/GlobalStyles.styled';
+
+import { ROUTES } from './Routes/Routes';
+import { RestrictedRoute } from './Routes/RestrictedRouts';
+import { PrivateRoute } from './Routes/PrivateRoute';
+
+import { selectIsLoadingUser } from './redux/auth/authSelectors';
+import { fetchCurrentUser } from './redux/auth/authOperations';
+import { selectRoutePath } from './redux/route/routeSelectors';
+
+import { Loading } from './components/Loading/Loading';
+
 import SharedLayout from './components/SharedLayout/SharedLayout';
 import StartPage from './pages/WelcomePages/StartPage/StartPage';
 import RegistrationPage from './pages/WelcomePages/RegistrationPage/RegistrationPage';
 import SignInPage from './pages/WelcomePages/SignInPage/SignInPage';
-import DrinksPages from './pages/DrinksPages/DrinksPages';
-import FavoritesPages from './pages/FavoritesPages/FavoritesPages';
-import MyDrinksPages from './pages/MyDrinksPages/MyDrinksPages';
-import ErrorPage from './pages/ErrorPage/ErrorPage';
 
-import { AppWrapper } from './App.styled';
-import { GlobalStyle } from './components/GlobalStyles/GlobalStyles.styled';
-import { HomePage } from './pages/HomePage/HomePage';
-import AddDrink from './pages/AddDrinkPages/AddDrinkPages';
-import AboutDrinkPages from './pages/AboutDrinkPages/AboutDrinkPages';
-
-import { DropDown } from './components/Modals/DropDown/DropDown';
-import { ROUTES } from './Routes/Routes';
-import { RestrictedRoute } from './Routes/RestrictedRouts';
-import { ToastContainer } from 'react-toastify';
-import { PrivateRoute } from './Routes/PrivateRoute';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  selectIsLoadingUser,
-  selectIsRefreshing,
-} from './redux/auth/authSelectors';
-
-import { Loading } from './components/Loading/Loading';
-import { useEffect } from 'react';
-import { fetchCurrentUser } from './redux/auth/authOperations';
-import { selectRoutePath } from './redux/route/routeSelectors';
+const HomePages = lazy(() => import('./pages/HomePage/HomePage'));
+const DrinksPages = lazy(() => import('./pages/DrinksPages/DrinksPages'));
+const AboutDrinkPages = lazy(() =>
+  import('./pages/AboutDrinkPages/AboutDrinkPages'),
+);
+const AddDrinkPages = lazy(() => import('./pages/AddDrinkPages/AddDrinkPages'));
+const MyDrinksPages = lazy(() => import('./pages/MyDrinksPages/MyDrinksPages'));
+const FavoritesPages = lazy(() =>
+  import('./pages/FavoritesPages/FavoritesPages'),
+);
+const DropDown = lazy(() =>
+  import('./components/Modals/DropDown/DropDown'),
+);
+const ErrorPages = lazy(() => import('./pages/ErrorPage/ErrorPage'));
+const PrivacyPolicyPage = lazy(() =>
+  import('./pages/PrivacyPolicyPage/PrivacyPolicyPage'),
+);
+const TermsOfServicePage = lazy(() =>
+  import('./pages/TermsOfServicePage/TermsOfServicePage'),
+);
 
 function App() {
   const routeActual = useSelector(selectRoutePath);
   const navigate = useNavigate();
   const isLoadingUser = useSelector(selectIsLoadingUser);
-  const isRefreshing = useSelector(selectIsRefreshing);
   const dispatch = useDispatch();
   useTheme();
 
@@ -49,100 +61,34 @@ function App() {
       <GlobalStyle />
       <ToastContainer theme="dark" />
       {isLoadingUser && <Loading />}
-      {isRefreshing && <Loading />}
       <Routes>
-        <Route path="/start" element={<StartPage />} />
+        <Route
+          path={ROUTES.START}
+          element={<RestrictedRoute component={<StartPage />} />}
+        />
         <Route
           path={ROUTES.REGISTRATION}
-          element={
-            <RestrictedRoute
-              redirectTo={ROUTES.HOME}
-              component={<RegistrationPage />}
-            />
-          }
+          element={<RestrictedRoute component={<RegistrationPage />} />}
         />
         <Route
           path={ROUTES.LOGIN}
-          element={
-            <RestrictedRoute
-              redirectTo={ROUTES.HOME}
-              component={<SignInPage />}
-            />
-          }
+          element={<RestrictedRoute component={<SignInPage />} />}
         />
 
-        <Route path={ROUTES.HOME} element={<SharedLayout />}>
-          <Route
-            index
-            element={
-              <PrivateRoute
-                component={<HomePage />}
-                redirectTo={ROUTES.LOGIN}
-              />
-            }
-          />
-
-          <Route
-            path={ROUTES.DRINKS}
-            element={
-              <PrivateRoute
-                component={<DrinksPages />}
-                redirectTo={ROUTES.LOGIN}
-              />
-            }
-          />
-
-          <Route
-            path={ROUTES.ABOUTDRINK}
-            element={
-              <PrivateRoute
-                component={<AboutDrinkPages />}
-                redirectTo={ROUTES.LOGIN}
-              />
-            }
-          />
-
-          <Route
-            path={ROUTES.ADDDRINK}
-            element={
-              <PrivateRoute
-                component={<AddDrink />}
-                redirectTo={ROUTES.LOGIN}
-              />
-            }
-          />
-
-          <Route
-            path={ROUTES.MYDRINKS}
-            element={
-              <PrivateRoute
-                component={<MyDrinksPages />}
-                redirectTo={ROUTES.LOGIN}
-              />
-            }
-          />
-
-          <Route
-            path={ROUTES.FAVORITE}
-            element={
-              <PrivateRoute
-                component={<FavoritesPages />}
-                redirectTo={ROUTES.LOGIN}
-              />
-            }
-          />
-
-          <Route
-            path="/dropdown"
-            element={
-              <PrivateRoute
-                component={<DropDown />}
-                redirectTo={ROUTES.LOGIN}
-              />
-            }
-          />
-
-          <Route path={ROUTES.ERROR} element={<ErrorPage />} />
+        <Route
+          path={ROUTES.HOME}
+          element={<PrivateRoute component={<SharedLayout />} />}
+        >
+          <Route index element={<HomePages />} />
+          <Route path={ROUTES.DRINKS} element={<DrinksPages />} />
+          <Route path={ROUTES.ABOUTDRINK} element={<AboutDrinkPages />} />
+          <Route path={ROUTES.ADDDRINK} element={<AddDrinkPages />} />
+          <Route path={ROUTES.MYDRINKS} element={<MyDrinksPages />} />
+          <Route path={ROUTES.FAVORITE} element={<FavoritesPages />} />
+          <Route path={ROUTES.DROPDOWN} element={<DropDown />} />
+          <Route path={ROUTES.POLICY} element={<PrivacyPolicyPage />} />
+          <Route path={ROUTES.SERVICE} element={<TermsOfServicePage />} />
+          <Route path={ROUTES.ERROR} element={<ErrorPages />} />
         </Route>
       </Routes>
     </AppWrapper>
