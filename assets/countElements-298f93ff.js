@@ -1,4 +1,4 @@
-import{s as a,N as m,j as r,H as x}from"./index-8bf387fb.js";import{p as h,a as g}from"./InfoComponent-2fdecc95.js";import{d as w,i as f,j as b,k as u}from"./axiosConfig-8b7fbaf1.js";const L=a.section`
+import{s as a,N as m,j as r,H as x}from"./index-16dc143a.js";import{p as h,a as g}from"./InfoComponent-682d246a.js";import{d as w,i as f,j as b,k as u}from"./axiosConfig-df686164.js";const L=a.section`
   padding: 152px 0;
   @media (min-width: 768px) {
     padding: 224px 0;
@@ -48,8 +48,7 @@ import{s as a,N as m,j as r,H as x}from"./index-8bf387fb.js";import{p as h,a as 
   @media (min-width: 1440px) {
     grid-template-columns: repeat(3, minmax(335px, 1fr));
   }
-`,k=a.div`
- `,v=a.img`
+`,k=a.div``,v=a.img`
   margin-bottom: 18px;
   border-radius: 8px;
   @media (min-width: 768px) {
@@ -107,8 +106,8 @@ import{s as a,N as m,j as r,H as x}from"./index-8bf387fb.js";import{p as h,a as 
 `,C=a(m)`
   margin-right: 8px;
 
-  display: flex; 
-  align-items: center; 
+  display: flex;
+  align-items: center;
   justify-content: center;
   padding: 14px 40px;
   gap: 10px;

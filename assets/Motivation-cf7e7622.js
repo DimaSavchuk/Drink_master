@@ -1,4 +1,4 @@
-import{s as o,r as a,j as t,f as i,I as c}from"./index-8bf387fb.js";const b=e=>e.motivation.firstRecipe,h=e=>e.motivation.firstFavorite,d=o.div`
+import{s as o,r as a,j as e,f as i,I as c}from"./index-16dc143a.js";const f=t=>t.motivation.firstRecipe,b=t=>t.motivation.firstFavorite,d=o.div`
   position: fixed;
   z-index: 1000;
   top: 0;
@@ -11,6 +11,8 @@ import{s as o,r as a,j as t,f as i,I as c}from"./index-8bf387fb.js";const b=e=>e
     rgba(10, 10, 17, 0.4) 100%
   );
   backdrop-filter: blur(4px);
+  width: 100%;
+  height: 100vh;
 `,p=o.div`
   position: absolute;
   width: 500px;
@@ -21,8 +23,8 @@ import{s as o,r as a,j as t,f as i,I as c}from"./index-8bf387fb.js";const b=e=>e
   transform: translate(-50%, -50%);
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: ${({background:e})=>`linear-gradient(0deg, rgba(10, 10, 17, 0.4) 0%, rgba(10, 10, 17, 0.4) 100%),
-    url(${e[0]})
+  background-image: ${({background:t})=>`linear-gradient(0deg, rgba(10, 10, 17, 0.4) 0%, rgba(10, 10, 17, 0.4) 100%),
+    url(${t[0]})
     `};
 
   @media (min-device-pixel-ratio: 2),
@@ -30,8 +32,8 @@ import{s as o,r as a,j as t,f as i,I as c}from"./index-8bf387fb.js";const b=e=>e
     (min-resolution: 2dppx) {
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: ${({background:e})=>`linear-gradient(0deg, rgba(10, 10, 17, 0.4) 0%, rgba(10, 10, 17, 0.4) 100%),
-    url(${e[1]})`};
+    background-image: ${({background:t})=>`linear-gradient(0deg, rgba(10, 10, 17, 0.4) 0%, rgba(10, 10, 17, 0.4) 100%),
+    url(${t[1]})`};
   }
 `,l=o.svg`
   display: block;
@@ -79,4 +81,4 @@ import{s as o,r as a,j as t,f as i,I as c}from"./index-8bf387fb.js";const b=e=>e
   &:focus svg {
     stroke: #161f37;
   }
-`,m=({isShown:e,text:r="Wow! You have added the first recipe to your drinks!",onClose:n,image:s})=>(a.useEffect(()=>{e===!0?document.body.style.overflow="hidden":document.body.style.overflow="auto"},[e]),t.jsx(d,{children:t.jsx(p,{background:s,children:t.jsxs(g,{children:[t.jsx(l,{children:t.jsx("use",{href:`${i}#icon-motiv-vector`})}),t.jsx(x,{children:r}),t.jsx(u,{onClick:n,children:t.jsx(c,{size:28,size768:28,size1440:28,children:t.jsx("use",{href:`${i}#icon-close-motiv`})})})]})})}));export{m as M,b as a,h as s};
+`,m=({isShown:t,text:r="Wow! You have added the first recipe to your drinks!",onClose:n,image:s})=>(a.useEffect(()=>{t===!0?document.body.style.overflow="hidden":document.body.style.overflow="auto"},[t]),e.jsx(d,{children:e.jsx(p,{background:s,children:e.jsxs(g,{children:[e.jsx(l,{children:e.jsx("use",{href:`${i}#icon-motiv-vector`})}),e.jsx(x,{children:r}),e.jsx(u,{onClick:n,children:e.jsx(c,{size:28,size768:28,size1440:28,children:e.jsx("use",{href:`${i}#icon-close-motiv`})})})]})})}));export{m as M,f as a,b as s};
