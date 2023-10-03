@@ -1,4 +1,4 @@
-import{s as t}from"./index-8dc57b94.js";const i=t.section`
+import{s as t}from"./index-56f9d02c.js";const i=t.section`
   padding-top: 200px;
   padding-bottom: 112px;
 `,n=t.h1`
