@@ -1,3 +1,4 @@
+import { useField } from 'formik';
 import {
   FieldTextArea,
   FieldWrapper,
@@ -5,7 +6,9 @@ import {
 } from './RecipePreparation.styled';
 import { ErrorText } from './RecipePreparation.styled';
 
-const RecipePreparation = ({ error, setValue }) => {
+const RecipePreparation = ({ error, touched }) => {
+  const [field] = useField('recipePreparation');
+
   return (
     <FieldWrapper>
       <h3>Recipe Preparation</h3>
@@ -13,14 +16,13 @@ const RecipePreparation = ({ error, setValue }) => {
         <FieldTextArea
           name="recipePreparation"
           placeholder="Enter the recipe"
-          onChange={(e) => setValue('recipePreparation', e.target.value)}
-          as="textarea"
+          {...field}
         />
         <LabelTextArea htmlFor="recipePreparation">
           Enter the recipe
         </LabelTextArea>
       </div>
-      {error ? <ErrorText>{error}</ErrorText> : null}
+      {touched && error ? <ErrorText>{error}</ErrorText> : null}
     </FieldWrapper>
   );
 };

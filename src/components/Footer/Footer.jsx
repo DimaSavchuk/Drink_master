@@ -1,6 +1,5 @@
 import axios from 'axios';
 import * as Yup from 'yup';
-// import { Notify } from 'notiflix';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

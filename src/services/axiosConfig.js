@@ -143,7 +143,6 @@ export const updateUser = async (name) => {
 };
 
 export const getCurrentUser = async () => {
-  // console.log(_id);
   try {
     const response = await axios.get('/users/current', {});
     return response.data.data;
@@ -153,12 +152,8 @@ export const getCurrentUser = async () => {
 };
 
 export const ownDrink = async (data, dispatch) => {
-  const { ingredients } = data;
-  console.log(ingredients);
-  const newIngredients = JSON.stringify(data.ingredients);
 
-  console.log(data);
-  console.log(newIngredients);
+  const newIngredients = JSON.stringify(data.ingredients);
 
   let formData = new FormData();
   formData.append('cocktail', data.file);

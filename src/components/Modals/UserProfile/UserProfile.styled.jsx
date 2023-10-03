@@ -29,7 +29,7 @@ export const ModalWrapper = styled.div`
     background-color 300ms linear;
 `;
 export const ContentWrapper = styled.div`
-  background-color: #161f37;
+  background-color: var(--background-color);
   border-radius: 16px;
   width: 335px;
   height: 345px;
@@ -154,7 +154,7 @@ export const EditIcon = styled.span`
   top: 110px;
   right: 24px;
   pointer-events: none;
-  color: white;
+  color: var(--text-color);
   @media screen and (min-width: 768px) {
     top: 153px;
   }
@@ -248,7 +248,7 @@ export const SaveChangeButton = styled.button`
   border-color: var(--scroll-color);
   border-radius: 42px;
   background-color: var(--button-color);
-  color: rgba(22, 31, 55, 1);
+  color: var(--change-modal-btn);
   font-size: 14px;
   font-style: normal;
   font-weight: 600;

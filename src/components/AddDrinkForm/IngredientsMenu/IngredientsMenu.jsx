@@ -7,12 +7,11 @@ import {
   SelectItem,
   SelectWrapper,
 } from './IngredientsMenu.styled';
+import { ErrorTextIngredients } from '../IngredientsBlock/IngredientsBlock.styled';
 import { SelectOpenArrow } from '../../SelectOpenArrow/SelectOpenArrow';
-import { ErrorText } from '../TitleBlock/TitleBlock.styled';
+import { ErrorMessage, useField } from 'formik';
 
-const IngredientsMenu = ({ items, title, error, ingredient }) => {
-  // const { items, title, error, ingredient } = props ?? {};
-
+const IngredientsMenu = ({ items, title, ingredient, index }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState({ id: '', title: '' });
   const [searchQuery, setSearchQuery] = useState('');
@@ -24,27 +23,27 @@ const IngredientsMenu = ({ items, title, error, ingredient }) => {
 
   const titleValue = title.toLowerCase();
 
+  const [, meta, helpers] = useField(`ingredients.${index}.title`);
+
   const filteredItems = (value) =>
     items.filter((item) =>
       item.title.toLowerCase().includes(value.toLowerCase()),
     );
-
-  // const [, , { setValue }] = useField({ name: titleValue });
 
   const toggleMenu = () => {
     setIsOpen((prevState) => !prevState);
   };
 
   const handleClickItem = (item) => {
-    console.log('item =>', item);
     setSelectedValue(item);
     toggleMenu();
-    // setValue(item.title);
     setSearchQuery('');
     setIsValue(true);
 
     ingredient.title = item.title;
     ingredient.ingredientId = item._id;
+
+    helpers.setError('');
   };
 
   useEffect(() => {
@@ -80,7 +79,7 @@ const IngredientsMenu = ({ items, title, error, ingredient }) => {
       <CustomSelect type="button" ref={selectRef} menuOpen={isOpen}>
         {items && (
           <PlaceholderWrap selected={isValue}>
-            <span>{selectedValue.title ? selectedValue.title : 'Select'}</span>
+            <span>{ingredient.title ? ingredient.title : 'Select'}</span>
 
             <SelectOpenArrow isOpen={isOpen} />
           </PlaceholderWrap>
@@ -93,7 +92,7 @@ const IngredientsMenu = ({ items, title, error, ingredient }) => {
               <SearchInput
                 ref={searchInputRef}
                 type="text"
-                name={`${title}Filter`}
+                name={`${titleValue}Filter`}
                 placeholder="Search..."
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
@@ -106,7 +105,11 @@ const IngredientsMenu = ({ items, title, error, ingredient }) => {
           </DropMenu>
         </>
       )}
-      {error ? <ErrorText>{error}</ErrorText> : null}
+      {meta.error && meta.touched && (
+        <ErrorMessage name={`ingredients.${index}.title`}>
+          {(msg) => <ErrorTextIngredients>{msg}</ErrorTextIngredients>}
+        </ErrorMessage>
+      )}
     </SelectWrapper>
   );
 };

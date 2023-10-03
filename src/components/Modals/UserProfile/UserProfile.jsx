@@ -39,6 +39,8 @@ export const UserInfoModal = ({ onClose, handleModalClick }) => {
 
   const [selectedAvatar, setSelectedAvatar] = useState(null);
   const [imgURL, setImageURL] = useState('');
+  const [isEditing, setIsEditing] = useState(true);
+  
 
   useEffect(() => {
     const handleOutsideClick = (event) => {
@@ -84,7 +86,7 @@ export const UserInfoModal = ({ onClose, handleModalClick }) => {
   } else {
     avatar = defaultAvatarURL;
   }
-
+  
   return (
     <ModalWrapper onClick={handleModalClick}>
       <ContentWrapper className="modal-content">
@@ -129,6 +131,7 @@ export const UserInfoModal = ({ onClose, handleModalClick }) => {
                   onChange={(e) => {
                     setFieldTouched('name');
                     handleChange(e);
+                    setIsEditing(false)
                   }}
                   className={
                     touched.name && !errors.name
@@ -138,9 +141,9 @@ export const UserInfoModal = ({ onClose, handleModalClick }) => {
                       : ''
                   }
                 />
-                <EditIcon>
-                  <FiEdit2 size={20} />
-                </EditIcon>
+                {isEditing ? (<EditIcon>
+                    <FiEdit2 size={20} />
+                </EditIcon>) : null}
                 {errors.name && touched.name && (
                   <div>
                     <StyledIconError color="red" />{' '}
@@ -154,7 +157,7 @@ export const UserInfoModal = ({ onClose, handleModalClick }) => {
                   </div>
                 )}
               </StyledInputWrap>
-              <SaveChangeButton type="submit">Save changes</SaveChangeButton>
+              <SaveChangeButton type="submit" onClick={() => setIsEditing(false)}>Save changes</SaveChangeButton>
             </StyledFormInsight>
           )}
         </StyledForm>

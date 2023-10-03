@@ -61,17 +61,34 @@ export const FieldsWrapper = styled.div`
   display: flex;
   align-items: center;
 
-  margin-bottom: 18px;
+  margin-bottom: 24px;
+  /* margin-bottom: 31px; */
+`;
+
+export const FieldMeasureWrapper = styled.div`
+  position: relative;
+  width: 100px;
+
+  margin-right: 8px;
+
+  @media screen and (min-width: 768px) {
+    flex-basis: 20%;
+    width: 100%;
+  }
+
+  @media screen and (min-width: 1440px) {
+    flex-basis: 28%;
+  }
 `;
 
 export const FieldMeasure = styled(Field)`
-  width: 100px;
+  /* width: 100px; */
+  width: 100%;
 
   padding-top: 16px;
   padding-bottom: 16px;
   padding-left: 18px;
-  padding-right: 36px;
-  margin-right: 8px;
+  padding-right: 18px;
 
   background: transparent;
   border: 1px solid var(--see-more-link-color);
@@ -85,15 +102,6 @@ export const FieldMeasure = styled(Field)`
   &:focus {
     border: 1px solid var(--text-color);
     outline: none;
-  }
-
-  @media screen and (min-width: 768px) {
-    flex-basis: 20%;
-    width: 100%;
-  }
-
-  @media screen and (min-width: 1440px) {
-    flex-basis: 28%;
   }
 `;
 
@@ -122,15 +130,6 @@ export const FieldSelect = styled.div`
     border: 1px solid var(--text-color);
     outline: none;
   }
-  /* 
-  span {
-    display: block;
-    position: absolute;
-    pointer-events: none;
-    top: 16px;
-    right: 24px;
-    color: var(--text-color);
-  } */
 
   @media screen and (min-width: 768px) {
     flex-basis: 47%;
@@ -183,5 +182,42 @@ export const FieldSelectInput = styled(Field)`
     margin-top: 18px;
     margin-bottom: 18px;
     margin-right: 4px;
+  }
+`;
+
+export const ErrorTextIngredients = styled.div`
+  position: absolute;
+  bottom: -18px;
+  left: 18px;
+
+  display: block;
+
+  font-size: 12px;
+  font-weight: 400;
+  line-height: calc(14 / 12);
+  color: #da1414;
+`;
+
+export const ErrorTextMeasure = styled.div`
+  position: absolute;
+  width: 150px;
+  bottom: -18px;
+  left: -24px;
+
+  display: block;
+
+  font-size: 12px;
+  font-weight: 400;
+  line-height: calc(14 / 12);
+  color: #da1414;
+  text-align: center;
+
+  @media screen and (min-width: 768px) {
+    width: 140px;
+    left: 0;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 150px;
   }
 `;
