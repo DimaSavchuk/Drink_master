@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux';
 import {
-  // selectIsFetchingCurrent,
   selectIsLoggedIn,
   selectIsRefreshing,
 } from '../redux/auth/authSelectors';

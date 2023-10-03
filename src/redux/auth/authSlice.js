@@ -7,7 +7,6 @@ import {
 } from './authOperations';
 import {
   getCurrentUserThunk,
-  // updateThemeThunk,
   updateUserThunk,
 } from '../UserInfo/userOperations';
 
@@ -126,20 +125,6 @@ const authSlice = createSlice({
       .addCase(fetchCurrentUser.pending, (state) => {
         state.isRefreshing = true;
       }),
-  // .addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {
-  //   state.user.name = payload.name;
-  //   state.user.email = payload.email;
-
-  //   state.isLoggedIn = true;
-  //   // state.isRefreshing = false;
-  // })
-  // .addCase(fetchCurrentUser.rejected, (state, action) => {
-  //   state.error = action.payload;
-  //   // state.isRefreshing = false;
-  // })
-  // .addCase(fetchCurrentUser.pending, (state) => {
-  //   // state.isRefreshing = true;
-  // }),
 });
 
 export const authReducer = authSlice.reducer;

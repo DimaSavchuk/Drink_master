@@ -1,7 +1,5 @@
 import { useDispatch } from 'react-redux';
 
-// import { CommonContainer } from '../../components/GlobalStyles/CommonContainer.styled';
-
 import FavoritesContainer from '../../components/FavoritesContainer/FavoritesContainer';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';

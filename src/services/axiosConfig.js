@@ -1,7 +1,9 @@
 import axios from 'axios';
+import {
+  fetchingFirstRecipeError,
+  fetchingFirstRecipeSuccess,
+} from '../redux/motivation/motivationSlice';
 
-// axios.defaults.baseURL = 'https://rest-api-drink-master.onrender.com/api';
-// axios.defaults.baseURL = 'http://localhost:3000/api';
 
 export const fetchFavoriteDrinks = async () => {
   try {
@@ -30,7 +32,9 @@ export const addDrinkToFavorite = async (_id) => {
     const response = await axios.post('/drinks/favorite/add', {
       recipeId: _id,
     });
-    return response.data.data;
+    return response.data;
+
+    // return response.data.data;
   } catch (error) {
     console.error('Помилка при отриманні даних:', error);
   }
@@ -146,7 +150,7 @@ export const getCurrentUser = async () => {
   }
 };
 
-export const ownDrink = async (data) => {
+export const ownDrink = async (data, dispatch) => {
   const newIngredients = JSON.stringify(data.ingredients);
 
   let formData = new FormData();
@@ -166,9 +170,19 @@ export const ownDrink = async (data) => {
       },
     })
     .then((response) => {
+      const {
+        data: { firstRecipe },
+      } = response;
+      console.log(firstRecipe);
+      if (firstRecipe) {
+        dispatch(fetchingFirstRecipeSuccess(true));
+      } else {
+        dispatch(fetchingFirstRecipeSuccess(false));
+      }
       console.log(response);
     })
     .catch((error) => {
       console.log(error);
+      dispatch(fetchingFirstRecipeError(error.message));
     });
 };

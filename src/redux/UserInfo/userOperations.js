@@ -1,6 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-// import { allusion } from '../../api/allusion';
 
 export const updateUserThunk = createAsyncThunk(
   'users/update',

@@ -81,7 +81,6 @@ export const SocialLink = styled.a`
   &:hover,
   &:focus {
     border: 1px solid rgba(64, 112, 205, 0.5);
-    /* border: 1px solid rgba(221, 255, 0, 0.2); */
     background-color: #f3f3f3;
   }
   &:hover svg,
