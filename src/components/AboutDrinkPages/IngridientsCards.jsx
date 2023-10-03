@@ -7,8 +7,6 @@ import {
 } from './IngridientsCards.styled';
 import { Placeholder } from './Placeholder';
 
-import DEFOULT from '../../assets/block.jpg';
-
 const IngredientsCards = ({ data }) => {
   function checkIfImageExists(url, callback) {
     const img = new Image();
@@ -36,6 +34,7 @@ const IngredientsCards = ({ data }) => {
           } else {
             image = false;
           }
+          if (!thumbMedium) image = false;
         });
 
         return (
@@ -43,9 +42,8 @@ const IngredientsCards = ({ data }) => {
             <IngredientFoto>
               {image ? (
                 <img
-                  src={thumbMedium ? thumbMedium : DEFOULT}
+                  src={thumbMedium}
                   alt={title}
-                  loading="lazy"
                   style={{ display: 'block', width: '100%', height: 'auto' }}
                 />
               ) : (
