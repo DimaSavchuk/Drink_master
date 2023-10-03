@@ -12,10 +12,7 @@ import { ROUTES } from './Routes/Routes';
 import { RestrictedRoute } from './Routes/RestrictedRouts';
 import { PrivateRoute } from './Routes/PrivateRoute';
 
-import {
-  selectIsLoadingUser,
-  selectIsRefreshing,
-} from './redux/auth/authSelectors';
+import { selectIsLoadingUser } from './redux/auth/authSelectors';
 import { fetchCurrentUser } from './redux/auth/authOperations';
 import { selectRoutePath } from './redux/route/routeSelectors';
 
@@ -36,7 +33,7 @@ const MyDrinksPages = lazy(() => import('./pages/MyDrinksPages/MyDrinksPages'));
 const FavoritesPages = lazy(() =>
   import('./pages/FavoritesPages/FavoritesPages'),
 );
-const { DropDown } = lazy(() =>
+const DropDown = lazy(() =>
   import('./components/Modals/DropDown/DropDown'),
 );
 const ErrorPages = lazy(() => import('./pages/ErrorPage/ErrorPage'));
@@ -65,98 +62,31 @@ function App() {
       <GlobalStyle />
       <ToastContainer theme="dark" />
       {isLoadingUser && <Loading />}
-      {/* {isRefreshing && <Loading />} */}
       <Routes>
-        <Route path="/start" element={<StartPage />} />
+        <Route
+          path={ROUTES.START}
+          element={<RestrictedRoute component={<StartPage />} />}
+        />
         <Route
           path={ROUTES.REGISTRATION}
-          element={
-            <RestrictedRoute
-              redirectTo={ROUTES.HOME}
-              component={<RegistrationPage />}
-            />
-          }
+          element={<RestrictedRoute component={<RegistrationPage />} />}
         />
         <Route
           path={ROUTES.LOGIN}
-          element={
-            <RestrictedRoute
-              redirectTo={ROUTES.HOME}
-              component={<SignInPage />}
-            />
-          }
+          element={<RestrictedRoute component={<SignInPage />} />}
         />
 
-        <Route path={ROUTES.HOME} element={<SharedLayout />}>
-          <Route
-            index
-            element={
-              <PrivateRoute
-                component={<HomePages />}
-                redirectTo={ROUTES.LOGIN}
-              />
-            }
-          />
-
-          <Route
-            path={ROUTES.DRINKS}
-            element={
-              <PrivateRoute
-                component={<DrinksPages />}
-                redirectTo={ROUTES.LOGIN}
-              />
-            }
-          />
-
-          <Route
-            path={ROUTES.ABOUTDRINK}
-            element={
-              <PrivateRoute
-                component={<AboutDrinkPages />}
-                redirectTo={ROUTES.LOGIN}
-              />
-            }
-          />
-
-          <Route
-            path={ROUTES.ADDDRINK}
-            element={
-              <PrivateRoute
-                component={<AddDrinkPages />}
-                redirectTo={ROUTES.LOGIN}
-              />
-            }
-          />
-
-          <Route
-            path={ROUTES.MYDRINKS}
-            element={
-              <PrivateRoute
-                component={<MyDrinksPages />}
-                redirectTo={ROUTES.LOGIN}
-              />
-            }
-          />
-
-          <Route
-            path={ROUTES.FAVORITE}
-            element={
-              <PrivateRoute
-                component={<FavoritesPages />}
-                redirectTo={ROUTES.LOGIN}
-              />
-            }
-          />
-
-          <Route
-            path={ROUTES.DROPDOWN}
-            element={
-              <PrivateRoute
-                component={<DropDown />}
-                redirectTo={ROUTES.LOGIN}
-              />
-            }
-          />
+        <Route
+          path={ROUTES.HOME}
+          element={<PrivateRoute component={<SharedLayout />} />}
+        >
+          <Route index element={<HomePages />} />
+          <Route path={ROUTES.DRINKS} element={<DrinksPages />} />
+          <Route path={ROUTES.ABOUTDRINK} element={<AboutDrinkPages />} />
+          <Route path={ROUTES.ADDDRINK} element={<AddDrinkPages />} />
+          <Route path={ROUTES.MYDRINKS} element={<MyDrinksPages />} />
+          <Route path={ROUTES.FAVORITE} element={<FavoritesPages />} />
+          <Route path={ROUTES.DROPDOWN} element={<DropDown />} />
           <Route path={ROUTES.POLICY} element={<PrivacyPolicyPage />} />
           <Route path={ROUTES.SERVICE} element={<TermsOfServicePage />} />
           <Route path={ROUTES.ERROR} element={<ErrorPages />} />

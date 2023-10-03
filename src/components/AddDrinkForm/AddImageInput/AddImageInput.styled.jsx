@@ -7,6 +7,8 @@ export const InputWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
+  position: relative;
+
   input {
     display: none;
     visibility: hidden;
@@ -116,4 +118,19 @@ export const Icon = styled.span`
 
   border-radius: 6px;
   background-color: #f3f3f3;
+`;
+
+export const ErrorText = styled.div`
+  position: absolute;
+  bottom: 24px;
+
+  margin-top: 4px;
+
+  display: block;
+
+  font-size: 12px;
+  font-weight: 400;
+  line-height: calc(14 / 12);
+  color: #da1414;
+  text-align: center;
 `;

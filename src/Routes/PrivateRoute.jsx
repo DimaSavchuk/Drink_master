@@ -5,10 +5,11 @@ import {
   selectIsRefreshing,
 } from '../redux/auth/authSelectors';
 import { Navigate } from 'react-router-dom';
+import { ROUTES } from './Routes';
 
 export const PrivateRoute = ({
   component: Component,
-  redirectTo = '/start',
+  redirectTo = ROUTES.START,
 }) => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const isRefreshing = useSelector(selectIsRefreshing);

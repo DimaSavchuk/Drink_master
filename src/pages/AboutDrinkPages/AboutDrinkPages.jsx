@@ -37,7 +37,11 @@ import { selectFirstFavorite } from '../../redux/motivation/motivationSelects';
 import { Motivation } from '../../components/Motivation/Motivation';
 import { CSSTransition } from 'react-transition-group';
 import '../../components/MobileMenu/TransitionStyles.css';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const images = [motivSecond, motivSecond2x];
+
 const AboutDrinkPages = () => {
   const location = useLocation();
   const dispatch = useDispatch();
@@ -83,9 +87,8 @@ const AboutDrinkPages = () => {
   async function addFavorite() {
     try {
       const res = await addDrinkToFavorite(drinkId);
-      console.log(res);
       if (res.data) Notify.success('Added to favorites');
-      isFavoriteTrue(res);
+      isFavoriteTrue(res.data);
       if (res.firstFavorite) {
         dispatch(fetchingFirstFavoriteSuccess(res.firstFavorite));
       } else {
@@ -97,7 +100,7 @@ const AboutDrinkPages = () => {
   }
   async function deleteFavorite() {
     const res = await deleteDrinkFromFavorite(drinkId);
-    if (res) Notify.success('Deleted from favorites');
+    if (res) toast.success('Deleted from favorites');
     isFavoriteTrue(res);
   }
   return (

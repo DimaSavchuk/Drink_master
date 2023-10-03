@@ -144,7 +144,6 @@ export const updateUser = async (name) => {
 };
 
 export const getCurrentUser = async () => {
-  // console.log(_id);
   try {
     const response = await axios.get('/users/current', {});
     return response.data.data;

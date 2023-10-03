@@ -107,14 +107,12 @@ export const DropMenu = styled.div`
 export const SelectWrapper = styled.div`
   margin-right: 8px;
   width: 100%;
+  max-width: 200px;
 
   position: relative;
 
-  &:not(:last-of-type) {
-    margin-bottom: 31px;
-  }
-
   @media screen and (min-width: 768px) {
+    max-width: unset;
     flex-basis: 47%;
     margin-right: 14px;
   }
