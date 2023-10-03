@@ -1,4 +1,4 @@
-import{s as a,r as o,G as I,o as j,j as e,p,e as z,F,E as q,q as _,t as T,v,w as Q,x as Y,y as X,z as H,n as J,N as K,I as E,u as Z,a as ee,b as te}from"./index-320dbecc.js";import{b as oe,c as re,e as ie,o as ne,h as ae}from"./axiosConfig-30b3e2f9.js";import{A as le}from"./SelectOpenArrow.styled-caabecff.js";import{L as se}from"./LittleLoading-6b136b6f.js";const ce=a.div`
+import{s as l,r as o,G as I,o as j,j as e,p,e as z,F,E as q,q as _,t as T,v,w as Q,x as Y,y as X,z as H,n as J,N as K,I as E,u as Z,a as ee,b as te}from"./index-b64f3ff2.js";import{b as oe,c as re,e as ie,o as ne,h as le}from"./axiosConfig-b0f65bc2.js";import{A as ae}from"./SelectOpenArrow.styled-e807d71e.js";import{L as se}from"./LittleLoading-5476ecbb.js";const ce=l.div`
   max-width: 375px;
   padding-top: 152px;
   padding-left: 20px;
@@ -98,16 +98,16 @@ import{s as a,r as o,G as I,o as j,j as e,p,e as z,F,E as q,q as _,t as T,v,w as
       line-height: calc(32 / 24);
     }
   }
-`,de=a.div`
+`,de=l.div`
   @media (min-width: 1440px) {
     flex-basis: 33%;
   }
-`,pe=a.div`
+`,pe=l.div`
   @media (min-width: 1440px) {
     flex-basis: 67%;
     margin-right: 94px;
   }
-`,he=a.button`
+`,he=l.button`
   padding: 14px 40px;
 
   font-family: inherit;
@@ -129,7 +129,7 @@ import{s as a,r as o,G as I,o as j,j as e,p,e as z,F,E as q,q as _,t as T,v,w as
     color: var(--button-color);
     background-color: var(--button-hover-color);
   }
-`,xe=()=>{const[t,l]=o.useState(null),[s,n]=o.useState(!1),[r,i]=o.useState(null);return o.useEffect(()=>{const d=new AbortController;(async()=>{try{n(!0);const c=await oe("",d);l(c)}catch(c){i(c.message)}finally{n(!1),d.abort()}})()},[]),{drinkGlasses:t,isLoading:s,error:r}},ge=()=>{const[t,l]=o.useState(null),[s,n]=o.useState(!1),[r,i]=o.useState(null);return o.useEffect(()=>{const d=new AbortController;(async()=>{try{n(!0);const c=await re("",d);l(c)}catch(c){i(c.message)}finally{n(!1),d.abort()}})()},[]),{drinkCategories:t,isLoading:s,error:r}},ue=()=>{const[t,l]=o.useState(null),[s,n]=o.useState(!1),[r,i]=o.useState(null);return o.useEffect(()=>{const d=new AbortController;(async()=>{try{n(!0);const c=await ie("",d);l(c)}catch(c){i(c.message)}finally{n(!1),d.abort()}})()},[]),{drinkIngredients:t,isLoading:s,error:r}};function fe(t){return I({tag:"svg",attr:{version:"1.1",viewBox:"0 0 17 17"},child:[{tag:"g",attr:{},child:[]},{tag:"path",attr:{d:"M9.207 8.5l6.646 6.646-0.707 0.707-6.646-6.646-6.646 6.646-0.707-0.707 6.646-6.646-6.647-6.646 0.707-0.707 6.647 6.646 6.646-6.646 0.707 0.707-6.646 6.646z"}}]})(t)}function me(t){return I({tag:"svg",attr:{version:"1.1",viewBox:"0 0 17 17"},child:[{tag:"g",attr:{},child:[]},{tag:"path",attr:{d:"M15 8v1h-13v-1h13z"}}]})(t)}function N(t){return I({tag:"svg",attr:{version:"1.1",viewBox:"0 0 17 17"},child:[{tag:"g",attr:{},child:[]},{tag:"path",attr:{d:"M16 9h-7v7h-1v-7h-7v-1h7v-7h1v7h7v1z"}}]})(t)}function be(t){return I({tag:"svg",attr:{version:"1.1",viewBox:"0 0 17 17"},child:[{tag:"g",attr:{},child:[]},{tag:"path",attr:{d:"M6 8h-6v-6h1v4.109c1.013-3.193 4.036-5.484 7.5-5.484 3.506 0 6.621 2.36 7.574 5.739l-0.963 0.271c-0.832-2.95-3.551-5.011-6.611-5.011-3.226 0.001-6.016 2.276-6.708 5.376h4.208v1zM11 9v1h4.208c-0.693 3.101-3.479 5.375-6.708 5.375-3.062 0-5.78-2.061-6.611-5.011l-0.963 0.271c0.952 3.379 4.067 5.739 7.574 5.739 3.459 0 6.475-2.28 7.5-5.482v4.108h1v-6h-6z"}}]})(t)}const ve=a.div`
+`,xe=()=>{const[t,a]=o.useState(null),[s,n]=o.useState(!1),[r,i]=o.useState(null);return o.useEffect(()=>{const d=new AbortController;(async()=>{try{n(!0);const c=await oe("",d);a(c)}catch(c){i(c.message)}finally{n(!1),d.abort()}})()},[]),{drinkGlasses:t,isLoading:s,error:r}},ue=()=>{const[t,a]=o.useState(null),[s,n]=o.useState(!1),[r,i]=o.useState(null);return o.useEffect(()=>{const d=new AbortController;(async()=>{try{n(!0);const c=await re("",d);a(c)}catch(c){i(c.message)}finally{n(!1),d.abort()}})()},[]),{drinkCategories:t,isLoading:s,error:r}},ge=()=>{const[t,a]=o.useState(null),[s,n]=o.useState(!1),[r,i]=o.useState(null);return o.useEffect(()=>{const d=new AbortController;(async()=>{try{n(!0);const c=await ie("",d);a(c)}catch(c){i(c.message)}finally{n(!1),d.abort()}})()},[]),{drinkIngredients:t,isLoading:s,error:r}};function fe(t){return I({tag:"svg",attr:{version:"1.1",viewBox:"0 0 17 17"},child:[{tag:"g",attr:{},child:[]},{tag:"path",attr:{d:"M9.207 8.5l6.646 6.646-0.707 0.707-6.646-6.646-6.646 6.646-0.707-0.707 6.646-6.646-6.647-6.646 0.707-0.707 6.647 6.646 6.646-6.646 0.707 0.707-6.646 6.646z"}}]})(t)}function me(t){return I({tag:"svg",attr:{version:"1.1",viewBox:"0 0 17 17"},child:[{tag:"g",attr:{},child:[]},{tag:"path",attr:{d:"M15 8v1h-13v-1h13z"}}]})(t)}function N(t){return I({tag:"svg",attr:{version:"1.1",viewBox:"0 0 17 17"},child:[{tag:"g",attr:{},child:[]},{tag:"path",attr:{d:"M16 9h-7v7h-1v-7h-7v-1h7v-7h1v7h7v1z"}}]})(t)}function be(t){return I({tag:"svg",attr:{version:"1.1",viewBox:"0 0 17 17"},child:[{tag:"g",attr:{},child:[]},{tag:"path",attr:{d:"M6 8h-6v-6h1v4.109c1.013-3.193 4.036-5.484 7.5-5.484 3.506 0 6.621 2.36 7.574 5.739l-0.963 0.271c-0.832-2.95-3.551-5.011-6.611-5.011-3.226 0.001-6.016 2.276-6.708 5.376h4.208v1zM11 9v1h4.208c-0.693 3.101-3.479 5.375-6.708 5.375-3.062 0-5.78-2.061-6.611-5.011l-0.963 0.271c0.952 3.379 4.067 5.739 7.574 5.739 3.459 0 6.475-2.28 7.5-5.482v4.108h1v-6h-6z"}}]})(t)}const ve=l.div`
   margin-bottom: 40px;
 
   display: flex;
@@ -145,7 +145,7 @@ import{s as a,r as o,G as I,o as j,j as e,p,e as z,F,E as q,q as _,t as T,v,w as
     height: 0.01;
     overflow: hidden;
   }
-`,we=a.div`
+`,we=l.div`
   position: absolute;
   top: 0;
   left: 0;
@@ -165,7 +165,7 @@ import{s as a,r as o,G as I,o as j,j as e,p,e as z,F,E as q,q as _,t as T,v,w as
 
     object-fit: cover;
   }
-`,ke=a.div`
+`,ke=l.div`
   display: block;
   position: relative;
 
@@ -214,7 +214,7 @@ import{s as a,r as o,G as I,o as j,j as e,p,e as z,F,E as q,q as _,t as T,v,w as
   label:active div {
     color: #fff;
   }
-`,je=a.div`
+`,je=l.div`
   height: 90px;
   width: 80px;
 
@@ -226,7 +226,7 @@ import{s as a,r as o,G as I,o as j,j as e,p,e as z,F,E as q,q as _,t as T,v,w as
   color: #f3f3f3;
 
   z-index: 1;
-`,ye=a.span`
+`,ye=l.span`
   width: 50px;
   height: 50px;
   margin-bottom: 18px;
@@ -239,7 +239,7 @@ import{s as a,r as o,G as I,o as j,j as e,p,e as z,F,E as q,q as _,t as T,v,w as
 
   border-radius: 6px;
   background-color: #f3f3f3;
-`,Se=a.div`
+`,Se=l.div`
   position: absolute;
   bottom: 24px;
 
@@ -252,7 +252,7 @@ import{s as a,r as o,G as I,o as j,j as e,p,e as z,F,E as q,q as _,t as T,v,w as
   line-height: calc(14 / 12);
   color: #da1414;
   text-align: center;
-`,ze=({setValue:t,fileInputRef:l})=>{const[s,n]=o.useState(""),[r,i]=j("file"),d=x=>{const c=x.currentTarget.files[0]??null,h=c?URL.createObjectURL(c):null;h&&(n(h),t("file",c))};return e.jsxs(ve,{children:[e.jsx("input",{ref:l,type:"file",name:"file",id:"add-file",onChange:d,accept:"image/*"}),e.jsx(ke,{children:e.jsxs("label",{htmlFor:"add-file",children:[s&&l.current.value&&e.jsx(we,{children:e.jsx("img",{id:"uploaded-file",src:s})}),e.jsxs(je,{children:[e.jsx(ye,{children:s?e.jsx(be,{size:16}):e.jsx(N,{size:16})}),s?"Update file":"Add image"]})]})}),i.touched&&i.error?e.jsx(Se,{children:i.error}):null]})},Ie=p.button`
+`,ze=({setValue:t,fileInputRef:a})=>{const[s,n]=o.useState(""),[r,i]=j("file"),d=x=>{const c=x.currentTarget.files[0]??null,h=c?URL.createObjectURL(c):null;h&&(n(h),t("file",c))};return useEffect(()=>{if(field.value===null){n("");return}},[field]),e.jsxs(ve,{children:[e.jsx("input",{ref:a,type:"file",name:"file",id:"add-file",onChange:d,accept:"image/*"}),e.jsx(ke,{children:e.jsxs("label",{htmlFor:"add-file",children:[s&&a.current.value&&e.jsx(we,{children:e.jsx("img",{id:"uploaded-file",src:s})}),e.jsxs(je,{children:[e.jsx(ye,{children:s?e.jsx(be,{size:16}):e.jsx(N,{size:16})}),s?"Update file":"Add image"]})]})}),i.touched&&i.error?e.jsx(Se,{children:i.error}):null]})},Ie=p.button`
   width: 100%;
   height: 34px;
   padding-bottom: 14px;
@@ -382,7 +382,7 @@ import{s as a,r as o,G as I,o as j,j as e,p,e as z,F,E as q,q as _,t as T,v,w as
   &:focus::placeholder {
     color: transparent;
   }
-`,V=({isOpen:t})=>e.jsx(le,{open:t,children:e.jsx("use",{href:`${z}#icon-chevron-down`})}),Te=p.div`
+`,V=({isOpen:t})=>e.jsx(ae,{open:t,children:e.jsx("use",{href:`${z}#icon-chevron-down`})}),Te=p.div`
   display: flex;
   flex-direction: column;
 
@@ -520,19 +520,19 @@ import{s as a,r as o,G as I,o as j,j as e,p,e as z,F,E as q,q as _,t as T,v,w as
   line-height: calc(14 / 12);
   color: #da1414;
   text-align: right;
-`,B=({items:t,title:l,touched:s,error:n})=>{const[r,i]=o.useState(!1),[d,x]=o.useState(""),c=o.useRef(),h=o.useRef(),b=o.useRef(),C=l.toLowerCase(),w=u=>t.filter(m=>m.toLowerCase().includes(u.toLowerCase())),[,f,{setValue:k}]=j({name:C}),L=()=>{i(u=>!u)},y=u=>{L(),k(u),x("")};return o.useEffect(()=>{h&&(x(""),r&&h.current&&h.current.focus())},[r]),o.useEffect(()=>{const u=m=>{c.current&&c.current.contains(m.target)&&i(!0),b.current&&!b.current.contains(m.target)&&i(!1)};return window.addEventListener("click",u),()=>{window.removeEventListener("click",u)}}),e.jsxs(Ee,{children:[e.jsxs(Ie,{type:"button",ref:c,menuOpen:r,children:[e.jsx(Ce,{children:l}),t&&e.jsxs(Fe,{selected:f.value,children:[e.jsx("span",{children:f.value?f.value:""}),e.jsx(V,{isOpen:r})]})]}),r&&t&&e.jsx(e.Fragment,{children:e.jsxs(Le,{ref:b,children:[t.length>20&&e.jsx($e,{ref:h,type:"text",name:`${l}Filter`,placeholder:"Search...",onChange:u=>x(u.target.value)}),w(d).map((u,m)=>e.jsx(Pe,{onClick:()=>y(u),children:u},m))]})}),s&&n?e.jsx($,{children:n}):null]})},Re=({categoriesList:t,glassesList:l,setValue:s,touched:n,errors:r,fileInputRef:i})=>e.jsxs(Te,{children:[e.jsx(ze,{setValue:s,fileInputRef:i}),e.jsxs(Ae,{children:[e.jsxs(D,{children:[e.jsx(A,{htmlFor:"title",children:"Enter item title"}),e.jsx(R,{name:"title",placeholder:"Enter item title"}),n.title&&r.title?e.jsx($,{children:r.title}):null]}),e.jsxs(D,{children:[e.jsx(A,{htmlFor:"recipe",children:"Enter about recipe"}),e.jsx(R,{name:"recipe",placeholder:"Enter about recipe"}),n.recipe&&r.recipe?e.jsx($,{children:r.recipe}):null]}),e.jsx(B,{items:t,title:"Category",touched:n.category,error:r.category}),e.jsx(B,{items:l,title:"Glass",touched:n.glass,error:r.glass}),e.jsxs(De,{role:"cocktailTypeSelect","aria-labelledby":"cocktailTypeSelect-group",children:[e.jsxs("div",{children:[e.jsx(W,{type:"radio",name:"alcoholicType",id:"radioAlco",value:"Alcoholic"}),e.jsx(M,{htmlFor:"radioAlco",children:"Alcoholic"})]}),e.jsxs("div",{children:[e.jsx(W,{type:"radio",name:"alcoholicType",id:"radioNonAlco",value:"Non-alcoholic"}),e.jsx(M,{htmlFor:"radioNonAlco",children:"Non-alcoholic"})]})]})]})]}),Me=a.div`
+`,B=({items:t,title:a,touched:s,error:n})=>{const[r,i]=o.useState(!1),[d,x]=o.useState(""),c=o.useRef(),h=o.useRef(),b=o.useRef(),C=a.toLowerCase(),w=g=>t.filter(m=>m.toLowerCase().includes(g.toLowerCase())),[,f,{setValue:k}]=j({name:C}),L=()=>{i(g=>!g)},y=g=>{L(),k(g),x("")};return o.useEffect(()=>{h&&(x(""),r&&h.current&&h.current.focus())},[r]),o.useEffect(()=>{const g=m=>{c.current&&c.current.contains(m.target)&&i(!0),b.current&&!b.current.contains(m.target)&&i(!1)};return window.addEventListener("click",g),()=>{window.removeEventListener("click",g)}}),e.jsxs(Ee,{children:[e.jsxs(Ie,{type:"button",ref:c,menuOpen:r,children:[e.jsx(Ce,{children:a}),t&&e.jsxs(Fe,{selected:f.value,children:[e.jsx("span",{children:f.value?f.value:""}),e.jsx(V,{isOpen:r})]})]}),r&&t&&e.jsx(e.Fragment,{children:e.jsxs(Le,{ref:b,children:[t.length>20&&e.jsx($e,{ref:h,type:"text",name:`${a}Filter`,placeholder:"Search...",onChange:g=>x(g.target.value)}),w(d).map((g,m)=>e.jsx(Pe,{onClick:()=>y(g),children:g},m))]})}),s&&n?e.jsx($,{children:n}):null]})},Re=({categoriesList:t,glassesList:a,setValue:s,touched:n,errors:r,fileInputRef:i})=>e.jsxs(Te,{children:[e.jsx(ze,{setValue:s,fileInputRef:i}),e.jsxs(Ae,{children:[e.jsxs(D,{children:[e.jsx(A,{htmlFor:"title",children:"Enter item title"}),e.jsx(R,{name:"title",placeholder:"Enter item title"}),n.title&&r.title?e.jsx($,{children:r.title}):null]}),e.jsxs(D,{children:[e.jsx(A,{htmlFor:"recipe",children:"Enter about recipe"}),e.jsx(R,{name:"recipe",placeholder:"Enter about recipe"}),n.recipe&&r.recipe?e.jsx($,{children:r.recipe}):null]}),e.jsx(B,{items:t,title:"Category",touched:n.category,error:r.category}),e.jsx(B,{items:a,title:"Glass",touched:n.glass,error:r.glass}),e.jsxs(De,{role:"cocktailTypeSelect","aria-labelledby":"cocktailTypeSelect-group",children:[e.jsxs("div",{children:[e.jsx(W,{type:"radio",name:"alcoholicType",id:"radioAlco",value:"Alcoholic"}),e.jsx(M,{htmlFor:"radioAlco",children:"Alcoholic"})]}),e.jsxs("div",{children:[e.jsx(W,{type:"radio",name:"alcoholicType",id:"radioNonAlco",value:"Non-alcoholic"}),e.jsx(M,{htmlFor:"radioNonAlco",children:"Non-alcoholic"})]})]})]})]}),Me=l.div`
   margin-bottom: 80px;
 
   @media screen and (min-width: 1440px) {
     max-width: 540px;
   }
-`,We=a.div`
+`,We=l.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 
   margin-bottom: 34px;
-`,Be=a.div`
+`,Be=l.div`
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 16px;
@@ -570,13 +570,13 @@ import{s as a,r as o,G as I,o as j,j as e,p,e as z,F,E as q,q as _,t as T,v,w as
     text-align: center;
     color: var(--text-color);
   }
-`,qe=a.div`
+`,qe=l.div`
   display: flex;
   align-items: center;
 
   margin-bottom: 24px;
   /* margin-bottom: 31px; */
-`,Ne=a.div`
+`,Ne=l.div`
   position: relative;
   width: 100px;
 
@@ -590,7 +590,7 @@ import{s as a,r as o,G as I,o as j,j as e,p,e as z,F,E as q,q as _,t as T,v,w as
   @media screen and (min-width: 1440px) {
     flex-basis: 28%;
   }
-`,Ve=a(F)`
+`,Ve=l(F)`
   /* width: 100px; */
   width: 100%;
 
@@ -612,7 +612,7 @@ import{s as a,r as o,G as I,o as j,j as e,p,e as z,F,E as q,q as _,t as T,v,w as
     border: 1px solid var(--text-color);
     outline: none;
   }
-`,Ge=a.button`
+`,Ge=l.button`
   display: block;
   padding: 0;
   border: none;
@@ -627,7 +627,7 @@ import{s as a,r as o,G as I,o as j,j as e,p,e as z,F,E as q,q as _,t as T,v,w as
   @media screen and (min-width: 768px) {
     margin-left: auto;
   }
-`;a.div`
+`;l.div`
   position: relative;
   margin-right: 8px;
 
@@ -644,7 +644,7 @@ import{s as a,r as o,G as I,o as j,j as e,p,e as z,F,E as q,q as _,t as T,v,w as
   @media screen and (min-width: 1440px) {
     flex-basis: 58%;
   }
-`;a(F)`
+`;l(F)`
   width: 100%;
 
   padding-top: 16px;
@@ -686,7 +686,7 @@ import{s as a,r as o,G as I,o as j,j as e,p,e as z,F,E as q,q as _,t as T,v,w as
     margin-bottom: 18px;
     margin-right: 4px;
   }
-`;const Oe=a.div`
+`;const Oe=l.div`
   position: absolute;
   bottom: -18px;
   left: 18px;
@@ -697,7 +697,7 @@ import{s as a,r as o,G as I,o as j,j as e,p,e as z,F,E as q,q as _,t as T,v,w as
   font-weight: 400;
   line-height: calc(14 / 12);
   color: #da1414;
-`,Ue=a.div`
+`,Ue=l.div`
   position: absolute;
   width: 150px;
   bottom: -18px;
@@ -855,7 +855,7 @@ import{s as a,r as o,G as I,o as j,j as e,p,e as z,F,E as q,q as _,t as T,v,w as
   &:focus::placeholder {
     color: transparent;
   }
-`,Ke=({items:t,title:l,ingredient:s,index:n})=>{const[r,i]=o.useState(!1),[d,x]=o.useState({id:"",title:""}),[c,h]=o.useState(""),[b,C]=o.useState(!1),w=o.useRef(),f=o.useRef(),k=o.useRef(),L=l.toLowerCase(),[,y,u]=j(`ingredients.${n}.title`),m=g=>t.filter(S=>S.title.toLowerCase().includes(g.toLowerCase())),O=()=>{i(g=>!g)},U=g=>{x(g),O(),h(""),C(!0),s.title=g.title,s.ingredientId=g._id,u.setError("")};return o.useEffect(()=>{f&&(h(""),r&&f.current&&f.current.focus())},[r]),o.useEffect(()=>{const g=S=>{w.current&&w.current.contains(S.target)&&i(!0),k.current&&!k.current.contains(S.target)&&i(!1)};return window.addEventListener("click",g),()=>{window.removeEventListener("click",g)}},[]),e.jsxs(Xe,{children:[e.jsx(_e,{type:"button",ref:w,menuOpen:r,children:t&&e.jsxs(Qe,{selected:b,children:[e.jsx("span",{children:s.title?s.title:"Select"}),e.jsx(V,{isOpen:r})]})}),r&&t&&e.jsx(e.Fragment,{children:e.jsxs(Ye,{ref:k,children:[t.length>20&&e.jsx(Je,{ref:f,type:"text",name:`${L}Filter`,placeholder:"Search...",onChange:g=>h(g.target.value)}),m(c).map(g=>e.jsx(He,{onClick:()=>U(g),children:g.title},g._id))]})}),y.error&&y.touched&&e.jsx(q,{name:`ingredients.${n}.title`,children:g=>e.jsx(Oe,{children:g})})]})},Ze=a.textarea`
+`,Ke=({items:t,title:a,ingredient:s,index:n})=>{const[r,i]=o.useState(!1),[d,x]=o.useState({id:"",title:""}),[c,h]=o.useState(""),[b,C]=o.useState(!1),w=o.useRef(),f=o.useRef(),k=o.useRef(),L=a.toLowerCase(),[,y,g]=j(`ingredients.${n}.title`),m=u=>t.filter(S=>S.title.toLowerCase().includes(u.toLowerCase())),O=()=>{i(u=>!u)},U=u=>{x(u),O(),h(""),C(!0),s.title=u.title,s.ingredientId=u._id,g.setError("")};return o.useEffect(()=>{f&&(h(""),r&&f.current&&f.current.focus())},[r]),o.useEffect(()=>{const u=S=>{w.current&&w.current.contains(S.target)&&i(!0),k.current&&!k.current.contains(S.target)&&i(!1)};return window.addEventListener("click",u),()=>{window.removeEventListener("click",u)}},[]),e.jsxs(Xe,{children:[e.jsx(_e,{type:"button",ref:w,menuOpen:r,children:t&&e.jsxs(Qe,{selected:b,children:[e.jsx("span",{children:s.title?s.title:"Select"}),e.jsx(V,{isOpen:r})]})}),r&&t&&e.jsx(e.Fragment,{children:e.jsxs(Ye,{ref:k,children:[t.length>20&&e.jsx(Je,{ref:f,type:"text",name:`${L}Filter`,placeholder:"Search...",onChange:u=>h(u.target.value)}),m(c).map(u=>e.jsx(He,{onClick:()=>U(u),children:u.title},u._id))]})}),y.error&&y.touched&&e.jsx(q,{name:`ingredients.${n}.title`,children:u=>e.jsx(Oe,{children:u})})]})},Ze=l.textarea`
   /* display: block; */
   width: 100%;
   height: 184px;
@@ -899,7 +899,7 @@ import{s as a,r as o,G as I,o as j,j as e,p,e as z,F,E as q,q as _,t as T,v,w as
   @media (min-width: 768px) {
     width: 480px;
   }
-`,et=a.label`
+`,et=l.label`
   position: absolute;
   left: 20px;
   top: 18px;
@@ -908,7 +908,7 @@ import{s as a,r as o,G as I,o as j,j as e,p,e as z,F,E as q,q as _,t as T,v,w as
   color: var(--see-more-link-color);
 
   transition: 200ms ease transform 100ms;
-`,tt=a.div`
+`,tt=l.div`
   position: relative;
   overflow: visible;
 
@@ -917,7 +917,7 @@ import{s as a,r as o,G as I,o as j,j as e,p,e as z,F,E as q,q as _,t as T,v,w as
   h3 {
     margin-bottom: 40px;
   }
-`,G=a.div`
+`,G=l.div`
   margin-top: 4px;
   padding-left: 8px;
 
@@ -928,7 +928,7 @@ import{s as a,r as o,G as I,o as j,j as e,p,e as z,F,E as q,q as _,t as T,v,w as
   line-height: calc(14 / 12);
   color: #da1414;
   text-align: left;
-`,ot=({items:t,title:l})=>{const s={title:"",measure:""},[,{touched:n,error:r}]=j("ingredients");return e.jsx(_,{name:"ingredients",render:({form:{values:{ingredients:i}},push:d,remove:x})=>e.jsxs(Me,{children:[e.jsxs(We,{children:[e.jsx("h3",{children:"Ingredients"}),e.jsxs(Be,{children:[e.jsx("button",{type:"button",onClick:()=>x(),children:e.jsx(me,{size:16})}),e.jsx("span",{children:i.length?i.length:"0"}),e.jsx("button",{type:"button",onClick:()=>d(s),children:e.jsx(N,{size:16})})]})]}),e.jsx("div",{children:i.length>0&&i.map((c,h)=>e.jsxs(qe,{role:"ingredientsSelect","aria-labelledby":"ingridientsSelect-group",children:[e.jsx(Ke,{items:t,title:l,ingredient:c,index:h}),e.jsxs(Ne,{children:[e.jsx(Ve,{name:`ingredients.${h}.measure`,placeholder:"1 cl"}),e.jsx(q,{name:`ingredients.${h}.measure`,children:b=>e.jsx(Ue,{children:b})})]}),e.jsx(Ge,{type:"button",onClick:()=>x(h),children:e.jsx(fe,{size:18})})]},h))}),n&&typeof r=="string"?e.jsx(G,{children:r}):null]})})},rt=({error:t,touched:l})=>{const[s]=j("recipePreparation");return e.jsxs(tt,{children:[e.jsx("h3",{children:"Recipe Preparation"}),e.jsxs("div",{style:{position:"relative"},children:[e.jsx(Ze,{name:"recipePreparation",placeholder:"Enter the recipe",...s}),e.jsx(et,{htmlFor:"recipePreparation",children:"Enter the recipe"})]}),l&&t?e.jsx(G,{children:t}):null]})},it=T().shape({title:v().trim().required("Please enter a drink title"),recipe:v().trim().required("Please enter information about the recipe"),category:v().required("Please select a category"),glass:v().required("Please select a glass"),ingredients:Q().of(T().shape({title:v().required("Please select a title"),measure:v().required("Please enter a measure")})).required().min(1,"Select more than 1 item"),file:Y().required("Please add the drink recipe image"),recipePreparation:v().trim().required("Please enter about a recipe")}),nt={title:"",recipe:"",category:"",glass:"",alcoholicType:"Non-alcoholic",ingredients:[],file:null,recipePreparation:""},at=()=>{const t=o.useRef(),l=(i,d)=>{i.id=J(),ne(i),d.resetForm(),t.current.value=null},s=ge(),n=xe(),r=ue();return e.jsxs(pe,{children:[e.jsx("h2",{children:"Add drink"}),e.jsx(X,{initialValues:nt,validationSchema:it,onSubmit:l,children:({setFieldValue:i,touched:d,errors:x})=>e.jsxs(H,{children:[e.jsx(Re,{categoriesList:s.drinkCategories,glassesList:n.drinkGlasses,setValue:i,errors:x,touched:d,fileInputRef:t}),e.jsx(ot,{items:r.drinkIngredients,title:"Ingridients"}),e.jsx(rt,{error:x.recipePreparation,touched:d.recipePreparation}),e.jsx(he,{type:"submit",children:"Add"})]})})]})},lt=()=>{const[t,l]=o.useState(null),[s,n]=o.useState(!1),[r,i]=o.useState(null);return o.useEffect(()=>{const d=new AbortController;(async()=>{try{n(!0);const c=await ae("",d);l(c.data)}catch(c){i(c.message)}finally{n(!1),d.abort()}})()},[]),{drinksPopular:t,isLoading:s,error:r}},st=a.div`
+`,ot=({items:t,title:a})=>{const s={title:"",measure:""},[,{touched:n,error:r}]=j("ingredients");return e.jsx(_,{name:"ingredients",render:({form:{values:{ingredients:i}},push:d,remove:x})=>e.jsxs(Me,{children:[e.jsxs(We,{children:[e.jsx("h3",{children:"Ingredients"}),e.jsxs(Be,{children:[e.jsx("button",{type:"button",onClick:()=>x(),children:e.jsx(me,{size:16})}),e.jsx("span",{children:i.length?i.length:"0"}),e.jsx("button",{type:"button",onClick:()=>d(s),children:e.jsx(N,{size:16})})]})]}),e.jsx("div",{children:i.length>0&&i.map((c,h)=>e.jsxs(qe,{role:"ingredientsSelect","aria-labelledby":"ingridientsSelect-group",children:[e.jsx(Ke,{items:t,title:a,ingredient:c,index:h}),e.jsxs(Ne,{children:[e.jsx(Ve,{name:`ingredients.${h}.measure`,placeholder:"1 cl"}),e.jsx(q,{name:`ingredients.${h}.measure`,children:b=>e.jsx(Ue,{children:b})})]}),e.jsx(Ge,{type:"button",onClick:()=>x(h),children:e.jsx(fe,{size:18})})]},h))}),n&&typeof r=="string"?e.jsx(G,{children:r}):null]})})},rt=({error:t,touched:a})=>{const[s]=j("recipePreparation");return e.jsxs(tt,{children:[e.jsx("h3",{children:"Recipe Preparation"}),e.jsxs("div",{style:{position:"relative"},children:[e.jsx(Ze,{name:"recipePreparation",placeholder:"Enter the recipe",...s}),e.jsx(et,{htmlFor:"recipePreparation",children:"Enter the recipe"})]}),a&&t?e.jsx(G,{children:t}):null]})},it=T().shape({title:v().trim().required("Please enter a drink title"),recipe:v().trim().required("Please enter information about the recipe"),category:v().required("Please select a category"),glass:v().required("Please select a glass"),ingredients:Q().of(T().shape({title:v().required("Please select a title"),measure:v().required("Please enter a measure")})).required().min(1,"Select more than 1 item"),file:Y().required("Please add the drink recipe image"),recipePreparation:v().trim().required("Please enter about a recipe")}),nt={title:"",recipe:"",category:"",glass:"",alcoholicType:"Non-alcoholic",ingredients:[],file:null,recipePreparation:""},lt=()=>{const t=o.useRef(),a=(i,d)=>{i.id=J(),ne(i),d.resetForm(),t.current.value=null},s=ue(),n=xe(),r=ge();return e.jsxs(pe,{children:[e.jsx("h2",{children:"Add drink"}),e.jsx(X,{initialValues:nt,validationSchema:it,onSubmit:a,children:({setFieldValue:i,touched:d,errors:x})=>e.jsxs(H,{children:[e.jsx(Re,{categoriesList:s.drinkCategories,glassesList:n.drinkGlasses,setValue:i,errors:x,touched:d,fileInputRef:t}),e.jsx(ot,{items:r.drinkIngredients,title:"Ingridients"}),e.jsx(rt,{error:x.recipePreparation,touched:d.recipePreparation}),e.jsx(he,{type:"submit",children:"Add"})]})})]})},at=()=>{const[t,a]=o.useState(null),[s,n]=o.useState(!1),[r,i]=o.useState(null);return o.useEffect(()=>{const d=new AbortController;(async()=>{try{n(!0);const c=await le("",d);a(c.data)}catch(c){i(c.message)}finally{n(!1),d.abort()}})()},[]),{drinksPopular:t,isLoading:s,error:r}},st=l.div`
   margin-bottom: 28px;
 
   h4 {
@@ -967,7 +967,7 @@ import{s as a,r as o,G as I,o as j,j as e,p,e as z,F,E as q,q as _,t as T,v,w as
       gap: 28px;
     }
   }
-`,ct=a(K)`
+`,ct=l(K)`
   display: flex;
   p {
     display: -webkit-box;
@@ -1011,7 +1011,7 @@ import{s as a,r as o,G as I,o as j,j as e,p,e as z,F,E as q,q as _,t as T,v,w as
   @media screen and (min-width: 1440px) {
     flex-basis: 100%;
   }
-`,dt=()=>{const{drinksPopular:t,isLoading:l,error:s}=lt(),n=t||[],r=3;return e.jsxs(st,{children:[e.jsx("h4",{children:"Popular drinks"}),s&&e.jsx("div",{children:"error"}),l?e.jsx(se,{}):e.jsx("ul",{children:n.map(({drinkThumb:i,drink:d,description:x,_id:c},h)=>{if(h<=r)return e.jsx("li",{children:e.jsxs(ct,{to:`/drinks/${c}`,children:[e.jsx("img",{src:i,width:90,height:90}),e.jsxs("div",{children:[e.jsx("h6",{children:d}),e.jsx("p",{children:x})]})]})},h)})})]})},pt=a.ul`
+`,dt=()=>{const{drinksPopular:t,isLoading:a,error:s}=at(),n=t||[],r=3;return e.jsxs(st,{children:[e.jsx("h4",{children:"Popular drinks"}),s&&e.jsx("div",{children:"error"}),a?e.jsx(se,{}):e.jsx("ul",{children:n.map(({drinkThumb:i,drink:d,description:x,_id:c},h)=>{if(h<=r)return e.jsx("li",{children:e.jsxs(ct,{to:`/drinks/${c}`,children:[e.jsx("img",{src:i,width:90,height:90}),e.jsxs("div",{children:[e.jsx("h6",{children:d}),e.jsx("p",{children:x})]})]})},h)})})]})},pt=l.ul`
   display: flex;
   gap: 14px;
 
@@ -1024,7 +1024,7 @@ import{s as a,r as o,G as I,o as j,j as e,p,e as z,F,E as q,q as _,t as T,v,w as
 
   @media (min-width: 1440px) {
   }
-`,P=a.a`
+`,P=l.a`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1035,14 +1035,13 @@ import{s as a,r as o,G as I,o as j,j as e,p,e as z,F,E as q,q as _,t as T,v,w as
   &:hover,
   &:focus {
     border: 1px solid rgba(64, 112, 205, 0.5);
-    /* border: 1px solid rgba(221, 255, 0, 0.2); */
     background-color: var(--button-color);
   }
   &:hover svg,
   &:focus svg {
     fill: var(--button-hover-color);
   }
-`,ht=()=>e.jsxs(pt,{children:[e.jsx("li",{children:e.jsx(P,{target:"_blank",href:"https://www.facebook.com/goITclub/",children:e.jsx(E,{size:"22px",size768:"28px",fill:"#f3f3f3",children:e.jsx("use",{href:`${z}#icon-facebook`})})})}),e.jsx("li",{children:e.jsx(P,{target:"_blank",href:"https://www.instagram.com/goitclub/",children:e.jsx(E,{size:"22px",size768:"28px",fill:"#f3f3f3",children:e.jsx("use",{href:`${z}#icon-instagram`})})})}),e.jsx("li",{children:e.jsx(P,{target:"_blank",href:"https://www.youtube.com/c/GoIT",children:e.jsx(E,{size:"22px",size768:"28px",fill:"#f3f3f3",children:e.jsx("use",{href:`${z}#icon-youtube`})})})})]}),xt=a.div`
+`,ht=()=>e.jsxs(pt,{children:[e.jsx("li",{children:e.jsx(P,{target:"_blank",href:"https://www.facebook.com/goITclub/",children:e.jsx(E,{size:"22px",size768:"28px",fill:"#f3f3f3",children:e.jsx("use",{href:`${z}#icon-facebook`})})})}),e.jsx("li",{children:e.jsx(P,{target:"_blank",href:"https://www.instagram.com/goitclub/",children:e.jsx(E,{size:"22px",size768:"28px",fill:"#f3f3f3",children:e.jsx("use",{href:`${z}#icon-instagram`})})})}),e.jsx("li",{children:e.jsx(P,{target:"_blank",href:"https://www.youtube.com/c/GoIT",children:e.jsx(E,{size:"22px",size768:"28px",fill:"#f3f3f3",children:e.jsx("use",{href:`${z}#icon-youtube`})})})})]}),xt=l.div`
   font-size: 24px;
   line-height: 1.33em;
   color: var(--text-color);
@@ -1050,4 +1049,4 @@ import{s as a,r as o,G as I,o as j,j as e,p,e as z,F,E as q,q as _,t as T,v,w as
   @media screen and (min-width: 1440px) {
     padding-top: 110px;
   }
-`,gt=()=>e.jsxs("div",{children:[e.jsx(xt,{children:"Follow us"}),e.jsx(ht,{})]}),vt=()=>{const t=Z(),l=ee();return o.useEffect(()=>{l(te(t.pathname))},[l]),e.jsxs(ce,{children:[e.jsx(at,{}),e.jsxs(de,{children:[e.jsx(gt,{}),e.jsx(dt,{})]})]})};export{vt as default};
+`,ut=()=>e.jsxs("div",{children:[e.jsx(xt,{children:"Follow us"}),e.jsx(ht,{})]}),vt=()=>{const t=Z(),a=ee();return o.useEffect(()=>{a(te(t.pathname))},[a]),e.jsxs(ce,{children:[e.jsx(lt,{}),e.jsxs(de,{children:[e.jsx(ut,{}),e.jsx(dt,{})]})]})};export{vt as default};

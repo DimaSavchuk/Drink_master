@@ -1,4 +1,4 @@
-import{s as o,L as x,j as i,C as l,N as f,r as t,n as k,u as b,a as v,b as w}from"./index-320dbecc.js";import{a as j,b as y}from"./asr_blue_iced_tea_mobile@2x-e4321999.js";import{C as Q}from"./CocktailCard-4e72350b.js";import{f as T}from"./axiosConfig-30b3e2f9.js";import{I as C}from"./InfoComponent-e76435fd.js";import{L as S}from"./LittleLoading-6b136b6f.js";const z=o.section`
+import{s as o,L as x,j as i,C as l,N as f,r as t,n as k,u as b,a as v,b as w}from"./index-b64f3ff2.js";import{a as j,b as y}from"./asr_blue_iced_tea_mobile@2x-e4321999.js";import{C as Q}from"./CocktailCard-0f58f2eb.js";import{f as T}from"./axiosConfig-b0f65bc2.js";import{I as C}from"./InfoComponent-31e6c822.js";import{L as S}from"./LittleLoading-5476ecbb.js";const z=o.section`
   padding-top: 152px;
   padding-bottom: 112px;
 
@@ -92,7 +92,6 @@ import{s as o,L as x,j as i,C as l,N as f,r as t,n as k,u as b,a as v,b as w}fro
 `,E=o.div`
   @media (min-width: 1440px) {
     max-width: 750px;
-    /* margin-top: 57px; */
   }
 `,I=o.img`
   width: 198px;
