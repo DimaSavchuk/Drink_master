@@ -29,7 +29,6 @@ import { setSelectedRoute } from '../../redux/route/routeSlice';
 import { Loading } from '../../components/Loading/Loading';
 
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { LittleLoading } from '../../components/Loading/LittleLoading';
 import {
   fetchingFirstFavoriteError,
   fetchingFirstFavoriteSuccess,
@@ -89,7 +88,7 @@ const AboutDrinkPages = () => {
   async function addFavorite() {
     try {
       const res = await addDrinkToFavorite(drinkId);
-      if (res.data) Notify.success('Added to favorites');
+      if (res.data) toast.success('Added to favorites');
       isFavoriteTrue(res.data);
       if (res.firstFavorite) {
         dispatch(fetchingFirstFavoriteSuccess(res.firstFavorite));

@@ -6,10 +6,10 @@ import {
   Measure,
 } from './IngridientsCards.styled';
 import { Placeholder } from './Placeholder';
-import { useState } from 'react';
+
+import DEFOULT from '../../assets/block.jpg';
 
 const IngredientsCards = ({ data }) => {
-
   function checkIfImageExists(url, callback) {
     const img = new Image();
     img.src = url;
@@ -43,11 +43,7 @@ const IngredientsCards = ({ data }) => {
             <IngredientFoto>
               {image ? (
                 <img
-                  src={
-                    thumbMedium
-                      ? thumbMedium
-                      : 'http://res.cloudinary.com/dec1shvoo/image/upload/v1689169611/cocktails-v1/ingredient/Strawberries-Small.png'
-                  }
+                  src={thumbMedium ? thumbMedium : DEFOULT}
                   alt={title}
                   loading="lazy"
                   style={{ display: 'block', width: '100%', height: 'auto' }}
