@@ -9,15 +9,15 @@ import {
 import { useState } from 'react';
 import { ErrorText } from '../AddImageInput/AddImageInput.styled';
 import { useField } from 'formik';
-import { useEffect } from 'react';
 
-const AddImageInput = ({ setValue }) => {
+const AddImageInput = ({ setValue, fileInputRef }) => {
   const [fileUrl, setFileUrl] = useState('');
 
-  const [field, meta] = useField('file');
+  const [_, meta] = useField('file');
 
   const onChangeFileInput = (e) => {
     const imgObj = e.currentTarget.files[0] ?? null;
+
     const linkToFile = imgObj ? URL.createObjectURL(imgObj) : null;
 
     if (linkToFile) {
@@ -25,6 +25,7 @@ const AddImageInput = ({ setValue }) => {
       setValue('file', imgObj);
     }
   };
+
 
   useEffect(() => {
   
@@ -34,9 +35,11 @@ const AddImageInput = ({ setValue }) => {
     }
   }, [field]);
 
+
   return (
     <InputWrapper>
       <input
+        ref={fileInputRef}
         type="file"
         name="file"
         id="add-file"
@@ -45,7 +48,7 @@ const AddImageInput = ({ setValue }) => {
       />
       <AddFileButton>
         <label htmlFor="add-file">
-          {fileUrl && (
+          {fileUrl && fileInputRef.current.value && (
             <BackgroundImg>
               <img id="uploaded-file" src={fileUrl} />
             </BackgroundImg>

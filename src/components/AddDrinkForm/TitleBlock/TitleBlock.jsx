@@ -18,10 +18,11 @@ const TitleBlock = ({
   setValue,
   touched,
   errors,
+  fileInputRef,
 }) => {
   return (
     <Wrapper>
-      <AddImage setValue={setValue} />
+      <AddImage setValue={setValue} fileInputRef={fileInputRef} />
 
       <ContentWrapper>
         <FieldWrapper>
