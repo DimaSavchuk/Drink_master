@@ -45,9 +45,15 @@ const AddImageInput = ({ setValue, fileInputRef }) => {
           )}
           <Button>
             <Icon>
-              {fileUrl ? <TfiReload size={16} /> : <TfiPlus size={16} />}
+              {fileUrl && fileInputRef.current.value ? (
+                <TfiReload size={16} />
+              ) : (
+                <TfiPlus size={16} />
+              )}
             </Icon>
-            {fileUrl ? 'Update file' : 'Add image'}
+            {fileUrl && fileInputRef.current.value
+              ? 'Update file'
+              : 'Add image'}
           </Button>
         </label>
       </AddFileButton>

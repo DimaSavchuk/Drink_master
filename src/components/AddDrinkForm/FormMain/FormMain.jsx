@@ -10,6 +10,7 @@ import RecipePreparation from '../RecipePreparation/RecipePreparation';
 import * as yup from 'yup';
 import { nanoid } from '@reduxjs/toolkit';
 import { useRef } from 'react';
+import { toast } from 'react-toastify';
 
 const validationSchema = yup.object().shape({
   title: yup.string().trim().required('Please enter a drink title'),
@@ -58,7 +59,10 @@ const FormMain = () => {
 
   const onSubmitForm = (data, action) => {
     data.id = nanoid();
-    ownDrink(data);
+    ownDrink(data)
+      .then(() => toast.success('New drink added successfully'))
+      .catch(({ message }) => toast.error(`${message}`));
+
     action.resetForm();
     fileInputRef.current.value = null;
   };
