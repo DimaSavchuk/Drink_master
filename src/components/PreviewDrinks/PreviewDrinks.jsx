@@ -59,7 +59,7 @@ export const PreviewDrinks = ({ numbCocktailsToShow }) => {
                                                 {item.drinks
                                                     .slice(0, numbCocktailsToShow)
                                                     .map(cocktail => (
-                                                        <li key={cocktail.id}>
+                                                        <li key={cocktail._id}>
                                                             <CocktailCard data={cocktail} />
                                                         </li>
                                                     ))}
