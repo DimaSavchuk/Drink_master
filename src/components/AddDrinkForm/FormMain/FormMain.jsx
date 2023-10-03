@@ -9,6 +9,7 @@ import IngredientsBlock from '../IngredientsBlock/IngredientsBlock';
 import RecipePreparation from '../RecipePreparation/RecipePreparation';
 import * as yup from 'yup';
 import { nanoid } from '@reduxjs/toolkit';
+import { useRef } from 'react';
 
 const validationSchema = yup.object().shape({
   title: yup.string().trim().required('Please enter a drink title'),
@@ -53,10 +54,13 @@ const initialValues = {
 };
 
 const FormMain = () => {
+  const fileInputRef = useRef();
+
   const onSubmitForm = (data, action) => {
     data.id = nanoid();
     ownDrink(data);
     action.resetForm();
+    fileInputRef.current.value = null;
   };
 
   const categories = useFetchCategories();
@@ -79,6 +83,7 @@ const FormMain = () => {
               setValue={setFieldValue}
               errors={errors}
               touched={touched}
+              fileInputRef={fileInputRef}
             />
             <IngredientsBlock
               items={ingredients.drinkIngredients}
