@@ -16,7 +16,7 @@ import { TfiClose, TfiPlus, TfiMinus } from 'react-icons/tfi';
 const IngredientsBlock = ({ items, title }) => {
   const initialValue = { title: '', measure: '' };
 
-  const [, { error }] = useField('ingredients');
+  const [, { touched, error }] = useField('ingredients');
 
   return (
     <FieldArray
@@ -45,38 +45,38 @@ const IngredientsBlock = ({ items, title }) => {
             {ingredients.length > 0 &&
               ingredients.map((ingredient, index) => {
                 return (
-                  <>
-                    <FieldsWrapper
-                      key={index}
-                      role="ingredientsSelect"
-                      aria-labelledby="ingridientsSelect-group"
-                    >
-                      <IngredientsMenu
-                        items={items}
-                        title={title}
-                        ingredient={ingredient}
-                        index={index}
+                  <FieldsWrapper
+                    key={index}
+                    role="ingredientsSelect"
+                    aria-labelledby="ingridientsSelect-group"
+                  >
+                    <IngredientsMenu
+                      items={items}
+                      title={title}
+                      ingredient={ingredient}
+                      index={index}
+                    />
+
+                    <FieldMeasureWrapper>
+                      <FieldMeasure
+                        name={`ingredients.${index}.measure`}
+                        placeholder={'1 cl'}
                       />
+                      <ErrorMessage name={`ingredients.${index}.measure`}>
+                        {(msg) => <ErrorTextMeasure>{msg}</ErrorTextMeasure>}
+                      </ErrorMessage>
+                    </FieldMeasureWrapper>
 
-                      <FieldMeasureWrapper>
-                        <FieldMeasure
-                          name={`ingredients.${index}.measure`}
-                          placeholder={'1 cl'}
-                        />
-                        <ErrorMessage name={`ingredients.${index}.measure`}>
-                          {(msg) => <ErrorTextMeasure>{msg}</ErrorTextMeasure>}
-                        </ErrorMessage>
-                      </FieldMeasureWrapper>
-
-                      <CloseButton type="button" onClick={() => remove(index)}>
-                        <TfiClose size={18} />
-                      </CloseButton>
-                    </FieldsWrapper>
-                  </>
+                    <CloseButton type="button" onClick={() => remove(index)}>
+                      <TfiClose size={18} />
+                    </CloseButton>
+                  </FieldsWrapper>
                 );
               })}
           </div>
-          {typeof error === 'string' ? <ErrorText>{error}</ErrorText> : null}
+          {touched && typeof error === 'string' ? (
+            <ErrorText>{error}</ErrorText>
+          ) : null}
         </IngridientsWrapper>
       )}
     ></FieldArray>
