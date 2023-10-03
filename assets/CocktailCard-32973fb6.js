@@ -1,4 +1,4 @@
-import{s as e,N as s,j as i}from"./index-56f9d02c.js";import{p as c,a as h}from"./InfoComponent-c2f70e5c.js";const m=e.div`
+import{s as e,N as s,j as i}from"./index-139ef8b9.js";import{p as c}from"./block-069414ed.js";import{p as h}from"./InfoComponent-a5b13de2.js";const m=e.div`
   width: 100%;
   max-height: 392px;
   transition: border-bottom 700ms linear;
@@ -34,12 +34,12 @@ import{s as e,N as s,j as i}from"./index-56f9d02c.js";import{p as c,a as h}from"
     width: 400px;
     height: 400px;
   }
-`,x=e.div`
+`,p=e.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 14px;
-`,p=e.p`
+`,x=e.p`
   font-size: 14px;
   font-weight: 500;
   line-height: 1.12;
@@ -66,4 +66,4 @@ import{s as e,N as s,j as i}from"./index-56f9d02c.js";import{p as c,a as h}from"
     font-size: 16px;
     line-height: 1.12;
   }
-`,k=({data:o})=>{const{_id:r,drink:t,drinkThumb:a}=o,d=()=>window.matchMedia?window.matchMedia("only screen and (min-resolution: 192dpi)").matches:!1;return i.jsxs(m,{children:[i.jsx(l,{src:a,alt:`${t} photo`,loading:"lazy",onError:n=>{n.target.src=d()?c:h}}),i.jsxs(x,{children:[i.jsx(p,{children:t}),i.jsx(w,{to:`/drinks/${r}`,children:"See more"})]})]})};export{k as C};
+`,v=({data:n})=>{const{_id:r,drink:t,drinkThumb:a}=n,d=()=>window.matchMedia?window.matchMedia("only screen and (min-resolution: 192dpi)").matches:!1;return i.jsxs(m,{children:[i.jsx(l,{src:a,alt:`${t} photo`,loading:"lazy",onError:o=>{o.target.src=d()?h:c}}),i.jsxs(p,{children:[i.jsx(x,{children:t}),i.jsx(w,{to:`/drinks/${r}`,children:"See more"})]})]})};export{v as C};
