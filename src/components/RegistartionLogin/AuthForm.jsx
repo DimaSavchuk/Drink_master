@@ -1,4 +1,3 @@
-// import React from 'react';
 import { Container, Title, Wrapper, Section } from './AuthForm.styled';
 
 export const AuthForm = ({ title, children }) => {

@@ -9,7 +9,6 @@ import { Placeholder } from './Placeholder';
 import { useState } from 'react';
 
 const IngredientsCards = ({ data }) => {
-  // const [isImage, setisImage] = useState(null);
 
   function checkIfImageExists(url, callback) {
     const img = new Image();

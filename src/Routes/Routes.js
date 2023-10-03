@@ -13,7 +13,5 @@ export const ROUTES = {
   SERVICE: '/service',
 
   // Тимчасові роути
-
-  // USER_PROFILE: '/profile',
   DROPDOWN: '/dropdown',
 };

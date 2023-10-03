@@ -26,6 +26,16 @@ const AddImageInput = ({ setValue, fileInputRef }) => {
     }
   };
 
+
+  useEffect(() => {
+  
+    if (field.value === null) {
+      setFileUrl('');
+      return;
+    }
+  }, [field]);
+
+
   return (
     <InputWrapper>
       <input
