@@ -43,44 +43,42 @@ export const PreviewDrinks = ({ numbCocktailsToShow }) => {
     setIsShowSeeMoreBtn(false);
   };
 
-  return (
-    <PreviewSection>
-      <CommonContainer>
-        {isLoading ? (
-          <LittleLoading />
-        ) : categories.length > 0 ? (
-          <div>
-            <CategoriesList>
-              {categories.slice(0, limit).map((item) => {
-                return (
-                  <li key={nanoid()}>
-                    <CategoryName>{item.category}</CategoryName>
-                    <CocktailsWrap>
-                      {item.drinks
-                        .slice(0, numbCocktailsToShow)
-                        .map((cocktail) => (
-                          <li key={cocktail.id}>
-                            <CocktailCard data={cocktail} />
-                          </li>
-                        ))}
-                    </CocktailsWrap>
-                  </li>
-                );
-              })}
-            </CategoriesList>
-            <BtnsWrapper>
-              {isShowSeeMoreBtn && (
-                <SeeMoreBtn handleClick={handleSeeMoreBtnClick}>
-                  More categories
-                </SeeMoreBtn>
-              )}
-              <CommonLink navigateTo="/drinks">Other drinks</CommonLink>
-            </BtnsWrapper>
-          </div>
-        ) : (
-          <InfoComponent>Some error occured.</InfoComponent>
-        )}
-      </CommonContainer>
-    </PreviewSection>
-  );
+
+
+    return (
+        <PreviewSection>
+            <CommonContainer>
+                {isLoading ? <Loading /> : categories.length>0?
+                    <div>
+                        <CategoriesList>
+                            {categories
+                                .slice(0, limit)
+                                .map(item => {
+                                    return (
+                                        <li key={nanoid()}>
+                                            <CategoryName>{item.category}</CategoryName>
+                                            <CocktailsWrap>
+                                                {item.drinks
+                                                    .slice(0, numbCocktailsToShow)
+                                                    .map(cocktail => (
+                                                        <li key={cocktail._id}>
+                                                            <CocktailCard data={cocktail} />
+                                                        </li>
+                                                    ))}
+                                            </CocktailsWrap>
+                                        </li>
+                                    )
+                                })}
+                        </CategoriesList>
+                        <BtnsWrapper>
+                            {isShowSeeMoreBtn && <SeeMoreBtn handleClick={handleSeeMoreBtnClick}>More categories</SeeMoreBtn>}
+                            <CommonLink navigateTo="/drinks">Other drinks</CommonLink>
+                        </BtnsWrapper>
+                    </div>
+                    :
+                    <InfoComponent>Some error occured.</InfoComponent>}
+            </CommonContainer>
+        </PreviewSection>
+    );
 };
+
