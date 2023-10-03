@@ -58,8 +58,7 @@ const FormMain = () => {
 
   const onSubmitForm = (data, action) => {
     data.id = nanoid();
-    // ownDrink(data);
-    console.log(data);
+    ownDrink(data);
     action.resetForm();
     fileInputRef.current.value = null;
   };
