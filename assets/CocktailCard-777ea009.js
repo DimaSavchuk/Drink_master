@@ -1,4 +1,4 @@
-import{s as e,N as s,j as i}from"./index-bd3a4a8e.js";import{p as c,a as h}from"./InfoComponent-ab30ec0a.js";const m=e.div`
+import{s as e,N as s,j as i}from"./index-8bf387fb.js";import{p as c,a as h}from"./InfoComponent-2fdecc95.js";const m=e.div`
   width: 100%;
   max-height: 392px;
   transition: border-bottom 700ms linear;
