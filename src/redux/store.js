@@ -1,9 +1,5 @@
-// export const selectUser = (state) => state.auth.user;
-// export const selectUserArray = (state) => state.userInfo.user;
-
 import { configureStore } from '@reduxjs/toolkit';
 import { authReducer } from './auth/authSlice';
-// import { userInfoReducer } from './UserInfo/userInfoSlice';
 
 import {
   persistStore,
@@ -21,7 +17,6 @@ import { drinksReducer } from './drinks/drinksSlice';
 import { routeReducer } from './route/routeSlice';
 import { motivationReducer } from './motivation/motivationSlice';
 
-// // Persisting token field from auth slice to localstorage
 const authPersistConfig = {
   key: 'auth',
   storage,
@@ -36,7 +31,6 @@ const routePersistConfig = {
 
 export const store = configureStore({
   reducer: {
-    //  user: userInfoReducer,
     auth: persistReducer(authPersistConfig, authReducer),
     filters: filtersReducer,
     cocktails: drinksReducer,
@@ -54,39 +48,3 @@ export const store = configureStore({
 
 export const persistor = persistStore(store);
 
-// import { configureStore } from '@reduxjs/toolkit';
-// import {
-//   persistStore,
-//   persistReducer,
-//   FLUSH,
-//   REHYDRATE,
-//   PAUSE,
-//   PERSIST,
-//   PURGE,
-//   REGISTER,
-// } from 'redux-persist';
-// import storage from 'redux-persist/lib/storage';
-
-// import { userInfoReducer } from './UserInfo/userInfoSlice';
-
-// const persistConfigForUserInfo = {
-//   key: 'theme',
-//   version: 2,
-//   storage,
-//   whitelist: ['theme', 'user', 'firstRender'],
-// };
-
-// export const store = configureStore({
-//   reducer: {
-
-//     userInfo: persistReducer(persistConfigForUserInfo, userInfoReducer),
-//   },
-//   middleware: getDefaultMiddleware =>
-//     getDefaultMiddleware({
-//       serializableCheck: {
-//         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-//       },
-//     }),
-// });
-
-// export const persistor = persistStore(store);

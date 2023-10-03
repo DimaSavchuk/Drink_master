@@ -93,11 +93,6 @@ export const Button = styled.button`
   }
 `;
 
-// export const NavigationDesktop = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-// `;
 export const IconWrapper = styled.svg`
   width: ${(props) => props.size || '12px'};
   height: ${(props) => props.size || '12px'};
@@ -105,7 +100,6 @@ export const IconWrapper = styled.svg`
   stroke: var(--link-color);
   margin-right: ${(props) => props.marginRight || '0'};
   margin-left: ${(props) => props.marginLeft || '0'};
-  /* opacity: ${({ visible }) => (visible ? '1' : '0' || '1')}; */
 
   display: inline-block;
 
@@ -125,7 +119,6 @@ export const IconLightWrapper = styled.svg`
   height: ${(props) => props.size || '12px'};
   margin-right: ${(props) => props.marginRight || '0'};
   margin-left: ${(props) => props.marginLeft || '0'};
-  /* opacity: ${({ visible }) => (visible ? '1' : '0' || '1')}; */
 
   display: inline-block;
 

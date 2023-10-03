@@ -4,8 +4,6 @@ import {
   fetchingFirstRecipeSuccess,
 } from '../redux/motivation/motivationSlice';
 
-// axios.defaults.baseURL = 'https://rest-api-drink-master.onrender.com/api';
-// axios.defaults.baseURL = 'http://localhost:3000/api';
 
 export const fetchFavoriteDrinks = async () => {
   try {

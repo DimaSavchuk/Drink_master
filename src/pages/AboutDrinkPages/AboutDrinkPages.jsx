@@ -27,6 +27,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { setSelectedRoute } from '../../redux/route/routeSlice';
 import { Loading } from '../../components/Loading/Loading';
+
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { LittleLoading } from '../../components/Loading/LittleLoading';
 import {
@@ -37,6 +38,7 @@ import { selectFirstFavorite } from '../../redux/motivation/motivationSelects';
 import { Motivation } from '../../components/Motivation/Motivation';
 import { CSSTransition } from 'react-transition-group';
 import '../../components/MobileMenu/TransitionStyles.css';
+
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
