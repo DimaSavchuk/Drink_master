@@ -88,7 +88,7 @@ export const AllDrinksContainer = () => {
   };
 
   const displayCocktails = cocktails.slice(0, limit).map((cocktail) => (
-    <li key={cocktail.id}>
+    <li key={cocktail._id}>
       <CocktailCard data={cocktail} />
     </li>
   ));
