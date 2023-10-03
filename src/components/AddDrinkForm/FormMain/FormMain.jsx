@@ -9,6 +9,7 @@ import IngredientsBlock from '../IngredientsBlock/IngredientsBlock';
 import RecipePreparation from '../RecipePreparation/RecipePreparation';
 import * as yup from 'yup';
 import { nanoid } from '@reduxjs/toolkit';
+import { useDispatch, useSelector } from 'react-redux';
 import { useRef } from 'react';
 
 const validationSchema = yup.object().shape({
@@ -54,11 +55,14 @@ const initialValues = {
 };
 
 const FormMain = () => {
+
+  const dispatch = useDispatch();
   const fileInputRef = useRef();
+
 
   const onSubmitForm = (data, action) => {
     data.id = nanoid();
-    ownDrink(data);
+    ownDrink(data, dispatch);
     action.resetForm();
     fileInputRef.current.value = null;
   };

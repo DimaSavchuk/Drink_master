@@ -3,7 +3,6 @@ import { Hero } from './Hero/Hero';
 import { useEffect } from 'react';
 import cocktails from './testData.json';
 import { PreviewDrinks } from '../../components/PreviewDrinks/PreviewDrinks';
-import { Motivation } from '../../components/Motivation/Motivation.styled';
 import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setSelectedRoute } from '../../redux/route/routeSlice';
