@@ -1,4 +1,4 @@
-import{s as m,j as o,r as w,l as G,c as R,u as V,a as X,d as Y,b as J,m as K,o as O,Q as Z,p as tt,q as it}from"./index-139ef8b9.js";import{p as et}from"./block-069414ed.js";import{g as ot,a as nt,d as at}from"./axiosConfig-83b3ad53.js";import{s as rt,M as st}from"./Motivation-e8616513.js";const lt="/Drink_master/assets/motivation2-bf4c6d98.png",ct="/Drink_master/assets/motivation2@2x-36e633d0.png",ft=m.h1`
+import{s as m,j as o,r as w,l as G,c as R,u as V,a as X,d as Y,b as J,m as K,o as O,Q as Z,p as tt,q as it}from"./index-bbbbca06.js";import{p as et}from"./block-069414ed.js";import{g as ot,a as nt,d as at}from"./axiosConfig-a39a3d25.js";import{s as rt,M as st}from"./Motivation-63a7ad04.js";const lt="/Drink_master/assets/motivation2-bf4c6d98.png",ct="/Drink_master/assets/motivation2@2x-36e633d0.png",ft=m.h1`
   color: var(--text-color);
   font-size: 32px;
   font-style: normal;

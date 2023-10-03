@@ -1,4 +1,4 @@
-import{s as o,r as a,j as t,e as i,I as c}from"./index-139ef8b9.js";const b=e=>e.motivation.firstRecipe,h=e=>e.motivation.firstFavorite,d=o.div`
+import{s as o,r as a,j as t,e as i,I as c}from"./index-bbbbca06.js";const b=e=>e.motivation.firstRecipe,h=e=>e.motivation.firstFavorite,d=o.div`
   position: fixed;
   z-index: 1000;
   top: 0;
