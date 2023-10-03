@@ -1,4 +1,3 @@
-// import React from 'react';
 import {
   StartPageStyled,
   Container,
@@ -10,7 +9,6 @@ import {
 } from './StartPage.styled';
 
 const StartPage = () => {
-     
   
   return (
     <StartPageStyled>

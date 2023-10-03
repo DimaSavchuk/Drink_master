@@ -25,7 +25,6 @@ import {
 import { useDispatch } from 'react-redux';
 import { setSelectedRoute } from '../../redux/route/routeSlice';
 import { Loading } from '../../components/Loading/Loading';
-// import { LittleLoading } from '../../components/Loading/LittleLoading';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

@@ -94,10 +94,6 @@ export const AddDrinkLink = styled(Link)`
   }
 `;
 
-// export const ImgWrapper = styled.div`
-//   margin: 0 auto;
-// `;
-
 export const Wrapper = styled.div`
   @media (min-width: 1440px) {
     display: flex;
@@ -109,7 +105,6 @@ export const Wrapper = styled.div`
 export const ContentWrapper = styled.div`
   @media (min-width: 1440px) {
     max-width: 750px;
-    /* margin-top: 57px; */
   }
 `;
 

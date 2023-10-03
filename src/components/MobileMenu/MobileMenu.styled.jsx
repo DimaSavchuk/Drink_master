@@ -19,7 +19,6 @@ export const MenuWrapper = styled.div`
   z-index: 2;
   background-color: var(--background-color);
   overflow: hidden;
-  /* pointer-events: none; */
 
   background-image: url(${ellipseMobileBlue}), url(${ellipseMobileYellow}),
     url(${ellipseMobileRightBottom});
@@ -141,16 +140,10 @@ export const StyledNavLink = styled(NavLink)`
   background-color: transparent;
   width: 100%;
   border-radius: 40px;
-  /* border: 1px solid rgba(243, 243, 243, 0.2);  */
   transition: background-color 300ms linear;
   &:hover,
   &:focus {
     background-color: #161f37;
     color: #f3f3f3;
   }
-
-  /* &.active {
-    background-color: #161f37;
-    color: #f3f3f3;
-  } */
 `;
