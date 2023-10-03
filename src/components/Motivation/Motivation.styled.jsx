@@ -13,6 +13,8 @@ export const Backdrop = styled.div`
     rgba(10, 10, 17, 0.4) 100%
   );
   backdrop-filter: blur(4px);
+  width: 100%;
+  height: 100vh;
 `;
 
 export const Background = styled.div`
