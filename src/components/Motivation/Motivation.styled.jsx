@@ -23,11 +23,24 @@ export const Background = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: ${({
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: ${({
     background,
   }) => `linear-gradient(0deg, rgba(10, 10, 17, 0.4) 0%, rgba(10, 10, 17, 0.4) 100%),
-    url(${background}),
-    lightgray -82.157px -396.532px / 143.003% 184.878% no-repeat;`};
+    url(${background[0]})
+    `};
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: ${({
+      background,
+    }) => `linear-gradient(0deg, rgba(10, 10, 17, 0.4) 0%, rgba(10, 10, 17, 0.4) 100%),
+    url(${background[1]})`};
+  }
 `;
 
 export const IconBack = styled.svg`

@@ -10,9 +10,6 @@ import RecipePreparation from '../RecipePreparation/RecipePreparation';
 import * as yup from 'yup';
 import { nanoid } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectFirstRecipe } from '../../../redux/motivation/motivationSelects';
-import { Motivation } from '../../Motivation/Motivation';
-import { useState } from 'react';
 
 const validationSchema = yup.object().shape({
   title: yup.string().trim().required('Please enter a drink title'),

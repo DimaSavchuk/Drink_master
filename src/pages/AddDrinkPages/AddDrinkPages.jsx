@@ -10,6 +10,10 @@ import { selectFirstRecipe } from '../../redux/motivation/motivationSelects';
 import { Motivation } from '../../components/Motivation/Motivation';
 import { CSSTransition } from 'react-transition-group';
 import '../../components/MobileMenu/TransitionStyles.css';
+import motiv from '../../assets/motivation/motivation.png';
+import motiv2x from '../../assets/motivation/motivation@2x.png';
+
+const images = [motiv, motiv2x];
 
 const AddDrinkPage = () => {
   const location = useLocation();
@@ -22,14 +26,25 @@ const AddDrinkPage = () => {
       setHasFirstRecipe(true);
     }
   }, [firstRecipe]);
-
+  useEffect(() => {
+    const wasMotivationFirstDrinkShown = localStorage.getItem(
+      'wasMotivationFirstDrinkShown',
+    );
+    if (wasMotivationFirstDrinkShown === 'true') {
+      setHasFirstRecipe(false);
+    } else {
+      setHasFirstRecipe(true);
+    }
+  }, []);
   useEffect(() => {
     dispatch(setSelectedRoute(location.pathname));
   }, [dispatch]);
 
-  // const handleCloseMotivationModal = () => {
-  //   setHasFirstRecipe(false);
-  // };
+  const handleCloseMotivationModal = () => {
+    setHasFirstRecipe(false);
+    localStorage.setItem('wasMotivationFirstDrinkShown', 'true');
+  };
+
   return (
     <Container>
       <FormMain />
@@ -45,7 +60,11 @@ const AddDrinkPage = () => {
         unmountOnExit
         mountOnEnter
       >
-        <Motivation isShown={hasFirstRecipe} />
+        <Motivation
+          isShown={hasFirstRecipe}
+          onClose={handleCloseMotivationModal}
+          image={images}
+        />
       </CSSTransition>
     </Container>
   );
