@@ -70,6 +70,9 @@ export const DrinkDesc = styled.p`
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  height: 3.7em;
+  text-overflow: ellipsis; 
+  white-space: normal;
   @media (min-width: 768px) {
     font-size: 16px;
     margin-bottom: 24px;
