@@ -1,4 +1,4 @@
-import{s as a,N as m,j as r,H as x}from"./index-16dc143a.js";import{p as h,a as g}from"./InfoComponent-682d246a.js";import{d as w,i as f,j as b,k as u}from"./axiosConfig-df686164.js";const L=a.section`
+import{s as a,N as m,j as r,H as x}from"./index-eead079f.js";import{p as h,a as g}from"./InfoComponent-30387cdf.js";import{d as w,i as f,j as b,k as u}from"./axiosConfig-59bdbc45.js";const L=a.section`
   padding: 152px 0;
   @media (min-width: 768px) {
     padding: 224px 0;
@@ -95,6 +95,9 @@ import{s as a,N as m,j as r,H as x}from"./index-16dc143a.js";import{p as h,a as 
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  height: 3.7em;
+  text-overflow: ellipsis; 
+  white-space: normal;
   @media (min-width: 768px) {
     font-size: 16px;
     margin-bottom: 24px;
@@ -142,4 +145,4 @@ import{s as a,N as m,j as r,H as x}from"./index-16dc143a.js";import{p as h,a as 
     background: var(--button-hover-color);
     color: var(--button-color);
   }
-`,W=(t,i,n,o)=>{if(t===0&&i>0){const e=i;n({page:e+1}),o(e)}},l=({cardData:t,onDelete:i})=>{const{drink:n,description:o,alcoholic:e,_id:s,drinkThumb:d}=t,p=()=>window.matchMedia?window.matchMedia("only screen and (min-resolution: 192dpi)").matches:!1;return r.jsxs(k,{children:[r.jsx("picture",{children:r.jsx(v,{src:d,alt:"coctail",loading:"lazy",onError:c=>{c.target.src=p()?h:g}})}),r.jsx(y,{children:n}),r.jsx(j,{children:e}),r.jsx(D,{children:o}),r.jsxs(z,{children:[r.jsx(C,{to:`/drinks/${s}`,children:"See more"}),r.jsx(F,{type:"button",id:s,onClick:()=>i(s),children:r.jsx(x,{size:24})})]})]})},O=(t,i,n)=>{const o=i.filter(e=>e._id!==t);n(o),w(t)},S=(t,i,n)=>{const o=i.filter(e=>e._id!==t);n(o),f(t)},_=(t,i,n,o)=>t.slice(i,i+n).map(e=>r.jsx("li",{children:r.jsx(l,{cardData:e,onDelete:s=>O(s,t,o)})},e._id)),q=(t,i,n,o)=>t.slice(i,i+n).map(e=>r.jsx("li",{children:r.jsx(l,{cardData:e,onDelete:s=>S(s,t,o)})},e._id)),B=async(t,i)=>{try{t(!0);const n=await b();i(n),t(!1)}catch(n){console.log(n.message)}},N=async(t,i)=>{try{t(!0);const n=await u();i(n),t(!1)}catch(n){console.log(n.message)}},A=(t,i,n)=>{i({page:t+1}),n(t)},H=()=>{const t=window.innerWidth>=1440?9:(window.innerWidth>=768,8),i=window.innerWidth>=1440?6:3;return{newLimit:t,newPageRangeDisplayed:i}},I=(t,i,n)=>{const o=i*n,e=o+n,s=t.slice(o,e),d=s.length;return{startIndex:o,endIndex:e,elementsOnPage:s,numberOfElementsOnPage:d}};export{R as C,L as S,M as T,W as a,B as b,I as c,q as d,_ as e,N as f,A as h,H as u};
+`,W=(t,i,e,o)=>{if(t===0&&i>0){const n=i;e({page:n+1}),o(n)}},l=({cardData:t,onDelete:i})=>{const{drink:e,description:o,alcoholic:n,_id:s,drinkThumb:d}=t,p=()=>window.matchMedia?window.matchMedia("only screen and (min-resolution: 192dpi)").matches:!1;return r.jsxs(k,{children:[r.jsx("picture",{children:r.jsx(v,{src:d,alt:"coctail",loading:"lazy",onError:c=>{c.target.src=p()?h:g}})}),r.jsx(y,{children:e}),r.jsx(j,{children:n}),r.jsx(D,{children:o}),r.jsxs(z,{children:[r.jsx(C,{to:`/drinks/${s}`,children:"See more"}),r.jsx(F,{type:"button",id:s,onClick:()=>i(s),children:r.jsx(x,{size:24})})]})]})},O=(t,i,e)=>{const o=i.filter(n=>n._id!==t);e(o),w(t)},S=(t,i,e)=>{const o=i.filter(n=>n._id!==t);e(o),f(t)},_=(t,i,e,o)=>t.slice(i,i+e).map(n=>r.jsx("li",{children:r.jsx(l,{cardData:n,onDelete:s=>O(s,t,o)})},n._id)),q=(t,i,e,o)=>t.slice(i,i+e).map(n=>r.jsx("li",{children:r.jsx(l,{cardData:n,onDelete:s=>S(s,t,o)})},n._id)),B=async(t,i)=>{try{t(!0);const e=await b();i(e),t(!1)}catch(e){console.log(e.message)}},N=async(t,i)=>{try{t(!0);const e=await u();i(e),t(!1)}catch(e){console.log(e.message)}},A=(t,i,e)=>{i({page:t+1}),e(t)},H=()=>{const t=window.innerWidth>=1440?9:(window.innerWidth>=768,8),i=window.innerWidth>=1440?6:3;return{newLimit:t,newPageRangeDisplayed:i}},I=(t,i,e)=>{const o=i*e,n=o+e,s=t.slice(o,n),d=s.length;return{startIndex:o,endIndex:n,elementsOnPage:s,numberOfElementsOnPage:d}};export{R as C,L as S,M as T,W as a,B as b,I as c,q as d,_ as e,N as f,A as h,H as u};
